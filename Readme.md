@@ -17,6 +17,8 @@ $ yarn init && git init
 由于项目的设计初衷是 RESTful API 的易用轮子，所以并未考虑视图，有需要的可自行集成。
 如果在使用中碰到问题或者您有更好的实现，想法，欢迎联系我。
 
+-----------------------------
+
 This Project is based on `koa v2`. This is a RESTful API framework.
 The features list:
 * auto-load routes
