@@ -22,7 +22,7 @@ function setupWinston () {
     colorize: nconf.get('log-colorize') !== 'false',
     timestamp: function () {
       var date = new Date()
-      return nconf.get('json-logging') ? date.toJSON()
+      return config.json_logging ? date.toJSON()
         : date.toISOString() + ' [' + global.process.pid + ']'
     },
     level: config.log_level || (global.env === 'production' ? 'info' : 'verbose'),
