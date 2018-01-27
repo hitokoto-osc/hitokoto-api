@@ -1,0 +1,30 @@
+{
+    "name": "",
+    "server": {
+        "host": "127.0.0.1",
+        "port": "8000"
+    },
+    "mail": {
+        "type": "smtp",
+        "host": "",
+        "username": "",
+        "password": "",
+        "port": "",
+        "encrypt": "ssl"
+    },
+    "database": "mysql",
+    "mysql": {
+        "host": "127.0.0.1",
+        "database": "",
+        "username": "", 
+        "password": "",
+        "port": ""
+    },
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "password": "",
+        "database": 0
+    },
+    "log_level": "debug"
+}
