@@ -4,6 +4,7 @@
 * 自动化加载的控制器
 * 易用的日记系统
 * 更方便的中间件，插件管理
+* 邮件发送模块 （提供错误发送函数）
 * 简单的 SQL ORM 实现
 * 简单的 Redis Cache 系统
 
@@ -27,6 +28,7 @@ The features list:
 * handy Middlewares/plugins manager
 * simple & fast SQL ORM
 * simple & handy Redis Cache System
+* Mail Support
 
 ## How to Start ?
 ```
