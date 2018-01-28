@@ -1,4 +1,7 @@
 # Teng-koa
+
+![alt](./img/screenshot.png)
+
 本项目是基于 Koa v2 的 RESTful API 框架实现，目前已经实现的功能:
 * 自动化加载的路由
 * 自动化加载的控制器
@@ -11,6 +14,7 @@
 ## 开始
 ```
 $ rm -rf .git
+$ rm -rf img
 $ cp config.json.example config.json
 $ yarn init && git init
 ``` 
@@ -32,7 +36,8 @@ The features list:
 
 ## How to Start ?
 ```
-$ rm .git
+$ rm -rf .git
+$ rm -rf img
 $ cp config.json.example config.json
 $ yarn init && git init
 ``` 
