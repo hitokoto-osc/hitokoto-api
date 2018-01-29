@@ -1,8 +1,7 @@
-// Import necessary packahges
+// Import necessary packages
 const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
-const winston = require('winston')
 
 async function hitokoto (ctx, next) {
   // Connect Database
@@ -18,17 +17,17 @@ async function hitokoto (ctx, next) {
     })
     // CheckEncoding
     // console.log(ctx.query)
-    const encode = !!(ctx.query.encode && query.encode === 'text')
+    const encode = !!(ctx.query.encode && ctx.query.encode === 'text')
     if (encode) {
       if (ret) {
-        ctx.response.status = 200
+        ctx.status = 200
         ctx.body = ret.hitokoto
       } else {
         ctx.body = '很抱歉，该分类下尚无条目'
       }
     } else {
       if (ret) {
-        ctx.response.status = 200
+        ctx.status = 200
         ctx.body = ret
       } else {
         ctx.body = {
@@ -47,19 +46,11 @@ async function hitokoto (ctx, next) {
     // Check Encoding
     const encode = !!(ctx.query && ctx.query.encode && ctx.query.encode === 'text')
     if (encode) {
-      ctx.response.status = 200
+      ctx.status = 200
       ctx.body = ret.hitokoto
     } else {
-      if (ret) {
-        ctx.response.status = 200
-        ctx.body = ret
-      } else {
-        ctx.body = {
-          message: '很抱歉，该分类下尚无条目',
-          status: '404'
-        }
-      }
-
+      ctx.status = 200
+      ctx.body = ret
     }
   }
 }
