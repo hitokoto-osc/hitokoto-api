@@ -50,6 +50,8 @@
     "koa-query-pretty": "^0.3.0",
     "koa-router": "^7.3.0",
     "lodash": "^4.17.4",
+    "lodash.compact": "^3.0.1",
+    "lodash.curry": "^4.1.1",
     "mysql2": "^1.5.1",
     "nconf": "^0.10.0",
     "nodemailer": "^4.4.2",
