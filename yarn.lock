@@ -2332,6 +2332,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.1, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+simple-netease-cloud-music@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/simple-netease-cloud-music/-/simple-netease-cloud-music-0.3.2.tgz#199ec53c43c0441310e3f48a66ed7376b19c6412"
+
 slice-ansi@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-1.0.0.tgz#044f1a49d8842ff307aad6b505ed178bd950134d"
