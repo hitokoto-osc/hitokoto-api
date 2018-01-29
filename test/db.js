@@ -51,6 +51,7 @@ class db {
     } else {
       // Register Model
       const modelArray = require(path.join(__dirname, '../', './src/models/databases', model))
+      console.log(modelArray[1])
       this[model] = this.sequelize.define(model, modelArray[0], modelArray[1])
       return this[model]
     }
