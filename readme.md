@@ -12,7 +12,7 @@
 日记默认保存在 `./logs/Hitokoto-api.log`
 
 ## 开始使用
-环境安装： 参考 [NodeBB](http://doc.nodebb-cn.org) 的环境安装 :D
+环境安装： 参考 [NodeBB](http://docs.nodebb-cn.org) 的环境安装 :D
 
 > `yarn` 可替换为 `npm`, 但并不推荐
 
