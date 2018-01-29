@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize')
 const nconf = require('nconf')
 const path = require('path')
-const winston = require('winston')
 
 class db {
   constructor (model) {
@@ -35,10 +34,10 @@ class db {
       // Test Connection
       await sequelize.authenticate()
         .then(() => {
-          winston.verbose('Database Connection has been established successfully.')
+          // console.log('Database Connection has been established successfully.')
         })
         .catch(err => {
-          winston.error(err.message)
+          console.error(err.message)
         })
 
       this.sequelize = sequelize
