@@ -1,7 +1,9 @@
 'use strict'
+// Import Packages
 const path = require('path')
 const cache = require(path.join(__dirname, '../cache'))
-const winston = require('winston')
+// const winston = require('winston')
+
 async function getRequests () {
   const requests = await cache.get('requests')
   return requests

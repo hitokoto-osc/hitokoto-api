@@ -8,16 +8,46 @@ module.exports = [{
     primaryKey: true,
     autoIncrement: true
   },
-  hitokoto: model.STRING,
-  type: model.STRING,
-  from: model.STRING,
-  from_who: model.STRING,
-  creator: model.STRING,
-  creator_uid: model.STRING,
-  assessor: model.STRING,
-  owner: model.STRING,
-  created_at: model.STRING,
+  hitokoto: {
+    type: model.STRING,
+    allowNull: false
+  },
+  type: {
+    type: model.STRING,
+    allowNull: false
+  },
+  from: {
+    type: model.STRING,
+    allowNull: false
+  },
+  from_who: {
+    type: model.STRING,
+    allowNull: true
+  },
+  creator: {
+    type: model.STRING,
+    allowNull: false,
+    defaultValue: 'hitokoto'
+  },
+  creator_uid: {
+    type: model.STRING,
+    allowNull: true
+  },
+  assessor: {
+    type: model.STRING,
+    allowNull: true
+  },
+  owner: {
+    type: model.STRING,
+    allowNull: false
+  },
+  created_at: {
+    type: model.STRING,
+    allowNull: false
+  }
 }, {
   // Sequelize Model config
-  timestamps: false
+  timestamps: false,
+  freezeTableName: true,
+  tableName: 'hitokoto_sentence'
 }]

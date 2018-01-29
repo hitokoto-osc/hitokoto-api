@@ -26,5 +26,5 @@
         "password": "",
         "database": 0
     },
-    "log_level": "debug"
+    "log_level": "info"
 }

@@ -7,6 +7,8 @@ module.exports = [
   require('./src/middlewares/countRequest')(),
 
   // Basic Plugins
+  require('koa-helmet')(),
+  require('koa-query-pretty')(),
   require('koa-json')(),
   require('koa-jsonp')(),
   require('koa-bodyparser')({
@@ -17,7 +19,7 @@ module.exports = [
   require('kcors')({
     origin: '*',
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
-    exposeHeaders: ['X-Request-Id', 'X-Api-Token'] // Need Api-token
+    exposeHeaders: ['X-Request-Id']
   }),
   require('koa-favicon')(path.join(__dirname, './public/favicon.ico')),
   require('koa-compress')({
