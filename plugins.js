@@ -6,6 +6,9 @@ module.exports = [
   require('./src/middlewares/responseHandler')(),
   require('./src/middlewares/countRequest')(),
 
+  // Mail Error
+  require('./src/middlewares/MailError')(),
+
   // Basic Plugins
   require('koa-helmet')(),
   require('koa-query-pretty')(),
@@ -29,7 +32,6 @@ module.exports = [
     threshold: 2048,
     flush: require('zlib').Z_SYNC_FLUSH
   }),
-  require('koa-json-error')(),
   require('./src/logger')(),
 
   // Dev Plugins
