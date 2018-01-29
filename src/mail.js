@@ -57,7 +57,7 @@ class mail {
     const admin = nconf.get('admin')
     const to = Array.isArray(admin) ? admin : admin.join(',')
     let html = JSONtoHTML(formatError(err))
-    html = '<h1>错误报告！</h1><p>触发时间: ' + new Date().toISOString() + '</p><p>错误细节:</p><pre>' + html + '<pre>'
+    html = '<h1>错误报告！</h1><p>触发时间: ' + new Date().toISOString() + '</p><p>错误细节:</p><pre><code>' + html + '</code></pre>'
     return this.send({
       title: 'Crash! Error Report!',
       to: to,
