@@ -14,6 +14,10 @@ const app = new Koa()
 const preStart = require('./src/prestart')
 preStart.load()
 
+// Load CronJob
+const cron = require('./src/cron')
+cron.load()
+
 // Register Middlewares (Plugins)
 async function registerMiddlewares () {
   try {
@@ -21,7 +25,7 @@ async function registerMiddlewares () {
     await middlewares.map((middleware, index, input) => {
       app.use(middleware)
     })
-    winston.debug('All Plugins Loads done.')
+    winston.verbose('All Plugins Load done.')
   } catch (e) {
     winston.error(e)
     // mail.error(e)
@@ -43,7 +47,7 @@ async function registerRoutes (routes) {
         // mail.error(err)
         process.exit(1)
       })
-    winston.debug('All Routes Loads done.')
+    winston.verbose('All Routes Load done.')
   } catch (e) {
     winston.error(e)
     // mail.error(e)

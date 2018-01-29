@@ -4,6 +4,7 @@ module.exports = [
   // MiddleWares
   require('./src/middlewares/requestId')(),
   require('./src/middlewares/responseHandler')(),
+  require('./src/middlewares/countRequest')(),
 
   // Basic Plugins
   require('koa-json')(),
@@ -16,7 +17,7 @@ module.exports = [
   require('kcors')({
     origin: '*',
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
-    exposeHeaders: ['X-Request-Id']
+    exposeHeaders: ['X-Request-Id', 'X-Api-Token'] // Need Api-token
   }),
   require('koa-favicon')(path.join(__dirname, './public/favicon.ico')),
   require('koa-compress')({

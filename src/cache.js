@@ -1,28 +1,31 @@
 'use strict'
+// Import Packages
 const nconf = require('nconf')
 const bluebrid = require('bluebird')
 const winston = require('winston')
-const redis = require('redis')
 // Promisify Redis
-bluebrid.promisifyAll(redis.RedisClient.prototype)
-bluebrid.promisifyAll(redis.Multi.prototype)
+const redis = bluebrid.promisifyAll(require('redis'))
 
 class cache {
   static connect () {
-    if (this.redis) {
+    if (this.hasOwnProperty('redis')) {
       return true
     } else {
       // Get Config
       const config = {
         host: nconf.get('redis:host') || '127.0.0.1',
-        port: nconf.get('redis:port') || 3306,
-        password: nconf.get('redis:password') || '',
+        port: nconf.get('redis:port') || 6379,
+        password: nconf.get('redis:password') && nconf.get('redis:password') !== '' ? nconf.get('redis:password') : false,
         db: nconf.get('redis:database') || 0
+      }
+      if (!config.password) {
+        delete config.password
       }
       // Connect Redis
       this.redis = redis.createClient(config)
       this.redis.on('error', err => {
         winston.error(err)
+        process.exit(1)
       })
       return true
     }
@@ -36,7 +39,11 @@ class cache {
 
   static set (key, value, time) {
     this.connect()
-    return this.redis.setAsync('cache:' + key, value, 'EX', time)
+    if (time) {
+      return this.redis.setAsync('cache:' + key, value, 'EX', time)
+    } else {
+      return this.redis.setAsync('cache:' + key, value)
+    }
   }
 
   static get (key) {

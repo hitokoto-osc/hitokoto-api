@@ -9,5 +9,6 @@ module.exports = (router, controller) => {
   })
 
   router.get('/test', controller.hello.index)
+  router.get('/status', controller.status.status)
   return router
 }
