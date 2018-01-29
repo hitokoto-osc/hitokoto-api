@@ -36,8 +36,8 @@ module.exports = async (ctx, next) => {
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
-    message: 'Love us? donate at http://hitokoto.cn/donate',
-    website: 'http://hitokoto.cn',
+    message: 'Love us? donate at https://hitokoto.cn/donate',
+    website: 'https://hitokoto.cn',
     requests: {
       all: parseInt(now),
       pastMinute: parseInt(now) - parseInt(pastMinute),
@@ -49,7 +49,7 @@ module.exports = async (ctx, next) => {
       freejishu: 'i@freejishu.com',
       a632079: 'a632079@qq.com'
     },
-    copyright: 'MoeCraft All Rights Reserved. Powered by Teng-koa ( https://github.com/a632079/teng-koa ).',
+    copyright: 'MoeCraft © ' + new Date().getFullYear() + ' All Rights Reserved. Powered by Teng-koa ( https://github.com/a632079/teng-koa ).',
     now: new Date(Date.now()).toString(),
     ts: Date.now()
   }
