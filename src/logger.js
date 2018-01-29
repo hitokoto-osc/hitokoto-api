@@ -37,7 +37,7 @@ function dev (opts) {
   return async function logger (ctx, next) {
     // request
     const start = Date.now()
-    winston.debug('  ' + chalk.gray('<--') +
+    winston.verbose('  ' + chalk.gray('<--') +
       ' ' + chalk.bold('%s') +
       ' ' + chalk.gray('%s') +
       ' ' + chalk.gray('%s'),
@@ -110,7 +110,7 @@ function log (ctx, start, len, err, event) {
     : event === 'close' ? chalk.yellow('-x-')
       : chalk.gray('-->')
 
-  winston.debug('  ' + upstream +
+  winston.verbose('  ' + upstream +
     ' ' + chalk.bold('%s') +
     ' ' + chalk.gray('%s') +
     ' ' + chalk[color]('%s') +
