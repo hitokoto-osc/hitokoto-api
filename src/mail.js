@@ -55,7 +55,8 @@ class mail {
   static error (err) {
     // Send Error to Admins
     const admin = nconf.get('admin')
-    const to = Array.isArray(admin) ? admin : admin.join(',')
+    console.log(Array.isArray(admin))
+    const to = Array.isArray(admin) ? admin.join(',') : admin
     let html = JSONtoHTML(formatError(err))
     html = '<h1>错误报告！</h1><p>触发时间: ' + new Date().toISOString() + '</p><p>错误细节:</p><pre><code>' + html + '</code></pre>'
     return this.send({
