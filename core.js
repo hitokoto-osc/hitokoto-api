@@ -7,12 +7,15 @@ const colors = require('colors/safe')
 const Koa = require('koa') // Koa v2
 // const mail = require('./src/mail')
 
-// Register Server
-const app = new Koa()
-
 // PreStart
 const preStart = require('./src/prestart')
 preStart.load()
+
+// Use blubird promise
+global.Promise = require('bluebird')
+
+// Register Server
+const app = new Koa()
 
 // Load CronJob
 const cron = require('./src/cron')
