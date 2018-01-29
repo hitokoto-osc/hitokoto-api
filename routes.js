@@ -9,7 +9,7 @@ module.exports = (router, controller) => {
   })
   */
   router.get('/', controller.hitokoto)
-  router.get('/test', controller.hello.index)
-  router.get('/status', controller.status.status)
+  // router.get('/test', controller.hello.index)
+  router.get('/status', controller.status)
   return router
 }
