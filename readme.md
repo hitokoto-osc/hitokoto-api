@@ -1,4 +1,5 @@
 # Hitokoto API
+![alt](./img/screenshot.png)
 目前该项目是针对 Hitokoto V1 的 PHP 框架的重新实现。
 同时更新了以下功能:
 * API 请求统计
