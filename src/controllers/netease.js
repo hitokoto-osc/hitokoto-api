@@ -32,7 +32,7 @@ controllers.summary = async (ctx, next) => {
           const lyric = await nm.lyric(_.id.toString())
           data[_.id].lyric = {}
           data[_.id].lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。'
-          data[_.id].lyric.transalte = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
+          data[_.id].lyric.translate = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
         }
       }
       if (ids.length > 0) {
