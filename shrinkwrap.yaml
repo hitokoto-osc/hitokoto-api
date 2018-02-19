@@ -26,7 +26,7 @@ dependencies:
   passthrough-counter: 1.0.0
   redis: 2.8.0
   sequelize: 4.33.4
-  simple-netease-cloud-music: github.com/a632079/simple-netease-cloud-music/7598e906130fcfd67447ae418362d0f82f77506c
+  simple-netease-cloud-music: github.com/a632079/simple-netease-cloud-music/dfd6d50d6c11e54c07ac0dfceb866508de7fd9c0
   uuid: 3.2.1
   winston: 2.4.0
 devDependencies:
@@ -2684,12 +2684,12 @@ packages:
     resolution:
       integrity: sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
       tarball: 'http://registry.npm.taobao.org/yargs/download/yargs-3.32.0.tgz'
-  github.com/a632079/simple-netease-cloud-music/7598e906130fcfd67447ae418362d0f82f77506c:
+  github.com/a632079/simple-netease-cloud-music/dfd6d50d6c11e54c07ac0dfceb866508de7fd9c0:
     dev: false
     name: simple-netease-cloud-music
     resolution:
-      tarball: 'https://codeload.github.com/a632079/simple-netease-cloud-music/tar.gz/7598e906130fcfd67447ae418362d0f82f77506c'
-    version: 0.3.2
+      tarball: 'https://codeload.github.com/a632079/simple-netease-cloud-music/tar.gz/dfd6d50d6c11e54c07ac0dfceb866508de7fd9c0'
+    version: 0.3.3
 registry: 'https://registry.npm.taobao.org/'
 shrinkwrapMinorVersion: 4
 shrinkwrapVersion: 3
