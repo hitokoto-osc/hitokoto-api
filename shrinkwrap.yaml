@@ -1,0 +1,2737 @@
+dependencies:
+  async: 2.6.0
+  axios: 0.17.1
+  bluebird: 3.5.1
+  bytes: 3.0.0
+  chalk: 2.3.1
+  colors: 1.1.2
+  cron: 1.3.0
+  humanize-number: 0.0.2
+  kcors: 2.2.1
+  koa: 2.5.0
+  koa-bodyparser: 4.2.0
+  koa-compress: 2.0.0
+  koa-favicon: 2.0.0
+  koa-helmet: 3.3.0
+  koa-json: 2.0.2
+  koa-jsonp: 2.0.2
+  koa-query-pretty: 0.3.0
+  koa-router: 7.4.0
+  lodash: 4.17.5
+  lodash.compact: 3.0.1
+  lodash.curry: 4.1.1
+  mysql2: 1.5.2
+  nconf: 0.10.0
+  nodemailer: 4.4.2
+  passthrough-counter: 1.0.0
+  redis: 2.8.0
+  sequelize: 4.33.4
+  simple-netease-cloud-music: github.com/a632079/simple-netease-cloud-music/7598e906130fcfd67447ae418362d0f82f77506c
+  uuid: 3.2.1
+  winston: 2.4.0
+devDependencies:
+  chai: 4.1.2
+  eslint: 4.18.0
+  eslint-config-standard: 11.0.0
+  eslint-plugin-import: 2.8.0
+  eslint-plugin-node: 5.2.1
+  eslint-plugin-promise: 3.6.0
+  eslint-plugin-standard: 3.0.1
+  koa-livereload: 0.2.0
+  mocha: 5.0.1
+  nyc: 11.4.1
+  supervisor: 0.12.0
+packages:
+  /@types/geojson/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-PgKXJyjGkkjCrwjWCkjLuGgP/98=
+      tarball: 'http://registry.npm.taobao.org/@types/geojson/download/@types/geojson-1.0.6.tgz'
+  /@types/node/9.4.6:
+    dev: false
+    resolution:
+      integrity: sha1-2Bdthk7kh1PQU3g+TkY67Ia42C4=
+      tarball: 'http://registry.npm.taobao.org/@types/node/download/@types/node-9.4.6.tgz'
+  /accepts/1.3.4:
+    dependencies:
+      mime-types: 2.1.18
+      negotiator: 0.6.1
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-hiRnWMfdbSGmR0/whKR0DsBesh8=
+      tarball: 'http://registry.npm.taobao.org/accepts/download/accepts-1.3.4.tgz'
+  /acorn-jsx/3.0.1:
+    dependencies:
+      acorn: 3.3.0
+    dev: true
+    resolution:
+      integrity: sha1-r9+UiPsezvyDSPb7IvRk4ypYs2s=
+      tarball: 'http://registry.npm.taobao.org/acorn-jsx/download/acorn-jsx-3.0.1.tgz'
+  /acorn/3.3.0:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-ReN/s56No/JbruP/U2niu18iAXo=
+      tarball: 'http://registry.npm.taobao.org/acorn/download/acorn-3.3.0.tgz'
+  /acorn/5.4.1:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-/cWNnRf0pOmNEC3tgmqbl1kSUQI=
+      tarball: 'http://registry.npm.taobao.org/acorn/download/acorn-5.4.1.tgz'
+  /ajv-keywords/2.1.1/ajv@5.5.2:
+    dependencies:
+      ajv: 5.5.2
+    dev: true
+    id: registry.npm.taobao.org/ajv-keywords/2.1.1
+    peerDependencies:
+      ajv: ^5.0.0
+    resolution:
+      integrity: sha1-YXmX/F9gV2iUxDX5QNgZ4TW4B2I=
+      tarball: 'http://registry.npm.taobao.org/ajv-keywords/download/ajv-keywords-2.1.1.tgz'
+  /ajv/5.5.2:
+    dependencies:
+      co: 4.6.0
+      fast-deep-equal: 1.0.0
+      fast-json-stable-stringify: 2.0.0
+      json-schema-traverse: 0.3.1
+    dev: true
+    resolution:
+      integrity: sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU=
+      tarball: 'http://registry.npm.taobao.org/ajv/download/ajv-5.5.2.tgz'
+  /ansi-escapes/3.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-7D6LTp+AZPwCw6ybZfHCdb2o75I=
+      tarball: 'http://registry.npm.taobao.org/ansi-escapes/download/ansi-escapes-3.0.0.tgz'
+  /ansi-regex/2.1.1:
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-w7M6te42DYbg5ijwRorn7yfWVN8=
+      tarball: 'http://registry.npm.taobao.org/ansi-regex/download/ansi-regex-2.1.1.tgz'
+  /ansi-regex/3.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=
+      tarball: 'http://registry.npm.taobao.org/ansi-regex/download/ansi-regex-3.0.0.tgz'
+  /ansi-styles/2.2.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-tDLdM1i2NM914eRmQ2gkBTPB3b4=
+      tarball: 'http://registry.npm.taobao.org/ansi-styles/download/ansi-styles-2.2.1.tgz'
+  /ansi-styles/3.2.0:
+    dependencies:
+      color-convert: 1.9.1
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-wVm41b4PnlpvNG2rlPFs4CIWG4g=
+      tarball: 'http://registry.npm.taobao.org/ansi-styles/download/ansi-styles-3.2.0.tgz'
+  /ansicolors/0.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-vgiVmQl7dKXJxKhKDNvNtivYeu8=
+      tarball: 'http://registry.npm.taobao.org/ansicolors/download/ansicolors-0.2.1.tgz'
+  /any-promise/1.3.0:
+    resolution:
+      integrity: sha1-q8av7tzqUugJzcA3au0845Y10X8=
+      tarball: 'http://registry.npm.taobao.org/any-promise/download/any-promise-1.3.0.tgz'
+  /argparse/1.0.10:
+    dependencies:
+      sprintf-js: 1.0.3
+    dev: true
+    resolution:
+      integrity: sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
+      tarball: 'http://registry.npm.taobao.org/argparse/download/argparse-1.0.10.tgz'
+  /array-union/1.0.2:
+    dependencies:
+      array-uniq: 1.0.3
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-mjRBDk9OPaI96jdb5b5w8kd47Dk=
+      tarball: 'http://registry.npm.taobao.org/array-union/download/array-union-1.0.2.tgz'
+  /array-uniq/1.0.3:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-r2rId6Jcx/dOBYiUdThY39sk/bY=
+      tarball: 'http://registry.npm.taobao.org/array-uniq/download/array-uniq-1.0.3.tgz'
+  /arrify/1.0.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
+      tarball: 'http://registry.npm.taobao.org/arrify/download/arrify-1.0.1.tgz'
+  /assertion-error/1.1.0:
+    dev: true
+    resolution:
+      integrity: sha1-5gtrDo8wG9l+U3UhW9pAbIURjAs=
+      tarball: 'http://registry.npm.taobao.org/assertion-error/download/assertion-error-1.1.0.tgz'
+  /async/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-+PwEyjoTeErenhZBr5hXjPvWR6k=
+      tarball: 'http://registry.npm.taobao.org/async/download/async-1.0.0.tgz'
+  /async/1.5.2:
+    dev: false
+    resolution:
+      integrity: sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
+      tarball: 'http://registry.npm.taobao.org/async/download/async-1.5.2.tgz'
+  /async/2.6.0:
+    dependencies:
+      lodash: 4.17.5
+    dev: false
+    resolution:
+      integrity: sha1-YaKau2/MAm/qd+VtHG7FOnlZUfQ=
+      tarball: 'http://registry.npm.taobao.org/async/download/async-2.6.0.tgz'
+  /axios/0.17.1:
+    dependencies:
+      follow-redirects: 1.4.1
+      is-buffer: 1.1.6
+    dev: false
+    resolution:
+      integrity: sha1-LY4+XQvb1zJ/kbyBT1xXZg+Bgk0=
+      tarball: 'http://registry.npm.taobao.org/axios/download/axios-0.17.1.tgz'
+  /babel-code-frame/6.26.0:
+    dependencies:
+      chalk: 1.1.3
+      esutils: 2.0.2
+      js-tokens: 3.0.2
+    dev: true
+    resolution:
+      integrity: sha1-Y/1D99weO7fONZR9uP42mj9Yx0s=
+      tarball: 'http://registry.npm.taobao.org/babel-code-frame/download/babel-code-frame-6.26.0.tgz'
+  /balanced-match/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+      tarball: 'http://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz'
+  /bluebird/3.5.1:
+    dev: false
+    resolution:
+      integrity: sha1-2VUfnemPH82h5oPRfukaBgLuLrk=
+      tarball: 'http://registry.npm.taobao.org/bluebird/download/bluebird-3.5.1.tgz'
+  /brace-expansion/1.1.11:
+    dependencies:
+      balanced-match: 1.0.0
+      concat-map: 0.0.1
+    dev: true
+    resolution:
+      integrity: sha1-PH/L9SnYcibz0vUrlm/1Jx60Qd0=
+      tarball: 'http://registry.npm.taobao.org/brace-expansion/download/brace-expansion-1.1.11.tgz'
+  /browser-stdout/1.3.0:
+    dev: true
+    resolution:
+      integrity: sha1-81HTKWnTL6XXpVZxVCY9korjvR8=
+      tarball: 'http://registry.npm.taobao.org/browser-stdout/download/browser-stdout-1.3.0.tgz'
+  /builtin-modules/1.1.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Jw8HbFpywC9bZaR9+Uxf46J4iS8=
+      tarball: 'http://registry.npm.taobao.org/builtin-modules/download/builtin-modules-1.1.1.tgz'
+  /bytes/2.5.0:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-TJQj6i0lLCcMQbK97+/5u2tiwGo=
+      tarball: 'http://registry.npm.taobao.org/bytes/download/bytes-2.5.0.tgz'
+  /bytes/3.0.0:
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
+      tarball: 'http://registry.npm.taobao.org/bytes/download/bytes-3.0.0.tgz'
+  /caller-path/0.1.0:
+    dependencies:
+      callsites: 0.2.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-lAhe9jWB7NPaqSREqP6U6CV3dR8=
+      tarball: 'http://registry.npm.taobao.org/caller-path/download/caller-path-0.1.0.tgz'
+  /callsites/0.2.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-r6uWJikQp/M8GaV3WCXGnzTjUMo=
+      tarball: 'http://registry.npm.taobao.org/callsites/download/callsites-0.2.0.tgz'
+  /camelcase/2.1.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-fB0W1nmhu+WcoCys7PsBHiAfWh8=
+      tarball: 'http://registry.npm.taobao.org/camelcase/download/camelcase-2.1.1.tgz'
+  /camelize/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
+      tarball: 'http://registry.npm.taobao.org/camelize/download/camelize-1.0.0.tgz'
+  /cardinal/1.0.0:
+    dependencies:
+      ansicolors: 0.2.1
+      redeyed: 1.0.1
+    dev: false
+    resolution:
+      integrity: sha1-UOIcGwqjdyn5N33vGWtanOyTLuk=
+      tarball: 'http://registry.npm.taobao.org/cardinal/download/cardinal-1.0.0.tgz'
+  /chai/4.1.2:
+    dependencies:
+      assertion-error: 1.1.0
+      check-error: 1.0.2
+      deep-eql: 3.0.1
+      get-func-name: 2.0.0
+      pathval: 1.1.0
+      type-detect: 4.0.8
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-D2RYS6ZC8PKs4oBiefTwbKI61zw=
+      tarball: 'http://registry.npm.taobao.org/chai/download/chai-4.1.2.tgz'
+  /chalk/1.1.3:
+    dependencies:
+      ansi-styles: 2.2.1
+      escape-string-regexp: 1.0.5
+      has-ansi: 2.0.0
+      strip-ansi: 3.0.1
+      supports-color: 2.0.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=
+      tarball: 'http://registry.npm.taobao.org/chalk/download/chalk-1.1.3.tgz'
+  /chalk/2.3.1:
+    dependencies:
+      ansi-styles: 3.2.0
+      escape-string-regexp: 1.0.5
+      supports-color: 5.2.0
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-Uj/iZ4rsewToBBkJKS/osXBZt5Y=
+      tarball: 'http://registry.npm.taobao.org/chalk/download/chalk-2.3.1.tgz'
+  /chardet/0.4.2:
+    dev: true
+    resolution:
+      integrity: sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
+      tarball: 'http://registry.npm.taobao.org/chardet/download/chardet-0.4.2.tgz'
+  /check-error/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
+      tarball: 'http://registry.npm.taobao.org/check-error/download/check-error-1.0.2.tgz'
+  /circular-json/0.3.3:
+    dev: true
+    resolution:
+      integrity: sha1-gVyZ6oT2gJUp0vRXkb34JxE1LWY=
+      tarball: 'http://registry.npm.taobao.org/circular-json/download/circular-json-0.3.3.tgz'
+  /cli-cursor/2.1.0:
+    dependencies:
+      restore-cursor: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-s12sN2R5+sw+lHR9QdDQ9SOP/LU=
+      tarball: 'http://registry.npm.taobao.org/cli-cursor/download/cli-cursor-2.1.0.tgz'
+  /cli-width/2.2.0:
+    dev: true
+    resolution:
+      integrity: sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
+      tarball: 'http://registry.npm.taobao.org/cli-width/download/cli-width-2.2.0.tgz'
+  /cliui/3.2.0:
+    dependencies:
+      string-width: 1.0.2
+      strip-ansi: 3.0.1
+      wrap-ansi: 2.1.0
+    dev: false
+    resolution:
+      integrity: sha1-EgYBU3qRbSmUD5NNo7SNWFo5IT0=
+      tarball: 'http://registry.npm.taobao.org/cliui/download/cliui-3.2.0.tgz'
+  /cls-bluebird/2.1.0:
+    dependencies:
+      is-bluebird: 1.0.2
+      shimmer: 1.2.0
+    dev: false
+    resolution:
+      integrity: sha1-N+8eCAqP+1XC9BZPU28ZGeeWiu4=
+      tarball: 'http://registry.npm.taobao.org/cls-bluebird/download/cls-bluebird-2.1.0.tgz'
+  /co-body/5.1.1:
+    dependencies:
+      inflation: 2.0.0
+      qs: 6.5.1
+      raw-body: 2.3.2
+      type-is: 1.6.16
+    dev: false
+    resolution:
+      integrity: sha1-2XeB0eM0S6SoIP0YBr3fg0FQUjY=
+      tarball: 'http://registry.npm.taobao.org/co-body/download/co-body-5.1.1.tgz'
+  /co/4.6.0:
+    engines:
+      iojs: '>= 1.0.0'
+      node: '>= 0.12.0'
+    resolution:
+      integrity: sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
+      tarball: 'http://registry.npm.taobao.org/co/download/co-4.6.0.tgz'
+  /code-point-at/1.1.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+      tarball: 'http://registry.npm.taobao.org/code-point-at/download/code-point-at-1.1.0.tgz'
+  /color-convert/1.9.1:
+    dependencies:
+      color-name: 1.1.3
+    resolution:
+      integrity: sha1-wSYRB66y8pTr/+ye2eytUppgl+0=
+      tarball: 'http://registry.npm.taobao.org/color-convert/download/color-convert-1.9.1.tgz'
+  /color-name/1.1.3:
+    resolution:
+      integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
+      tarball: 'http://registry.npm.taobao.org/color-name/download/color-name-1.1.3.tgz'
+  /colors/1.0.3:
+    dev: false
+    engines:
+      node: '>=0.1.90'
+    resolution:
+      integrity: sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs=
+      tarball: 'http://registry.npm.taobao.org/colors/download/colors-1.0.3.tgz'
+  /colors/1.1.2:
+    dev: false
+    engines:
+      node: '>=0.1.90'
+    resolution:
+      integrity: sha1-FopHAXVran9RoSzgyXv6KMCE7WM=
+      tarball: 'http://registry.npm.taobao.org/colors/download/colors-1.1.2.tgz'
+  /commander/2.11.0:
+    dev: true
+    resolution:
+      integrity: sha1-FXFS/R56bI2YpbcVzzdt+SgARWM=
+      tarball: 'http://registry.npm.taobao.org/commander/download/commander-2.11.0.tgz'
+  /compressible/2.0.13:
+    dependencies:
+      mime-db: 1.33.0
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-DRAgq5JLL9tNYnmHXH1tq6a6p6k=
+      tarball: 'http://registry.npm.taobao.org/compressible/download/compressible-2.0.13.tgz'
+  /concat-map/0.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
+      tarball: 'http://registry.npm.taobao.org/concat-map/download/concat-map-0.0.1.tgz'
+  /concat-stream/1.6.0:
+    dependencies:
+      inherits: 2.0.3
+      readable-stream: 2.3.4
+      typedarray: 0.0.6
+    dev: true
+    engines:
+      '0': node >= 0.8
+    resolution:
+      integrity: sha1-CqxmL9Ur54lk1VMvaUeE5wEQrPc=
+      tarball: 'http://registry.npm.taobao.org/concat-stream/download/concat-stream-1.6.0.tgz'
+  /contains-path/0.1.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-/ozxhP9mcLa67wGp1IYaXL7EEgo=
+      tarball: 'http://registry.npm.taobao.org/contains-path/download/contains-path-0.1.0.tgz'
+  /content-disposition/0.5.2:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-DPaLud318r55YcOoUXjLhdunjLQ=
+      tarball: 'http://registry.npm.taobao.org/content-disposition/download/content-disposition-0.5.2.tgz'
+  /content-security-policy-builder/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-h0mh1UL8voIjcoHqn3Fs5os5TdI=
+      tarball: 'http://registry.npm.taobao.org/content-security-policy-builder/download/content-security-policy-builder-2.0.0.tgz'
+  /content-type/1.0.4:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-4TjMdeBAxyexlm/l5fjJruJW/js=
+      tarball: 'http://registry.npm.taobao.org/content-type/download/content-type-1.0.4.tgz'
+  /cookies/0.7.1:
+    dependencies:
+      depd: 1.1.2
+      keygrip: 1.0.2
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-fIphX1SBxhq58WyDNzG8uPZjuZs=
+      tarball: 'http://registry.npm.taobao.org/cookies/download/cookies-0.7.1.tgz'
+  /copy-to/2.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-JoD7uAaKSNCGVrYJgJK9r8kG9KU=
+      tarball: 'http://registry.npm.taobao.org/copy-to/download/copy-to-2.0.1.tgz'
+  /core-util-is/1.0.2:
+    resolution:
+      integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+      tarball: 'http://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz'
+  /cron/1.3.0:
+    dependencies:
+      moment-timezone: 0.5.14
+    dev: false
+    resolution:
+      integrity: sha1-fkWZaOr5ThpEW+eWzkAhZsI0ZZ0=
+      tarball: 'http://registry.npm.taobao.org/cron/download/cron-1.3.0.tgz'
+  /cross-spawn/5.1.0:
+    dependencies:
+      lru-cache: 4.1.1
+      shebang-command: 1.2.0
+      which: 1.3.0
+    dev: true
+    resolution:
+      integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
+      tarball: 'http://registry.npm.taobao.org/cross-spawn/download/cross-spawn-5.1.0.tgz'
+  /cycle/1.0.3:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-IegLK+hYD5i0aPN5QwZisEbDStI=
+      tarball: 'http://registry.npm.taobao.org/cycle/download/cycle-1.0.3.tgz'
+  /dasherize/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-bYCcnNDPe7iVLYD8hPoT1H3bEwg=
+      tarball: 'http://registry.npm.taobao.org/dasherize/download/dasherize-2.0.0.tgz'
+  /debug/2.6.9:
+    dependencies:
+      ms: 2.0.0
+    resolution:
+      integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=
+      tarball: 'http://registry.npm.taobao.org/debug/download/debug-2.6.9.tgz'
+  /debug/3.1.0:
+    dependencies:
+      ms: 2.0.0
+    resolution:
+      integrity: sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
+      tarball: 'http://registry.npm.taobao.org/debug/download/debug-3.1.0.tgz'
+  /decamelize/1.2.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+      tarball: 'http://registry.npm.taobao.org/decamelize/download/decamelize-1.2.0.tgz'
+  /deep-eql/3.0.1:
+    dependencies:
+      type-detect: 4.0.8
+    dev: true
+    engines:
+      node: '>=0.12'
+    resolution:
+      integrity: sha1-38lARACtHI/gI+faHfHBR8S0RN8=
+      tarball: 'http://registry.npm.taobao.org/deep-eql/download/deep-eql-3.0.1.tgz'
+  /deep-equal/1.0.1:
+    resolution:
+      integrity: sha1-9dJgKStmDghO/0zbyfCK0yR0SLU=
+      tarball: 'http://registry.npm.taobao.org/deep-equal/download/deep-equal-1.0.1.tgz'
+  /deep-is/0.1.3:
+    dev: true
+    resolution:
+      integrity: sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+      tarball: 'http://registry.npm.taobao.org/deep-is/download/deep-is-0.1.3.tgz'
+  /del/2.2.2:
+    dependencies:
+      globby: 5.0.0
+      is-path-cwd: 1.0.0
+      is-path-in-cwd: 1.0.0
+      object-assign: 4.1.1
+      pify: 2.3.0
+      pinkie-promise: 2.0.1
+      rimraf: 2.6.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-wSyYHQZ4RshLyvhiz/kw2Qf/0ag=
+      tarball: 'http://registry.npm.taobao.org/del/download/del-2.2.2.tgz'
+  /delegates/1.0.0:
+    resolution:
+      integrity: sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
+      tarball: 'http://registry.npm.taobao.org/delegates/download/delegates-1.0.0.tgz'
+  /denque/1.2.3:
+    dev: false
+    engines:
+      node: '>=0.10'
+    resolution:
+      integrity: sha1-mMUMjdjN+uMYzFhZzI7j2g+bDMI=
+      tarball: 'http://registry.npm.taobao.org/denque/download/denque-1.2.3.tgz'
+  /depd/1.1.1:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-V4O04cRZ8G+lyif5kfPQbnoxA1k=
+      tarball: 'http://registry.npm.taobao.org/depd/download/depd-1.1.1.tgz'
+  /depd/1.1.2:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
+      tarball: 'http://registry.npm.taobao.org/depd/download/depd-1.1.2.tgz'
+  /destroy/1.0.4:
+    resolution:
+      integrity: sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+      tarball: 'http://registry.npm.taobao.org/destroy/download/destroy-1.0.4.tgz'
+  /diff/3.3.1:
+    dev: true
+    engines:
+      node: '>=0.3.1'
+    resolution:
+      integrity: sha1-qoVnpu7QPFMfyJ0/cRzQ5SWd7HU=
+      tarball: 'http://registry.npm.taobao.org/diff/download/diff-3.3.1.tgz'
+  /dns-prefetch-control/0.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-YN20V3dOF48flBXwyrsOhbCzALI=
+      tarball: 'http://registry.npm.taobao.org/dns-prefetch-control/download/dns-prefetch-control-0.1.0.tgz'
+  /doctrine/1.5.0:
+    dependencies:
+      esutils: 2.0.2
+      isarray: 1.0.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-N53Ocw9hZvds76TmcHoVmwLFpvo=
+      tarball: 'http://registry.npm.taobao.org/doctrine/download/doctrine-1.5.0.tgz'
+  /doctrine/2.1.0:
+    dependencies:
+      esutils: 2.0.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-XNAfwQFiG0LEzX9dGmYkNxbT850=
+      tarball: 'http://registry.npm.taobao.org/doctrine/download/doctrine-2.1.0.tgz'
+  /dont-sniff-mimetype/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-WTKJDcn04vGeXrAqIAJuXl78j1g=
+      tarball: 'http://registry.npm.taobao.org/dont-sniff-mimetype/download/dont-sniff-mimetype-1.0.0.tgz'
+  /dottie/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-2hkZgci41xPKARXViYzzl8Lw3dA=
+      tarball: 'http://registry.npm.taobao.org/dottie/download/dottie-2.0.0.tgz'
+  /double-ended-queue/2.1.0-0:
+    dev: false
+    resolution:
+      integrity: sha1-ED01J/0xUo9AGIEwyEHv3XgmTlw=
+      tarball: 'http://registry.npm.taobao.org/double-ended-queue/download/double-ended-queue-2.1.0-0.tgz'
+  /ee-first/1.1.1:
+    resolution:
+      integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+      tarball: 'http://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz'
+  /error-ex/1.3.1:
+    dependencies:
+      is-arrayish: 0.2.1
+    dev: true
+    resolution:
+      integrity: sha1-+FWobOYa3E6GIcPNoh56dhLDqNw=
+      tarball: 'http://registry.npm.taobao.org/error-ex/download/error-ex-1.3.1.tgz'
+  /error-inject/1.0.0:
+    resolution:
+      integrity: sha1-4rPZG1Su1nLzCdlQ0VSFD6EdTzc=
+      tarball: 'http://registry.npm.taobao.org/error-inject/download/error-inject-1.0.0.tgz'
+  /escape-html/1.0.3:
+    resolution:
+      integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+      tarball: 'http://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz'
+  /escape-string-regexp/1.0.5:
+    engines:
+      node: '>=0.8.0'
+    resolution:
+      integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+      tarball: 'http://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz'
+  /eslint-config-standard/11.0.0:
+    dev: true
+    peerDependencies:
+      eslint: '>=4.18.0'
+      eslint-plugin-import: '>=2.8.0'
+      eslint-plugin-node: '>=5.2.1'
+      eslint-plugin-promise: '>=3.6.0'
+      eslint-plugin-standard: '>=3.0.1'
+    resolution:
+      integrity: sha1-h+4NPJ2VOC3HYZWMuyPanuox4Lo=
+      tarball: 'http://registry.npm.taobao.org/eslint-config-standard/download/eslint-config-standard-11.0.0.tgz'
+  /eslint-import-resolver-node/0.3.2:
+    dependencies:
+      debug: 2.6.9
+      resolve: 1.5.0
+    dev: true
+    resolution:
+      integrity: sha1-WPFfuDm40FdsqYBBNHaqskcttmo=
+      tarball: 'http://registry.npm.taobao.org/eslint-import-resolver-node/download/eslint-import-resolver-node-0.3.2.tgz'
+  /eslint-module-utils/2.1.1:
+    dependencies:
+      debug: 2.6.9
+      pkg-dir: 1.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-q67IJBd2E7ipWymWOeG2+s9HNEk=
+      tarball: 'http://registry.npm.taobao.org/eslint-module-utils/download/eslint-module-utils-2.1.1.tgz'
+  /eslint-plugin-import/2.8.0:
+    dependencies:
+      builtin-modules: 1.1.1
+      contains-path: 0.1.0
+      debug: 2.6.9
+      doctrine: 1.5.0
+      eslint-import-resolver-node: 0.3.2
+      eslint-module-utils: 2.1.1
+      has: 1.0.1
+      lodash.cond: 4.5.2
+      minimatch: 3.0.4
+      read-pkg-up: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    peerDependencies:
+      eslint: 2.x - 4.x
+    resolution:
+      integrity: sha1-+htu8x/LPFAcCYWcG4bx/FuYaJQ=
+      tarball: 'http://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.8.0.tgz'
+  /eslint-plugin-node/5.2.1:
+    dependencies:
+      ignore: 3.3.7
+      minimatch: 3.0.4
+      resolve: 1.5.0
+      semver: 5.3.0
+    dev: true
+    engines:
+      node: '>=4'
+    peerDependencies:
+      eslint: '>=3.1.0'
+    resolution:
+      integrity: sha1-gN8yU8TXkBBF7If6ZgooTjK9yik=
+      tarball: 'http://registry.npm.taobao.org/eslint-plugin-node/download/eslint-plugin-node-5.2.1.tgz'
+  /eslint-plugin-promise/3.6.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-VLdljI9FSBPcKocK/4FS7ElpunU=
+      tarball: 'http://registry.npm.taobao.org/eslint-plugin-promise/download/eslint-plugin-promise-3.6.0.tgz'
+  /eslint-plugin-standard/3.0.1:
+    dev: true
+    peerDependencies:
+      eslint: '>=3.19.0'
+    resolution:
+      integrity: sha1-NNDJFbRe3G8BA5PH7vOCOwhWXPI=
+      tarball: 'http://registry.npm.taobao.org/eslint-plugin-standard/download/eslint-plugin-standard-3.0.1.tgz'
+  /eslint-scope/3.7.1:
+    dependencies:
+      esrecurse: 4.2.0
+      estraverse: 4.2.0
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha1-PWPD7f2gLgbgGkUq2IyqzHzctug=
+      tarball: 'http://registry.npm.taobao.org/eslint-scope/download/eslint-scope-3.7.1.tgz'
+  /eslint-visitor-keys/1.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-PzGA+y4pEBdxastMnW1bXDSmqB0=
+      tarball: 'http://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-1.0.0.tgz'
+  /eslint/4.18.0:
+    dependencies:
+      ajv: 5.5.2
+      babel-code-frame: 6.26.0
+      chalk: 2.3.1
+      concat-stream: 1.6.0
+      cross-spawn: 5.1.0
+      debug: 3.1.0
+      doctrine: 2.1.0
+      eslint-scope: 3.7.1
+      eslint-visitor-keys: 1.0.0
+      espree: 3.5.3
+      esquery: 1.0.0
+      esutils: 2.0.2
+      file-entry-cache: 2.0.0
+      functional-red-black-tree: 1.0.1
+      glob: 7.1.2
+      globals: 11.3.0
+      ignore: 3.3.7
+      imurmurhash: 0.1.4
+      inquirer: 3.3.0
+      is-resolvable: 1.1.0
+      js-yaml: 3.10.0
+      json-stable-stringify-without-jsonify: 1.0.1
+      levn: 0.3.0
+      lodash: 4.17.5
+      minimatch: 3.0.4
+      mkdirp: 0.5.1
+      natural-compare: 1.4.0
+      optionator: 0.8.2
+      path-is-inside: 1.0.2
+      pluralize: 7.0.0
+      progress: 2.0.0
+      require-uncached: 1.0.3
+      semver: 5.5.0
+      strip-ansi: 4.0.0
+      strip-json-comments: 2.0.1
+      table: 4.0.2
+      text-table: 0.2.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-69C6eVr23FmqXO4Xk4Fgr1lQ4FE=
+      tarball: 'http://registry.npm.taobao.org/eslint/download/eslint-4.18.0.tgz'
+  /espree/3.5.3:
+    dependencies:
+      acorn: 5.4.1
+      acorn-jsx: 3.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-kx4K9k5/u+0msFCinarR/GR5n6Y=
+      tarball: 'http://registry.npm.taobao.org/espree/download/espree-3.5.3.tgz'
+  /esprima/3.0.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-U88kes2ncxPlUcOqLnM0LT+099k=
+      tarball: 'http://registry.npm.taobao.org/esprima/download/esprima-3.0.0.tgz'
+  /esprima/4.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-RJnt3NERDgshi6zy+n9/WfVcqAQ=
+      tarball: 'http://registry.npm.taobao.org/esprima/download/esprima-4.0.0.tgz'
+  /esquery/1.0.0:
+    dependencies:
+      estraverse: 4.2.0
+    dev: true
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha1-z7qLV9f7qT8XKYqKAGoEzaE9gPo=
+      tarball: 'http://registry.npm.taobao.org/esquery/download/esquery-1.0.0.tgz'
+  /esrecurse/4.2.0:
+    dependencies:
+      estraverse: 4.2.0
+      object-assign: 4.1.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-+pVo2Y04I/mkHZHpAtyrnqblsWM=
+      tarball: 'http://registry.npm.taobao.org/esrecurse/download/esrecurse-4.2.0.tgz'
+  /estraverse/4.2.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-De4/7TH81GlhjOc0IJn8GvoL2xM=
+      tarball: 'http://registry.npm.taobao.org/estraverse/download/estraverse-4.2.0.tgz'
+  /esutils/2.0.2:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
+      tarball: 'http://registry.npm.taobao.org/esutils/download/esutils-2.0.2.tgz'
+  /expect-ct/0.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-UnNWeN4YUwiQ2Ne5XwrGNkCVgJQ=
+      tarball: 'http://registry.npm.taobao.org/expect-ct/download/expect-ct-0.1.0.tgz'
+  /external-editor/2.1.0:
+    dependencies:
+      chardet: 0.4.2
+      iconv-lite: 0.4.19
+      tmp: 0.0.33
+    dev: true
+    engines:
+      node: '>=0.12'
+    resolution:
+      integrity: sha1-PQJqIbf5W1cmOH1CAKwWDTcsO0g=
+      tarball: 'http://registry.npm.taobao.org/external-editor/download/external-editor-2.1.0.tgz'
+  /eyes/0.1.8:
+    dev: false
+    engines:
+      node: '> 0.1.90'
+    resolution:
+      integrity: sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A=
+      tarball: 'http://registry.npm.taobao.org/eyes/download/eyes-0.1.8.tgz'
+  /fast-deep-equal/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-liVqO8l1WV6zbYLpkp0GDYk0Of8=
+      tarball: 'http://registry.npm.taobao.org/fast-deep-equal/download/fast-deep-equal-1.0.0.tgz'
+  /fast-json-stable-stringify/2.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
+      tarball: 'http://registry.npm.taobao.org/fast-json-stable-stringify/download/fast-json-stable-stringify-2.0.0.tgz'
+  /fast-levenshtein/2.0.6:
+    dev: true
+    resolution:
+      integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+      tarball: 'http://registry.npm.taobao.org/fast-levenshtein/download/fast-levenshtein-2.0.6.tgz'
+  /figures/2.0.0:
+    dependencies:
+      escape-string-regexp: 1.0.5
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-OrGi0qYsi/tDGgyUy3l6L84nyWI=
+      tarball: 'http://registry.npm.taobao.org/figures/download/figures-2.0.0.tgz'
+  /file-entry-cache/2.0.0:
+    dependencies:
+      flat-cache: 1.3.0
+      object-assign: 4.1.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-w5KZDD5oR4PYOLjISkXYoEhFg2E=
+      tarball: 'http://registry.npm.taobao.org/file-entry-cache/download/file-entry-cache-2.0.0.tgz'
+  /find-up/1.1.2:
+    dependencies:
+      path-exists: 2.1.0
+      pinkie-promise: 2.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ay6YIrGizgpgq2TWEOzK1TyyTQ8=
+      tarball: 'http://registry.npm.taobao.org/find-up/download/find-up-1.1.2.tgz'
+  /find-up/2.1.0:
+    dependencies:
+      locate-path: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
+      tarball: 'http://registry.npm.taobao.org/find-up/download/find-up-2.1.0.tgz'
+  /flat-cache/1.3.0:
+    dependencies:
+      circular-json: 0.3.3
+      del: 2.2.2
+      graceful-fs: 4.1.11
+      write: 0.2.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-0wMLMrOBVPTjt+nHCfSQ9++XxIE=
+      tarball: 'http://registry.npm.taobao.org/flat-cache/download/flat-cache-1.3.0.tgz'
+  /follow-redirects/1.4.1:
+    dependencies:
+      debug: 3.1.0
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha1-2BIPRRgZD1Wqxlu2/HuF/NZm1qo=
+      tarball: 'http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.4.1.tgz'
+  /frameguard/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-e8rUae57lukdEs6zlZx4I1qScuk=
+      tarball: 'http://registry.npm.taobao.org/frameguard/download/frameguard-3.0.0.tgz'
+  /fresh/0.5.2:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
+      tarball: 'http://registry.npm.taobao.org/fresh/download/fresh-0.5.2.tgz'
+  /fs.realpath/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+      tarball: 'http://registry.npm.taobao.org/fs.realpath/download/fs.realpath-1.0.0.tgz'
+  /function-bind/1.1.1:
+    dev: true
+    resolution:
+      integrity: sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=
+      tarball: 'http://registry.npm.taobao.org/function-bind/download/function-bind-1.1.1.tgz'
+  /functional-red-black-tree/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+      tarball: 'http://registry.npm.taobao.org/functional-red-black-tree/download/functional-red-black-tree-1.0.1.tgz'
+  /generate-function/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-aFj+fAlpt9TpCTM3ZHrHn2DfvnQ=
+      tarball: 'http://registry.npm.taobao.org/generate-function/download/generate-function-2.0.0.tgz'
+  /generic-pool/3.4.2:
+    dev: false
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha1-kv9xllINZwg5pnMICSoSqt8valk=
+      tarball: 'http://registry.npm.taobao.org/generic-pool/download/generic-pool-3.4.2.tgz'
+  /get-func-name/2.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-6td0q+5y4gQJQzoGY2YCPdaIekE=
+      tarball: 'http://registry.npm.taobao.org/get-func-name/download/get-func-name-2.0.0.tgz'
+  /glob/7.1.2:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.3
+      minimatch: 3.0.4
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha1-wZyd+aAocC1nhhI4SmVSQExjbRU=
+      tarball: 'http://registry.npm.taobao.org/glob/download/glob-7.1.2.tgz'
+  /globals/11.3.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-4E/be5eW2K2snI9kwUg3sjEzeLA=
+      tarball: 'http://registry.npm.taobao.org/globals/download/globals-11.3.0.tgz'
+  /globby/5.0.0:
+    dependencies:
+      array-union: 1.0.2
+      arrify: 1.0.1
+      glob: 7.1.2
+      object-assign: 4.1.1
+      pify: 2.3.0
+      pinkie-promise: 2.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-69hGZ8oNuzMLmbz8aOrCvFQ3Dg0=
+      tarball: 'http://registry.npm.taobao.org/globby/download/globby-5.0.0.tgz'
+  /graceful-fs/4.1.11:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
+      tarball: 'http://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.1.11.tgz'
+  /growl/1.10.3:
+    dev: true
+    engines:
+      node: '>=4.x'
+    resolution:
+      integrity: sha1-GSa6kM8+3+KttJJ/WIC8IsZseQ8=
+      tarball: 'http://registry.npm.taobao.org/growl/download/growl-1.10.3.tgz'
+  /has-ansi/2.0.0:
+    dependencies:
+      ansi-regex: 2.1.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-NPUEnOHs3ysGSa8+8k5F7TVBbZE=
+      tarball: 'http://registry.npm.taobao.org/has-ansi/download/has-ansi-2.0.0.tgz'
+  /has-flag/2.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=
+      tarball: 'http://registry.npm.taobao.org/has-flag/download/has-flag-2.0.0.tgz'
+  /has-flag/3.0.0:
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
+      tarball: 'http://registry.npm.taobao.org/has-flag/download/has-flag-3.0.0.tgz'
+  /has/1.0.1:
+    dependencies:
+      function-bind: 1.1.1
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-hGFzP1OLCDfJNh45qauelwTcLyg=
+      tarball: 'http://registry.npm.taobao.org/has/download/has-1.0.1.tgz'
+  /he/1.1.1:
+    dev: true
+    resolution:
+      integrity: sha1-k0EP0hsAlzUVH4howvJx80J+I/0=
+      tarball: 'http://registry.npm.taobao.org/he/download/he-1.1.1.tgz'
+  /helmet-csp/2.7.0:
+    dependencies:
+      camelize: 1.0.0
+      content-security-policy-builder: 2.0.0
+      dasherize: 2.0.0
+      lodash.reduce: 4.6.0
+      platform: 1.3.5
+    dev: false
+    resolution:
+      integrity: sha1-eTQJRhfR/re7LcQ7t9nogw93RxY=
+      tarball: 'http://registry.npm.taobao.org/helmet-csp/download/helmet-csp-2.7.0.tgz'
+  /helmet/3.11.0:
+    dependencies:
+      dns-prefetch-control: 0.1.0
+      dont-sniff-mimetype: 1.0.0
+      expect-ct: 0.1.0
+      frameguard: 3.0.0
+      helmet-csp: 2.7.0
+      hide-powered-by: 1.0.0
+      hpkp: 2.0.0
+      hsts: 2.1.0
+      ienoopen: 1.0.0
+      nocache: 2.0.0
+      referrer-policy: 1.1.0
+      x-xss-protection: 1.0.0
+    dev: false
+    engines:
+      node: '>= 0.10.0'
+    resolution:
+      integrity: sha1-XqzMwLW2HXhuKao/xWUKv3Phgk8=
+      tarball: 'http://registry.npm.taobao.org/helmet/download/helmet-3.11.0.tgz'
+  /hide-powered-by/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-SoWtZYgfYoV/xwr3F0oRhNzM4ys=
+      tarball: 'http://registry.npm.taobao.org/hide-powered-by/download/hide-powered-by-1.0.0.tgz'
+  /hosted-git-info/2.5.0:
+    dev: true
+    resolution:
+      integrity: sha1-bWDjSzq7yDEwYsO3mO+NkBoHrzw=
+      tarball: 'http://registry.npm.taobao.org/hosted-git-info/download/hosted-git-info-2.5.0.tgz'
+  /hpkp/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-EOFCJk52IVpdMMROxD3mTe5tFnI=
+      tarball: 'http://registry.npm.taobao.org/hpkp/download/hpkp-2.0.0.tgz'
+  /hsts/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-y9bJGKI4X+4d1WgL+ys6GUwBIcw=
+      tarball: 'http://registry.npm.taobao.org/hsts/download/hsts-2.1.0.tgz'
+  /http-assert/1.3.0:
+    dependencies:
+      deep-equal: 1.0.1
+      http-errors: 1.6.2
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-oxpc+IyHPsu1eWkH1NbxMujAHko=
+      tarball: 'http://registry.npm.taobao.org/http-assert/download/http-assert-1.3.0.tgz'
+  /http-errors/1.6.2:
+    dependencies:
+      depd: 1.1.1
+      inherits: 2.0.3
+      setprototypeof: 1.0.3
+      statuses: 1.4.0
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-CgAsyFcHGSp+eUbO7cERVfYOxzY=
+      tarball: 'http://registry.npm.taobao.org/http-errors/download/http-errors-1.6.2.tgz'
+  /humanize-number/0.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-EcCvakcWQ2M1iFiASPF5lUFInBg=
+      tarball: 'http://registry.npm.taobao.org/humanize-number/download/humanize-number-0.0.2.tgz'
+  /iconv-lite/0.4.19:
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-90aPYBNfXl2tM5nAqBvpoWA6CCs=
+      tarball: 'http://registry.npm.taobao.org/iconv-lite/download/iconv-lite-0.4.19.tgz'
+  /ienoopen/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-NGpCj0dKrI9QzzeE6i0PFvYr2ms=
+      tarball: 'http://registry.npm.taobao.org/ienoopen/download/ienoopen-1.0.0.tgz'
+  /ignore/3.3.7:
+    dev: true
+    resolution:
+      integrity: sha1-YSKJv7PCIOGGpYEYYY1b6MG6sCE=
+      tarball: 'http://registry.npm.taobao.org/ignore/download/ignore-3.3.7.tgz'
+  /imurmurhash/0.1.4:
+    dev: true
+    engines:
+      node: '>=0.8.19'
+    resolution:
+      integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=
+      tarball: 'http://registry.npm.taobao.org/imurmurhash/download/imurmurhash-0.1.4.tgz'
+  /inflation/2.0.0:
+    dev: false
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-i0F+R8KPklpFEz2RTKH9OJEH8w8=
+      tarball: 'http://registry.npm.taobao.org/inflation/download/inflation-2.0.0.tgz'
+  /inflection/1.12.0:
+    dev: false
+    engines:
+      '0': node >= 0.4.0
+    resolution:
+      integrity: sha1-ogCTVlbW9fa8TcdQLhrstwMihBY=
+      tarball: 'http://registry.npm.taobao.org/inflection/download/inflection-1.12.0.tgz'
+  /inflight/1.0.6:
+    dependencies:
+      once: 1.4.0
+      wrappy: 1.0.2
+    dev: true
+    resolution:
+      integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
+      tarball: 'http://registry.npm.taobao.org/inflight/download/inflight-1.0.6.tgz'
+  /inherits/2.0.3:
+    resolution:
+      integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+      tarball: 'http://registry.npm.taobao.org/inherits/download/inherits-2.0.3.tgz'
+  /ini/1.3.5:
+    dev: false
+    resolution:
+      integrity: sha1-7uJfVtscnsYIXgwid4CD9Zar+Sc=
+      tarball: 'http://registry.npm.taobao.org/ini/download/ini-1.3.5.tgz'
+  /inquirer/3.3.0:
+    dependencies:
+      ansi-escapes: 3.0.0
+      chalk: 2.3.1
+      cli-cursor: 2.1.0
+      cli-width: 2.2.0
+      external-editor: 2.1.0
+      figures: 2.0.0
+      lodash: 4.17.5
+      mute-stream: 0.0.7
+      run-async: 2.3.0
+      rx-lite: 4.0.8
+      rx-lite-aggregates: 4.0.8
+      string-width: 2.1.1
+      strip-ansi: 4.0.0
+      through: 2.3.8
+    dev: true
+    resolution:
+      integrity: sha1-ndLyrXZdyrH/BEO0kUQqILoifck=
+      tarball: 'http://registry.npm.taobao.org/inquirer/download/inquirer-3.3.0.tgz'
+  /invert-kv/1.0.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
+      tarball: 'http://registry.npm.taobao.org/invert-kv/download/invert-kv-1.0.0.tgz'
+  /is-arrayish/0.2.1:
+    dev: true
+    resolution:
+      integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+      tarball: 'http://registry.npm.taobao.org/is-arrayish/download/is-arrayish-0.2.1.tgz'
+  /is-bluebird/1.0.2:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-CWQ5Bg9KpBGr7hkUOoTWpVNG1uI=
+      tarball: 'http://registry.npm.taobao.org/is-bluebird/download/is-bluebird-1.0.2.tgz'
+  /is-buffer/1.1.6:
+    dev: false
+    resolution:
+      integrity: sha1-76ouqdqg16suoTqXsritUf776L4=
+      tarball: 'http://registry.npm.taobao.org/is-buffer/download/is-buffer-1.1.6.tgz'
+  /is-builtin-module/1.0.0:
+    dependencies:
+      builtin-modules: 1.1.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-VAVy0096wxGfj3bDDLwbHgN6/74=
+      tarball: 'http://registry.npm.taobao.org/is-builtin-module/download/is-builtin-module-1.0.0.tgz'
+  /is-fullwidth-code-point/1.0.0:
+    dependencies:
+      number-is-nan: 1.0.1
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-754xOG8DGn8NZDr4L95QxFfvAMs=
+      tarball: 'http://registry.npm.taobao.org/is-fullwidth-code-point/download/is-fullwidth-code-point-1.0.0.tgz'
+  /is-fullwidth-code-point/2.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-o7MKXE8ZkYMWeqq5O+764937ZU8=
+      tarball: 'http://registry.npm.taobao.org/is-fullwidth-code-point/download/is-fullwidth-code-point-2.0.0.tgz'
+  /is-generator-function/1.0.7:
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha1-0hMuUpuwAAp/gHlNS99c1eWBNSI=
+      tarball: 'http://registry.npm.taobao.org/is-generator-function/download/is-generator-function-1.0.7.tgz'
+  /is-path-cwd/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-0iXsIxMuie3Tj9p2dHLmLmXxEG0=
+      tarball: 'http://registry.npm.taobao.org/is-path-cwd/download/is-path-cwd-1.0.0.tgz'
+  /is-path-in-cwd/1.0.0:
+    dependencies:
+      is-path-inside: 1.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ZHdYK4IU1gI0YJRWcAO+ip6sBNw=
+      tarball: 'http://registry.npm.taobao.org/is-path-in-cwd/download/is-path-in-cwd-1.0.0.tgz'
+  /is-path-inside/1.0.1:
+    dependencies:
+      path-is-inside: 1.0.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-jvW33lBDej/cprToZe96pVy0gDY=
+      tarball: 'http://registry.npm.taobao.org/is-path-inside/download/is-path-inside-1.0.1.tgz'
+  /is-promise/2.1.0:
+    dev: true
+    resolution:
+      integrity: sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
+      tarball: 'http://registry.npm.taobao.org/is-promise/download/is-promise-2.1.0.tgz'
+  /is-resolvable/1.1.0:
+    dev: true
+    resolution:
+      integrity: sha1-+xj4fOH+uSUWnJpAfBkxijIG7Yg=
+      tarball: 'http://registry.npm.taobao.org/is-resolvable/download/is-resolvable-1.1.0.tgz'
+  /isarray/0.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+      tarball: 'http://registry.npm.taobao.org/isarray/download/isarray-0.0.1.tgz'
+  /isarray/1.0.0:
+    resolution:
+      integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
+      tarball: 'http://registry.npm.taobao.org/isarray/download/isarray-1.0.0.tgz'
+  /isexe/2.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
+      tarball: 'http://registry.npm.taobao.org/isexe/download/isexe-2.0.0.tgz'
+  /isstream/0.1.2:
+    dev: false
+    resolution:
+      integrity: sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+      tarball: 'http://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz'
+  /js-tokens/3.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-mGbfOVECEw449/mWvOtlRDIJwls=
+      tarball: 'http://registry.npm.taobao.org/js-tokens/download/js-tokens-3.0.2.tgz'
+  /js-yaml/3.10.0:
+    dependencies:
+      argparse: 1.0.10
+      esprima: 4.0.0
+    dev: true
+    resolution:
+      integrity: sha1-LnhEFka9RoLpY/IrbpKCPDCcYtw=
+      tarball: 'http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.10.0.tgz'
+  /json-schema-traverse/0.3.1:
+    dev: true
+    resolution:
+      integrity: sha1-NJptRMU6Ud6JtAgFxdXlm0F9M0A=
+      tarball: 'http://registry.npm.taobao.org/json-schema-traverse/download/json-schema-traverse-0.3.1.tgz'
+  /json-stable-stringify-without-jsonify/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
+      tarball: 'http://registry.npm.taobao.org/json-stable-stringify-without-jsonify/download/json-stable-stringify-without-jsonify-1.0.1.tgz'
+  /json-stringify-safe/5.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+      tarball: 'http://registry.npm.taobao.org/json-stringify-safe/download/json-stringify-safe-5.0.1.tgz'
+  /kcors/2.2.1:
+    dev: false
+    engines:
+      node: '>= 4.3.1'
+    resolution:
+      integrity: sha1-cWCpTy6uYzQ20s746t0M4jI4Z3k=
+      tarball: 'http://registry.npm.taobao.org/kcors/download/kcors-2.2.1.tgz'
+  /keygrip/1.0.2:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-rTKXxVcGneqLz+ek+kkbdcXd65E=
+      tarball: 'http://registry.npm.taobao.org/keygrip/download/keygrip-1.0.2.tgz'
+  /koa-bodyparser/4.2.0:
+    dependencies:
+      co-body: 5.1.1
+      copy-to: 2.0.1
+    dev: false
+    engines:
+      node: '>=7.6'
+    resolution:
+      integrity: sha1-vObgi8Zfhwm20fqpQRx/DYk4qlQ=
+      tarball: 'http://registry.npm.taobao.org/koa-bodyparser/download/koa-bodyparser-4.2.0.tgz'
+  /koa-compose/3.2.1:
+    dependencies:
+      any-promise: 1.3.0
+    resolution:
+      integrity: sha1-qFzLQLfZhtjlo0Wzoazo6rz1Tec=
+      tarball: 'http://registry.npm.taobao.org/koa-compose/download/koa-compose-3.2.1.tgz'
+  /koa-compose/4.0.0:
+    resolution:
+      integrity: sha1-KAClE9nDYe8NY4UrA45Pby1adzw=
+      tarball: 'http://registry.npm.taobao.org/koa-compose/download/koa-compose-4.0.0.tgz'
+  /koa-compress/2.0.0:
+    dependencies:
+      bytes: 2.5.0
+      compressible: 2.0.13
+      koa-is-json: 1.0.0
+      statuses: 1.4.0
+    dev: false
+    resolution:
+      integrity: sha1-e36ykhuEd0a14SK6n1zYpnHo6jo=
+      tarball: 'http://registry.npm.taobao.org/koa-compress/download/koa-compress-2.0.0.tgz'
+  /koa-convert/1.2.0:
+    dependencies:
+      co: 4.6.0
+      koa-compose: 3.2.1
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha1-2kCHXfSd4FOQmNFwC1CCDOvNIdA=
+      tarball: 'http://registry.npm.taobao.org/koa-convert/download/koa-convert-1.2.0.tgz'
+  /koa-favicon/2.0.0:
+    dependencies:
+      mz: 2.7.0
+    dev: false
+    resolution:
+      integrity: sha1-HE5QI+cfy/pkxZ3vAK4Q5pQuWm4=
+      tarball: 'http://registry.npm.taobao.org/koa-favicon/download/koa-favicon-2.0.0.tgz'
+  /koa-helmet/3.3.0:
+    dependencies:
+      helmet: 3.11.0
+    dev: false
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha1-KP5ajH7V8PNkEMLoyZ6rcDHntxQ=
+      tarball: 'http://registry.npm.taobao.org/koa-helmet/download/koa-helmet-3.3.0.tgz'
+  /koa-is-json/1.0.0:
+    resolution:
+      integrity: sha1-JzwH7c3Ljfaiwat9We52SRRR7BQ=
+      tarball: 'http://registry.npm.taobao.org/koa-is-json/download/koa-is-json-1.0.0.tgz'
+  /koa-json/2.0.2:
+    dependencies:
+      koa-is-json: 1.0.0
+      streaming-json-stringify: 3.1.0
+    dev: false
+    resolution:
+      integrity: sha1-Nq8U5uofXWRtfESihXAcb4Wk/eQ=
+      tarball: 'http://registry.npm.taobao.org/koa-json/download/koa-json-2.0.2.tgz'
+  /koa-jsonp/2.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-Q5QhRAP6z9YdffJGYpLJ+w9r8II=
+      tarball: 'http://registry.npm.taobao.org/koa-jsonp/download/koa-jsonp-2.0.2.tgz'
+  /koa-livereload/0.2.0:
+    dependencies:
+      koa: 2.5.0
+      stream-injecter: 0.0.1
+    dev: true
+    resolution:
+      integrity: sha1-brTKkQpcePQFDLKDBpWKG3Fgqy4=
+      tarball: 'http://registry.npm.taobao.org/koa-livereload/download/koa-livereload-0.2.0.tgz'
+  /koa-query-pretty/0.3.0:
+    dev: false
+    resolution:
+      integrity: sha1-CgQ4Sh+QKi5rziQ+OHOZESfc0XI=
+      tarball: 'http://registry.npm.taobao.org/koa-query-pretty/download/koa-query-pretty-0.3.0.tgz'
+  /koa-router/7.4.0:
+    dependencies:
+      debug: 3.1.0
+      http-errors: 1.6.2
+      koa-compose: 3.2.1
+      methods: 1.1.2
+      path-to-regexp: 1.7.0
+      urijs: 1.19.1
+    dev: false
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha1-ruH3rcAtXLMdfWdGXJ6syCXoxeA=
+      tarball: 'http://registry.npm.taobao.org/koa-router/download/koa-router-7.4.0.tgz'
+  /koa/2.5.0:
+    dependencies:
+      accepts: 1.3.4
+      content-disposition: 0.5.2
+      content-type: 1.0.4
+      cookies: 0.7.1
+      debug: 3.1.0
+      delegates: 1.0.0
+      depd: 1.1.2
+      destroy: 1.0.4
+      error-inject: 1.0.0
+      escape-html: 1.0.3
+      fresh: 0.5.2
+      http-assert: 1.3.0
+      http-errors: 1.6.2
+      is-generator-function: 1.0.7
+      koa-compose: 4.0.0
+      koa-convert: 1.2.0
+      koa-is-json: 1.0.0
+      mime-types: 2.1.18
+      on-finished: 2.3.0
+      only: 0.0.2
+      parseurl: 1.3.2
+      statuses: 1.4.0
+      type-is: 1.6.16
+      vary: 1.1.2
+    engines:
+      node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4
+    resolution:
+      integrity: sha1-sPvh4ZXkOydYigT9C+DdrsosFUw=
+      tarball: 'http://registry.npm.taobao.org/koa/download/koa-2.5.0.tgz'
+  /lcid/1.0.0:
+    dependencies:
+      invert-kv: 1.0.0
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
+      tarball: 'http://registry.npm.taobao.org/lcid/download/lcid-1.0.0.tgz'
+  /levn/0.3.0:
+    dependencies:
+      prelude-ls: 1.1.2
+      type-check: 0.3.2
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4=
+      tarball: 'http://registry.npm.taobao.org/levn/download/levn-0.3.0.tgz'
+  /load-json-file/2.0.0:
+    dependencies:
+      graceful-fs: 4.1.11
+      parse-json: 2.2.0
+      pify: 2.3.0
+      strip-bom: 3.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-eUfkIUmvgNaWy/eXvKq8/h/inKg=
+      tarball: 'http://registry.npm.taobao.org/load-json-file/download/load-json-file-2.0.0.tgz'
+  /locate-path/2.0.0:
+    dependencies:
+      p-locate: 2.0.0
+      path-exists: 3.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-K1aLJl7slExtnA3pw9u7ygNUzY4=
+      tarball: 'http://registry.npm.taobao.org/locate-path/download/locate-path-2.0.0.tgz'
+  /lodash.compact/3.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=
+      tarball: 'http://registry.npm.taobao.org/lodash.compact/download/lodash.compact-3.0.1.tgz'
+  /lodash.cond/4.5.2:
+    dev: true
+    resolution:
+      integrity: sha1-9HGh2khr5g9quVXRcRVSPdHSVdU=
+      tarball: 'http://registry.npm.taobao.org/lodash.cond/download/lodash.cond-4.5.2.tgz'
+  /lodash.curry/4.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-JI42By7ekGUB11lmIAqG2riyMXA=
+      tarball: 'http://registry.npm.taobao.org/lodash.curry/download/lodash.curry-4.1.1.tgz'
+  /lodash.reduce/4.6.0:
+    dev: false
+    resolution:
+      integrity: sha1-8atrg5KZrUj3hKu/R2WW8DuRTTs=
+      tarball: 'http://registry.npm.taobao.org/lodash.reduce/download/lodash.reduce-4.6.0.tgz'
+  /lodash/4.17.5:
+    resolution:
+      integrity: sha1-maktZcAnLevoyWtgV7yPv6O+1RE=
+      tarball: 'http://registry.npm.taobao.org/lodash/download/lodash-4.17.5.tgz'
+  /long/4.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-mntxz7fTYaGU6lVSQckvdGjVvyg=
+      tarball: 'http://registry.npm.taobao.org/long/download/long-4.0.0.tgz'
+  /lru-cache/2.5.0:
+    dev: false
+    resolution:
+      integrity: sha1-2COIrpyWC+y+oMc7uet5tsbOmus=
+      tarball: 'http://registry.npm.taobao.org/lru-cache/download/lru-cache-2.5.0.tgz'
+  /lru-cache/4.1.1:
+    dependencies:
+      pseudomap: 1.0.2
+      yallist: 2.1.2
+    resolution:
+      integrity: sha1-Yi4y6CSItJJ5EUpPns9F581rulU=
+      tarball: 'http://registry.npm.taobao.org/lru-cache/download/lru-cache-4.1.1.tgz'
+  /media-typer/0.3.0:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+      tarball: 'http://registry.npm.taobao.org/media-typer/download/media-typer-0.3.0.tgz'
+  /methods/1.1.2:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
+      tarball: 'http://registry.npm.taobao.org/methods/download/methods-1.1.2.tgz'
+  /mime-db/1.33.0:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-o0kgUKXLm2NFBUHjnZeI0icng9s=
+      tarball: 'http://registry.npm.taobao.org/mime-db/download/mime-db-1.33.0.tgz'
+  /mime-types/2.1.18:
+    dependencies:
+      mime-db: 1.33.0
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-bzI/YKg9ERRvgx/xH9ZuL+VQO7g=
+      tarball: 'http://registry.npm.taobao.org/mime-types/download/mime-types-2.1.18.tgz'
+  /mimic-fn/1.2.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-ggyGo5M0ZA6ZUWkovQP8qIBX0CI=
+      tarball: 'http://registry.npm.taobao.org/mimic-fn/download/mimic-fn-1.2.0.tgz'
+  /minimatch/3.0.4:
+    dependencies:
+      brace-expansion: 1.1.11
+    dev: true
+    resolution:
+      integrity: sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
+      tarball: 'http://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz'
+  /minimist/0.0.8:
+    dev: true
+    resolution:
+      integrity: sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
+      tarball: 'http://registry.npm.taobao.org/minimist/download/minimist-0.0.8.tgz'
+  /mkdirp/0.5.1:
+    dependencies:
+      minimist: 0.0.8
+    dev: true
+    resolution:
+      integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+      tarball: 'http://registry.npm.taobao.org/mkdirp/download/mkdirp-0.5.1.tgz'
+  /mocha/5.0.1:
+    dependencies:
+      browser-stdout: 1.3.0
+      commander: 2.11.0
+      debug: 3.1.0
+      diff: 3.3.1
+      escape-string-regexp: 1.0.5
+      glob: 7.1.2
+      growl: 1.10.3
+      he: 1.1.1
+      mkdirp: 0.5.1
+      supports-color: 4.4.0
+    dev: true
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha1-dZtiyDawcyOCpitrH7JF7BvJQ6w=
+      tarball: 'http://registry.npm.taobao.org/mocha/download/mocha-5.0.1.tgz'
+  /moment-timezone/0.5.14:
+    dependencies:
+      moment: 2.20.1
+    dev: false
+    resolution:
+      integrity: sha1-TrOP+VOLgBCLpGekWPPtQmjM/LE=
+      tarball: 'http://registry.npm.taobao.org/moment-timezone/download/moment-timezone-0.5.14.tgz'
+  /moment/2.20.1:
+    dev: false
+    resolution:
+      integrity: sha1-1usaRsvMFKKy+UNBEsH/iQfzE/0=
+      tarball: 'http://registry.npm.taobao.org/moment/download/moment-2.20.1.tgz'
+  /ms/2.0.0:
+    resolution:
+      integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+      tarball: 'http://registry.npm.taobao.org/ms/download/ms-2.0.0.tgz'
+  /mute-stream/0.0.7:
+    dev: true
+    resolution:
+      integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
+      tarball: 'http://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.7.tgz'
+  /mysql2/1.5.2:
+    dependencies:
+      cardinal: 1.0.0
+      denque: 1.2.3
+      generate-function: 2.0.0
+      iconv-lite: 0.4.19
+      long: 4.0.0
+      lru-cache: 4.1.1
+      named-placeholders: 1.1.1
+      object-assign: 4.1.1
+      readable-stream: 2.3.2
+      safe-buffer: 5.1.1
+      seq-queue: 0.0.5
+      sqlstring: 2.3.0
+    dev: false
+    engines:
+      node: '>= 4.0'
+    resolution:
+      integrity: sha1-5OBzg5uxCXJmmyQOx3Bh1/9Vz1k=
+      tarball: 'http://registry.npm.taobao.org/mysql2/download/mysql2-1.5.2.tgz'
+  /mz/2.7.0:
+    dependencies:
+      any-promise: 1.3.0
+      object-assign: 4.1.1
+      thenify-all: 1.6.0
+    dev: false
+    resolution:
+      integrity: sha1-lQCAV6Vsr63CvGPd5/n/aVWUjjI=
+      tarball: 'http://registry.npm.taobao.org/mz/download/mz-2.7.0.tgz'
+  /named-placeholders/1.1.1:
+    dependencies:
+      lru-cache: 2.5.0
+    dev: false
+    resolution:
+      integrity: sha1-O3oNJiA910s6nfTJz7gnsvuQfmQ=
+      tarball: 'http://registry.npm.taobao.org/named-placeholders/download/named-placeholders-1.1.1.tgz'
+  /natural-compare/1.4.0:
+    dev: true
+    resolution:
+      integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+      tarball: 'http://registry.npm.taobao.org/natural-compare/download/natural-compare-1.4.0.tgz'
+  /nconf/0.10.0:
+    dependencies:
+      async: 1.5.2
+      ini: 1.3.5
+      secure-keys: 1.0.0
+      yargs: 3.32.0
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-2hKF7pXQqSLKbO51rc+GH0ggWtI=
+      tarball: 'http://registry.npm.taobao.org/nconf/download/nconf-0.10.0.tgz'
+  /negotiator/0.6.1:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
+      tarball: 'http://registry.npm.taobao.org/negotiator/download/negotiator-0.6.1.tgz'
+  /nocache/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-ICtIAhoMTL3i34DeFaF0Q8i0OYA=
+      tarball: 'http://registry.npm.taobao.org/nocache/download/nocache-2.0.0.tgz'
+  /nodemailer/4.4.2:
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    resolution:
+      integrity: sha1-8hX7iOihBS+fkwg5CeEW0refyN4=
+      tarball: 'http://registry.npm.taobao.org/nodemailer/download/nodemailer-4.4.2.tgz'
+  /normalize-package-data/2.4.0:
+    dependencies:
+      hosted-git-info: 2.5.0
+      is-builtin-module: 1.0.0
+      semver: 5.5.0
+      validate-npm-package-license: 3.0.1
+    dev: true
+    resolution:
+      integrity: sha1-EvlaMH1YNSB1oEkHuErIvpisAS8=
+      tarball: 'http://registry.npm.taobao.org/normalize-package-data/download/normalize-package-data-2.4.0.tgz'
+  /number-is-nan/1.0.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+      tarball: 'http://registry.npm.taobao.org/number-is-nan/download/number-is-nan-1.0.1.tgz'
+  /nyc/11.4.1:
+    bundledDependencies:
+      - archy
+      - arrify
+      - caching-transform
+      - convert-source-map
+      - debug-log
+      - default-require-extensions
+      - find-cache-dir
+      - find-up
+      - foreground-child
+      - glob
+      - istanbul-lib-coverage
+      - istanbul-lib-hook
+      - istanbul-lib-instrument
+      - istanbul-lib-report
+      - istanbul-lib-source-maps
+      - istanbul-reports
+      - md5-hex
+      - merge-source-map
+      - micromatch
+      - mkdirp
+      - resolve-from
+      - rimraf
+      - signal-exit
+      - spawn-wrap
+      - test-exclude
+      - yargs
+      - yargs-parser
+    dev: true
+    resolution:
+      integrity: sha1-E/335+8i0CfGHRdHWPaXimj09eU=
+      tarball: 'http://registry.npm.taobao.org/nyc/download/nyc-11.4.1.tgz'
+  /object-assign/4.1.1:
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+      tarball: 'http://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz'
+  /on-finished/2.3.0:
+    dependencies:
+      ee-first: 1.1.1
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
+      tarball: 'http://registry.npm.taobao.org/on-finished/download/on-finished-2.3.0.tgz'
+  /once/1.4.0:
+    dependencies:
+      wrappy: 1.0.2
+    dev: true
+    resolution:
+      integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
+      tarball: 'http://registry.npm.taobao.org/once/download/once-1.4.0.tgz'
+  /onetime/2.0.1:
+    dependencies:
+      mimic-fn: 1.2.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
+      tarball: 'http://registry.npm.taobao.org/onetime/download/onetime-2.0.1.tgz'
+  /only/0.0.2:
+    resolution:
+      integrity: sha1-Kv3oTQPlC5qO3EROMGEKcCle37Q=
+      tarball: 'http://registry.npm.taobao.org/only/download/only-0.0.2.tgz'
+  /optionator/0.8.2:
+    dependencies:
+      deep-is: 0.1.3
+      fast-levenshtein: 2.0.6
+      levn: 0.3.0
+      prelude-ls: 1.1.2
+      type-check: 0.3.2
+      wordwrap: 1.0.0
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-NkxeQJ0/TWMB1sC0wFu6UBgK62Q=
+      tarball: 'http://registry.npm.taobao.org/optionator/download/optionator-0.8.2.tgz'
+  /os-locale/1.4.0:
+    dependencies:
+      lcid: 1.0.0
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-IPnxeuKe00XoveWDsT0gCYA8FNk=
+      tarball: 'http://registry.npm.taobao.org/os-locale/download/os-locale-1.4.0.tgz'
+  /os-tmpdir/1.0.2:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
+      tarball: 'http://registry.npm.taobao.org/os-tmpdir/download/os-tmpdir-1.0.2.tgz'
+  /p-limit/1.2.0:
+    dependencies:
+      p-try: 1.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-DpK2vty1nwIsE9DxlJ3ILRWQnxw=
+      tarball: 'http://registry.npm.taobao.org/p-limit/download/p-limit-1.2.0.tgz'
+  /p-locate/2.0.0:
+    dependencies:
+      p-limit: 1.2.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-IKAQOyIqcMj9OcwuWAaA893l7EM=
+      tarball: 'http://registry.npm.taobao.org/p-locate/download/p-locate-2.0.0.tgz'
+  /p-try/1.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-y8ec26+P1CKOE/Yh8rGiN8GyB7M=
+      tarball: 'http://registry.npm.taobao.org/p-try/download/p-try-1.0.0.tgz'
+  /parse-json/2.2.0:
+    dependencies:
+      error-ex: 1.3.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-9ID0BDTvgHQfhGkJn43qGPVaTck=
+      tarball: 'http://registry.npm.taobao.org/parse-json/download/parse-json-2.2.0.tgz'
+  /parseurl/1.3.2:
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-/CidTtiZMRlGDBViUyYs3I3mW/M=
+      tarball: 'http://registry.npm.taobao.org/parseurl/download/parseurl-1.3.2.tgz'
+  /passthrough-counter/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-GWfZ5m2lcrXAI8eH2xEqOHqxZvo=
+      tarball: 'http://registry.npm.taobao.org/passthrough-counter/download/passthrough-counter-1.0.0.tgz'
+  /path-exists/2.1.0:
+    dependencies:
+      pinkie-promise: 2.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-D+tsZPD8UY2adU3V77YscCJ2H0s=
+      tarball: 'http://registry.npm.taobao.org/path-exists/download/path-exists-2.1.0.tgz'
+  /path-exists/3.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-zg6+ql94yxiSXqfYENe1mwEP1RU=
+      tarball: 'http://registry.npm.taobao.org/path-exists/download/path-exists-3.0.0.tgz'
+  /path-is-absolute/1.0.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
+      tarball: 'http://registry.npm.taobao.org/path-is-absolute/download/path-is-absolute-1.0.1.tgz'
+  /path-is-inside/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=
+      tarball: 'http://registry.npm.taobao.org/path-is-inside/download/path-is-inside-1.0.2.tgz'
+  /path-parse/1.0.5:
+    dev: true
+    resolution:
+      integrity: sha1-PBrfhx6pzWyUMbbqK9dKD/BVxME=
+      tarball: 'http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.5.tgz'
+  /path-to-regexp/1.7.0:
+    dependencies:
+      isarray: 0.0.1
+    dev: false
+    resolution:
+      integrity: sha1-Wf3g9DW62suhA6hOnTvGTpa5k30=
+      tarball: 'http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-1.7.0.tgz'
+  /path-type/2.0.0:
+    dependencies:
+      pify: 2.3.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-8BLMuEFbcJb8LaoQVMPXI4lZTHM=
+      tarball: 'http://registry.npm.taobao.org/path-type/download/path-type-2.0.0.tgz'
+  /pathval/1.1.0:
+    dev: true
+    resolution:
+      integrity: sha1-uULm1L3mUwBe9rcTYd74cn0GReA=
+      tarball: 'http://registry.npm.taobao.org/pathval/download/pathval-1.1.0.tgz'
+  /pify/2.3.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
+      tarball: 'http://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz'
+  /pinkie-promise/2.0.1:
+    dependencies:
+      pinkie: 2.0.4
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ITXW36ejWMBprJsXh3YogihFD/o=
+      tarball: 'http://registry.npm.taobao.org/pinkie-promise/download/pinkie-promise-2.0.1.tgz'
+  /pinkie/2.0.4:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+      tarball: 'http://registry.npm.taobao.org/pinkie/download/pinkie-2.0.4.tgz'
+  /pkg-dir/1.0.0:
+    dependencies:
+      find-up: 1.1.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ektQio1bstYp1EcFb/TpyTFM89Q=
+      tarball: 'http://registry.npm.taobao.org/pkg-dir/download/pkg-dir-1.0.0.tgz'
+  /platform/1.3.5:
+    dev: false
+    resolution:
+      integrity: sha1-+2lYxpbgfikY0u7aDwvJRI1zNEQ=
+      tarball: 'http://registry.npm.taobao.org/platform/download/platform-1.3.5.tgz'
+  /pluralize/7.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-KYuJ34uTsCIdv0Ia0rGx6iP8Z3c=
+      tarball: 'http://registry.npm.taobao.org/pluralize/download/pluralize-7.0.0.tgz'
+  /prelude-ls/1.1.2:
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
+      tarball: 'http://registry.npm.taobao.org/prelude-ls/download/prelude-ls-1.1.2.tgz'
+  /process-nextick-args/1.0.7:
+    dev: false
+    resolution:
+      integrity: sha1-FQ4gt1ZZCtP5EJPyWk8q2L/zC6M=
+      tarball: 'http://registry.npm.taobao.org/process-nextick-args/download/process-nextick-args-1.0.7.tgz'
+  /process-nextick-args/2.0.0:
+    resolution:
+      integrity: sha1-o31zL0JxtKsa0HDTVQjoKQeI/6o=
+      tarball: 'http://registry.npm.taobao.org/process-nextick-args/download/process-nextick-args-2.0.0.tgz'
+  /progress/2.0.0:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-ihvjZr+Pwj2yvSPxDG/pILQ4nR8=
+      tarball: 'http://registry.npm.taobao.org/progress/download/progress-2.0.0.tgz'
+  /pseudomap/1.0.2:
+    resolution:
+      integrity: sha1-8FKijacOYYkX7wqKw0wa5aaChrM=
+      tarball: 'http://registry.npm.taobao.org/pseudomap/download/pseudomap-1.0.2.tgz'
+  /qs/6.5.1:
+    dev: false
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha1-NJzfbu+J7EXBLX1es/wMhwNDptg=
+      tarball: 'http://registry.npm.taobao.org/qs/download/qs-6.5.1.tgz'
+  /raw-body/2.3.2:
+    dependencies:
+      bytes: 3.0.0
+      http-errors: 1.6.2
+      iconv-lite: 0.4.19
+      unpipe: 1.0.0
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-vNYMd9Prk83gBQKVw/N5OJvIj4k=
+      tarball: 'http://registry.npm.taobao.org/raw-body/download/raw-body-2.3.2.tgz'
+  /read-pkg-up/2.0.0:
+    dependencies:
+      find-up: 2.1.0
+      read-pkg: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-a3KoBImE4MQeeVEP1en6mbO1Sb4=
+      tarball: 'http://registry.npm.taobao.org/read-pkg-up/download/read-pkg-up-2.0.0.tgz'
+  /read-pkg/2.0.0:
+    dependencies:
+      load-json-file: 2.0.0
+      normalize-package-data: 2.4.0
+      path-type: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-jvHAYjxqbbDcZxPEv6xGMysjaPg=
+      tarball: 'http://registry.npm.taobao.org/read-pkg/download/read-pkg-2.0.0.tgz'
+  /readable-stream/2.3.2:
+    dependencies:
+      core-util-is: 1.0.2
+      inherits: 2.0.3
+      isarray: 1.0.0
+      process-nextick-args: 1.0.7
+      safe-buffer: 5.1.1
+      string_decoder: 1.0.3
+      util-deprecate: 1.0.2
+    dev: false
+    resolution:
+      integrity: sha1-WgTfBeT1f+Pw3Gj90R3FyXx+b00=
+      tarball: 'http://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.2.tgz'
+  /readable-stream/2.3.4:
+    dependencies:
+      core-util-is: 1.0.2
+      inherits: 2.0.3
+      isarray: 1.0.0
+      process-nextick-args: 2.0.0
+      safe-buffer: 5.1.1
+      string_decoder: 1.0.3
+      util-deprecate: 1.0.2
+    resolution:
+      integrity: sha1-yUbD9H+n2Oq8C2FQ9KEvaaRXQHE=
+      tarball: 'http://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.4.tgz'
+  /redeyed/1.0.1:
+    dependencies:
+      esprima: 3.0.0
+    dev: false
+    resolution:
+      integrity: sha1-6WwZO0DAgWsArshCaY5hGF5VSYo=
+      tarball: 'http://registry.npm.taobao.org/redeyed/download/redeyed-1.0.1.tgz'
+  /redis-commands/1.3.1:
+    dev: false
+    resolution:
+      integrity: sha1-gdgm9F+pyLIBH0zXoP5ZfSQdRCs=
+      tarball: 'http://registry.npm.taobao.org/redis-commands/download/redis-commands-1.3.1.tgz'
+  /redis-parser/2.6.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Uu0J2srBCPGmMcB+m2mUHnoZUEs=
+      tarball: 'http://registry.npm.taobao.org/redis-parser/download/redis-parser-2.6.0.tgz'
+  /redis/2.8.0:
+    dependencies:
+      double-ended-queue: 2.1.0-0
+      redis-commands: 1.3.1
+      redis-parser: 2.6.0
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ICKI4/WMSfYHnZevehDhMDrhSwI=
+      tarball: 'http://registry.npm.taobao.org/redis/download/redis-2.8.0.tgz'
+  /referrer-policy/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-NXdOtzW/UPtsB46DM0tHI1AgfXk=
+      tarball: 'http://registry.npm.taobao.org/referrer-policy/download/referrer-policy-1.1.0.tgz'
+  /require-uncached/1.0.3:
+    dependencies:
+      caller-path: 0.1.0
+      resolve-from: 1.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Tg1W1slmL9MeQwEcS5WqSZVUIdM=
+      tarball: 'http://registry.npm.taobao.org/require-uncached/download/require-uncached-1.0.3.tgz'
+  /resolve-from/1.0.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Jsv+k10a7uq7Kbw/5a6wHpPUQiY=
+      tarball: 'http://registry.npm.taobao.org/resolve-from/download/resolve-from-1.0.1.tgz'
+  /resolve/1.5.0:
+    dependencies:
+      path-parse: 1.0.5
+    dev: true
+    resolution:
+      integrity: sha1-HwmsznlsmnYlefMbLBzEw83fnzY=
+      tarball: 'http://registry.npm.taobao.org/resolve/download/resolve-1.5.0.tgz'
+  /restore-cursor/2.0.0:
+    dependencies:
+      onetime: 2.0.1
+      signal-exit: 3.0.2
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-n37ih/gv0ybU/RYpI9YhKe7g368=
+      tarball: 'http://registry.npm.taobao.org/restore-cursor/download/restore-cursor-2.0.0.tgz'
+  /retry-as-promised/2.3.2:
+    dependencies:
+      bluebird: 3.5.1
+      debug: 2.6.9
+    dev: false
+    resolution:
+      integrity: sha1-zZdO5P2bX+A8vzGHHuSCIcB3N7c=
+      tarball: 'http://registry.npm.taobao.org/retry-as-promised/download/retry-as-promised-2.3.2.tgz'
+  /rimraf/2.6.2:
+    dependencies:
+      glob: 7.1.2
+    dev: true
+    resolution:
+      integrity: sha1-LtgVDSShbqhlHm1u8PR8QVjOejY=
+      tarball: 'http://registry.npm.taobao.org/rimraf/download/rimraf-2.6.2.tgz'
+  /run-async/2.3.0:
+    dependencies:
+      is-promise: 2.1.0
+    dev: true
+    engines:
+      node: '>=0.12.0'
+    resolution:
+      integrity: sha1-A3GrSuC91yDUFm19/aZP96RFpsA=
+      tarball: 'http://registry.npm.taobao.org/run-async/download/run-async-2.3.0.tgz'
+  /rx-lite-aggregates/4.0.8:
+    dependencies:
+      rx-lite: 4.0.8
+    dev: true
+    resolution:
+      integrity: sha1-dTuHqJoRyVRnxKwWJsTvxOBcZ74=
+      tarball: 'http://registry.npm.taobao.org/rx-lite-aggregates/download/rx-lite-aggregates-4.0.8.tgz'
+  /rx-lite/4.0.8:
+    dev: true
+    resolution:
+      integrity: sha1-Cx4Rr4vESDbwSmQH6S2kJGe3lEQ=
+      tarball: 'http://registry.npm.taobao.org/rx-lite/download/rx-lite-4.0.8.tgz'
+  /safe-buffer/5.1.1:
+    resolution:
+      integrity: sha1-iTMSr2myEj3vcfV4iQAWce6yyFM=
+      tarball: 'http://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.1.1.tgz'
+  /secure-keys/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-8MgtmKOxOah3aogIBQuCRDEIf8o=
+      tarball: 'http://registry.npm.taobao.org/secure-keys/download/secure-keys-1.0.0.tgz'
+  /semver/5.3.0:
+    dev: true
+    resolution:
+      integrity: sha1-myzl094C0XxgEq0yaqa00M9U+U8=
+      tarball: 'http://registry.npm.taobao.org/semver/download/semver-5.3.0.tgz'
+  /semver/5.5.0:
+    resolution:
+      integrity: sha1-3Eu8emyp2Rbe5dQ1FvAJK1j3uKs=
+      tarball: 'http://registry.npm.taobao.org/semver/download/semver-5.5.0.tgz'
+  /seq-queue/0.0.5:
+    dev: false
+    resolution:
+      integrity: sha1-1WgS4cAXpuTnw+Ojeh2m143TyT4=
+      tarball: 'http://registry.npm.taobao.org/seq-queue/download/seq-queue-0.0.5.tgz'
+  /sequelize/4.33.4:
+    dependencies:
+      bluebird: 3.5.1
+      cls-bluebird: 2.1.0
+      debug: 3.1.0
+      depd: 1.1.2
+      dottie: 2.0.0
+      generic-pool: 3.4.2
+      inflection: 1.12.0
+      lodash: 4.17.5
+      moment: 2.20.1
+      moment-timezone: 0.5.14
+      retry-as-promised: 2.3.2
+      semver: 5.5.0
+      terraformer-wkt-parser: 1.1.2
+      toposort-class: 1.0.1
+      uuid: 3.2.1
+      validator: 9.4.1
+      wkx: 0.4.2
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha1-VYEYPou5Akmeob6WqoWFdDormxw=
+      tarball: 'http://registry.npm.taobao.org/sequelize/download/sequelize-4.33.4.tgz'
+  /setprototypeof/1.0.3:
+    resolution:
+      integrity: sha1-ZlZ+NwQ+608E2RvWWMDL77VbjgQ=
+      tarball: 'http://registry.npm.taobao.org/setprototypeof/download/setprototypeof-1.0.3.tgz'
+  /shebang-command/1.2.0:
+    dependencies:
+      shebang-regex: 1.0.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-RKrGW2lbAzmJaMOfNj/uXer98eo=
+      tarball: 'http://registry.npm.taobao.org/shebang-command/download/shebang-command-1.2.0.tgz'
+  /shebang-regex/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+      tarball: 'http://registry.npm.taobao.org/shebang-regex/download/shebang-regex-1.0.0.tgz'
+  /shimmer/1.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-+Wb3VVeJdj502IQRk2haXnhzZmU=
+      tarball: 'http://registry.npm.taobao.org/shimmer/download/shimmer-1.2.0.tgz'
+  /signal-exit/3.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+      tarball: 'http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz'
+  /slice-ansi/1.0.0:
+    dependencies:
+      is-fullwidth-code-point: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-BE8aSdiEL/MHqta1Be0Xi9lQE00=
+      tarball: 'http://registry.npm.taobao.org/slice-ansi/download/slice-ansi-1.0.0.tgz'
+  /spdx-correct/1.0.2:
+    dependencies:
+      spdx-license-ids: 1.2.2
+    dev: true
+    resolution:
+      integrity: sha1-SzBz2TP/UfORLwOsVRlJikFQ20A=
+      tarball: 'http://registry.npm.taobao.org/spdx-correct/download/spdx-correct-1.0.2.tgz'
+  /spdx-expression-parse/1.0.4:
+    dev: true
+    resolution:
+      integrity: sha1-m98vIOH0DtRH++JzJmGR/O1RYmw=
+      tarball: 'http://registry.npm.taobao.org/spdx-expression-parse/download/spdx-expression-parse-1.0.4.tgz'
+  /spdx-license-ids/1.2.2:
+    dev: true
+    resolution:
+      integrity: sha1-yd96NCRZSt5r0RkA1ZZpbcBrrFc=
+      tarball: 'http://registry.npm.taobao.org/spdx-license-ids/download/spdx-license-ids-1.2.2.tgz'
+  /sprintf-js/1.0.3:
+    dev: true
+    resolution:
+      integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+      tarball: 'http://registry.npm.taobao.org/sprintf-js/download/sprintf-js-1.0.3.tgz'
+  /sqlstring/2.3.0:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-UluKT9Jtb3GqYegipsr5dtMa0qg=
+      tarball: 'http://registry.npm.taobao.org/sqlstring/download/sqlstring-2.3.0.tgz'
+  /stack-trace/0.0.10:
+    dev: false
+    resolution:
+      integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=
+      tarball: 'http://registry.npm.taobao.org/stack-trace/download/stack-trace-0.0.10.tgz'
+  /statuses/1.4.0:
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-u3PURtonlhBu/MG2AaJT1sRr0Ic=
+      tarball: 'http://registry.npm.taobao.org/statuses/download/statuses-1.4.0.tgz'
+  /stream-injecter/0.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-dQeuXquYNlNmZega2M4xtA/j1FU=
+      tarball: 'http://registry.npm.taobao.org/stream-injecter/download/stream-injecter-0.0.1.tgz'
+  /streaming-json-stringify/3.1.0:
+    dependencies:
+      json-stringify-safe: 5.0.1
+      readable-stream: 2.3.4
+    dev: false
+    resolution:
+      integrity: sha1-gCAEN6mTzDnE/gAmO3s7kDrIevU=
+      tarball: 'http://registry.npm.taobao.org/streaming-json-stringify/download/streaming-json-stringify-3.1.0.tgz'
+  /string-width/1.0.2:
+    dependencies:
+      code-point-at: 1.1.0
+      is-fullwidth-code-point: 1.0.0
+      strip-ansi: 3.0.1
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M=
+      tarball: 'http://registry.npm.taobao.org/string-width/download/string-width-1.0.2.tgz'
+  /string-width/2.1.1:
+    dependencies:
+      is-fullwidth-code-point: 2.0.0
+      strip-ansi: 4.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
+      tarball: 'http://registry.npm.taobao.org/string-width/download/string-width-2.1.1.tgz'
+  /string_decoder/1.0.3:
+    dependencies:
+      safe-buffer: 5.1.1
+    resolution:
+      integrity: sha1-D8Z9fBQYJd6UKC3VNr7GubzoYKs=
+      tarball: 'http://registry.npm.taobao.org/string_decoder/download/string_decoder-1.0.3.tgz'
+  /strip-ansi/3.0.1:
+    dependencies:
+      ansi-regex: 2.1.1
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8=
+      tarball: 'http://registry.npm.taobao.org/strip-ansi/download/strip-ansi-3.0.1.tgz'
+  /strip-ansi/4.0.0:
+    dependencies:
+      ansi-regex: 3.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-qEeQIusaw2iocTibY1JixQXuNo8=
+      tarball: 'http://registry.npm.taobao.org/strip-ansi/download/strip-ansi-4.0.0.tgz'
+  /strip-bom/3.0.0:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=
+      tarball: 'http://registry.npm.taobao.org/strip-bom/download/strip-bom-3.0.0.tgz'
+  /strip-json-comments/2.0.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-PFMZQukIwml8DsNEhYwobHygpgo=
+      tarball: 'http://registry.npm.taobao.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz'
+  /supervisor/0.12.0:
+    dev: true
+    engines:
+      node: '>=0.6.0'
+    resolution:
+      integrity: sha1-3n5jNwFbKRhRwQ81OMSn8EkX7ME=
+      tarball: 'http://registry.npm.taobao.org/supervisor/download/supervisor-0.12.0.tgz'
+  /supports-color/2.0.0:
+    dev: true
+    engines:
+      node: '>=0.8.0'
+    resolution:
+      integrity: sha1-U10EXOa2Nj+kARcIRimZXp3zJMc=
+      tarball: 'http://registry.npm.taobao.org/supports-color/download/supports-color-2.0.0.tgz'
+  /supports-color/4.4.0:
+    dependencies:
+      has-flag: 2.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-iD992rwWUUKyphQn8zUt7RldGj4=
+      tarball: 'http://registry.npm.taobao.org/supports-color/download/supports-color-4.4.0.tgz'
+  /supports-color/5.2.0:
+    dependencies:
+      has-flag: 3.0.0
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-sNUzOxGE3TZmy+WqC0XFrHrBeko=
+      tarball: 'http://registry.npm.taobao.org/supports-color/download/supports-color-5.2.0.tgz'
+  /table/4.0.2:
+    dependencies:
+      ajv: 5.5.2
+      ajv-keywords: /ajv-keywords/2.1.1/ajv@5.5.2
+      chalk: 2.3.1
+      lodash: 4.17.5
+      slice-ansi: 1.0.0
+      string-width: 2.1.1
+    dev: true
+    resolution:
+      integrity: sha1-ozRHN1OR52atNNNIbm4q7chNLjY=
+      tarball: 'http://registry.npm.taobao.org/table/download/table-4.0.2.tgz'
+  /terraformer-wkt-parser/1.1.2:
+    dependencies:
+      terraformer: 1.0.8
+    dev: false
+    resolution:
+      integrity: sha1-M2oMj8gglKWv+DKI9prt7NNpvww=
+      tarball: 'http://registry.npm.taobao.org/terraformer-wkt-parser/download/terraformer-wkt-parser-1.1.2.tgz'
+  /terraformer/1.0.8:
+    dependencies:
+      '@types/geojson': 1.0.6
+    dev: false
+    engines:
+      node: '>=4.2.6'
+    resolution:
+      integrity: sha1-UeCtiXRvzyFh3G9lqnDkI3fItZM=
+      tarball: 'http://registry.npm.taobao.org/terraformer/download/terraformer-1.0.8.tgz'
+  /text-table/0.2.0:
+    dev: true
+    resolution:
+      integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+      tarball: 'http://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz'
+  /thenify-all/1.6.0:
+    dependencies:
+      thenify: 3.3.0
+    dev: false
+    engines:
+      node: '>=0.8'
+    resolution:
+      integrity: sha1-GhkY1ALY/D+Y+/I02wvMjMEOlyY=
+      tarball: 'http://registry.npm.taobao.org/thenify-all/download/thenify-all-1.6.0.tgz'
+  /thenify/3.3.0:
+    dependencies:
+      any-promise: 1.3.0
+    dev: false
+    resolution:
+      integrity: sha1-5p44obq+lpsBCCB5eLn2K4hgSDk=
+      tarball: 'http://registry.npm.taobao.org/thenify/download/thenify-3.3.0.tgz'
+  /through/2.3.8:
+    dev: true
+    resolution:
+      integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+      tarball: 'http://registry.npm.taobao.org/through/download/through-2.3.8.tgz'
+  /tmp/0.0.33:
+    dependencies:
+      os-tmpdir: 1.0.2
+    dev: true
+    engines:
+      node: '>=0.6.0'
+    resolution:
+      integrity: sha1-bTQzWIl2jSGyvNoKonfO07G/rfk=
+      tarball: 'http://registry.npm.taobao.org/tmp/download/tmp-0.0.33.tgz'
+  /toposort-class/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-f/0feMi+KMO6Rc1OGj9e4ZO9mYg=
+      tarball: 'http://registry.npm.taobao.org/toposort-class/download/toposort-class-1.0.1.tgz'
+  /type-check/0.3.2:
+    dependencies:
+      prelude-ls: 1.1.2
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
+      tarball: 'http://registry.npm.taobao.org/type-check/download/type-check-0.3.2.tgz'
+  /type-detect/4.0.8:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-dkb7XxiHHPu3dJ5pvTmmOI63RQw=
+      tarball: 'http://registry.npm.taobao.org/type-detect/download/type-detect-4.0.8.tgz'
+  /type-is/1.6.16:
+    dependencies:
+      media-typer: 0.3.0
+      mime-types: 2.1.18
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-+JzjQVQcZysl7nrjxz3uOyvlAZQ=
+      tarball: 'http://registry.npm.taobao.org/type-is/download/type-is-1.6.16.tgz'
+  /typedarray/0.0.6:
+    dev: true
+    resolution:
+      integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+      tarball: 'http://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz'
+  /unpipe/1.0.0:
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
+      tarball: 'http://registry.npm.taobao.org/unpipe/download/unpipe-1.0.0.tgz'
+  /urijs/1.19.1:
+    dev: false
+    resolution:
+      integrity: sha1-Ww/1MMDL3oOG9jQiNbpcpumV0lo=
+      tarball: 'http://registry.npm.taobao.org/urijs/download/urijs-1.19.1.tgz'
+  /util-deprecate/1.0.2:
+    resolution:
+      integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+      tarball: 'http://registry.npm.taobao.org/util-deprecate/download/util-deprecate-1.0.2.tgz'
+  /uuid/3.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-EsUou51Y0LkmXZovbw/ovhf/HxQ=
+      tarball: 'http://registry.npm.taobao.org/uuid/download/uuid-3.2.1.tgz'
+  /validate-npm-package-license/3.0.1:
+    dependencies:
+      spdx-correct: 1.0.2
+      spdx-expression-parse: 1.0.4
+    dev: true
+    resolution:
+      integrity: sha1-KAS6vnEq0zeUWaz74kdGqywwP7w=
+      tarball: 'http://registry.npm.taobao.org/validate-npm-package-license/download/validate-npm-package-license-3.0.1.tgz'
+  /validator/9.4.1:
+    dev: false
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha1-q/Rm05i1Yc0kMFARLG/x3mzBJmM=
+      tarball: 'http://registry.npm.taobao.org/validator/download/validator-9.4.1.tgz'
+  /vary/1.1.2:
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+      tarball: 'http://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz'
+  /which/1.3.0:
+    dependencies:
+      isexe: 2.0.0
+    dev: true
+    resolution:
+      integrity: sha1-/wS9/AEO5UfXgL7DjhrBwnd9JTo=
+      tarball: 'http://registry.npm.taobao.org/which/download/which-1.3.0.tgz'
+  /window-size/0.1.4:
+    dev: false
+    engines:
+      node: '>= 0.10.0'
+    resolution:
+      integrity: sha1-+OGqHuWlPsW/FR/6CXQqatdpeHY=
+      tarball: 'http://registry.npm.taobao.org/window-size/download/window-size-0.1.4.tgz'
+  /winston/2.4.0:
+    dependencies:
+      async: 1.0.0
+      colors: 1.0.3
+      cycle: 1.0.3
+      eyes: 0.1.8
+      isstream: 0.1.2
+      stack-trace: 0.0.10
+    dev: false
+    engines:
+      node: '>= 0.10.0'
+    resolution:
+      integrity: sha1-gIBQuT1SZh7Z+2wms/DIJnCLCu4=
+      tarball: 'http://registry.npm.taobao.org/winston/download/winston-2.4.0.tgz'
+  /wkx/0.4.2:
+    dependencies:
+      '@types/node': 9.4.6
+    dev: false
+    resolution:
+      integrity: sha1-d201pjSlwi5lbkdEvetU+D/Szo0=
+      tarball: 'http://registry.npm.taobao.org/wkx/download/wkx-0.4.2.tgz'
+  /wordwrap/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
+      tarball: 'http://registry.npm.taobao.org/wordwrap/download/wordwrap-1.0.0.tgz'
+  /wrap-ansi/2.1.0:
+    dependencies:
+      string-width: 1.0.2
+      strip-ansi: 3.0.1
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-2Pw9KE3QV5T+hJc8rs3Rz4JP3YU=
+      tarball: 'http://registry.npm.taobao.org/wrap-ansi/download/wrap-ansi-2.1.0.tgz'
+  /wrappy/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+      tarball: 'http://registry.npm.taobao.org/wrappy/download/wrappy-1.0.2.tgz'
+  /write/0.2.1:
+    dependencies:
+      mkdirp: 0.5.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-X8A4KOJkzqP+kUVUdvejxWbLB1c=
+      tarball: 'http://registry.npm.taobao.org/write/download/write-0.2.1.tgz'
+  /x-xss-protection/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-iYr7k4abJGYc+cUvnujbjtB2Tdk=
+      tarball: 'http://registry.npm.taobao.org/x-xss-protection/download/x-xss-protection-1.0.0.tgz'
+  /y18n/3.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-bRX7qITAhnnA136I53WegR4H+kE=
+      tarball: 'http://registry.npm.taobao.org/y18n/download/y18n-3.2.1.tgz'
+  /yallist/2.1.2:
+    resolution:
+      integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
+      tarball: 'http://registry.npm.taobao.org/yallist/download/yallist-2.1.2.tgz'
+  /yargs/3.32.0:
+    dependencies:
+      camelcase: 2.1.1
+      cliui: 3.2.0
+      decamelize: 1.2.0
+      os-locale: 1.4.0
+      string-width: 1.0.2
+      window-size: 0.1.4
+      y18n: 3.2.1
+    dev: false
+    resolution:
+      integrity: sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
+      tarball: 'http://registry.npm.taobao.org/yargs/download/yargs-3.32.0.tgz'
+  github.com/a632079/simple-netease-cloud-music/7598e906130fcfd67447ae418362d0f82f77506c:
+    dev: false
+    name: simple-netease-cloud-music
+    resolution:
+      tarball: 'https://codeload.github.com/a632079/simple-netease-cloud-music/tar.gz/7598e906130fcfd67447ae418362d0f82f77506c'
+    version: 0.3.2
+registry: 'https://registry.npm.taobao.org/'
+shrinkwrapMinorVersion: 4
+shrinkwrapVersion: 3
+specifiers:
+  async: ^2.6.0
+  axios: ^0.17.1
+  bluebird: ^3.5.1
+  bytes: ^3.0.0
+  chai: ^4.1.2
+  chalk: ^2.3.0
+  colors: ^1.1.2
+  cron: ^1.3.0
+  eslint: ^4.16.0
+  eslint-config-standard: ^11.0.0-beta.0
+  eslint-plugin-import: ^2.8.0
+  eslint-plugin-node: ^5.2.1
+  eslint-plugin-promise: ^3.6.0
+  eslint-plugin-standard: ^3.0.1
+  humanize-number: ^0.0.2
+  kcors: ^2.2.1
+  koa: ^2.4.1
+  koa-bodyparser: ^4.2.0
+  koa-compress: ^2.0.0
+  koa-favicon: ^2.0.0
+  koa-helmet: ^3.3.0
+  koa-json: ^2.0.2
+  koa-jsonp: ^2.0.2
+  koa-livereload: ^0.2.0
+  koa-query-pretty: ^0.3.0
+  koa-router: ^7.3.0
+  lodash: ^4.17.4
+  lodash.compact: ^3.0.1
+  lodash.curry: ^4.1.1
+  mocha: ^5.0.0
+  mysql2: ^1.5.1
+  nconf: ^0.10.0
+  nodemailer: ^4.4.2
+  nyc: ^11.4.1
+  passthrough-counter: ^1.0.0
+  redis: ^2.8.0
+  sequelize: ^4.32.2
+  simple-netease-cloud-music: 'git+https://github.com/a632079/simple-netease-cloud-music.git'
+  supervisor: ^0.12.0
+  uuid: ^3.2.1
+  winston: ^2.4.0

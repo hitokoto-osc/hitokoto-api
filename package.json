@@ -58,7 +58,7 @@
     "passthrough-counter": "^1.0.0",
     "redis": "^2.8.0",
     "sequelize": "^4.32.2",
-    "simple-netease-cloud-music": "^0.3.2",
+    "simple-netease-cloud-music": "git+https://github.com/a632079/simple-netease-cloud-music.git",
     "uuid": "^3.2.1",
     "winston": "^2.4.0"
   }

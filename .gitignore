@@ -3,3 +3,5 @@ config.json
 logs/*.log
 .nyc_output/
 coverage/
+*error.log
+*debug.log
