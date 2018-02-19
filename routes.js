@@ -21,6 +21,9 @@ module.exports = (router, controller) => {
   router.get('/nm/lyric/:id', controller.netease.lyric)
   router.get('/nm/url/:id', controller.netease.url)
   router.get('/nm/detail/:id', controller.netease.detail)
+  router.get('/nm/summary/:id', controller.netease.summary)
+  router.get('/nm/redirect/music/:id', controller.netease.redirectMusic)
+  router.get('/nm/redirect/picture/:id', controller.netease.redirectPicture)
 
   return router
 }
