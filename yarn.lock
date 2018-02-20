@@ -1185,8 +1185,8 @@ inquirer@^3.0.6:
     through "^2.3.6"
 
 invariant@^2.2.2:
-  version "2.2.2"
-  resolved "http://registry.npm.taobao.org/invariant/download/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
+  version "2.2.3"
+  resolved "http://registry.npm.taobao.org/invariant/download/invariant-2.2.3.tgz#1a827dfde7dcbd7c323f0ca826be8fa7c5e9d688"
   dependencies:
     loose-envify "^1.0.0"
 
@@ -2337,8 +2337,8 @@ signal-exit@^3.0.0, signal-exit@^3.0.1, signal-exit@^3.0.2:
   resolved "http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
 "simple-netease-cloud-music@git+https://github.com/a632079/simple-netease-cloud-music.git":
-  version "0.3.3"
-  resolved "git+https://github.com/a632079/simple-netease-cloud-music.git#dfd6d50d6c11e54c07ac0dfceb866508de7fd9c0"
+  version "0.3.4"
+  resolved "git+https://github.com/a632079/simple-netease-cloud-music.git#6138128704a2e59766311f884da60e627e9e720c"
 
 slice-ansi@1.0.0:
   version "1.0.0"
