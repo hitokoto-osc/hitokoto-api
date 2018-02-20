@@ -24,8 +24,9 @@ controllers.summary = async (ctx, next) => {
           data[_.id].artists.push(artist.name)
         }
         data[_.id].album = {}
+        data[_.id].album.id = detail.songs[0].al.id
         data[_.id].album.name = detail.songs[0].al.name
-        data[_.id].album.picture = 'https://api.a632079.me/nm/redirect/picture/' + detail.songs[0].al.pic
+        data[_.id].album.picture = (await nm.picture((await nm.album(detail.songs[0].al.id.toString())).songs[0].al.pic_str)).url
 
         // Get Lyric
         if (ctx.query && ctx.query.lyric) {
@@ -46,21 +47,12 @@ controllers.summary = async (ctx, next) => {
     Response400(ctx)
   }
 }
-// Redirect picture URL
-controllers.redirectPicture = async (ctx, next) => {
-  const ret = await nm.picture(ctx.params.id)
-  if (ret && ret.url) {
-    ctx.redirect(ret.url)
-  } else {
-    Response400(ctx)
-  }
-}
 
 // Redirect Music URL
-controllers.redirectMusic = async (ctx, next) => {
+controllers.redirect = async (ctx, next) => {
   const ret = await nm.url(ctx.params.id)
   if (ret && ret.data && ret.data[0].url) {
-    ctx.redirect(ret.data[0].url.replace('http://', 'https://'))
+    ctx.redirect(ret.data[0].url.replace(/http:\/\/m(\d+)[a-zA-Z]*/, 'https://m$1'))
   } else {
     Response400(ctx)
   }
