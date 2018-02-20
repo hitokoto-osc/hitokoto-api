@@ -1,5 +1,6 @@
 // Import Packages
 const NeteaseMusic = require('simple-netease-cloud-music')
+const cache = require('../cache')
 const nm = new NeteaseMusic()
 
 const controllers = {}
@@ -17,7 +18,13 @@ controllers.summary = async (ctx, next) => {
         data[_.id].url = 'https://api.a632079.me/nm/redirect/music/' + _.id
 
         // Get Music Detail
-        const detail = await nm.song(_.id.toString())
+        let detail
+        if (await cache.get('nm:detail:' + _.id)) {
+          detail = await cache.get('nm:detail:' + _.id)
+        } else {
+          detail = await nm.song(_.id.toString())
+          cache.set('nm:detail:' + _.id, detail, 60 * 60 * 2) // Cache 2 Hour
+        }
         data[_.id].name = detail.songs[0].name
         data[_.id].artists = []
         for (let artist of detail.songs[0].ar) {
@@ -26,11 +33,26 @@ controllers.summary = async (ctx, next) => {
         data[_.id].album = {}
         data[_.id].album.id = detail.songs[0].al.id
         data[_.id].album.name = detail.songs[0].al.name
-        data[_.id].album.picture = (await nm.picture((await nm.album(detail.songs[0].al.id.toString())).songs[0].al.pic_str)).url
+
+        let album
+        if (await cache.get('nm:album:' + detail.songs[0].al.id)) {
+          album = await cache.get('nm:album:' + detail.songs[0].al.id)
+        } else {
+          album = await nm.album(detail.songs[0].al.id.toString())
+          cache.set('nm:album:' + detail.songs[0].al.id, album, 60 * 60 * 4) // Cache 4 Hour
+        }
+        data[_.id].album.picture = (await nm.picture(album.songs[0].al.pic_str)).url
 
         // Get Lyric
         if (ctx.query && ctx.query.lyric) {
-          const lyric = await nm.lyric(_.id.toString())
+          let lyric
+          if (await cache.get('nm:lyric:' + _.id)) {
+            lyric = await cache.get('nm:lyric:' + _.id)
+          } else {
+            lyric = await nm.lyric(_.id.toString())
+            cache.set('nm:lyric:' + _.id, lyric, 60 * 60 * 4) // Cache 4 Hour
+          }
+
           data[_.id].lyric = {}
           data[_.id].lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。'
           data[_.id].lyric.translate = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null

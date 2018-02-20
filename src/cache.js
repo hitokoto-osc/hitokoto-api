@@ -37,8 +37,9 @@ class cache {
     return this.redis[commands + 'Async'](param)
   }
 
-  static set (key, value, time) {
+  static set (key, v, time) {
     this.connect()
+    const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
       return this.redis.setAsync('cache:' + key, value, 'EX', time)
     } else {
@@ -46,9 +47,15 @@ class cache {
     }
   }
 
-  static get (key) {
+  static async get (key) {
     this.connect()
-    return this.redis.getAsync('cache:' + key)
+    const data = await this.redis.getAsync('cache:' + key)
+    try {
+      const json = JSON.parse(data)
+      return json
+    } catch (e) {
+      return data
+    }
   }
 }
 
