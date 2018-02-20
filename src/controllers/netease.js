@@ -23,7 +23,7 @@ controllers.summary = async (ctx, next) => {
           detail = await cache.get('nm:detail:' + _.id)
         } else {
           detail = await nm.song(_.id.toString())
-          cache.set('nm:detail:' + _.id, detail, 60 * 60 * 2) // Cache 2 Hour
+          cache.set('nm:detail:' + _.id, detail, 60 * 60 * 8) // Cache 8 Hour
         }
         data[_.id].name = detail.songs[0].name
         data[_.id].artists = []
@@ -39,7 +39,7 @@ controllers.summary = async (ctx, next) => {
           album = await cache.get('nm:album:' + detail.songs[0].al.id)
         } else {
           album = await nm.album(detail.songs[0].al.id.toString())
-          cache.set('nm:album:' + detail.songs[0].al.id, album, 60 * 60 * 4) // Cache 4 Hour
+          cache.set('nm:album:' + detail.songs[0].al.id, album, 60 * 60 * 16) // Cache 16 Hour
         }
         data[_.id].album.picture = (await nm.picture(album.songs[0].al.pic_str)).url
 
@@ -50,7 +50,7 @@ controllers.summary = async (ctx, next) => {
             lyric = await cache.get('nm:lyric:' + _.id)
           } else {
             lyric = await nm.lyric(_.id.toString())
-            cache.set('nm:lyric:' + _.id, lyric, 60 * 60 * 4) // Cache 4 Hour
+            cache.set('nm:lyric:' + _.id, lyric, 60 * 60 * 16) // Cache 16 Hour
           }
 
           data[_.id].lyric = {}
