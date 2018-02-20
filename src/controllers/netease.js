@@ -54,7 +54,7 @@ controllers.summary = async (ctx, next) => {
           }
 
           data[_.id].lyric = {}
-          data[_.id].lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。\n'
+          data[_.id].lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00]纯音乐，敬请聆听。\n'
           data[_.id].lyric.translate = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
         }
       }
