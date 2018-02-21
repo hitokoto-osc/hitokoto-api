@@ -293,11 +293,13 @@ const getLyric = async (id, check = false) => {
 const handleResult = (result, common = false) => {
   const data = {}
   const ids = []
+  if (common) {
+    data.songs = []
+  }
   for (let _ of result) {
     const id = _[0].id
     ids.push(id)
     if (common) {
-      data.songs = []
       const song = {}
       for (let $ of _) {
         Object.assign(song, $)
