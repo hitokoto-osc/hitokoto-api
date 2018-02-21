@@ -24,6 +24,7 @@ dependencies:
   nconf: 0.10.0
   nodemailer: 4.4.2
   passthrough-counter: 1.0.0
+  pify: 3.0.0
   redis: 2.8.0
   sequelize: 4.33.4
   simple-netease-cloud-music: github.com/a632079/simple-netease-cloud-music/6138128704a2e59766311f884da60e627e9e720c
@@ -1990,6 +1991,13 @@ packages:
     resolution:
       integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
       tarball: 'http://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz'
+  /pify/3.0.0:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
+      tarball: 'http://registry.npm.taobao.org/pify/download/pify-3.0.0.tgz'
   /pinkie-promise/2.0.1:
     dependencies:
       pinkie: 2.0.4
@@ -2729,6 +2737,7 @@ specifiers:
   nodemailer: ^4.4.2
   nyc: ^11.4.1
   passthrough-counter: ^1.0.0
+  pify: ^3.0.0
   redis: ^2.8.0
   sequelize: ^4.32.2
   simple-netease-cloud-music: 'git+https://github.com/a632079/simple-netease-cloud-music.git'
