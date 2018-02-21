@@ -47,13 +47,17 @@ class cache {
     }
   }
 
-  static async get (key) {
+  static async get (key, toJson = true) {
     this.connect()
     const data = await this.redis.getAsync('cache:' + key)
-    try {
-      const json = JSON.parse(data)
-      return json
-    } catch (e) {
+    if (toJson) {
+      try {
+        const json = JSON.parse(data)
+        return json
+      } catch (e) {
+        return data
+      }
+    } else {
       return data
     }
   }

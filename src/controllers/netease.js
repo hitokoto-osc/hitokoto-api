@@ -69,11 +69,16 @@ controllers.search = async (ctx, next) => {
 // Playlist API
 controllers.playlist = async (ctx, next) => {
   let ret
-  if (await cache.get('nm:playlist:' + ctx.params.id)) {
-    ret = await cache.get('nm:playlist:' + ctx.params.id)
+  let Cache = await cache.get('nm:playlist:' + ctx.params.id, false)
+  if (Cache) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = Cache
+    return
   } else {
     ret = await nm.playlist(ctx.params.id)
-    cache.set('nm:playlist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    if (ret.code !== 404) {
+      cache.set('nm:playlist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    }
   }
   ctx.body = ret || {
     code: 400,
@@ -97,11 +102,17 @@ controllers.picture = async (ctx, next) => {
 // Artist API
 controllers.artist = async (ctx, next) => {
   let ret
-  if (await cache.get('nm:artist:' + ctx.params.id)) {
-    ret = await cache.get('nm:artist:' + ctx.params.id)
+  let Cache = await cache.get('nm:artist:' + ctx.params.id, false)
+  if (Cache) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = Cache
+    return
   } else {
     ret = await nm.artist(ctx.params.id)
     cache.set('nm:artist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    if (ret.code === 200) {
+      cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    }
   }
   ctx.body = ret || {
     code: 400,
@@ -114,11 +125,16 @@ controllers.artist = async (ctx, next) => {
 // Album API
 controllers.album = async (ctx, next) => {
   let ret
-  if (await cache.get('nm:album:' + ctx.params.id)) {
-    ret = await cache.get('nm:album:' + ctx.params.id)
+  let Cache = await cache.get('nm:album:' + ctx.params.id, false)
+  if (Cache) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = Cache
+    return
   } else {
     ret = await nm.album(ctx.params.id)
-    cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    if (ret.code === 200) {
+      cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    }
   }
   ctx.body = ret || {
     code: 400,
@@ -131,8 +147,11 @@ controllers.album = async (ctx, next) => {
 // Lyric API
 controllers.lyric = async (ctx, next) => {
   let ret
-  if (await cache.get('nm:lyric:' + ctx.params.id)) {
-    ret = await cache.get('nm:lyric:' + ctx.params.id)
+  let Cache = await cache.get('nm:lyric:' + ctx.params.id, false)
+  if (Cache) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = Cache
+    return
   } else {
     ret = await nm.lyric(ctx.params.id)
     cache.set('nm:lyric:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
@@ -159,11 +178,16 @@ controllers.url = async (ctx, next) => {
 // Song Detail API
 controllers.detail = async (ctx, next) => {
   let ret
-  if (await cache.get('nm:detail:' + ctx.params.id)) {
-    ret = await cache.get('nm:detail:' + ctx.params.id)
+  let Cache = await cache.get('nm:detail:' + ctx.params.id, false)
+  if (Cache) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = Cache
+    return
   } else {
     ret = await nm.song(ctx.params.id)
-    cache.set('nm:detail:' + ctx.params.id, ret, 60 * 60 * 2)
+    if (ret.songs.length > 0) {
+      cache.set('nm:detail:' + ctx.params.id, ret, 60 * 60 * 2)
+    }
   }
   ctx.body = ret || {
     code: 400,
@@ -239,6 +263,12 @@ const quickSummary = async (ID, ctx) => {
 }
 
 const handleSummary = async (id, check = false) => {
+  let Cache
+  Cache = await cache.get('nm:song:' + id)
+  if (Cache) {
+    return Cache
+  }
+
   const cacheTime = check ? 60 * 60 * 24 * 7 : 60 * 60 * 2
   const data = {}
   data.id = id
@@ -246,8 +276,9 @@ const handleSummary = async (id, check = false) => {
 
   // Get Music Detail
   let detail
-  if (await cache.get('nm:detail:' + id)) {
-    detail = await cache.get('nm:detail:' + id)
+  Cache = await cache.get('nm:detail:' + id)
+  if (Cache) {
+    detail = Cache
   } else {
     detail = await nm.song(id.toString())
     cache.set('nm:detail:' + id, detail, cacheTime)
@@ -262,22 +293,30 @@ const handleSummary = async (id, check = false) => {
   data.album.name = detail.songs[0].al.name
 
   let album
-  if (await cache.get('nm:album:' + detail.songs[0].al.id)) {
-    album = await cache.get('nm:album:' + detail.songs[0].al.id)
+  Cache = await cache.get('nm:album:' + detail.songs[0].al.id)
+  if (Cache) {
+    album = Cache
   } else {
     album = await nm.album(detail.songs[0].al.id.toString())
     cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
   }
   data.album.picture = (await nm.picture(album.songs[0].al.pic_str)).url
+  cache.set('nm:song:' + id, data, cacheTime)
   return data
 }
 
 const getLyric = async (id, check = false) => {
+  let Cache
+  Cache = await cache.get('nm:lyricSeries:' + id)
+  if (Cache) {
+    return Cache
+  }
   const cacheTime = check ? 60 * 60 * 24 * 7 : 60 * 60 * 2
   // Get Lyric
   let lyric
-  if (await cache.get('nm:lyric:' + id)) {
-    lyric = await cache.get('nm:lyric:' + id)
+  Cache = await cache.get('nm:lyric:' + id)
+  if (Cache) {
+    lyric = Cache
   } else {
     lyric = await nm.lyric(id.toString())
     cache.set('nm:lyric:' + id, lyric, cacheTime)
@@ -287,6 +326,7 @@ const getLyric = async (id, check = false) => {
   data.lyric = {}
   data.lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。\n'
   data.lyric.translate = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
+  cache.set('nm:lyricSeries:' + id, data, cacheTime)
   return data
 }
 
