@@ -9,6 +9,142 @@ const user = require('../../user')
 const sdk = new MusicClient()
 sdk.load(user)
 const controllers = {}
+
+// get mv data
+controllers.mv = async (ctx, next) => {
+  let mvid
+  try {
+    mvid = Number.parseInt(ctx.params.mvid)
+  } catch (e) {
+    ctx.body = {
+      status: 400,
+      message: '参数必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  // let result = await cache.get(`nm:mv:${mvid}`, false)
+  // if (result) {
+  //  ctx.set('Content-Type', 'application/json')
+  //  ctx.body = result
+  //  return
+  // }
+  ctx.redirect(`https://163music.a632079.me/mv?mvid=${mvid}`)
+}
+
+// Get DJ Program Info
+controllers.djProgramInfo = async (ctx, next) => {
+  let pid
+  try {
+    pid = Number.parseInt(ctx.params.pid)
+  } catch (e) {
+    ctx.body = {
+      code: 400,
+      message: '参数必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  let result = await cache.get(`nm:dj:program:info:${pid}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getRadioProgramInfo(pid)
+  if (result && result.code === 200) {
+    cache.set(`nm:dj:program:info:${pid}`, result, 60 * 60 * 2)
+  }
+  ctx.body = result
+}
+
+// Get DJ detail
+controllers.djDetail = async (ctx, next) => {
+  let rid
+  try {
+    rid = Number.parseInt(ctx.params.rid)
+  } catch (e) {
+    ctx.body = {
+      code: 400,
+      message: '参数必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  let result = await cache.get(`nm:dj:info:${rid}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getRadioInfo(rid)
+  if (result && result.code === 200) {
+    cache.set(`nm:dj:info:${rid}`, result, 60 * 60 * 2)
+  }
+  ctx.body = result
+}
+
+// Get DJ Program
+controllers.djProgram = async (ctx, next) => {
+  let rid
+  let limit
+  let offset
+  try {
+    rid = Number.parseInt(ctx.params.rid)
+    limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
+    offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+  } catch (e) {
+    ctx.body = {
+      code: 400,
+      message: '参数必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  const asc = !!(ctx.query && ctx.query.asc)
+  let result = await cache.get(`nm:dj:program:${rid}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getRadioProgram(rid, asc, limit, offset)
+  if (result && result.code === 200) {
+    cache.set(`nm:dj:program:${rid}`, result, 60 * 60 * 2)
+  }
+  ctx.body = result
+}
+
+// Get User DJ
+controllers.userDj = async (ctx, next) => {
+  let uid
+  let offset
+  let limit
+  try {
+    uid = Number.parseInt(ctx.params.uid)
+    limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
+    offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+  } catch (e) {
+    ctx.body = {
+      code: 400,
+      message: '参数必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  let result = await cache.get(`nm:user:dj:${uid}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getUserDj(uid, limit, offset)
+  if (result.code && result.code === 200) {
+    cache.set(`nm:user:dj:${uid}`, result, 60 * 60 * 2)
+  }
+  ctx.body = result
+}
+
 // Get Music Comment
 controllers.musicComment = async (ctx, next) => {
   let id
@@ -16,12 +152,12 @@ controllers.musicComment = async (ctx, next) => {
   let limit
   try {
     id = Number.parseInt(ctx.params.id)
-    limit = ctx.query && ctx.query.limit ? Number.parseInt(ctx.query.limit) : 30
-    offset = ctx.query && ctx.query.offset ? Number.parseInt(ctx.query.limit) : 0
+    limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
+    offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
   } catch (e) {
     ctx.body = {
-      status: 400,
-      message: 'id 必须为数字',
+      code: 400,
+      message: '参数必须为数字',
       ts: Date.now()
     }
     return
@@ -33,7 +169,9 @@ controllers.musicComment = async (ctx, next) => {
     return
   }
   result = await sdk.getSongComment(id, limit, offset)
-  cache.set(`nm:music:comment:${id}:${limit}:${offset}`, result, 60 * 60 * 2) // 2 Hour
+  if (result.code && result.code === 200) {
+    cache.set(`nm:music:comment:${id}:${limit}:${offset}`, result, 60 * 60 * 2) // 2 Hour
+  }
   ctx.body = result
 }
 
@@ -43,7 +181,7 @@ controllers.record = async (ctx, next) => {
   try {
     uid = Number.parseInt(ctx.params.uid)
   } catch (e) {
-    ctx.status = 400
+    ctx.code = 400
     ctx.body = {
       status: 400,
       message: 'uid 必须为数字',
@@ -59,7 +197,9 @@ controllers.record = async (ctx, next) => {
     return
   }
   result = await sdk.getUserRecord(uid, type)
-  cache.set(`nm:user:record:${uid}:${type}`, result, 60 * 60 * 2)
+  if (result.code && result.code === 200) {
+    cache.set(`nm:user:record:${uid}:${type}`, result, 60 * 60 * 2)
+  }
   ctx.body = result
 }
 
@@ -106,15 +246,46 @@ controllers.redirect = async (ctx, next) => {
   }
 }
 
+const getType = ctx => {
+  if (!(ctx.query && ctx.query.type)) {
+    return 1
+  }
+  const type = ctx.query.type.toLocaleUpperCase()
+  switch (type) {
+    case 'ALBUM':
+      return 10
+    case 'ARTIST':
+      return 100
+    case 'DJ':
+      return 1009
+    case 'LYRIC':
+      return 1006
+    case 'MV':
+      return 1004
+    case 'PLAYLIST':
+      return 1000
+    case 'SONG':
+      return 1
+    case 'USER':
+      return 1002
+    default:
+      return 1
+  }
+}
+
 // Search API
 controllers.search = async (ctx, next) => {
-  let ret
-  if (await cache.get('nm:search:' + ctx.params.id)) {
-    ret = await cache.get('nm:search:' + ctx.params.id)
-  } else {
-    ret = await nm.search(ctx.params.id)
-    cache.set('nm:search:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+  const keyword = ctx.params.keyword
+  const limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
+  const offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+  const type = getType(ctx)
+  let ret = await cache.get(`nm:search:${keyword}:${limit}:${offset}:${type}`)
+  if (ret) {
+    ctx.body = ret
+    return
   }
+  ret = await sdk.search(keyword, type, limit, offset)
+  cache.set(`nm:search:${keyword}:${limit}:${offset}:${type}`, ret, 60 * 60 * 2) // Cache 2 Hour
   ctx.body = ret || {
     code: 400,
     message: 'API 在请求时出现了问题，再试一下看看？',

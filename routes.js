@@ -13,7 +13,7 @@ module.exports = (router, controller) => {
   router.get('/status', controller.status)
 
   // Netease API
-  router.get('/nm/search/:id', controller.netease.search)
+  router.get('/nm/search/:keyword', controller.netease.search)
   router.get('/nm/playlist/:id', controller.netease.playlist)
   router.get('/nm/picture/:id/:height?', controller.netease.picture)
   router.get('/nm/artist/:id', controller.netease.artist)
@@ -25,6 +25,11 @@ module.exports = (router, controller) => {
   router.get('/nm/redirect/music/:id', controller.netease.redirect)
   router.get('/nm/record/:uid', controller.netease.record)
   router.get('/nm/comment/music/:id', controller.netease.musicComment)
+  router.get('/nm/url/mv/:mvid', controller.netease.mv)
+  // router.get('/nm/dj/program/detail/:pid', controller.netease.djProgramInfo)
+  router.get('/nm/user/dj/:uid', controller.netease.userDj)
+  router.get('/nm/dj/:rid', controller.netease.djProgram)
+  router.get('/nm/dj/detail/:rid', controller.netease.djDetail)
 
   return router
 }
