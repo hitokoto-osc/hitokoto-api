@@ -21,8 +21,8 @@ module.exports = [
   }),
   require('kcors')({
     origin: '*',
-    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH']
-    // exposeHeaders: ['X-Request-Id']
+    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
+    exposeHeaders: ['X-Request-Id']
   }),
   require('koa-favicon')(path.join(__dirname, './public/favicon.ico')),
   require('koa-compress')({
