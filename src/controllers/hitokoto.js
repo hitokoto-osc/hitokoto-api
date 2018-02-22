@@ -35,7 +35,7 @@ async function hitokoto (ctx, next) {
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
         ctx.set('charset', 'utf-8')
-        ctx.set('Content-Type', 'text/javascript')
+        ctx.set('Content-Type', 'text/javascript; charset=utf-8')
         ctx.body = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         break
       default:
@@ -60,7 +60,7 @@ async function hitokoto (ctx, next) {
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        ctx.set('Content-Type', 'text/javascript; charset=utf-8;')
+        ctx.set('Content-Type', 'text/javascript; charset=utf-8')
         ctx.body = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');if(!dom){console.error("请输入正确的选择器值");}Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         break
       default:
