@@ -281,6 +281,7 @@ controllers.search = async (ctx, next) => {
   const type = getType(ctx)
   let ret = await cache.get(`nm:search:${keyword}:${limit}:${offset}:${type}`)
   if (ret) {
+    ctx.set('Content-Type', 'application/json')
     ctx.body = ret
     return
   }
