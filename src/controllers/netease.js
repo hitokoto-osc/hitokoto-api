@@ -1,11 +1,68 @@
 // Import Packages
 const NeteaseMusic = require('simple-netease-cloud-music')
 const async = require('async')
+const { MusicClient } = require('netease-music-sdk')
 const pify = require('pify')
 const cache = require('../cache')
 const nm = new NeteaseMusic()
-
+const user = require('../../user')
+const sdk = new MusicClient()
+sdk.load(user)
 const controllers = {}
+// Get Music Comment
+controllers.musicComment = async (ctx, next) => {
+  let id
+  let offset
+  let limit
+  try {
+    id = Number.parseInt(ctx.params.id)
+    limit = ctx.query && ctx.query.limit ? Number.parseInt(ctx.query.limit) : 30
+    offset = ctx.query && ctx.query.offset ? Number.parseInt(ctx.query.limit) : 0
+  } catch (e) {
+    ctx.body = {
+      status: 400,
+      message: 'id 必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  let result = await cache.get(`nm:music:comment:${id}:${limit}:${offset}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getSongComment(id, limit, offset)
+  cache.set(`nm:music:comment:${id}:${limit}:${offset}`, result, 60 * 60 * 2) // 2 Hour
+  ctx.body = result
+}
+
+// Get Music record
+controllers.record = async (ctx, next) => {
+  let uid
+  try {
+    uid = Number.parseInt(ctx.params.uid)
+  } catch (e) {
+    ctx.status = 400
+    ctx.body = {
+      status: 400,
+      message: 'uid 必须为数字',
+      ts: Date.now()
+    }
+    return
+  }
+  const type = ctx.query && ctx.query.weekly ? 1 : 0
+  let result = await cache.get(`nm:user:record:${uid}:${type}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  result = await sdk.getUserRecord(uid, type)
+  cache.set(`nm:user:record:${uid}:${type}`, result, 60 * 60 * 2)
+  ctx.body = result
+}
+
 // Get Music Summary
 controllers.summary = async (ctx, next) => {
   // Remove End ','

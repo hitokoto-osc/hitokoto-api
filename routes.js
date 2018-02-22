@@ -23,6 +23,8 @@ module.exports = (router, controller) => {
   router.get('/nm/detail/:id', controller.netease.detail)
   router.get('/nm/summary/:id', controller.netease.summary)
   router.get('/nm/redirect/music/:id', controller.netease.redirect)
+  router.get('/nm/record/:uid', controller.netease.record)
+  router.get('/nm/comment/music/:id', controller.netease.musicComment)
 
   return router
 }

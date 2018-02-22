@@ -22,6 +22,7 @@ dependencies:
   lodash.curry: 4.1.1
   mysql2: 1.5.2
   nconf: 0.10.0
+  netease-music-sdk: 0.3.0
   nodemailer: 4.4.2
   passthrough-counter: 1.0.0
   pify: 3.0.0
@@ -221,6 +222,13 @@ packages:
     resolution:
       integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
       tarball: 'http://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz'
+  /big-integer/1.6.26:
+    dev: false
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha1-OvFnL6Ytry1eyvrPblqg0l4Cwcg=
+      tarball: 'http://registry.npm.taobao.org/big-integer/download/big-integer-1.6.26.tgz'
   /bluebird/3.5.1:
     dev: false
     resolution:
@@ -1759,6 +1767,14 @@ packages:
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
       tarball: 'http://registry.npm.taobao.org/negotiator/download/negotiator-0.6.1.tgz'
+  /netease-music-sdk/0.3.0:
+    dependencies:
+      axios: 0.17.1
+      big-integer: 1.6.26
+    dev: false
+    resolution:
+      integrity: sha1-QXO6/EKOVUvwx04Y17K+otqpZ4k=
+      tarball: 'http://registry.npm.taobao.org/netease-music-sdk/download/netease-music-sdk-0.3.0.tgz'
   /nocache/2.0.0:
     dev: false
     resolution:
@@ -2734,6 +2750,7 @@ specifiers:
   mocha: ^5.0.0
   mysql2: ^1.5.1
   nconf: ^0.10.0
+  netease-music-sdk: ^0.3.0
   nodemailer: ^4.4.2
   nyc: ^11.4.1
   passthrough-counter: ^1.0.0

@@ -1,0 +1,120 @@
+{
+    "cookie": [
+        "MUSIC_U=55c961cd063c81f50dd18e6e409f8392ffcce3bc60f1eeb91f011eb27081e3ae739dab38b77fcd41b6c59e1fdae5fddf6ee010f035411ce1de39c620ce8469a8; Expires=Tue, 12 Mar 2086 18:20:49 GMT; Path=/; HttpOnly; Domain=.music.163.com",
+        "__csrf=736cbe26bcf02216c61bfb0e058346e9; Domain=.music.163.com; Expires=Fri, 09-Mar-2086 15:06:52 GMT; Path=/"
+    ],
+    "data": {
+        "loginType": 1,
+        "clientId": "7433591cc2e1ab890d0652e92ca8f09e16665a448aa87924bc07c0d5ef79ab80585e1cf3f9bf17719b263fd4ac4e88b42dafac58a8b46ae7",
+        "effectTime": 2147483647,
+        "code": 200,
+        "account": {
+            "id": 70282814,
+            "userName": "0_a632079@gmail.com",
+            "type": 0,
+            "status": 0,
+            "whitelistAuthority": 0,
+            "createTime": 0,
+            "salt": "",
+            "tokenVersion": 0,
+            "ban": 0,
+            "baoyueVersion": -2,
+            "donateVersion": 0,
+            "vipType": 0,
+            "viptypeVersion": 1518377635765,
+            "anonimousUser": false
+        },
+        "profile": {
+            "backgroundImgIdStr": "18575149441425244",
+            "avatarImgIdStr": "18575149441425230",
+            "userId": 70282814,
+            "vipType": 0,
+            "accountStatus": 0,
+            "nickname": "a632079",
+            "province": 320000,
+            "defaultAvatar": false,
+            "avatarUrl": "http://p1.music.126.net/We0ENS14QCJHPYCA1l1s-A==/18575149441425230.jpg",
+            "gender": 1,
+            "birthday": 829999569453,
+            "city": 320500,
+            "mutual": false,
+            "remarkName": null,
+            "expertTags": null,
+            "experts": {},
+            "avatarImgId": 18575149441425230,
+            "backgroundImgId": 18575149441425244,
+            "userType": 0,
+            "authStatus": 0,
+            "detailDescription": "",
+            "djStatus": 10,
+            "followed": false,
+            "backgroundUrl": "http://p1.music.126.net/vCCjNnEjY038uhfK4fT8Rg==/18575149441425244.jpg",
+            "description": "",
+            "signature": "清风拂面，蜂蝶纷飞，静静得躺在草丛中…看着蔚蓝色的天空…尽情享受音乐的美妙。",
+            "authority": 0,
+            "avatarImgId_str": "18575149441425230"
+        },
+        "bindings": [
+            {
+                "expired": false,
+                "url": "",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"countrycode\":\"\",\"cellphone\":\"13222206170\",\"hasPassword\":true}",
+                "expiresIn": 2147483647,
+                "refreshTime": 1466430597,
+                "id": 2869905116,
+                "type": 1
+            },
+            {
+                "expired": true,
+                "url": "http://weibo.com/u/1687375085",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"allow_all_act_msg\":false,\"favourites_count\":0,\"urank\":9,\"verified_trade\":\"\",\"weihao\":\"577336948\",\"verified_source_url\":\"\",\"province\":\"32\",\"screen_name\":\"a632079\",\"id\":1687375085,\"cover_image\":\"http://ww1.sinaimg.cn/crop.0.0.920.300/64934cedgw1f2jym5m051j20pk08c794.jpg\",\"geo_enabled\":true,\"verified_type\":-1,\"access_token\":\"2.00L2DMqB0Gg46158191fc055wFckIC\",\"pagefriends_count\":1,\"domain\":\"qq1943241505\",\"following\":false,\"name\":\"a632079\",\"cover_image_phone\":\"http://ww4.sinaimg.cn/crop.0.0.640.640.640/64934cedgw1f2ar3yqcaqj20u00u0ahf.jpg\",\"idstr\":\"1687375085\",\"follow_me\":false,\"friends_count\":183,\"credit_score\":80,\"gender\":\"f\",\"city\":\"5\",\"profile_url\":\"577336948\",\"description\":\"A Code Writer\",\"created_at\":\"Sat Jul 21 13:19:03 +0800 2012\",\"remark\":\"\",\"ptype\":0,\"verified_reason_url\":\"\",\"block_word\":0,\"uid\":\"1687375085\",\"avatar_hd\":\"http://tva1.sinaimg.cn/crop.0.0.996.996.1024/64934cedjw8f2arbvrescj20ro0rptb1.jpg\",\"mbtype\":12,\"bi_followers_count\":12,\"user_ability\":0,\"cardid\":\"star_713\",\"verified_reason\":\"\",\"mbrank\":3,\"lang\":\"zh-cn\",\"expires_in\":2649778,\"class\":1,\"remind_in\":\"2649778\",\"star\":0,\"allow_all_comment\":true,\"online_status\":0,\"verified\":false,\"profile_image_url\":\"http://tva1.sinaimg.cn/crop.0.0.996.996.50/64934cedjw8f2arbvrescj20ro0rptb1.jpg\",\"block_app\":1,\"url\":\"http://i.a632079.me\",\"avatar_large\":\"http://tva1.sinaimg.cn/crop.0.0.996.996.180/64934cedjw8f2arbvrescj20ro0rptb1.jpg\",\"statuses_count\":74,\"followers_count\":51,\"location\":\"江苏 苏州\",\"verified_source\":\"\",\"status\":{\"created_at\":\"Thu Jul 14 19:21:53 +0800 2016\",\"id\":3997221421120304,\"mid\":\"3997221421120304\",\"idstr\":\"3997221421120304\",\"text\":\"分享单曲http://t.cn/R5sQVEK （@网易云音乐 ）\",\"textLength\":44,\"source_allowclick\":0,\"source_type\":1,\"source\":\"<a href=\\\"http://app.weibo.com/t/feed/u6BYq\\\" rel=\\\"nofollow\\\">网易云音乐</a>\",\"favorited\":false,\"truncated\":false,\"in_reply_to_status_id\":\"\",\"in_reply_to_user_id\":\"\",\"in_reply_to_screen_name\":\"\",\"pic_urls\":[],\"geo\":null,\"reposts_count\":0,\"comments_count\":0,\"attitudes_count\":0,\"isLongText\":false,\"mlevel\":0,\"visible\":{\"type\":0,\"list_id\":0},\"biz_feature\":0,\"hasActionTypeCard\":0,\"darwin_tags\":[],\"hot_weibo_tags\":[],\"text_tag_tips\":[],\"userType\":0,\"cardid\":\"star_713\",\"positive_recom_flag\":0,\"gif_ids\":\"\",\"is_show_bulletin\":0},\"data\":0,\"code\":-1510410484137,\"message\":\"服务器返回异常状态[0]!\",\"rawdata\":\"\",\"AnonymousUserId\":null}",
+                "expiresIn": 2649778,
+                "refreshTime": 1510410519,
+                "id": 2883766487,
+                "type": 2
+            },
+            {
+                "expired": true,
+                "url": "http://t.qq.com/a632079",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"openkey\":\"E5CF1D93EA01DA701D7DDBDD99A8B3EA\",\"nick\":\"藤之青\",\"name\":\"a632079\",\"openid\":\"f475d7b57652bbc2e4e9bdc86cb0a521\",\"expires_in\":8035200,\"refresh_token\":\"90113f7d3a8faf4fabbdf909b14a8673\",\"access_token\":\"1f37709c8da19d46daa7a582eeae47f1\",\"openId\":\"F475D7B57652BBC2E4E9BDC86CB0A521\"}",
+                "expiresIn": 8035200,
+                "refreshTime": 1436344116,
+                "id": 37122486,
+                "type": 6
+            },
+            {
+                "expired": false,
+                "url": "",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"access_token\":\"73E14B1A593FF25F429BB44B0E57DB18\",\"refresh_token\":\"6E1C724A940C99B0E95B80CAF9C60E89\",\"openid\":\"8A1F2F3797965B677FC19BAFC447B3D3\",\"nickname\":\"Jonson Petard\",\"expires_in\":7776000}",
+                "expiresIn": 7776000,
+                "refreshTime": 1513405801,
+                "id": 61384168,
+                "type": 5
+            },
+            {
+                "expired": true,
+                "url": "",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"access_token\":\"D_3CqXoFfx9rSJoukT6oMIG844B0ng4vSEGkKr2vHIe1-TBSbdOgwTlajAJjXQKANQi4EXNJd42jZhzITggy8A\",\"refresh_token\":\"pM3gXn3owUtzIYTw5lLPqRKeKn8u7yjYA-QL5gW6fXnIC1CkKkHo7xqb_uVKJdqVMlJeWWtE7yp0GsbnG0qobg\",\"unionid\":\"oZoefuC2rlxlDsUw10QYhcwcr73Y\",\"openid\":\"okvmMjv_8_FKaxTs_VxPY8TFpWow\",\"scope\":\"snsapi_userinfo\",\"nickname\":\"a632079\",\"expires_in\":7200}",
+                "expiresIn": 7200,
+                "refreshTime": 1504049940,
+                "id": 2869883181,
+                "type": 10
+            },
+            {
+                "expired": false,
+                "url": "",
+                "userId": 70282814,
+                "tokenJsonStr": "{\"email\":\"a632079@gmail.com\"}",
+                "expiresIn": 2147483647,
+                "refreshTime": 0,
+                "id": 33168351,
+                "type": 0
+            }
+        ]
+    }
+}
