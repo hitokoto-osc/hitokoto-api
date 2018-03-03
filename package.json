@@ -33,6 +33,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "axios": "^0.17.1",
+    "bilibili-api": "^0.0.2",
     "bluebird": "^3.5.1",
     "bytes": "^3.0.0",
     "chalk": "^2.3.0",
@@ -60,7 +61,7 @@
     "pify": "^3.0.0",
     "redis": "^2.8.0",
     "sequelize": "^4.32.2",
-    "simple-netease-cloud-music": "git+https://github.com/a632079/simple-netease-cloud-music.git",
+    "simple-netease-cloud-music": "^0.3.4",
     "uuid": "^3.2.1",
     "winston": "^2.4.0"
   }
