@@ -13,16 +13,17 @@
 日记默认保存在 `./logs/Hitokoto-api.log`
 
 ## 开始使用
-环境安装： 参考 [NodeBB](http://docs.nodebb-cn.org) 的环境安装 :D
+~~环境安装： 参考 [NodeBB](http://docs.nodebb-cn.org) 的环境安装 :D~~
 
-> `yarn` 可替换为 `npm`, 但并不推荐
+```shell
+sudo sh ./install.sh
+```
 
 1. `cp config.example.json config.json` 并配置好相关信息（设置 `log_level` 为 `debug`）
-2. `yarn --production`
-3. `yarn start` 
+3. `pnpm run start` 
 4. 进行第一轮测试，访问服务，看看是否存在异常
 5. 无异常，将 `log_level` 设置为 `info`
-6. `yarn global add pm2` 使用指令来全局安装 pm2
-7. `pm2 startup` 使 pm2 开机自启动
-8. `pm2 core.js --name hitokoto` pm2 托管 api
-9. `pm2 save` 保存列表
+6. `sudo pm2 startup` 使 pm2 开机自启动
+7. `sudo pm2 core.js --name hitokoto` pm2 托管 api
+8. `sudo pm2 save` 保存列表
+9. 配置计划任务: 将 `./update.sh` 加入计划任务 (`crontab -e`, 3小时进行一次)
