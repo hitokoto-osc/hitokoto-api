@@ -8,6 +8,10 @@ print_status() {
   echo -e "## ${outp}"
   echo
 }
+bail() {
+  echo 'Error executing command, exiting'
+  exit 1
+}
 exec_cmd_nobail() {
   echo "+ $1"
   bash -c "$1"
@@ -23,7 +27,7 @@ if [[ "$os" =~ $os_check_centos ]]; then
   exec_cmd "yum update"
   exec_cmd "yum install -y nodejs redis"
   exec_cmd "npm config set registry https://registry.npm.taobao.org/"
-  exec_cmd "npm i -g pnpm"
+  exec_cmd "npm i -g pnpm pm2"
   exec_cmd "pnpm i"
   print_status "Install Done!"
 elif [[ "$os" =~ $os_check_ubuntu ]]; then
@@ -31,7 +35,7 @@ elif [[ "$os" =~ $os_check_ubuntu ]]; then
   exec_cmd "apt update && apt upgrade"
   exec_cmd "apt install -y nodejs redis"
   exec_cmd "npm config set registry https://registry.npm.taobao.org/"
-  exec_cmd "npm i -g pnpm"
+  exec_cmd "npm i -g pnpm pm2"
   exec_cmd "pnpm i"
   print_status "Install Done!"
 else
