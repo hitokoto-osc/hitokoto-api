@@ -8,7 +8,7 @@ dependencies:
   colors: 1.1.2
   cron: 1.3.0
   humanize-number: 0.0.2
-  iconv: 2.3.0
+  iconv-lite: 0.4.19
   kcors: 2.2.1
   koa: 2.5.0
   koa-bodyparser: 4.2.0
@@ -24,7 +24,7 @@ dependencies:
   lodash.curry: 4.1.1
   mysql2: 1.5.2
   nconf: 0.10.0
-  netease-music-sdk: 0.3.0
+  netease-music-sdk: 0.3.1
   nodemailer: 4.4.2
   passthrough-counter: 1.0.0
   pify: 3.0.0
@@ -1461,15 +1461,6 @@ packages:
     resolution:
       integrity: sha1-90aPYBNfXl2tM5nAqBvpoWA6CCs=
       tarball: 'http://registry.npm.taobao.org/iconv-lite/download/iconv-lite-0.4.19.tgz'
-  /iconv/2.3.0:
-    dependencies:
-      nan: 2.9.2
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    resolution:
-      integrity: sha1-lzmIfCvUktml4jbdNmfFNYYBIBs=
-      tarball: 'http://registry.npm.taobao.org/iconv/download/iconv-2.3.0.tgz'
   /ienoopen/1.0.0:
     dev: false
     resolution:
@@ -2055,11 +2046,6 @@ packages:
     resolution:
       integrity: sha1-O3oNJiA910s6nfTJz7gnsvuQfmQ=
       tarball: 'http://registry.npm.taobao.org/named-placeholders/download/named-placeholders-1.1.1.tgz'
-  /nan/2.9.2:
-    dev: false
-    resolution:
-      integrity: sha1-9WTXX1+PNqbZRWzKemxP5IireGY=
-      tarball: 'http://registry.npm.taobao.org/nan/download/nan-2.9.2.tgz'
   /natural-compare/1.4.0:
     dev: true
     resolution:
@@ -2083,14 +2069,14 @@ packages:
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
       tarball: 'http://registry.npm.taobao.org/negotiator/download/negotiator-0.6.1.tgz'
-  /netease-music-sdk/0.3.0:
+  /netease-music-sdk/0.3.1:
     dependencies:
       axios: 0.17.1
       big-integer: 1.6.26
     dev: false
     resolution:
-      integrity: sha1-QXO6/EKOVUvwx04Y17K+otqpZ4k=
-      tarball: 'http://registry.npm.taobao.org/netease-music-sdk/download/netease-music-sdk-0.3.0.tgz'
+      integrity: sha1-naYWg3Tf1TzejnGuIret3U/+Scc=
+      tarball: 'http://registry.npm.taobao.org/netease-music-sdk/download/netease-music-sdk-0.3.1.tgz'
   /nocache/2.0.0:
     dev: false
     resolution:
@@ -3219,7 +3205,7 @@ specifiers:
   eslint-plugin-promise: ^3.6.0
   eslint-plugin-standard: ^3.0.1
   humanize-number: ^0.0.2
-  iconv: ^2.3.0
+  iconv-lite: ^0.4.19
   kcors: ^2.2.1
   koa: ^2.4.1
   koa-bodyparser: ^4.2.0
@@ -3237,7 +3223,7 @@ specifiers:
   mocha: ^5.0.0
   mysql2: ^1.5.1
   nconf: ^0.10.0
-  netease-music-sdk: ^0.3.0
+  netease-music-sdk: ^0.3.1
   nodemailer: ^4.4.2
   nyc: ^11.4.1
   passthrough-counter: ^1.0.0

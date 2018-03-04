@@ -4,6 +4,11 @@
 同时更新了以下功能:
 * API 请求统计
 * callback 函数的支持
+* 返回 JS 的支持
+* 支持 GBK编码
+* 扩展
+  * 网易云音乐
+  * Bilibili API （待定）
 
 ## 依赖
 * Redis

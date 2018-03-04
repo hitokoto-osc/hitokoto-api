@@ -23,13 +23,22 @@ controllers.mv = async (ctx, next) => {
     }
     return
   }
-  // let result = await cache.get(`nm:mv:${mvid}`, false)
-  // if (result) {
-  //  ctx.set('Content-Type', 'application/json')
-  //  ctx.body = result
-  //  return
-  // }
-  ctx.redirect(`https://163music.a632079.me/mv?mvid=${mvid}`)
+  let result = await cache.get(`nm:mv:${mvid}`, false)
+  if (result) {
+    ctx.set('Content-Type', 'application/json')
+    ctx.body = result
+    return
+  }
+  try {
+    result = await sdk.getMvInfo(mvid)
+    cache.set(`nm:mv:${mvid}`, result, 60 * 60 * 2)
+    ctx.body = result
+  } catch (e) {
+    ctx.status = 404
+    ctx.body = {
+      status: 404
+    }
+  }
 }
 
 // Get DJ Program Info
