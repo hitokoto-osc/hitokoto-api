@@ -28,11 +28,13 @@ async function hitokoto (ctx, next) {
     const encode = ctx.query.encode
     let response
     let js = false
+    let text
     switch (encode) {
       case 'json':
         response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
+        text = true
         response = Buffer.from(ret.hitokoto)
         break
       case 'js':
@@ -48,6 +50,8 @@ async function hitokoto (ctx, next) {
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=gbk')
+      } else if (text) {
+        ctx.set('Content-Type', 'text/plain; charset=gbk')
       } else {
         ctx.set('Content-Type', 'application/json; charset=gbk')
       }
@@ -55,6 +59,8 @@ async function hitokoto (ctx, next) {
     } else {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=utf-8')
+      } else if (text) {
+        ctx.set('Content-Type', 'text/plain; charset=utf-8')
       } else {
         ctx.set('Content-Type', 'application/json; charset=utf-8')
       }
@@ -71,11 +77,13 @@ async function hitokoto (ctx, next) {
     const encode = ctx.query.encode
     let response
     let js = false
+    let text = false
     switch (encode) {
       case 'json':
         response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
+        text = true
         response = Buffer.from(ret.hitokoto)
         break
       case 'js':
@@ -91,6 +99,8 @@ async function hitokoto (ctx, next) {
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=gbk')
+      } else if (text) {
+        ctx.set('Content-Type', 'text/plain; charset=gbk')
       } else {
         ctx.set('Content-Type', 'application/json; charset=gbk')
       }
@@ -98,6 +108,8 @@ async function hitokoto (ctx, next) {
     } else {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=utf-8')
+      } else if (text) {
+        ctx.set('Content-Type', 'text/plain; charset=utf-8')
       } else {
         ctx.set('Content-Type', 'application/json; charset=utf-8')
       }
