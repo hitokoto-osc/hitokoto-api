@@ -8,6 +8,7 @@ dependencies:
   colors: 1.1.2
   cron: 1.3.0
   humanize-number: 0.0.2
+  iconv: 2.3.0
   kcors: 2.2.1
   koa: 2.5.0
   koa-bodyparser: 4.2.0
@@ -1460,6 +1461,15 @@ packages:
     resolution:
       integrity: sha1-90aPYBNfXl2tM5nAqBvpoWA6CCs=
       tarball: 'http://registry.npm.taobao.org/iconv-lite/download/iconv-lite-0.4.19.tgz'
+  /iconv/2.3.0:
+    dependencies:
+      nan: 2.9.2
+    dev: false
+    engines:
+      node: '>=0.8.0'
+    resolution:
+      integrity: sha1-lzmIfCvUktml4jbdNmfFNYYBIBs=
+      tarball: 'http://registry.npm.taobao.org/iconv/download/iconv-2.3.0.tgz'
   /ienoopen/1.0.0:
     dev: false
     resolution:
@@ -2045,6 +2055,11 @@ packages:
     resolution:
       integrity: sha1-O3oNJiA910s6nfTJz7gnsvuQfmQ=
       tarball: 'http://registry.npm.taobao.org/named-placeholders/download/named-placeholders-1.1.1.tgz'
+  /nan/2.9.2:
+    dev: false
+    resolution:
+      integrity: sha1-9WTXX1+PNqbZRWzKemxP5IireGY=
+      tarball: 'http://registry.npm.taobao.org/nan/download/nan-2.9.2.tgz'
   /natural-compare/1.4.0:
     dev: true
     resolution:
@@ -3204,6 +3219,7 @@ specifiers:
   eslint-plugin-promise: ^3.6.0
   eslint-plugin-standard: ^3.0.1
   humanize-number: ^0.0.2
+  iconv: ^2.3.0
   kcors: ^2.2.1
   koa: ^2.4.1
   koa-bodyparser: ^4.2.0

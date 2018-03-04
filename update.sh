@@ -11,7 +11,7 @@ bail() {
 }
 exec_cmd_nobail() {
   echo "+ $1"
-  bash -c "$1"
+  sh -c "$1"
 }
 
 exec_cmd() {
