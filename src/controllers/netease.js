@@ -472,10 +472,10 @@ const silentSummary = async (id, ctx) => {
     if (ids.length > 0) {
       const result = await pify(async).mapLimit(ids, 5, async id => {
         if (ctx.query && ctx.query.lyric) {
-          const ret = await Promise.all([handleSummary(id, true), getLyric(id, true)])
+          const ret = await Promise.all([handleSummary(id, ctx.request.origin, true), getLyric(id, true)])
           return ret
         } else {
-          const ret = await Promise.all([handleSummary(id, true)])
+          const ret = await Promise.all([handleSummary(id, ctx.request.origin, true)])
           return ret
         }
       })
@@ -492,15 +492,15 @@ const quickSummary = async (ID, ctx) => {
   const ids = ID.split(',')
   const result = await pify(async).mapLimit(ids, 5, async id => {
     if (ctx.query && ctx.query.lyric) {
-      return Promise.all([handleSummary(id), getLyric(id)])
+      return Promise.all([handleSummary(id, ctx.request.origin), getLyric(id)])
     } else {
-      return Promise.all([handleSummary(id)])
+      return Promise.all([handleSummary(id, ctx.request.origin)])
     }
   })
   return result
 }
 
-const handleSummary = async (id, check = false) => {
+const handleSummary = async (id, url, check = false) => {
   let Cache
   Cache = await cache.get('nm:song:' + id)
   if (Cache) {
@@ -510,7 +510,7 @@ const handleSummary = async (id, check = false) => {
   const cacheTime = check ? 60 * 60 * 24 * 7 : 60 * 60 * 2
   const data = {}
   data.id = id
-  data.url = 'https://api.a632079.me/nm/redirect/music/' + id
+  data.url = url + '/nm/redirect/music/' + id
 
   // Get Music Detail
   let detail
