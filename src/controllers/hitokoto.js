@@ -33,7 +33,7 @@ async function hitokoto (ctx, next) {
         response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
-        response = Buffer.from(ret.text)
+        response = Buffer.from(ret.hitokoto)
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
@@ -76,7 +76,7 @@ async function hitokoto (ctx, next) {
         response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
-        response = Buffer.from(ret.text)
+        response = Buffer.from(ret.hitokoto)
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
