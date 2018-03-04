@@ -1,5 +1,5 @@
 // Import necessary packages
-const Iconv = require('iconv').Iconv
+const iconv = require('iconv-lite')
 const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
@@ -30,7 +30,7 @@ async function hitokoto (ctx, next) {
     let js = false
     switch (encode) {
       case 'json':
-        response = Buffer.from(ret)
+        response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
         response = Buffer.from(ret.text)
@@ -42,7 +42,7 @@ async function hitokoto (ctx, next) {
         response = Buffer.from(`(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`)
         break
       default:
-        response = Buffer.from(ret)
+        response = Buffer.from(JSON.stringify(ret))
         break
     }
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
@@ -51,8 +51,7 @@ async function hitokoto (ctx, next) {
       } else {
         ctx.set('Content-Type', 'application/json; charset=gbk')
       }
-      const iconv = new Iconv('UTF-8', 'GBK')
-      ctx.body = iconv.convert(response)
+      ctx.body = iconv.encode(response, 'GBK')
     } else {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=utf-8')
@@ -74,7 +73,7 @@ async function hitokoto (ctx, next) {
     let js = false
     switch (encode) {
       case 'json':
-        response = Buffer.from(ret)
+        response = Buffer.from(JSON.stringify(ret))
         break
       case 'text':
         response = Buffer.from(ret.text)
@@ -86,7 +85,7 @@ async function hitokoto (ctx, next) {
         response = Buffer.from(`(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`)
         break
       default:
-        response = Buffer.from(ret)
+        response = Buffer.from(JSON.stringify(ret))
         break
     }
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
@@ -95,8 +94,7 @@ async function hitokoto (ctx, next) {
       } else {
         ctx.set('Content-Type', 'application/json; charset=gbk')
       }
-      const iconv = new Iconv('UTF-8', 'GBK')
-      ctx.body = iconv.convert(response)
+      ctx.body = iconv.encode(response, 'GBK')
     } else {
       if (js) {
         ctx.set('Content-Type', 'text/javascript; charset=utf-8')
