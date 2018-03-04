@@ -31,20 +31,20 @@ async function hitokoto (ctx, next) {
     let text
     switch (encode) {
       case 'json':
-        response = Buffer.from(JSON.stringify(ret))
+        response = JSON.stringify(ret)
         break
       case 'text':
         text = true
-        response = Buffer.from(ret.hitokoto)
+        response = ret.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
         // ctx.set('Content-Type', 'text/javascript; charset=utf-8')
         js = true
-        response = Buffer.from(`(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`)
+        response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         break
       default:
-        response = Buffer.from(JSON.stringify(ret))
+        response = JSON.stringify(ret)
         break
     }
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
@@ -80,20 +80,20 @@ async function hitokoto (ctx, next) {
     let text = false
     switch (encode) {
       case 'json':
-        response = Buffer.from(JSON.stringify(ret))
+        response = JSON.stringify(ret)
         break
       case 'text':
         text = true
-        response = Buffer.from(ret.hitokoto)
+        response = ret.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
         // ctx.set('Content-Type', 'text/javascript; charset=utf-8')
         js = true
-        response = Buffer.from(`(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`)
+        response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         break
       default:
-        response = Buffer.from(JSON.stringify(ret))
+        response = JSON.stringify(ret)
         break
     }
     if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
