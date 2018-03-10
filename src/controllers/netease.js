@@ -4,6 +4,7 @@ const async = require('async')
 const { MusicClient } = require('netease-music-sdk')
 const pify = require('pify')
 const cache = require('../cache')
+const nconf = require('nconf')
 const nm = new NeteaseMusic()
 const user = require('../../user')
 const sdk = new MusicClient()
@@ -472,10 +473,10 @@ const silentSummary = async (id, ctx) => {
     if (ids.length > 0) {
       const result = await pify(async).mapLimit(ids, 5, async id => {
         if (ctx.query && ctx.query.lyric) {
-          const ret = await Promise.all([handleSummary(id, ctx.request.origin, true), getLyric(id, true)])
+          const ret = await Promise.all([handleSummary(id, nconf.get('url'), true), getLyric(id, true)])
           return ret
         } else {
-          const ret = await Promise.all([handleSummary(id, ctx.request.origin, true)])
+          const ret = await Promise.all([handleSummary(id, nconf.get('url'), true)])
           return ret
         }
       })
@@ -492,9 +493,9 @@ const quickSummary = async (ID, ctx) => {
   const ids = ID.split(',')
   const result = await pify(async).mapLimit(ids, 5, async id => {
     if (ctx.query && ctx.query.lyric) {
-      return Promise.all([handleSummary(id, ctx.request.origin), getLyric(id)])
+      return Promise.all([handleSummary(id, nconf.get('url')), getLyric(id)])
     } else {
-      return Promise.all([handleSummary(id, ctx.request.origin)])
+      return Promise.all([handleSummary(id, nconf.get('url'))])
     }
   })
   return result
