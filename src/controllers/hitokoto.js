@@ -13,7 +13,9 @@ async function hitokoto (ctx, next) {
       where: {
         type: ctx.query.c
       },
-      attributes: { exclude: ['from_who', 'creator_uid', 'assessor', 'owner'] },
+      attributes: {
+        exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
+      },
       order: db.sequelize.random()
     })
     if (!ret) {
@@ -26,94 +28,90 @@ async function hitokoto (ctx, next) {
     }
     // CheckEncoding
     const encode = ctx.query.encode
-    let response
-    let js = false
-    let text
+    const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
     switch (encode) {
       case 'json':
-        response = JSON.stringify(ret)
+        if (gbk) {
+          ctx.set('Content-Type', 'application/json; charset=gbk')
+          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+        } else {
+          ctx.body = ret
+        }
         break
       case 'text':
-        text = true
-        response = ret.hitokoto
+        if (gbk) {
+          ctx.set('Content-Type', 'text/plain; charset=gbk')
+          ctx.body = iconv.encode(ret.hitokoto, 'GBK')
+        }
+        ctx.body = ret.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        // ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-        js = true
-        response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        if (gbk) {
+          ctx.set('Content-Type', 'text/javascript; charset=gbk')
+          ctx.body = iconv.encode(response, 'GBK')
+        } else {
+          ctx.set('Content-Type', 'text/javascript; charset=utf-8')
+          ctx.body = response
+        }
         break
       default:
-        response = JSON.stringify(ret)
+        if (gbk) {
+          ctx.set('Content-Type', 'application/json; charset=gbk')
+          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+        } else {
+          ctx.body = ret
+        }
         break
-    }
-    if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
-      if (js) {
-        ctx.set('Content-Type', 'text/javascript; charset=gbk')
-      } else if (text) {
-        ctx.set('Content-Type', 'text/plain; charset=gbk')
-      } else {
-        ctx.set('Content-Type', 'application/json; charset=gbk')
-      }
-      ctx.body = iconv.encode(response, 'GBK')
-    } else {
-      if (js) {
-        ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-      } else if (text) {
-        ctx.set('Content-Type', 'text/plain; charset=utf-8')
-      } else {
-        ctx.set('Content-Type', 'application/json; charset=utf-8')
-      }
-      ctx.body = response
     }
   } else {
     // Not Params or just has callback
     const ret = await hitokoto.findOne({
-      attributes: { exclude: ['from_who', 'creator_uid', 'assessor', 'owner'] },
+      attributes: {
+        exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
+      },
       order: db.sequelize.random()
     })
 
     // CheckEncoding
     const encode = ctx.query.encode
-    let response
-    let js = false
-    let text = false
+    const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
     switch (encode) {
       case 'json':
-        response = JSON.stringify(ret)
+        if (gbk) {
+          ctx.set('Content-Type', 'application/json; charset=gbk')
+          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+        } else {
+          ctx.body = ret
+        }
         break
       case 'text':
-        text = true
-        response = ret.hitokoto
+        if (gbk) {
+          ctx.set('Content-Type', 'text/plain; charset=gbk')
+          ctx.body = iconv.encode(ret.hitokoto, 'GBK')
+        }
+        ctx.body = ret.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        // ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-        js = true
-        response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        if (gbk) {
+          ctx.set('Content-Type', 'text/javascript; charset=gbk')
+          ctx.body = iconv.encode(response, 'GBK')
+        } else {
+          ctx.set('Content-Type', 'text/javascript; charset=utf-8')
+          ctx.body = response
+        }
         break
       default:
-        response = JSON.stringify(ret)
+        if (gbk) {
+          ctx.set('Content-Type', 'application/json; charset=gbk')
+          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+        } else {
+          ctx.body = ret
+        }
         break
-    }
-    if (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') {
-      if (js) {
-        ctx.set('Content-Type', 'text/javascript; charset=gbk')
-      } else if (text) {
-        ctx.set('Content-Type', 'text/plain; charset=gbk')
-      } else {
-        ctx.set('Content-Type', 'application/json; charset=gbk')
-      }
-      ctx.body = iconv.encode(response, 'GBK')
-    } else {
-      if (js) {
-        ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-      } else if (text) {
-        ctx.set('Content-Type', 'text/plain; charset=utf-8')
-      } else {
-        ctx.set('Content-Type', 'application/json; charset=utf-8')
-      }
-      ctx.body = response
     }
   }
 }
