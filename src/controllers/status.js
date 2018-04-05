@@ -36,7 +36,7 @@ async function getDayMap (now) {
   const result = await Promise.all(events)
   const data = []
   data.push(now - parseInt(result[0]))
-  for (let index = 1; index < (result.length - 1); index++) {
+  for (let index = 0; index < (result.length - 2); index++) {
     data.push(parseInt(result[index]) - parseInt(result[index + 1]))
   }
   return data
