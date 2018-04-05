@@ -30,19 +30,26 @@ async function getPastDay () {
 async function getDayMap (now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
-  for (let index = 0; index < 23; index++) {
+  for (let index = 1; index < 26; index++) {
     events.push(cache.get('requests:count:' + (ts - index * 60 * 60).toString()))
   }
-  return Promise.all(events)
+  const result = await Promise.all(events)
+  const data = []
+  data.push(now - parseInt(result[0]))
+  delete result[0]
+  for (let index = 0; index < (result.length - 1); index++) {
+    data.push(parseInt(result[index]) - parseInt(result[index + 1]))
+  }
+  return data
 }
 module.exports = async (ctx, next) => {
   const pkg = require(path.join('../../', 'package'))
-  const fetchData = await Promise.all([getRequests(), getPastMinute(), getPastHour(), getPastDay(), getDayMap()])
+  const fetchData = await Promise.all([getRequests(), getPastMinute(), getPastHour(), getPastDay()])
   const now = fetchData[0]
   const pastMinute = fetchData[1]
   const pastHour = fetchData[2]
   const pastDay = fetchData[3]
-  const dayMap = fetchData[4]
+  const dayMap = await getDayMap(now)
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
