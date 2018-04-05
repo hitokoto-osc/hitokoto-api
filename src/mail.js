@@ -5,7 +5,6 @@ const bluebird = require('bluebird')
 const nodemailer = require('nodemailer')
 const pkg = require('../package')
 const formatError = require('./utils').formatError
-const JSONtoHTML = require('./utils').JSONtoHTML
 class mail {
   static async connect () {
     if (this.smtp) {
@@ -57,7 +56,7 @@ class mail {
     const admin = nconf.get('admin')
     console.log(Array.isArray(admin))
     const to = Array.isArray(admin) ? admin.join(',') : admin
-    let html = JSONtoHTML(formatError(err))
+    let html = formatError(err)
     html = '<h1>错误报告！</h1><p>触发时间: ' + new Date().toISOString() + '</p><p>错误细节:</p><pre><code>' + html + '</code></pre>'
     return this.send({
       title: 'Crash! Error Report!',

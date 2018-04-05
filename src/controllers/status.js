@@ -27,22 +27,33 @@ async function getPastDay () {
   return requests
 }
 
+async function getDayMap (now) {
+  const ts = parseInt(Date.now().toString().slice(0, 10))
+  const events = []
+  for (let index = 0; index < 23; index++) {
+    events.push(cache.get('requests:count:' + (ts - index * 60 * 60).toString()))
+  }
+  return Promise.all(events)
+}
 module.exports = async (ctx, next) => {
   const pkg = require(path.join('../../', 'package'))
-  const now = await getRequests()
-  const pastMinute = await getPastMinute()
-  const pastHour = await getPastHour()
-  const pastDay = await getPastDay()
+  const fetchData = await Promise.all([getRequests(), getPastMinute(), getPastHour(), getPastDay(), getDayMap()])
+  const now = fetchData[0]
+  const pastMinute = fetchData[1]
+  const pastHour = fetchData[2]
+  const pastDay = fetchData[3]
+  const dayMap = fetchData[4]
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
     message: 'Love us? donate at https://hitokoto.cn/donate',
     website: 'https://hitokoto.cn',
     requests: {
-      all: parseInt(now),
+      total: parseInt(now),
       pastMinute: parseInt(now) - parseInt(pastMinute),
       pastHour: parseInt(now) - parseInt(pastHour),
-      pastDay: parseInt(now) - parseInt(pastDay)
+      pastDay: parseInt(now) - parseInt(pastDay),
+      dayMap
     },
     feedback: {
       Kuertianshi: 'i@loli.online',
