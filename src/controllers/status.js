@@ -77,7 +77,7 @@ module.exports = async (ctx, next) => {
         pastDay: parseInt(all.now) - parseInt(all.pastDay),
         dayMap: all.dayMap
       },
-      hosts: await cache('requests:hosts')
+      hosts: await cache.get('requests:hosts')
     },
     feedback: {
       Kuertianshi: 'i@loli.online',
