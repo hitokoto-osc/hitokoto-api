@@ -122,9 +122,10 @@ module.exports = async (ctx, next) => {
   // fetch DayMap
   const fetchDayMap = await Promise.all([
     getAllDayMap(all.now),
-    getHostsDayMap(fetchData[4])
+    getHostsDayMap(limitHost, fetchData[4])
   ])
   all.dayMap = fetchDayMap[0]
+  Object.assign(hosts, fetchDayMap[1])
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
