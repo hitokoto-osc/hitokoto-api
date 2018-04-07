@@ -143,6 +143,7 @@ module.exports = async (ctx, next) => {
     getPast5MinuteMap(all.now)
   ])
   all.dayMap = fetchDayMap[0]
+  all.FiveMinuteMap = fetchDayMap[2]
   // console.log(hosts)
   for (let host of limitHost) {
     Object.assign(hosts[host], fetchDayMap[1][host])
