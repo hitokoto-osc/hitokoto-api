@@ -64,6 +64,27 @@ async function getAllDayMap (now) {
   }
   return data
 }
+
+async function getHostsDayMap (limitHosts, now) {
+  const ts = parseInt(Date.now().toString().slice(0, 10))
+  const events = []
+  for (let index = 1; index < 26; index++) {
+    events.push(cache.get('requests:hosts:count:' + (ts - index * 60 * 60).toString()))
+  }
+  const result = await Promise.all(events)
+  const data = []
+  for (let host of limitHosts) {
+    const _ = result[0] ? now[host] - parseInt(result[0][host]) : 0
+    data.push(_)
+  }
+  for (let index = 0; index < (result.length - 2); index++) {
+    for (let host of limitHosts) {
+      const _ = result[index] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
+      data.push(_)
+    }
+  }
+  return data
+}
 module.exports = async (ctx, next) => {
   const pkg = require(path.join('../../', 'package'))
   const fetchData = await Promise.all([
@@ -94,13 +115,14 @@ module.exports = async (ctx, next) => {
   for (let i of limitHost) {
     hosts[i] = {}
     hosts[i].total = fetchData[4][i]
-    hosts[i].pastMinute = parseInt(fetchData[4][i]) - parseInt(fetchData[5][i])
-    hosts[i].pastHour = parseInt(fetchData[4][i]) - parseInt(fetchData[6][i])
-    hosts[i].pastDay = parseInt(fetchData[4][i]) - parseInt(fetchData[7][i])
+    hosts[i].pastMinute = fetchData[5] ? parseInt(fetchData[4][i]) - parseInt(fetchData[5][i]) : null
+    hosts[i].pastHour = fetchData[6] ? parseInt(fetchData[4][i]) - parseInt(fetchData[6][i]) : null
+    hosts[i].pastDay = fetchData[7] ? parseInt(fetchData[4][i]) - parseInt(fetchData[7][i]) : null
   }
   // fetch DayMap
   const fetchDayMap = await Promise.all([
-    getAllDayMap(all.now)
+    getAllDayMap(all.now),
+    getHostsDayMap(fetchData[4])
   ])
   all.dayMap = fetchDayMap[0]
   ctx.body = {
