@@ -75,13 +75,14 @@ async function getHostsDayMap (limitHosts, now) {
   const data = {}
   for (let host of limitHosts) {
     const _ = result[0] ? now[host] - parseInt(result[0][host]) : 0
-    data[host] = []
-    data[host].push(_)
+    data[host] = {}
+    data[host].dayMap = []
+    data[host].dayMap.push(_)
   }
   for (let index = 0; index < (result.length - 2); index++) {
     for (let host of limitHosts) {
       const _ = result[index] && result[index + 1] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
-      data[host].push(_)
+      data[host].dayMap.push(_)
     }
   }
   return data
