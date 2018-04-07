@@ -76,7 +76,8 @@ module.exports = async (ctx, next) => {
         pastHour: parseInt(all.now) - parseInt(all.pastHour),
         pastDay: parseInt(all.now) - parseInt(all.pastDay),
         dayMap: all.dayMap
-      }
+      },
+      hosts: await cache('requests:hosts')
     },
     feedback: {
       Kuertianshi: 'i@loli.online',

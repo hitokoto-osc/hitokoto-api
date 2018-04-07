@@ -12,16 +12,33 @@ function saveCount (ts, count) {
     })
 }
 
+function saveHostsCount (ts, count) {
+  cache.set('requests:hosts:count:' + ts, count, 60 * 60 * 25)
+    .catch(err => {
+      winston.error(err)
+      saveCount(ts, count)
+    })
+}
+
 module.exports = [
   '* * * * * *', // Cron Config
   () => {
     // Do something
     cache.get('requests')
       .then(requests => {
-        const request = requests ? parseInt(requests) : 0
+        const request = requests || 0
         const ts = Date.now().toString().slice(0, 10)
         saveCount(ts, request)
         winston.debug('Save Count to Cache. Requests: ' + request)
+      })
+      .catch(err => {
+        winston.error(err)
+      })
+    cache.get('requests:hosts')
+      .then(hosts => {
+        const ts = Date.now().toString().slice(0, 10)
+        saveHostsCount(ts, hosts)
+        winston.debug('Save Host Count to Cache. Requests: ' + hosts)
       })
       .catch(err => {
         winston.error(err)
