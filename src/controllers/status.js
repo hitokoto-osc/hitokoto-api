@@ -80,7 +80,7 @@ async function getHostsDayMap (limitHosts, now) {
   }
   for (let index = 0; index < (result.length - 2); index++) {
     for (let host of limitHosts) {
-      const _ = result[index] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
+      const _ = result[index] && result[index + 1] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
       data[host].push(_)
     }
   }
