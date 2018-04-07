@@ -17,6 +17,9 @@ function countRequest () {
         winston.error(err)
       })
     hosts[host] = hosts[host] === null ? 0 : parseInt(hosts[host]) + 1
+    if (hosts['115.159.75.126:8000']) {
+      delete hosts['115.159.75.126:8000']
+    }
     cache.set('requests:hosts', hosts)
       .catch(err => {
         winston.error(err)
