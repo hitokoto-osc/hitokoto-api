@@ -72,15 +72,16 @@ async function getHostsDayMap (limitHosts, now) {
     events.push(cache.get('requests:hosts:count:' + (ts - index * 60 * 60).toString()))
   }
   const result = await Promise.all(events)
-  const data = []
+  const data = {}
   for (let host of limitHosts) {
     const _ = result[0] ? now[host] - parseInt(result[0][host]) : 0
-    data.push(_)
+    data[host] = []
+    data[host].push(_)
   }
   for (let index = 0; index < (result.length - 2); index++) {
     for (let host of limitHosts) {
       const _ = result[index] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
-      data.push(_)
+      data[host].push(_)
     }
   }
   return data
