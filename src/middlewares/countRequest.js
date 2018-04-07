@@ -16,10 +16,8 @@ function countRequest () {
       .catch(err => {
         winston.error(err)
       })
-    if (!hosts[host]) {
-      hosts[host] = 0
-    }
-    cache.set('requests:hosts', parseInt(hosts[host]) + 1)
+    hosts[host] = !hosts[host] ? 0 : parseInt(hosts[host]) + 1
+    cache.set('requests:hosts', hosts)
       .catch(err => {
         winston.error(err)
       })
