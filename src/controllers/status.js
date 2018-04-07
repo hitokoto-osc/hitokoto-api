@@ -27,6 +27,29 @@ async function getAllPastDay () {
   return requests
 }
 
+async function getHosts () {
+  const requests = await cache.get('requests:hosts')
+  return requests
+}
+
+async function getHostsPastMinute () {
+  const ts = parseInt(Date.now().toString().slice(0, 10)) - 60
+  const requests = await cache.get('requests:hosts:count:' + ts.toString())
+  return requests
+}
+
+async function getHostsPastHour () {
+  const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60
+  const requests = await cache.get('requests:hosts:count:' + ts.toString())
+  return requests
+}
+
+async function getHostsPastDay () {
+  const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60 * 24
+  const requests = await cache.get('requests:hosts:count:' + ts.toString())
+  return requests
+}
+
 async function getAllDayMap (now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
@@ -48,10 +71,12 @@ module.exports = async (ctx, next) => {
     getAllRequests(),
     getAllPastMinute(),
     getAllPastHour(),
-    getAllPastDay()
-    // fetch Old Requests
-
-    // fetch v1 Requests
+    getAllPastDay(),
+    // fetch hosts
+    getHosts(),
+    getHostsPastMinute(),
+    getHostsPastHour(),
+    getHostsPastDay()
   ])
   const all = {}
   all.now = fetchData[0]
@@ -59,6 +84,20 @@ module.exports = async (ctx, next) => {
   all.pastHour = fetchData[2]
   all.pastDay = fetchData[3]
 
+  const hosts = {}
+  // Generate totals
+  const limitHost = [
+    'v1.hitokoto.cn',
+    'api.hitokoto.cn',
+    'sslapi.hitokoto.cn'
+  ]
+  for (let i of limitHost) {
+    hosts[i] = {}
+    hosts[i].total = fetchData[4][i]
+    hosts[i].pastMinute = parseInt(fetchData[4][i]) - parseInt(fetchData[5][i])
+    hosts[i].pastHour = parseInt(fetchData[4][i]) - parseInt(fetchData[6][i])
+    hosts[i].pastDay = parseInt(fetchData[4][i]) - parseInt(fetchData[7][i])
+  }
   // fetch DayMap
   const fetchDayMap = await Promise.all([
     getAllDayMap(all.now)
@@ -77,7 +116,7 @@ module.exports = async (ctx, next) => {
         pastDay: parseInt(all.now) - parseInt(all.pastDay),
         dayMap: all.dayMap
       },
-      hosts: await cache.get('requests:hosts')
+      hosts
     },
     feedback: {
       Kuertianshi: 'i@loli.online',
