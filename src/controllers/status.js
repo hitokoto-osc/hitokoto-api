@@ -87,6 +87,21 @@ async function getHostsDayMap (limitHosts, now) {
   }
   return data
 }
+
+async function getPast5MinuteMap (now) {
+  const ts = parseInt(Date.now().toString().slice(0, 10))
+  const events = []
+  for (let index = 1; index < 7; index++) {
+    events.push(cache.get('requests:count:' + (ts - index * 60).toString()))
+  }
+  const result = await Promise.all(events)
+  const data = []
+  data.push(now - parseInt(result[0]))
+  for (let index = 0; index < (result.length - 2); index++) {
+    data.push(parseInt(result[index]) - parseInt(result[index + 1]))
+  }
+  return data
+}
 module.exports = async (ctx, next) => {
   const pkg = require(path.join('../../', 'package'))
   const fetchData = await Promise.all([
@@ -124,9 +139,11 @@ module.exports = async (ctx, next) => {
   // fetch DayMap
   const fetchDayMap = await Promise.all([
     getAllDayMap(all.now),
-    getHostsDayMap(limitHost, fetchData[4])
+    getHostsDayMap(limitHost, fetchData[4]),
+    getPast5MinuteMap(all.now)
   ])
   all.dayMap = fetchDayMap[0]
+  all.FiveMinuteMap = fetchDayMap[2]
   Object.assign(hosts, fetchDayMap[1])
   ctx.body = {
     name: pkg.name,
@@ -139,7 +156,8 @@ module.exports = async (ctx, next) => {
         pastMinute: parseInt(all.now) - parseInt(all.pastMinute),
         pastHour: parseInt(all.now) - parseInt(all.pastHour),
         pastDay: parseInt(all.now) - parseInt(all.pastDay),
-        dayMap: all.dayMap
+        dayMap: all.dayMap,
+        FiveMinuteMap: all.FiveMinuteMap
       },
       hosts
     },
