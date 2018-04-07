@@ -4,30 +4,30 @@ const path = require('path')
 const cache = require(path.join(__dirname, '../cache'))
 // const winston = require('winston')
 
-async function getRequests () {
+async function getAllRequests () {
   const requests = await cache.get('requests')
   return requests
 }
 
-async function getPastMinute () {
+async function getAllPastMinute () {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getPastHour () {
+async function getAllPastHour () {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getPastDay () {
+async function getAllPastDay () {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60 * 24
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getDayMap (now) {
+async function getAllDayMap (now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 26; index++) {
@@ -36,30 +36,47 @@ async function getDayMap (now) {
   const result = await Promise.all(events)
   const data = []
   data.push(now - parseInt(result[0]))
-  for (let index = 1; index < (result.length - 1); index++) {
+  for (let index = 1; index < (result.length - 2); index++) {
     data.push(parseInt(result[index]) - parseInt(result[index + 1]))
   }
   return data
 }
 module.exports = async (ctx, next) => {
   const pkg = require(path.join('../../', 'package'))
-  const fetchData = await Promise.all([getRequests(), getPastMinute(), getPastHour(), getPastDay()])
-  const now = fetchData[0]
-  const pastMinute = fetchData[1]
-  const pastHour = fetchData[2]
-  const pastDay = fetchData[3]
-  const dayMap = await getDayMap(now)
+  const fetchData = await Promise.all([
+    // fetch All Requests
+    getAllRequests(),
+    getAllPastMinute(),
+    getAllPastHour(),
+    getAllPastDay()
+    // fetch Old Requests
+
+    // fetch v1 Requests
+  ])
+  const all = {}
+  all.now = fetchData[0]
+  all.pastMinute = fetchData[1]
+  all.pastHour = fetchData[2]
+  all.pastDay = fetchData[3]
+
+  // fetch DayMap
+  const fetchDayMap = await Promise.all([
+    getAllDayMap(all.now)
+  ])
+  all.dayMap = fetchDayMap[0]
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
     message: 'Love us? donate at https://hitokoto.cn/donate',
     website: 'https://hitokoto.cn',
     requests: {
-      total: parseInt(now),
-      pastMinute: parseInt(now) - parseInt(pastMinute),
-      pastHour: parseInt(now) - parseInt(pastHour),
-      pastDay: parseInt(now) - parseInt(pastDay),
-      dayMap
+      all: {
+        total: parseInt(all.now),
+        pastMinute: parseInt(all.now) - parseInt(all.pastMinute),
+        pastHour: parseInt(all.now) - parseInt(all.pastHour),
+        pastDay: parseInt(all.now) - parseInt(all.pastDay),
+        dayMap: all.dayMap
+      }
     },
     feedback: {
       Kuertianshi: 'i@loli.online',

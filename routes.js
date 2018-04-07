@@ -8,6 +8,16 @@ module.exports = (router, controller) => {
     }
   })
   */
+  router.get('/test', async ctx => {
+    ctx.body = {
+      host: ctx.request.host,
+      hostname: ctx.request.hostname,
+      URL: ctx.request.URL,
+      url: ctx.request.url,
+      origin: ctx.request.origin,
+      originalUrl: ctx.request.originalUrl
+    }
+  })
   router.get('/', controller.hitokoto)
   // router.get('/test', controller.hello.index)
   router.get('/status', controller.status)
