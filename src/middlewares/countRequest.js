@@ -18,7 +18,7 @@ function countRequest () {
     if (!hosts[ctx.request.host]) {
       hosts[ctx.request.host] = 0
     }
-    cache.set('requests', parseInt(hosts[ctx.request.host]) + 1)
+    cache.set('requests:hosts', parseInt(hosts[ctx.request.host]) + 1)
       .catch(err => {
         winston.error(err)
       })
