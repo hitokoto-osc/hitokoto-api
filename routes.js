@@ -10,6 +10,7 @@ module.exports = (router, controller) => {
   */
   router.get('/test', async ctx => {
     ctx.body = {
+      header: ctx.headers,
       host: ctx.request.host,
       hostname: ctx.request.hostname,
       URL: ctx.request.URL,

@@ -36,7 +36,7 @@ module.exports = [
           // Init
           global.requests = {}
           global.requests.all = data[0] || 0
-          global.requests.hosts = data[0] || {}
+          global.requests.hosts = data[1] || {}
           return global.requests
         })
         .then(requests => {
