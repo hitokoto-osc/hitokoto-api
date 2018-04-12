@@ -19,30 +19,32 @@ function saveHostsCount (ts, count) {
       saveCount(ts, count)
     })
 }
-
+function autoSave (ts, requests) {
+  saveCount(ts, requests.all)
+  winston.debug('Save All requests total to Cache. Requests: ' + requests.all)
+  saveHostsCount(ts, requests.hosts)
+  winston.debug('Save Host requests total to Cache. Requests: ' + requests.hosts)
+}
 module.exports = [
   '* * * * * *', // Cron Config
   () => {
     // Do something
-    cache.get('requests')
-      .then(requests => {
-        const request = requests || 0
-        const ts = Date.now().toString().slice(0, 10)
-        saveCount(ts, request)
-        winston.debug('Save Count to Cache. Requests: ' + request)
-      })
-      .catch(err => {
-        winston.error(err)
-      })
-    cache.get('requests:hosts')
-      .then(hosts => {
-        const ts = Date.now().toString().slice(0, 10)
-        saveHostsCount(ts, hosts)
-        winston.debug('Save Host Count to Cache. Requests: ' + hosts)
-      })
-      .catch(err => {
-        winston.error(err)
-      })
+    const ts = Date.now().toString().slice(0, 10)
+    if (!global.requests) {
+      Promise.all([cache.get('requests'), cache.get('requests:hosts')])
+        .then(data => {
+          // Init
+          global.requests = {}
+          global.requests.all = data[0] || 0
+          global.requests.hosts = data[0] || {}
+          return global.requests
+        })
+        .then(requests => {
+          autoSave(ts, requests)
+        })
+    } else {
+      autoSave(ts, global.requests)
+    }
   },
   () => {
     // This function is executed when the job stops
