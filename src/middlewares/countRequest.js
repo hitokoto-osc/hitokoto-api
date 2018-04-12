@@ -13,7 +13,8 @@ function countRequest () {
       global.requests.hosts = fetchRequests[1] || {}
     }
     const host = String(ctx.request.host)
-    cache.set('requests', global.requests.all + 1)
+    global.requests.all++
+    cache.set('requests', global.requests.all)
       .catch(err => {
         winston.error(err)
       })
