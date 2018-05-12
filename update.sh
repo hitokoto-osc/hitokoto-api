@@ -22,7 +22,7 @@ print_status "Update Procedure"
 exec_cmd "git pull"
 
 print_status "Update Repos"
-exec_cmd "npm i -g pnpm"
+exec_cmd "pnpm i -g pnpm"
 exec_cmd "pnpm i"
 
 print_status "Restart Service"
