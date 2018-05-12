@@ -3,22 +3,42 @@ const iconv = require('iconv-lite')
 const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
-
-async function hitokoto (ctx, next) {
-  // Connect Database
+let Hitokoto
+async function syncHitokotoList () {
+  const result = {}
   const hitokoto = await db.registerModel('hitokoto')
+  // Fetch All Data
+  result.all = await hitokoto.find({
+    attributes: {
+      exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
+    }
+  })
+  // Generate Categroy List
+  result.categroy = {}
+  for (let sentence of result.all) {
+    if (!result.categroy[sentence.type]) {
+      // Init Categroy List
+      result.categroy[sentence.type] = []
+    }
+    result.categroy[sentence.type].push(sentence)
+  }
+  // fill TS
+  result.lastUpdate = Date.now()
+  // Update Data
+  Hitokoto = result
+}
+async function hitokoto (ctx, next) {
+  // judge whether data is exist
+  if (!Hitokoto) {
+    // Sync Data
+    await syncHitokotoList()
+  } else if ((Date.now() - Hitokoto.lastUpdate) > 1000 * 60 * 60 * 2) {
+    // Data is outdate. async update.
+    syncHitokotoList()
+  }
   if (ctx.query && ctx.query.c) {
     // exist params c
-    const ret = await hitokoto.findOne({
-      where: {
-        type: ctx.query.c
-      },
-      attributes: {
-        exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
-      },
-      order: db.sequelize.random()
-    })
-    if (!ret) {
+    if (!Hitokoto.categroy[ctx.query.c]) {
       ctx.status = 404
       ctx.body = {
         status: 404,
@@ -26,6 +46,8 @@ async function hitokoto (ctx, next) {
       }
       return
     }
+    // Random Sentence
+    const sentence = Hitokoto.categroy[ctx.query.c][Math.floor(Math.random() * Hitokoto.categroy[ctx.query.c].length)]
     // CheckEncoding
     const encode = ctx.query.encode
     const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
@@ -33,21 +55,21 @@ async function hitokoto (ctx, next) {
       case 'json':
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
         } else {
-          ctx.body = ret
+          ctx.body = sentence
         }
         break
       case 'text':
         if (gbk) {
           ctx.set('Content-Type', 'text/plain; charset=gbk')
-          ctx.body = iconv.encode(ret.hitokoto, 'GBK')
+          ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
         }
-        ctx.body = ret.hitokoto
+        ctx.body = sentence.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto="${sentence.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
@@ -59,21 +81,16 @@ async function hitokoto (ctx, next) {
       default:
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
         } else {
-          ctx.body = ret
+          ctx.body = sentence
         }
         break
     }
   } else {
     // Not Params or just has callback
-    const ret = await hitokoto.findOne({
-      attributes: {
-        exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
-      },
-      order: db.sequelize.random()
-    })
-
+    // Random Sentence
+    const sentence = Hitokoto.all[Math.floor(Math.random() * Hitokoto.all.length)]
     // CheckEncoding
     const encode = ctx.query.encode
     const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
@@ -81,21 +98,21 @@ async function hitokoto (ctx, next) {
       case 'json':
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
         } else {
-          ctx.body = ret
+          ctx.body = sentence
         }
         break
       case 'text':
         if (gbk) {
           ctx.set('Content-Type', 'text/plain; charset=gbk')
-          ctx.body = iconv.encode(ret.hitokoto, 'GBK')
+          ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
         }
-        ctx.body = ret.hitokoto
+        ctx.body = sentence.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto="${ret.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto="${sentence.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
@@ -107,9 +124,9 @@ async function hitokoto (ctx, next) {
       default:
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(ret), 'GBK')
+          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
         } else {
-          ctx.body = ret
+          ctx.body = sentence
         }
         break
     }

@@ -127,9 +127,14 @@ module.exports = async (ctx, next) => {
   const limitHost = [
     'v1.hitokoto.cn',
     'api.hitokoto.cn',
-    'sslapi.hitokoto.cn'
+    'sslapi.hitokoto.cn',
+    'api.a632079.me'
   ]
   for (let i of limitHost) {
+    if (!fetchData[4][i]) {
+      // if not exist, continue
+      continue
+    }
     hosts[i] = {}
     hosts[i].total = fetchData[4][i]
     hosts[i].pastMinute = fetchData[5] ? parseInt(fetchData[4][i]) - parseInt(fetchData[5][i]) : null
