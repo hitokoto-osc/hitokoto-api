@@ -125,16 +125,17 @@ module.exports = async (ctx, next) => {
 
   let hosts = {}
   // Generate totals
-  const limitHost = [
+  let limitHost = [
     'v1.hitokoto.cn',
     'api.hitokoto.cn',
     'sslapi.hitokoto.cn',
     'api.a632079.me'
   ]
+  const HostToDelete = []
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
-      _.pull(limitHost, i)
+      HostToDelete.push(i)
     } else {
       hosts[i] = {}
       hosts[i].total = fetchData[4][i]
@@ -143,6 +144,7 @@ module.exports = async (ctx, next) => {
       hosts[i].pastDay = fetchData[7] ? parseInt(fetchData[4][i]) - parseInt(fetchData[7][i]) : null
     }
   }
+  _.pullAll(limitHost, HostToDelete)
   // fetch DayMap
   const fetchDayMap = await Promise.all([
     getAllDayMap(all.now),
