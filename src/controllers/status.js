@@ -133,15 +133,15 @@ module.exports = async (ctx, next) => {
   ]
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
-      // if not exist, continue
+      // if not exist
       _.pull(limitHost, i)
-      continue
+    } else {
+      hosts[i] = {}
+      hosts[i].total = fetchData[4][i]
+      hosts[i].pastMinute = fetchData[5] ? parseInt(fetchData[4][i]) - parseInt(fetchData[5][i]) : null
+      hosts[i].pastHour = fetchData[6] ? parseInt(fetchData[4][i]) - parseInt(fetchData[6][i]) : null
+      hosts[i].pastDay = fetchData[7] ? parseInt(fetchData[4][i]) - parseInt(fetchData[7][i]) : null
     }
-    hosts[i] = {}
-    hosts[i].total = fetchData[4][i]
-    hosts[i].pastMinute = fetchData[5] ? parseInt(fetchData[4][i]) - parseInt(fetchData[5][i]) : null
-    hosts[i].pastHour = fetchData[6] ? parseInt(fetchData[4][i]) - parseInt(fetchData[6][i]) : null
-    hosts[i].pastDay = fetchData[7] ? parseInt(fetchData[4][i]) - parseInt(fetchData[7][i]) : null
   }
   // fetch DayMap
   const fetchDayMap = await Promise.all([
@@ -153,9 +153,6 @@ module.exports = async (ctx, next) => {
   all.FiveMinuteMap = fetchDayMap[2]
   // console.log(limitHost)
   for (let host of limitHost) {
-    if (!fetchDayMap[1][host]) {
-      continue
-    }
     Object.assign(hosts[host], fetchDayMap[1][host])
   }
   // hosts = Object.assign({}, hosts, fetchDayMap[1])
