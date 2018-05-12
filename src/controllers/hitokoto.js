@@ -8,7 +8,7 @@ async function syncHitokotoList () {
   const result = {}
   const hitokoto = await db.registerModel('hitokoto')
   // Fetch All Data
-  result.all = await hitokoto.find({
+  result.all = await hitokoto.findAll({
     attributes: {
       exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
     }
