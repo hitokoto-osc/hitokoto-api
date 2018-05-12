@@ -4,7 +4,23 @@ const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
 let Hitokoto
+let updateLock = false
+function sleep (sec) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, sec * 1000)
+  })
+}
+
 async function syncHitokotoList () {
+  if (updateLock) {
+    for (let loop = 1; loop <= 4; loop++) {
+      await sleep(0.5)
+      if (Hitokoto) {
+        return
+      }
+    }
+  }
+  updateLock = true
   const result = {}
   const hitokoto = await db.registerModel('hitokoto')
   // Fetch All Data
@@ -26,6 +42,8 @@ async function syncHitokotoList () {
   result.lastUpdate = Date.now()
   // Update Data
   Hitokoto = result
+
+  updateLock = false
 }
 async function hitokoto (ctx, next) {
   // judge whether data is exist
