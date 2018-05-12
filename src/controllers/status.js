@@ -2,6 +2,7 @@
 // Import Packages
 const path = require('path')
 const cache = require(path.join(__dirname, '../cache'))
+const _ = require('lodash')
 // const winston = require('winston')
 
 async function getAllRequests () {
@@ -133,6 +134,7 @@ module.exports = async (ctx, next) => {
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist, continue
+      _.pull(limitHost, i)
       continue
     }
     hosts[i] = {}
