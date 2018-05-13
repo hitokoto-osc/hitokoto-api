@@ -3,13 +3,24 @@
 // Import Packages
 const winston = require('winston')
 const nconf = require('nconf')
+const path = require('path')
 const colors = require('colors/safe')
 const Koa = require('koa') // Koa v2
 // const mail = require('./src/mail')
 
+// Read Command
+let configFile
+const paramsArray = process.argv.slice(2)
+if (paramsArray.length > 1) {
+  // exist params
+  if (paramsArray[0] === '--config_file') {
+    configFile = path.join('./', paramsArray[1])
+  }
+}
+
 // PreStart
 const preStart = require('./src/prestart')
-preStart.load()
+preStart.load(configFile)
 
 // Use blubird promise
 global.Promise = require('bluebird')

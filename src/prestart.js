@@ -58,9 +58,12 @@ function printCopyright () {
 }
 
 module.exports = {
-  load: () => {
+  load: (config_file) => {
+    if (!config_file) {
+      config_file = path.join(__dirname, '../', 'config.json')
+    }
     setupWinston()
-    loadConfig(path.join(__dirname, '../', 'config.json'))
+    loadConfig(config_file)
     printCopyright()
   }
 }
