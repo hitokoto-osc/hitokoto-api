@@ -63,7 +63,7 @@ async function hitokoto (ctx, next) {
       categroy = categroy[Math.floor(Math.random() * categroy.length)]
     }
 
-    if (!Hitokoto.categroy[ctx.query.c]) {
+    if (!Hitokoto.categroy[categroy]) {
       ctx.status = 404
       ctx.body = {
         status: 404,
