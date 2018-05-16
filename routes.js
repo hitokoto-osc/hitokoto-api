@@ -16,7 +16,9 @@ module.exports = (router, controller) => {
       URL: ctx.request.URL,
       url: ctx.request.url,
       origin: ctx.request.origin,
-      originalUrl: ctx.request.originalUrl
+      originalUrl: ctx.request.originalUrl,
+      queryParams: ctx.query,
+      now: new Date().toUTCString()
     }
   })
   router.get('/', controller.hitokoto)
