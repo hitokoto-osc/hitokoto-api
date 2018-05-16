@@ -56,6 +56,13 @@ async function hitokoto (ctx, next) {
   }
   if (ctx.query && ctx.query.c) {
     // exist params c
+    let categroy = ctx.query.c
+
+    // support ?c=a&c=b&c=d
+    if (Array.isArray(categroy) && categroy.length > 0) {
+      categroy = categroy[Math.floor(Math.random() * categroy.length)]
+    }
+
     if (!Hitokoto.categroy[ctx.query.c]) {
       ctx.status = 404
       ctx.body = {
