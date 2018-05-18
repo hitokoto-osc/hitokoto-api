@@ -1,6 +1,7 @@
 'use strict'
 // Import Packages
 const path = require('path')
+const nconf = require('nconf')
 const cache = require(path.join(__dirname, '../cache'))
 const _ = require('lodash')
 // const winston = require('winston')
@@ -160,6 +161,7 @@ module.exports = async (ctx, next) => {
   // hosts = Object.assign({}, hosts, fetchDayMap[1])
   ctx.body = {
     name: pkg.name,
+    host: nconf.get('api_name') ? nconf.get('api_name') : '未分配',
     version: pkg.version,
     message: 'Love us? donate at https://hitokoto.cn/donate',
     website: 'https://hitokoto.cn',
