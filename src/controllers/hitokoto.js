@@ -72,7 +72,7 @@ async function hitokoto (ctx, next) {
       return
     }
     // Random Sentence
-    const sentence = Hitokoto.categroy[ctx.query.c][Math.floor(Math.random() * Hitokoto.categroy[ctx.query.c].length)]
+    const sentence = Hitokoto.categroy[categroy][Math.floor(Math.random() * Hitokoto.categroy[categroy].length)]
     // CheckEncoding
     const encode = ctx.query.encode
     const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
