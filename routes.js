@@ -18,6 +18,7 @@ module.exports = (router, controller) => {
       origin: ctx.request.origin,
       originalUrl: ctx.request.originalUrl,
       queryParams: ctx.query,
+      queryLength: ctx.query && ctx.query.c ? ctx.query.c.length : '',
       now: new Date().toUTCString()
     }
   })
