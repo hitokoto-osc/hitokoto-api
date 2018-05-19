@@ -9,9 +9,26 @@ module.exports = (router, controller) => {
   })
   */
   router.get('/test', async ctx => {
+    const nconf = require('nconf')
+    const os = require('os')
+    let memoryUsage = 0
+    for (let v of Object.values(process.memoryUsage())) {
+      memoryUsage += parseInt(v)
+    }
+    memoryUsage = memoryUsage / (1024 * 1024)
     ctx.body = {
       header: ctx.headers,
       host: ctx.request.host,
+      server_id: nconf.get('api_name'),
+      server_status: {
+        memory: {
+          totol: os.totalmem() / (1024 * 1024),
+          free: os.freemem() / (1024 * 1024),
+          usage: memoryUsage
+        },
+        cpu: os.cpus(),
+        load: os.loadavg()
+      },
       hostname: ctx.request.hostname,
       URL: ctx.request.URL,
       url: ctx.request.url,

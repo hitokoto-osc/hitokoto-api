@@ -1,10 +1,11 @@
 'use strict'
 // Import Packages
+const os = require('os')
 const path = require('path')
 const nconf = require('nconf')
 const cache = require(path.join(__dirname, '../cache'))
 const _ = require('lodash')
-// const winston = require('winston')
+const winston = require('winston')
 
 async function getAllRequests () {
   const requests = await cache.get('requests')
@@ -136,6 +137,7 @@ module.exports = async (ctx, next) => {
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
+      winston.verbose(`host be removed: ${i}`)
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
@@ -159,12 +161,32 @@ module.exports = async (ctx, next) => {
     Object.assign(hosts[host], fetchDayMap[1][host])
   }
   // hosts = Object.assign({}, hosts, fetchDayMap[1])
+
+  // get memory usage
+  let memoryUsage = 0
+  for (let v of Object.values(process.memoryUsage())) {
+    memoryUsage += parseInt(v)
+  }
   ctx.body = {
     name: pkg.name,
-    host: nconf.get('api_name') ? nconf.get('api_name') : '未分配',
     version: pkg.version,
     message: 'Love us? donate at https://hitokoto.cn/donate',
     website: 'https://hitokoto.cn',
+    server_id: nconf.get('api_name') ? nconf.get('api_name') : 'unallocated',
+    server_status: {
+      memory: {
+        totol: os.totalmem() / (1024 * 1024),
+        free: os.freemem() / (1024 * 1024),
+        usage: memoryUsage
+      },
+      // cpu: os.cpus(),
+      load: os.loadavg(),
+      hitokto: {
+        total: global.hitokoto.total,
+        categroy: global.hitokoto.categroy,
+        lastUpdate: global.hitokoto.lastUpdate
+      }
+    },
     requests: {
       all: {
         total: parseInt(all.now),

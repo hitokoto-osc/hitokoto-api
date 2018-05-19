@@ -31,15 +31,24 @@ async function syncHitokotoList () {
   })
   // Generate Categroy List
   result.categroy = {}
+  const categroy = []
   for (let sentence of result.all) {
     if (!result.categroy[sentence.type]) {
       // Init Categroy List
       result.categroy[sentence.type] = []
+      categroy.push(sentence.type)
     }
     result.categroy[sentence.type].push(sentence)
   }
   // fill TS
   result.lastUpdate = Date.now()
+
+  // let Status know
+  global.hitokoto = {}
+  global.hitokoto.total = result.all.length
+  global.hitokoto.categroy = categroy
+  global.hitokoto.lastUpdated = result.lastUpdate
+
   // Update Data
   Hitokoto = result
 
