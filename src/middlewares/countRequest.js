@@ -14,7 +14,7 @@ function countRequest () {
     }
     const host = String(ctx.request.host)
     global.requests.all++
-    global.requests.hosts[host] = !global.requests.hosts[host] ? 0 : parseInt(global.requests.hosts[host]) + 1
+    global.requests.hosts[host] = typeof global.requests.hosts[host] === 'undefined' ? 0 : parseInt(global.requests.hosts[host]) + 1
 
     Promise.all([
       cache.set('requests', global.requests.all),

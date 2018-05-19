@@ -137,7 +137,7 @@ module.exports = async (ctx, next) => {
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
-      winston.info(`host be removed: ${i}`)
+      winston.verbose(`host be removed: ${i}`)
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
