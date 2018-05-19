@@ -137,7 +137,7 @@ module.exports = async (ctx, next) => {
   for (let i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
-      winston.verbose(`host be removed: ${i}`)
+      winston.info(`host be removed: ${i}`)
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
@@ -177,14 +177,14 @@ module.exports = async (ctx, next) => {
       memory: {
         totol: os.totalmem() / (1024 * 1024),
         free: os.freemem() / (1024 * 1024),
-        usage: memoryUsage
+        usage: memoryUsage / (1024 * 1024)
       },
       // cpu: os.cpus(),
       load: os.loadavg(),
       hitokto: {
         total: global.hitokoto.total,
         categroy: global.hitokoto.categroy,
-        lastUpdate: global.hitokoto.lastUpdate
+        lastUpdate: global.hitokoto.lastUpdated
       }
     },
     requests: {
