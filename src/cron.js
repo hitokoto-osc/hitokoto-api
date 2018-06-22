@@ -6,26 +6,58 @@ const fs = require('fs')
 const colors = require('colors/safe')
 const CronJob = require('cron').CronJob
 
-// Load Cron
+// 加载 Cron
 class cron {
   static async load () {
     try {
-      // load crons
+      // 加载 cron
       let crons = await this.autoLoad()
       const cronMap = require(path.join(__dirname, '../crons.js'))(crons)
       if (cronMap === true) {
-        // AutoLoad All Crons
+        // 自动加载所有计划任务
         crons = await this.autoLoad(true)
         await crons.map((item, index, input) => {
-          // Register CronJob
-          const job = new CronJob(item[0], item[1], item[2], item[3], item[4])
+          // 注册 CronJob
+          const job = new CronJob(
+            item[0],
+            item[1],
+            () => {
+              // 检测是否启动自动重启任务
+              Promise.resolve() // 异步按序执行
+                .then(item[2]) // 已定义的 onComplete 函数
+                .then(() => {
+                  // 检测是否开启自动重启
+                  if (item[5]) {
+                    job.start()
+                  }
+                })
+            },
+            item[3],
+            item[4])
           job.start()
         })
         winston.verbose('All Cron Jobs Load done.')
       } else {
+        // 已经指定了 cronMap
         await cronMap.map((item, index, input) => {
           // Register CronJob
-          const job = new CronJob(item[0], item[1], item[2], item[3], item[4])
+          const job = new CronJob(
+            item[0],
+            item[1],
+            () => {
+              // 检测是否启动自动重启任务
+              Promise.resolve() // 异步按序执行
+                .then(item[2]) // 已定义的 onComplete 函数
+                .then(() => {
+                  // 检测是否开启自动重启
+                  if (item[5]) {
+                    job.start()
+                  }
+                })
+            },
+            item[3],
+            item[4])
+
           job.start()
         })
         winston.verbose('All Cron Jobs Load done.')

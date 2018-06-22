@@ -26,9 +26,9 @@ function autoSave (ts, requests) {
   winston.debug('Save Host requests total to Cache. Requests: ' + requests.hosts)
 }
 module.exports = [
-  '* * * * * *', // Cron Config
+  '* * * * * *', // Cron 配置
   () => {
-    // Do something
+    // 每次触发计划任务时执行...
     const ts = Date.now().toString().slice(0, 10)
     if (!global.requests) {
       Promise.all([cache.get('requests'), cache.get('requests:hosts')])
@@ -47,10 +47,10 @@ module.exports = [
     }
   },
   () => {
-    // This function is executed when the job stops
-    winston.error('Count Requests job is stopped. Kill process.')
-    process.exit(1)
+    // 该方法会在计划任务停止时执行
+    winston.error('Requests statistics job is stopped. Try RESTART Job.')
   },
-  true, // Start the job right now,
-  'Asia/Shanghai' // Timezone
+  false, // 是否立即启动计划任务
+  'Asia/Shanghai', // 时区
+  true // 开启 自动重启？
 ]
