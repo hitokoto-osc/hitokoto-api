@@ -424,7 +424,7 @@ controllers.detail = async (ctx, next) => {
     return
   } else {
     ret = await nm.song(ctx.params.id)
-    if (ret.songs.length > 0) {
+    if (Array.isArray(ret.songs) && ret.songs.length > 0) {
       cache.set('nm:detail:' + ctx.params.id, ret, 60 * 60 * 2)
     }
   }
@@ -463,7 +463,7 @@ const Response400 = (ctx, code = 0) => {
 const silentSummary = async (id, ctx) => {
   // First, Get Music URL
   const URLs = await nm.url(id)
-  if (URLs && URLs.data && URLs.data.length > 0) {
+  if (URLs && Array.isArray(URLs.data) && URLs.data.length > 0) {
     const ids = []
     for (let _ of URLs.data) {
       if (_.code !== 404 && _.url) {
