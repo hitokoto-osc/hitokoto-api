@@ -131,7 +131,8 @@ module.exports = async (ctx, next) => {
     'v1.hitokoto.cn',
     'api.hitokoto.cn',
     'sslapi.hitokoto.cn',
-    'api.a632079.me'
+    'api.a632079.me',
+    'international.hitokoto.cn'
   ]
   const HostToDelete = []
   for (let i of limitHost) {
@@ -182,9 +183,9 @@ module.exports = async (ctx, next) => {
       // cpu: os.cpus(),
       load: os.loadavg(),
       hitokto: {
-        total: global.hitokoto.total,
-        categroy: global.hitokoto.categroy,
-        lastUpdate: global.hitokoto.lastUpdated
+        total: !global.hitokoto ? 0 : global.hitokoto.total,
+        categroy: !global.hitokoto ? 0 : global.hitokoto.categroy,
+        lastUpdate: !global.hitokoto ? 0 : global.hitokoto.lastUpdated
       }
     },
     requests: {
