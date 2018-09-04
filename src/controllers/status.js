@@ -132,7 +132,7 @@ module.exports = async (ctx, next) => {
     'api.hitokoto.cn',
     'sslapi.hitokoto.cn',
     'api.a632079.me',
-    'international.hitokoto.cn'
+    'international.v1.hitokoto.cn'
   ]
   const HostToDelete = []
   for (let i of limitHost) {
