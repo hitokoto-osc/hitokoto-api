@@ -522,6 +522,14 @@ const handleSummary = async (id, url, check = false) => {
     detail = await nm.song(id.toString())
     cache.set('nm:detail:' + id, detail, cacheTime)
   }
+  if (!data || !detail.songs[0]) { // 添加错误处理
+    return {
+      status: 500,
+      musicId: id,
+      msg: '由于未知原因， 本次请求失败。',
+      data: detail
+    }
+  }
   data.name = detail.songs[0].name
   data.artists = []
   for (let artist of detail.songs[0].ar) {
