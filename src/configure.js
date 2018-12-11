@@ -4,14 +4,14 @@
  * @author a632079
  */
 
- // 私有变量
-const dataEncrypt = new Symbol('dataEncrypt')
-const dataDecrypt = new Symbol('dataDecrypt')
-const generateSign = new Symbol('generateSign')
-const generateRequestBody = new Symbol('generateRequestBody')
+// 私有变量
+const dataEncrypt = Symbol('dataEncrypt')
+const dataDecrypt = Symbol('dataDecrypt')
+const generateSign = Symbol('generateSign')
+const generateRequestBody = Symbol('generateRequestBody')
 
 class Configure {
-  construct(config) {
+  construct (config) {
     /**
      * 初始化配置器
      */
@@ -21,8 +21,8 @@ class Configure {
   /**
    * 从配置服务器中取得配置
    */
-  async getConfig() {
-    return
+  async getConfig () {
+
   }
 
   /**
@@ -56,6 +56,5 @@ class Configure {
   [dataDecrypt] () {
 
   }
-
 }
 module.export = Configure

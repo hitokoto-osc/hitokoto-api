@@ -1,7 +1,6 @@
 // Import Packages
 const NeteaseMusic = require('simple-netease-cloud-music')
 const async = require('async')
-const winston = require('winston')
 const {
   MusicClient
 } = require('netease-music-sdk')
@@ -17,20 +16,9 @@ const controllers = {}
 // get mv data
 controllers.mv = async (ctx, next) => {
   let mvid
-  if (!ctx.params.mvid) {
-    ctx.body = {
-      status: 400,
-      message: '参数不能为空值',
-      ts: Date.now()
-    }
-    return
-  }
-
   try {
     mvid = Number.parseInt(ctx.params.mvid)
-    if (mvid === NaN) {
-      throw new Error('参数必须为数字')
-    }
+    checkNaN(mvid)
   } catch (e) {
     ctx.body = {
       status: 400,
@@ -62,9 +50,7 @@ controllers.djProgramInfo = async (ctx, next) => {
   let pid
   try {
     pid = Number.parseInt(ctx.params.pid)
-    if (pid === NaN) {
-      throw new Error('参数必须为数字')
-    }
+    checkNaN(pid)
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -86,7 +72,10 @@ controllers.djProgramInfo = async (ctx, next) => {
     ctx.body = {
       code: 500,
       message: '调用网易云原生接口时触发错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -102,9 +91,7 @@ controllers.djDetail = async (ctx, next) => {
   let rid
   try {
     rid = Number.parseInt(ctx.params.rid)
-    if (rid === NaN) {
-      throw new Error('参数必须为数字')
-    }
+    checkNaN(rid)
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -126,7 +113,10 @@ controllers.djDetail = async (ctx, next) => {
     ctx.body = {
       code: 500,
       message: '调用网易云原生接口时触发错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -148,9 +138,7 @@ controllers.djProgram = async (ctx, next) => {
     limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
     offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
 
-    if (rid === NaN) {
-      throw new Error('参数必须为数字')
-    }
+    checkNaN(rid)
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -173,7 +161,10 @@ controllers.djProgram = async (ctx, next) => {
     ctx.body = {
       code: 500,
       message: '调用网易云原生接口时触发错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -193,9 +184,7 @@ controllers.userDj = async (ctx, next) => {
     uid = Number.parseInt(ctx.params.uid)
     limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
     offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
-    if (uid === NaN) {
-      throw new Error('参数必须为数字')
-    }
+    checkNaN(uid)
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -217,7 +206,10 @@ controllers.userDj = async (ctx, next) => {
     ctx.body = {
       code: 500,
       message: '调用网易云原生接口时触发错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -256,12 +248,16 @@ controllers.musicComment = async (ctx, next) => {
     result = await sdk.getSongComment(id, limit, offset)
   } catch (e) { // 请求接口时触发错误
     ctx.status = 500
-    return ctx.body = {
+    ctx.body = {
       code: 400,
       message: '很抱歉， 请求时触发错误。 建议您检查您的参数。',
-      errObject: e,
+      errObject: {
+        stack: e.stack,
+        message: e.message
+      },
       ts: Date.now()
     }
+    return
   }
   if (result.code && result.code === 200) {
     cache.set(`nm:music:comment:${id}:${limit}:${offset}`, result, 60 * 60 * 2) // 2 Hour
@@ -298,7 +294,10 @@ controllers.record = async (ctx, next) => {
     ctx.body = {
       code: 500,
       message: '调用网易云原生接口时触发错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -395,12 +394,16 @@ controllers.search = async (ctx, next) => {
     ret = await sdk.search(keyword, type, limit, offset)
   } catch (e) { // 请求接口时触发错误
     ctx.status = 500
-    return ctx.body = {
+    ctx.body = {
       code: 500,
       message: '很抱歉， 请求时触发错误。 建议您检查您的参数。',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
+    return
   }
   cache.set(`nm:search:${keyword}:${limit}:${offset}:${type}`, ret, 60 * 60 * 2) // Cache 2 Hour
   ctx.body = ret || {
@@ -427,7 +430,10 @@ controllers.playlist = async (ctx, next) => {
       ctx.body = {
         code: 500,
         message: '调用网易云原生接口时触发错误',
-        errObject: e,
+        errObject: {
+          message: e.message,
+          stack: e.stack
+        },
         ts: Date.now()
       }
       return
@@ -471,7 +477,10 @@ controllers.artist = async (ctx, next) => {
       ctx.body = {
         status: 500,
         message: '调用网易原生接口时出现错误',
-        errObject: e,
+        errObject: {
+          message: e.message,
+          stack: e.stack
+        },
         ts: Date.now()
       }
       return
@@ -505,7 +514,10 @@ controllers.album = async (ctx, next) => {
       ctx.body = {
         status: 500,
         message: '调用网易原生接口时出现错误',
-        errObject: e,
+        errObject: {
+          message: e.message,
+          stack: e.stack
+        },
         ts: Date.now()
       }
       return
@@ -538,7 +550,10 @@ controllers.lyric = async (ctx, next) => {
       ctx.body = {
         status: 500,
         message: '调用网易原生接口时出现错误',
-        errObject: e,
+        errObject: {
+          message: e.message,
+          stack: e.stack
+        },
         ts: Date.now()
       }
       return
@@ -555,14 +570,18 @@ controllers.lyric = async (ctx, next) => {
 
 // Music URL API
 controllers.url = async (ctx, next) => {
+  let ret
   try {
-    const ret = await nm.url(ctx.params.id)
+    ret = await nm.url(ctx.params.id)
   } catch (e) {
     ctx.status = 500
     ctx.body = {
       status: 500,
       message: '调用网易原生接口时出现错误',
-      errObject: e,
+      errObject: {
+        message: e.message,
+        stack: e.stack
+      },
       ts: Date.now()
     }
     return
@@ -591,7 +610,10 @@ controllers.detail = async (ctx, next) => {
       ctx.body = {
         status: 500,
         message: '调用网易原生接口时出现错误',
-        errObject: e,
+        errObject: {
+          message: e.message,
+          stack: e.stack
+        },
         ts: Date.now()
       }
       return
@@ -719,7 +741,6 @@ const handleSummary = async (id, url, ctx, check = false) => {
         artists: detail.songs[0].ar
       }
     }
-    
   }
 
   data.album = {}
@@ -727,7 +748,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
   data.album.name = detail.songs[0].al.name
   let pictureId = detail.songs[0].al.pic_str
 
-  // 分析是否是 dj 
+  // 分析是否是 dj
   if (detail.songs[0].djId) {
     data.type = 'dj'
     if (data.extraInformation) {
@@ -822,11 +843,10 @@ const handleResult = (result, common = false) => {
   return data
 }
 
-function checkNaN(input) {
-  if (input === NaN) {
+function checkNaN (input) {
+  if (isNaN(input)) {
     throw new Error('参数必须为数字')
   }
-  return
 }
 
 module.exports = controllers
