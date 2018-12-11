@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  hitokoto_api:
+    image: hitokoto_api
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8000:8000

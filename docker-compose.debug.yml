@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  hitokoto_api:
+    image: hitokoto_api
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8000:8000
+      - 9229:9229
+    command: node --inspect=0.0.0.0:9229 core --harmony

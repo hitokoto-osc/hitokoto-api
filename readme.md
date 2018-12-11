@@ -25,7 +25,7 @@ sudo sh ./install.sh
 ```
 
 1. `cp config.example.json config.json` 并配置好相关信息（设置 `log_level` 为 `debug`）
-3. `pnpm run start` 
+3. `yarn start` 
 4. 进行第一轮测试，访问服务，看看是否存在异常
 5. 无异常，将 `log_level` 设置为 `info`
 6. `sudo pm2 startup` 使 pm2 开机自启动

@@ -1,7 +1,10 @@
 // Import Packages
 const NeteaseMusic = require('simple-netease-cloud-music')
 const async = require('async')
-const { MusicClient } = require('netease-music-sdk')
+const winston = require('winston')
+const {
+  MusicClient
+} = require('netease-music-sdk')
 const pify = require('pify')
 const cache = require('../cache')
 const nconf = require('nconf')
@@ -14,8 +17,20 @@ const controllers = {}
 // get mv data
 controllers.mv = async (ctx, next) => {
   let mvid
+  if (!ctx.params.mvid) {
+    ctx.body = {
+      status: 400,
+      message: '参数不能为空值',
+      ts: Date.now()
+    }
+    return
+  }
+
   try {
     mvid = Number.parseInt(ctx.params.mvid)
+    if (mvid === NaN) {
+      throw new Error('参数必须为数字')
+    }
   } catch (e) {
     ctx.body = {
       status: 400,
@@ -24,7 +39,7 @@ controllers.mv = async (ctx, next) => {
     }
     return
   }
-  let result = await cache.get(`nm:mv:${mvid}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:mv:${mvid}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
@@ -47,6 +62,9 @@ controllers.djProgramInfo = async (ctx, next) => {
   let pid
   try {
     pid = Number.parseInt(ctx.params.pid)
+    if (pid === NaN) {
+      throw new Error('参数必须为数字')
+    }
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -55,13 +73,24 @@ controllers.djProgramInfo = async (ctx, next) => {
     }
     return
   }
-  let result = await cache.get(`nm:dj:program:info:${pid}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:dj:program:info:${pid}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getRadioProgramInfo(pid)
+  try {
+    result = await sdk.getRadioProgramInfo(pid)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      code: 500,
+      message: '调用网易云原生接口时触发错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
   if (result && result.code === 200) {
     cache.set(`nm:dj:program:info:${pid}`, result, 60 * 60 * 2)
   }
@@ -73,6 +102,9 @@ controllers.djDetail = async (ctx, next) => {
   let rid
   try {
     rid = Number.parseInt(ctx.params.rid)
+    if (rid === NaN) {
+      throw new Error('参数必须为数字')
+    }
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -81,13 +113,25 @@ controllers.djDetail = async (ctx, next) => {
     }
     return
   }
-  let result = await cache.get(`nm:dj:info:${rid}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:dj:info:${rid}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getRadioInfo(rid)
+  try {
+    result = await sdk.getRadioInfo(rid)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      code: 500,
+      message: '调用网易云原生接口时触发错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
+
   if (result && result.code === 200) {
     cache.set(`nm:dj:info:${rid}`, result, 60 * 60 * 2)
   }
@@ -103,6 +147,10 @@ controllers.djProgram = async (ctx, next) => {
     rid = Number.parseInt(ctx.params.rid)
     limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
     offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+
+    if (rid === NaN) {
+      throw new Error('参数必须为数字')
+    }
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -112,15 +160,26 @@ controllers.djProgram = async (ctx, next) => {
     return
   }
   const asc = !!(ctx.query && ctx.query.asc)
-  let result = await cache.get(`nm:dj:program:${rid}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:dj:program:${rid}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getRadioProgram(rid, asc, limit, offset)
+  try {
+    result = await sdk.getRadioProgram(rid, asc, limit, offset)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      code: 500,
+      message: '调用网易云原生接口时触发错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
   if (result && result.code === 200) {
-    cache.set(`nm:dj:program:${rid}`, result, 60 * 60 * 2)
+    cache.set(`nm:dj:program:${rid}:${limit}:${offset}`, result, 60 * 60 * 2)
   }
   ctx.body = result
 }
@@ -134,6 +193,9 @@ controllers.userDj = async (ctx, next) => {
     uid = Number.parseInt(ctx.params.uid)
     limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
     offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+    if (uid === NaN) {
+      throw new Error('参数必须为数字')
+    }
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -142,15 +204,26 @@ controllers.userDj = async (ctx, next) => {
     }
     return
   }
-  let result = await cache.get(`nm:user:dj:${uid}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:user:dj:${uid}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getUserDj(uid, limit, offset)
+  try {
+    result = await sdk.getUserDj(uid, limit, offset)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      code: 500,
+      message: '调用网易云原生接口时触发错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
   if (result.code && result.code === 200) {
-    cache.set(`nm:user:dj:${uid}`, result, 60 * 60 * 2)
+    cache.set(`nm:user:dj:${uid}:${limit}:${offset}`, result, 60 * 60 * 2)
   }
   ctx.body = result
 }
@@ -164,6 +237,7 @@ controllers.musicComment = async (ctx, next) => {
     id = Number.parseInt(ctx.params.id)
     limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
     offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
+    checkNaN(id)
   } catch (e) {
     ctx.body = {
       code: 400,
@@ -172,13 +246,23 @@ controllers.musicComment = async (ctx, next) => {
     }
     return
   }
-  let result = await cache.get(`nm:music:comment:${id}:${limit}:${offset}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:music:comment:${id}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getSongComment(id, limit, offset)
+  try {
+    result = await sdk.getSongComment(id, limit, offset)
+  } catch (e) { // 请求接口时触发错误
+    ctx.status = 500
+    return ctx.body = {
+      code: 400,
+      message: '很抱歉， 请求时触发错误。 建议您检查您的参数。',
+      errObject: e,
+      ts: Date.now()
+    }
+  }
   if (result.code && result.code === 200) {
     cache.set(`nm:music:comment:${id}:${limit}:${offset}`, result, 60 * 60 * 2) // 2 Hour
   }
@@ -190,6 +274,7 @@ controllers.record = async (ctx, next) => {
   let uid
   try {
     uid = Number.parseInt(ctx.params.uid)
+    checkNaN(uid)
   } catch (e) {
     ctx.code = 400
     ctx.body = {
@@ -200,13 +285,24 @@ controllers.record = async (ctx, next) => {
     return
   }
   const type = ctx.query && ctx.query.weekly ? 1 : 0
-  let result = await cache.get(`nm:user:record:${uid}:${type}`, false)
+  let result = ctx.query.nocache ? null : await cache.get(`nm:user:record:${uid}:${type}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
     return
   }
-  result = await sdk.getUserRecord(uid, type)
+  try {
+    result = await sdk.getUserRecord(uid, type)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      code: 500,
+      message: '调用网易云原生接口时触发错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
   if (result.code && result.code === 200) {
     cache.set(`nm:user:record:${uid}:${type}`, result, 60 * 60 * 2)
   }
@@ -289,13 +385,23 @@ controllers.search = async (ctx, next) => {
   const limit = ctx.query && ctx.query.limit && typeof ctx.query.limit === 'number' ? ctx.query.limit : 30
   const offset = ctx.query && ctx.query.offset && typeof ctx.query.limit === 'number' ? ctx.query.limit : 0
   const type = getType(ctx)
-  let ret = await cache.get(`nm:search:${keyword}:${limit}:${offset}:${type}`)
+  let ret = ctx.query.nocache ? null : await cache.get(`nm:search:${keyword}:${limit}:${offset}:${type}`)
   if (ret) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = ret
     return
   }
-  ret = await sdk.search(keyword, type, limit, offset)
+  try {
+    ret = await sdk.search(keyword, type, limit, offset)
+  } catch (e) { // 请求接口时触发错误
+    ctx.status = 500
+    return ctx.body = {
+      code: 500,
+      message: '很抱歉， 请求时触发错误。 建议您检查您的参数。',
+      errObject: e,
+      ts: Date.now()
+    }
+  }
   cache.set(`nm:search:${keyword}:${limit}:${offset}:${type}`, ret, 60 * 60 * 2) // Cache 2 Hour
   ctx.body = ret || {
     code: 400,
@@ -308,13 +414,24 @@ controllers.search = async (ctx, next) => {
 // Playlist API
 controllers.playlist = async (ctx, next) => {
   let ret
-  let Cache = await cache.get('nm:playlist:' + ctx.params.id, false)
+  let Cache = ctx.query.nocache ? null : await cache.get('nm:playlist:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
     return
   } else {
-    ret = await nm.playlist(ctx.params.id)
+    try {
+      ret = await nm.playlist(ctx.params.id)
+    } catch (e) {
+      ctx.status = 500
+      ctx.body = {
+        code: 500,
+        message: '调用网易云原生接口时触发错误',
+        errObject: e,
+        ts: Date.now()
+      }
+      return
+    }
     if (ret.code !== 404) {
       cache.set('nm:playlist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
@@ -341,13 +458,24 @@ controllers.picture = async (ctx, next) => {
 // Artist API
 controllers.artist = async (ctx, next) => {
   let ret
-  let Cache = await cache.get('nm:artist:' + ctx.params.id, false)
+  let Cache = ctx.query.nocache ? null : await cache.get('nm:artist:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
     return
   } else {
-    ret = await nm.artist(ctx.params.id)
+    try {
+      ret = await nm.artist(ctx.params.id)
+    } catch (e) {
+      ctx.status = 500
+      ctx.body = {
+        status: 500,
+        message: '调用网易原生接口时出现错误',
+        errObject: e,
+        ts: Date.now()
+      }
+      return
+    }
     cache.set('nm:artist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     if (ret.code === 200) {
       cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
@@ -364,13 +492,24 @@ controllers.artist = async (ctx, next) => {
 // Album API
 controllers.album = async (ctx, next) => {
   let ret
-  let Cache = await cache.get('nm:album:' + ctx.params.id, false)
+  let Cache = ctx.query.nocache ? null : await cache.get('nm:album:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
     return
   } else {
-    ret = await nm.album(ctx.params.id)
+    try {
+      ret = await nm.album(ctx.params.id)
+    } catch (e) {
+      ctx.status = 500
+      ctx.body = {
+        status: 500,
+        message: '调用网易原生接口时出现错误',
+        errObject: e,
+        ts: Date.now()
+      }
+      return
+    }
     if (ret.code === 200) {
       cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
@@ -386,13 +525,24 @@ controllers.album = async (ctx, next) => {
 // Lyric API
 controllers.lyric = async (ctx, next) => {
   let ret
-  let Cache = await cache.get('nm:lyric:' + ctx.params.id, false)
+  let Cache = ctx.query.nocache ? null : await cache.get('nm:lyric:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
     return
   } else {
-    ret = await nm.lyric(ctx.params.id)
+    try {
+      ret = await nm.lyric(ctx.params.id)
+    } catch (e) {
+      ctx.status = 500
+      ctx.body = {
+        status: 500,
+        message: '调用网易原生接口时出现错误',
+        errObject: e,
+        ts: Date.now()
+      }
+      return
+    }
     cache.set('nm:lyric:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
   }
   ctx.body = ret || {
@@ -405,7 +555,18 @@ controllers.lyric = async (ctx, next) => {
 
 // Music URL API
 controllers.url = async (ctx, next) => {
-  const ret = await nm.url(ctx.params.id)
+  try {
+    const ret = await nm.url(ctx.params.id)
+  } catch (e) {
+    ctx.status = 500
+    ctx.body = {
+      status: 500,
+      message: '调用网易原生接口时出现错误',
+      errObject: e,
+      ts: Date.now()
+    }
+    return
+  }
   ctx.body = ret || {
     code: 400,
     message: 'API 在请求时出现了问题，再试一下看看？',
@@ -417,13 +578,24 @@ controllers.url = async (ctx, next) => {
 // Song Detail API
 controllers.detail = async (ctx, next) => {
   let ret
-  let Cache = await cache.get('nm:detail:' + ctx.params.id, false)
+  let Cache = ctx.query.nocache ? null : await cache.get('nm:detail:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
     return
   } else {
-    ret = await nm.song(ctx.params.id)
+    try {
+      ret = await nm.song(ctx.params.id)
+    } catch (e) {
+      ctx.status = 500
+      ctx.body = {
+        status: 500,
+        message: '调用网易原生接口时出现错误',
+        errObject: e,
+        ts: Date.now()
+      }
+      return
+    }
     if (Array.isArray(ret.songs) && ret.songs.length > 0) {
       cache.set('nm:detail:' + ctx.params.id, ret, 60 * 60 * 2)
     }
@@ -473,10 +645,10 @@ const silentSummary = async (id, ctx) => {
     if (ids.length > 0) {
       const result = await pify(async).mapLimit(ids, 5, async id => {
         if (ctx.query && ctx.query.lyric) {
-          const ret = await Promise.all([handleSummary(id, nconf.get('url'), true), getLyric(id, true)])
+          const ret = await Promise.all([handleSummary(id, nconf.get('url'), ctx, true), getLyric(id, true)])
           return ret
         } else {
-          const ret = await Promise.all([handleSummary(id, nconf.get('url'), true)])
+          const ret = await Promise.all([handleSummary(id, nconf.get('url'), ctx, true)])
           return ret
         }
       })
@@ -493,17 +665,17 @@ const quickSummary = async (ID, ctx) => {
   const ids = ID.split(',')
   const result = await pify(async).mapLimit(ids, 5, async id => {
     if (ctx.query && ctx.query.lyric) {
-      return Promise.all([handleSummary(id, nconf.get('url')), getLyric(id)])
+      return Promise.all([handleSummary(id, nconf.get('url'), ctx), getLyric(id)])
     } else {
-      return Promise.all([handleSummary(id, nconf.get('url'))])
+      return Promise.all([handleSummary(id, nconf.get('url'), ctx)])
     }
   })
   return result
 }
 
-const handleSummary = async (id, url, check = false) => {
+const handleSummary = async (id, url, ctx, check = false) => {
   let Cache
-  Cache = await cache.get('nm:song:' + id)
+  Cache = ctx.query.nocache ? null : await cache.get('nm:song:' + id)
   if (Cache) {
     return Cache
   }
@@ -515,40 +687,87 @@ const handleSummary = async (id, url, check = false) => {
 
   // Get Music Detail
   let detail
-  Cache = await cache.get('nm:detail:' + id)
+  Cache = ctx.query.nocache ? null : await cache.get('nm:detail:' + id)
   if (Cache) {
     detail = Cache
   } else {
     detail = await nm.song(id.toString())
     cache.set('nm:detail:' + id, detail, cacheTime)
   }
-  if (!data || !detail.songs[0]) { // 添加错误处理
-    return {
-      status: 500,
-      musicId: id,
-      msg: '由于未知原因， 本次请求失败。',
-      data: detail
+  if (!detail || !detail.songs[0] || !detail.songs[0]) { // 添加错误处理
+    data.name = '获取信息失败'
+    data.artists = ['获取信息失败']
+    data.album = {
+      id: 0,
+      name: '获取信息失败'
     }
+    data.status = 500 // 特殊标识用于识别错误
+    return data
   }
   data.name = detail.songs[0].name
   data.artists = []
   for (let artist of detail.songs[0].ar) {
     data.artists.push(artist.name)
   }
+
+  // 添加歌手附加信息， 为以后混合搜索做准备
+  if (ctx.query.extraInfo) {
+    if (data.extraInformation) {
+      data.extraInformation.artists = detail.songs[0].ar
+    } else {
+      data.extraInformation = {
+        artists: detail.songs[0].ar
+      }
+    }
+    
+  }
+
   data.album = {}
   data.album.id = detail.songs[0].al.id
   data.album.name = detail.songs[0].al.name
+  let pictureId = detail.songs[0].al.pic_str
 
-  let album
-  Cache = await cache.get('nm:album:' + detail.songs[0].al.id)
-  if (Cache) {
-    album = Cache
+  // 分析是否是 dj 
+  if (detail.songs[0].djId) {
+    data.type = 'dj'
+    if (data.extraInformation) {
+      data.extraInformation.djId = detail.songs[0].djId
+    } else {
+      data.extraInformation = {
+        djId: detail.songs[0].djId
+      }
+    }
+    // 这里预留一个关联性获取 dj 歌曲的锅子
   } else {
-    album = await nm.album(detail.songs[0].al.id.toString())
-    cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
+    data.type = 'song'
   }
-  data.album.picture = (await nm.picture(album.songs[0].al.pic_str)).url
-  cache.set('nm:song:' + id, data, cacheTime)
+
+  if (!pictureId) {
+    let album
+    Cache = ctx.query.nocache ? null : await cache.get('nm:album:' + detail.songs[0].al.id)
+    if (Cache) {
+      album = Cache
+    } else {
+      album = await nm.album(detail.songs[0].al.id.toString())
+      cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
+    }
+    // console.log(album)
+    pictureId = (album.songs && album.songs[0] && album.songs[0].al && album.songs[0].al.pic_str) ? album.songs[0].al.pic_str : album.picId_str
+  }
+  // winston.verbose(pictureId)
+  if (!pictureId) {
+    data.album.picture = 'https://p3.music.126.net/OXmGmFI7keckpS0IhZ0VeA==/3254554419407433.jpg?param=300y300'
+    data.status = 500
+    return data // 无法正确获得专辑信息
+  }
+
+  data.album.picture = (await nm.picture(pictureId)).url
+  if (!data.status || data.status !== 500) {
+    // 设置成功标识
+    data.status = 200
+    cache.set('nm:song:' + id + ':' + !!ctx.query.extraInfo, data, cacheTime)
+  }
+
   return data
 }
 
@@ -601,6 +820,13 @@ const handleResult = (result, common = false) => {
   }
   data.ids = ids
   return data
+}
+
+function checkNaN(input) {
+  if (input === NaN) {
+    throw new Error('参数必须为数字')
+  }
+  return
 }
 
 module.exports = controllers

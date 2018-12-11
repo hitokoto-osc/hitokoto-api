@@ -58,7 +58,7 @@ function fetchCurrentVersion () {
     })
     .catch(err => {
       // 网络请求之类的， 遇到错误
-      winston.err('尝试更新程序时遇到网络错误， 错误如下:')
+      winston.error('尝试更新程序时遇到网络错误， 错误如下:')
       winston.error(err)
       winston.info('自动尝试重新获取..')
       fetchCurrentVersion()

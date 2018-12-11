@@ -22,8 +22,8 @@ print_status "Update Procedure"
 exec_cmd "git pull"
 
 print_status "Update Repos"
-exec_cmd "pnpm i -g pnpm"
-exec_cmd "pnpm i"
+exec_cmd "npm i -g yarn"
+exec_cmd "yarn"
 
 print_status "Restart Service"
 exec_cmd "pm2 restart hitokoto"

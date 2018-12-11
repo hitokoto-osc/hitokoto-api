@@ -8,6 +8,9 @@ module.exports = (router, controller) => {
     }
   })
   */
+  router.get('/crash', async ctx => {
+    throw new Error('崩溃测试')
+  })
   router.get('/test', async ctx => {
     const nconf = require('nconf')
     const os = require('os')
