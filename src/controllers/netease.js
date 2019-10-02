@@ -716,12 +716,13 @@ const handleSummary = async (id, url, ctx, check = false) => {
     detail = await nm.song(id.toString())
     cache.set('nm:detail:' + id, detail, cacheTime)
   }
-  if (!detail || typeof detail.songs[0] === 'undefined' || !detail.songs[0]) { // 添加错误处理
-    data.name = '获取信息失败'
-    data.artists = ['获取信息失败']
+  if (!detail || !detail.songs || !detail.songs[0]) { // 添加错误处理
+    const v = detail.code === -460 ? '一言节点被屏蔽，请联系一言管理员' : '获取信息失败'
+    data.name = detail.code === v
+    data.artists = [v]
     data.album = {
       id: 0,
-      name: '获取信息失败'
+      name: v
     }
     data.status = 500 // 特殊标识用于识别错误
     return data
