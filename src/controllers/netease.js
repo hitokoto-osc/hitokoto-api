@@ -716,7 +716,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
     detail = await nm.song(id.toString())
     cache.set('nm:detail:' + id, detail, cacheTime)
   }
-  if (!detail || !detail.songs[0] || !detail.songs[0]) { // 添加错误处理
+  if (!detail || typeof detail.songs[0] === 'undefined' || !detail.songs[0]) { // 添加错误处理
     data.name = '获取信息失败'
     data.artists = ['获取信息失败']
     data.album = {
