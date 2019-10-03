@@ -703,7 +703,7 @@ const quickSummary = async (ID, ctx) => {
 const handleSummary = async (id, url, ctx, check = false) => {
   let Cache
   Cache = ctx.query.nocache ? null : await cache.get('nm:song:' + id)
-  if (Cache) {
+  if (Cache && Cache.status !== 500) {
     return Cache
   }
 
