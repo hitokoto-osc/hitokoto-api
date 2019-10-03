@@ -609,7 +609,7 @@ controllers.detail = async (ctx, next) => {
     return
   } else {
     try {
-      ret = await nm.song(ctx.params.id)
+      ret = await sdk.getSongInfo(ctx.params.id)
     } catch (e) {
       ctx.status = 500
       ctx.body = {
@@ -718,7 +718,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
   if (Cache && Cache.code && Cache.code === 200) { // 尝试在服务端矫正异常的缓存结果
     detail = Cache
   } else {
-    detail = await nm.song(id.toString())
+    detail = await sdk.getSongInfo(id)
     if (detail.code === 200) {
       cache.set('nm:detail:' + id, detail, cacheTime)
     }
