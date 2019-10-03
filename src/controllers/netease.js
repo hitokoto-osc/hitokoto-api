@@ -35,7 +35,9 @@ controllers.mv = async (ctx, next) => {
   }
   try {
     result = await sdk.getMvInfo(mvid)
-    cache.set(`nm:mv:${mvid}`, result, 60 * 60 * 2)
+    if (result && result.code === 200) {
+      cache.set(`nm:mv:${mvid}`, result, 60 * 60 * 2)
+    }
     ctx.body = result
   } catch (e) {
     ctx.status = 404
@@ -405,7 +407,9 @@ controllers.search = async (ctx, next) => {
     }
     return
   }
-  cache.set(`nm:search:${keyword}:${limit}:${offset}:${type}`, ret, 60 * 60 * 2) // Cache 2 Hour
+  if (ret && ret.code && ret.code === 200) {
+    cache.set(`nm:search:${keyword}:${limit}:${offset}:${type}`, ret, 60 * 60 * 2) // Cache 2 Hour
+  }
   ctx.body = ret || {
     code: 400,
     message: 'API 在请求时出现了问题，再试一下看看？',
@@ -438,7 +442,7 @@ controllers.playlist = async (ctx, next) => {
       }
       return
     }
-    if (ret.code !== 404) {
+    if (ret && ret.code && ret.code === 200) {
       cache.set('nm:playlist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
   }
@@ -485,9 +489,8 @@ controllers.artist = async (ctx, next) => {
       }
       return
     }
-    cache.set('nm:artist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     if (ret.code === 200) {
-      cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+      cache.set('nm:artist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
   }
   ctx.body = ret || {
@@ -522,7 +525,7 @@ controllers.album = async (ctx, next) => {
       }
       return
     }
-    if (ret.code === 200) {
+    if (ret && ret.code && ret.code === 200) {
       cache.set('nm:album:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
   }
@@ -558,7 +561,9 @@ controllers.lyric = async (ctx, next) => {
       }
       return
     }
-    cache.set('nm:lyric:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    if (ret && ret.code && ret.code === 200) {
+      cache.set('nm:lyric:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
+    }
   }
   ctx.body = ret || {
     code: 400,
@@ -618,7 +623,7 @@ controllers.detail = async (ctx, next) => {
       }
       return
     }
-    if (Array.isArray(ret.songs) && ret.songs.length > 0) {
+    if (ret && ret.code && ret.code === 200 && Array.isArray(ret.songs) && ret.songs.length > 0) {
       cache.set('nm:detail:' + ctx.params.id, ret, 60 * 60 * 2)
     }
   }
@@ -710,15 +715,17 @@ const handleSummary = async (id, url, ctx, check = false) => {
   // Get Music Detail
   let detail
   Cache = ctx.query.nocache ? null : await cache.get('nm:detail:' + id)
-  if (Cache) {
+  if (Cache && Cache.code && Cache.code === 200) { // 尝试在服务端矫正异常的缓存结果
     detail = Cache
   } else {
     detail = await nm.song(id.toString())
-    cache.set('nm:detail:' + id, detail, cacheTime)
+    if (detail.code === 200) {
+      cache.set('nm:detail:' + id, detail, cacheTime)
+    }
   }
   if (!detail || !detail.songs || !detail.songs[0]) { // 添加错误处理
     const v = detail.code === -460 ? '一言节点被屏蔽，请联系一言管理员' : '获取信息失败'
-    data.name = detail.code === v
+    data.name = v
     data.artists = [v]
     data.album = {
       id: 0,
@@ -767,11 +774,13 @@ const handleSummary = async (id, url, ctx, check = false) => {
   if (!pictureId) {
     let album
     Cache = ctx.query.nocache ? null : await cache.get('nm:album:' + detail.songs[0].al.id)
-    if (Cache) {
+    if (Cache && Cache.code && Cache.code === 200) { // 尝试在服务端矫正异常的缓存结果
       album = Cache
     } else {
       album = await nm.album(detail.songs[0].al.id.toString())
-      cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
+      if (album.code === 200){
+        cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
+      }
     }
     // console.log(album)
     pictureId = (album.songs && album.songs[0] && album.songs[0].al && album.songs[0].al.pic_str) ? album.songs[0].al.pic_str : album.picId_str
@@ -803,11 +812,13 @@ const getLyric = async (id, check = false) => {
   // Get Lyric
   let lyric
   Cache = await cache.get('nm:lyric:' + id)
-  if (Cache) {
+  if (Cache && Cache.code && Cache.code === 200) { // 尝试在服务端矫正异常的缓存结果
     lyric = Cache
   } else {
     lyric = await nm.lyric(id.toString())
-    cache.set('nm:lyric:' + id, lyric, cacheTime)
+    if (lyric && lyric.code && lyric.code === 200) {
+      cache.set('nm:lyric:' + id, lyric, cacheTime)
+    }
   }
   const data = {}
   data.id = id
