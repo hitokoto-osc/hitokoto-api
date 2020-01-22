@@ -46,6 +46,10 @@ module.exports = [{
     allowNull: false,
     defaultValue: 1
   },
+  uuid: {
+    type: model.STRING,
+    allowNull: false
+  },
   created_at: {
     type: model.STRING,
     allowNull: false
