@@ -41,6 +41,11 @@ module.exports = [{
     type: model.STRING,
     allowNull: false
   },
+  reviewer: {
+    type: model.INTEGER,
+    allowNull: false,
+    defaultValue: 1
+  },
   created_at: {
     type: model.STRING,
     allowNull: false

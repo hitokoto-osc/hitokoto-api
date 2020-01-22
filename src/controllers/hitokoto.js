@@ -26,7 +26,7 @@ async function syncHitokotoList () {
   // Fetch All Data
   result.all = await hitokoto.findAll({
     attributes: {
-      exclude: ['from_who', 'creator_uid', 'assessor', 'owner']
+      exclude: ['assessor', 'owner']
     }
   })
   // Generate Categroy List

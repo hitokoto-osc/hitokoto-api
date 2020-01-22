@@ -23,7 +23,7 @@ const preStart = require('./src/prestart')
 preStart.load(configFile)
 
 // Use blubird promise
-global.Promise = require('bluebird')
+// global.Promise = require('bluebird')
 
 // Register Server
 const app = new Koa()
