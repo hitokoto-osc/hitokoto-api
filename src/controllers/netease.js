@@ -8,9 +8,9 @@ const pify = require('pify')
 const cache = require('../cache')
 const nconf = require('nconf')
 const nm = new NeteaseMusic()
-const user = require('../../user')
+// const user = require('../../user')
 const sdk = new MusicClient()
-sdk.load(user)
+// sdk.load(user)
 const controllers = {}
 
 // get mv data
@@ -778,7 +778,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
       album = Cache
     } else {
       album = await nm.album(detail.songs[0].al.id.toString())
-      if (album.code === 200){
+      if (album.code === 200) {
         cache.set('nm:album:' + detail.songs[0].al.id, album, cacheTime) // Cache 2 Hour
       }
     }
