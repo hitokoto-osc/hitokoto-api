@@ -103,7 +103,7 @@ async function hitokoto (ctx, next) {
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto="${sentence.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto=${JSON.stringify(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
@@ -146,7 +146,7 @@ async function hitokoto (ctx, next) {
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto="${sentence.hitokoto}";var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto=${JSON.stringify(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
