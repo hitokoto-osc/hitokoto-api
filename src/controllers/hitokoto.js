@@ -3,8 +3,34 @@ const iconv = require('iconv-lite')
 const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
+const fastJson = require('fast-json-stringify')
+const flatstr = require('flatstr')
+
+// define fastJson scheme
+const hitokotoFormat = fastJson({
+  title: 'hitokoto',
+  type: 'object',
+  properties: {
+    id: { type: 'integer' },
+    hitokoto: { type: 'string' },
+    type: { type: 'string' },
+    from: { type: 'string' },
+    from_who: { type: 'string', 'nullable': true },
+    creator: { type: 'string' },
+    creator_uid: { type: 'integer' },
+    reviewer: { type: 'integer' },
+    uuid: { type: 'string' },
+    created_at: { type: 'string' }
+  }
+})
+const rawString = fastJson({
+  title: 'rawString',
+  type: 'string'
+})
+
 let Hitokoto
 let updateLock = false
+
 function sleep (sec) {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, sec * 1000)
@@ -89,35 +115,36 @@ async function hitokoto (ctx, next) {
       case 'json':
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
+          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.body = sentence
+          ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
       case 'text':
         if (gbk) {
           ctx.set('Content-Type', 'text/plain; charset=gbk')
           ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
+          return
         }
-        ctx.body = sentence.hitokoto
+        ctx.body = flatstr(sentence.hitokoto)
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto=${JSON.stringify(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
         } else {
           ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-          ctx.body = response
+          ctx.body = flatstr(response)
         }
         break
       default:
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
+          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.body = sentence
+          ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
     }
@@ -132,9 +159,9 @@ async function hitokoto (ctx, next) {
       case 'json':
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
+          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.body = sentence
+          ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
       case 'text':
@@ -142,25 +169,25 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'text/plain; charset=gbk')
           ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
         }
-        ctx.body = sentence.hitokoto
+        ctx.body = flatstr(sentence.hitokoto)
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-        const response = `(function hitokoto(){var hitokoto=${JSON.stringify(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
+        const response = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
         if (gbk) {
           ctx.set('Content-Type', 'text/javascript; charset=gbk')
           ctx.body = iconv.encode(response, 'GBK')
         } else {
           ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-          ctx.body = response
+          ctx.body = flatstr(response)
         }
         break
       default:
         if (gbk) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(JSON.stringify(sentence), 'GBK')
+          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.body = sentence
+          ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
     }
