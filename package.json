@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "bilibili-api": "^0.0.2",
     "bluebird": "^3.5.1",
     "bytes": "^3.0.0",
