@@ -117,6 +117,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
+          ctx.set('Content-Type', 'text/plain; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -126,6 +127,7 @@ async function hitokoto (ctx, next) {
           ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
           return
         }
+        ctx.set('Content-Type', 'text/plain; charset=utf-8')
         ctx.body = flatstr(sentence.hitokoto)
         break
       case 'js':
@@ -144,6 +146,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
+          ctx.set('Content-Type', 'text/plain; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -161,6 +164,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
+          ctx.set('Content-Type', 'text/plain; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -168,7 +172,9 @@ async function hitokoto (ctx, next) {
         if (gbk) {
           ctx.set('Content-Type', 'text/plain; charset=gbk')
           ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
+          return
         }
+        ctx.set('Content-Type', 'text/plain; charset=utf-8')
         ctx.body = flatstr(sentence.hitokoto)
         break
       case 'js':
@@ -187,6 +193,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
+          ctx.set('Content-Type', 'text/plain; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
