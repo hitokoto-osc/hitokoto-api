@@ -117,7 +117,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.set('Content-Type', 'text/plain; charset=utf-8')
+          ctx.set('Content-Type', 'application/json; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -146,7 +146,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.set('Content-Type', 'text/plain; charset=utf-8')
+          ctx.set('Content-Type', 'application/json; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -164,7 +164,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.set('Content-Type', 'text/plain; charset=utf-8')
+          ctx.set('Content-Type', 'application/json; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
@@ -193,7 +193,7 @@ async function hitokoto (ctx, next) {
           ctx.set('Content-Type', 'application/json; charset=gbk')
           ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
         } else {
-          ctx.set('Content-Type', 'text/plain; charset=utf-8')
+          ctx.set('Content-Type', 'application/json; charset=utf-8')
           ctx.body = flatstr(hitokotoFormat(sentence))
         }
         break
