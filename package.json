@@ -79,7 +79,7 @@
     "passthrough-counter": "^1.0.0",
     "pify": "^3.0.0",
     "redis": "^2.8.0",
-    "sequelize": "^4.32.2",
+    "sequelize": "^5.3.0",
     "simple-netease-cloud-music": "^0.5.0",
     "uuid": "^3.2.1",
     "winston": "^2.4.0"
