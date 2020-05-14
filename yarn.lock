@@ -1767,10 +1767,10 @@ flatstr@^1.0.12:
   resolved "https://registry.npm.taobao.org/flatstr/download/flatstr-1.0.12.tgz#c2ba6a08173edbb6c9640e3055b95e287ceb5931"
   integrity sha1-wrpqCBc+27bJZA4wVbleKHzrWTE=
 
-follow-redirects@^1.2.5:
+follow-redirects@1.5.10, follow-redirects@^1.2.5:
   version "1.5.10"
-  resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   dependencies:
     debug "=3.1.0"
 
@@ -4170,10 +4170,10 @@ signal-exit@^3.0.2:
   resolved "https://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha1-oUEMLt2PB3sItOJTyOrPyvBXRhw=
 
-simple-netease-cloud-music@^0.4.0:
-  version "0.4.4"
-  resolved "https://registry.npm.taobao.org/simple-netease-cloud-music/download/simple-netease-cloud-music-0.4.4.tgz#771dc543b12cde28166d4498fee193eb3ae0c38d"
-  integrity sha1-dx3FQ7Es3igWbUSY/uGT6zrgw40=
+simple-netease-cloud-music@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/simple-netease-cloud-music/-/simple-netease-cloud-music-0.5.0.tgz#5868757b6816f7367d97a75dba08a6e2e31e9082"
+  integrity sha512-6P8eKDy/V2ikvpLsuSvtwIH+5oQRWQvVW4YjVW6LsXZQsbBBi1nWCNqXT4zTot38MOYRSEbzcnsxoE3aEkaK1w==
 
 slash@^3.0.0:
   version "3.0.0"
