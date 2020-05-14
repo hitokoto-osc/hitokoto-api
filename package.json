@@ -75,7 +75,7 @@
     "mysql2": "^1.5.1",
     "nconf": "^0.10.0",
     "netease-music-sdk": "^0.3.1",
-    "nodemailer": "^4.4.2",
+    "nodemailer": "^6.4.6",
     "passthrough-counter": "^1.0.0",
     "pify": "^3.0.0",
     "redis": "^2.8.0",
