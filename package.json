@@ -58,7 +58,7 @@
     "fast-json-stringify": "^2.0.0",
     "flatstr": "^1.0.12",
     "humanize-number": "^0.0.2",
-    "iconv-lite": "^0.4.19",
+    "iconv-lite": "^0.5.1",
     "kcors": "^2.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
