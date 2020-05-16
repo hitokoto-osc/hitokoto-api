@@ -1,1 +1,0 @@
-// Database Behavior model
