@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - "14"
-before_install:
-  - "sudo npm i -g yarn"
 install:
   - "yarn"
 script:
