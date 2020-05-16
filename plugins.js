@@ -13,8 +13,7 @@ module.exports = [
     // Basic Plugins
     require('koa-helmet')(),
     require('koa-query-pretty')(),
-    require('koa-json')(),
-    require('koa-jsonp')(),
+    require('@hitokoto/koa-jsonp')(),
     require('koa-bodyparser')({
       enableTypes: ['json', 'form'],
       formLimit: '10mb',

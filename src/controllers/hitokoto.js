@@ -1,10 +1,8 @@
 // Import necessary packages
-const iconv = require('iconv-lite')
 const path = require('path')
 const SrcDir = path.join('../../', './src/')
 const db = require(SrcDir + 'db')
 const fastJson = require('fast-json-stringify')
-const flatstr = require('flatstr')
 
 // define fastJson scheme
 const hitokotoFormat = fastJson({
@@ -110,45 +108,24 @@ async function hitokoto (ctx, next) {
     const sentence = Hitokoto.categroy[categroy][Math.floor(Math.random() * Hitokoto.categroy[categroy].length)]
     // CheckEncoding
     const encode = ctx.query.encode
-    const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
     switch (encode) {
       case 'json':
-        if (gbk) {
-          ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
-        } else {
-          ctx.set('Content-Type', 'application/json; charset=utf-8')
-          ctx.body = flatstr(hitokotoFormat(sentence))
-        }
+        ctx.type = 'application/json'
+        ctx.body = hitokotoFormat(sentence)
         break
       case 'text':
-        if (gbk) {
-          ctx.set('Content-Type', 'text/plain; charset=gbk')
-          ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
-          return
-        }
-        ctx.set('Content-Type', 'text/plain; charset=utf-8')
-        ctx.body = flatstr(sentence.hitokoto)
+        ctx.type = 'text/plain'
+        ctx.body = sentence.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
         const response = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
-        if (gbk) {
-          ctx.set('Content-Type', 'text/javascript; charset=gbk')
-          ctx.body = iconv.encode(response, 'GBK')
-        } else {
-          ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-          ctx.body = flatstr(response)
-        }
+        ctx.type = 'text/javascript'
+        ctx.body = response
         break
       default:
-        if (gbk) {
-          ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
-        } else {
-          ctx.set('Content-Type', 'application/json; charset=utf-8')
-          ctx.body = flatstr(hitokotoFormat(sentence))
-        }
+        ctx.type = 'application/json'
+        ctx.body = hitokotoFormat(sentence)
         break
     }
   } else {
@@ -157,45 +134,24 @@ async function hitokoto (ctx, next) {
     const sentence = Hitokoto.all[Math.floor(Math.random() * Hitokoto.all.length)]
     // CheckEncoding
     const encode = ctx.query.encode
-    const gbk = (ctx.query && ctx.query.charset && ctx.query.charset.toLocaleLowerCase() === 'gbk') ? !!'gbk' : false
     switch (encode) {
       case 'json':
-        if (gbk) {
-          ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
-        } else {
-          ctx.set('Content-Type', 'application/json; charset=utf-8')
-          ctx.body = flatstr(hitokotoFormat(sentence))
-        }
+        ctx.type = 'application/json'
+        ctx.body = hitokotoFormat(sentence)
         break
       case 'text':
-        if (gbk) {
-          ctx.set('Content-Type', 'text/plain; charset=gbk')
-          ctx.body = iconv.encode(sentence.hitokoto, 'GBK')
-          return
-        }
-        ctx.set('Content-Type', 'text/plain; charset=utf-8')
-        ctx.body = flatstr(sentence.hitokoto)
+        ctx.type = 'text/plain'
+        ctx.body = sentence.hitokoto
         break
       case 'js':
         const select = ctx.query.select ? ctx.query.select : '.hitokoto'
         const response = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
-        if (gbk) {
-          ctx.set('Content-Type', 'text/javascript; charset=gbk')
-          ctx.body = iconv.encode(response, 'GBK')
-        } else {
-          ctx.set('Content-Type', 'text/javascript; charset=utf-8')
-          ctx.body = flatstr(response)
-        }
+        ctx.type = 'text/javascript'
+        ctx.body = response
         break
       default:
-        if (gbk) {
-          ctx.set('Content-Type', 'application/json; charset=gbk')
-          ctx.body = iconv.encode(hitokotoFormat(sentence), 'GBK')
-        } else {
-          ctx.set('Content-Type', 'application/json; charset=utf-8')
-          ctx.body = flatstr(hitokotoFormat(sentence))
-        }
+        ctx.type = 'application/json'
+        ctx.body = hitokotoFormat(sentence)
         break
     }
   }
