@@ -30,8 +30,10 @@ function setupWinston () {
   })
 }
 
-function loadConfig (configFile) {
-  winston.verbose('* using configuration stored in: %s', configFile)
+function loadConfig (configFile, isChild = false) {
+  if (!isChild) {
+    winston.verbose('* using configuration stored in: %s', configFile)
+  }
 
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
 
@@ -59,14 +61,16 @@ function printCopyright () {
 }
 
 module.exports = {
-  load: (configFile) => {
+  load: (configFile, isChild = false) => {
     if (!configFile) {
       configFile = path.join(__dirname, '../data', './config.json')
     }
-    printCopyright()
+    if (!isChild) {
+      printCopyright()
+    }
     winston.level = 'info'
-    loadConfig(configFile)
+    loadConfig(configFile, isChild)
     setupWinston()
-    loadConfig(configFile)
+    loadConfig(configFile, isChild)
   }
 }

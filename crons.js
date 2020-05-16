@@ -3,7 +3,8 @@ module.exports = (cron) => {
   // return true
   return [
     // Register cron
-    cron.countRequests
+    cron.countRequests,
+    cron.updateSentences
     // cron.checkUpdate
   ]
 }

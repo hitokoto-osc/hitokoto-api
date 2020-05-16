@@ -64,6 +64,10 @@ async function registerMiddlewares () {
   }
 }
 
+// Run Task
+// TODO: crate a task tree file
+const {Task} = require('./src/task/updateSentencesTask')
+
 // Load Route
 async function registerRoutes (routes) {
   try {
@@ -88,12 +92,14 @@ async function registerRoutes (routes) {
 // Start Server
 async function start () {
   try {
+    await Task()
     await registerMiddlewares()
     const Routes = require('./src/route')
     await registerRoutes(new Routes())
     await app.listen(nconf.get('server:port'))
   } catch (e) {
-    winston.error(e)
+    console.log(colors.red(e.stack))
+    winston.error('occur error while starting, process exiting.')
     // mail.error(e)
     process.exit(1)
   }

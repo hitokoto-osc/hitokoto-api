@@ -96,5 +96,5 @@ class Cron {
   }
 }
 
-require('./prestart').load()
+require('./prestart').load(null, true)
 Cron.load()
