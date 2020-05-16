@@ -5,3 +5,4 @@ logs/*.log
 coverage/
 *.log
 *.dll
+**/config.json

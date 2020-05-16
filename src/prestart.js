@@ -1,6 +1,5 @@
 'use strict'
 const winston = require('winston')
-const config = require('../config')
 const nconf = require('nconf')
 const pkg = require('../package.json')
 const path = require('path')
@@ -8,12 +7,12 @@ const fs = require('fs')
 const dirname = path.join(__dirname, '../')
 
 function setupWinston () {
-  const logFile = config.log_path || path.join(__dirname, '../', './logs/', pkg.name + '.log')
+  const logFile = nconf.get('log_path') || path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
   fs.existsSync(logFile) || fs.writeFileSync(logFile, '')
   winston.remove(winston.transports.Console)
   winston.add(winston.transports.File, {
     filename: logFile,
-    level: config.log_level || (global.env === 'production' ? 'info' : 'verbose'),
+    level: nconf.get('log_level') || (global.env === 'production' ? 'info' : 'verbose'),
     handleExceptions: true,
     maxsize: 5242880,
     maxFiles: 10
@@ -22,17 +21,19 @@ function setupWinston () {
     colorize: nconf.get('log-colorize') !== 'false',
     timestamp: function () {
       var date = new Date()
-      return config.json_logging ? date.toJSON()
+      return nconf.get('json_logging') ? date.toJSON()
         : date.toISOString() + ' [' + global.process.pid + ']'
     },
-    level: config.log_level || (global.env === 'production' ? 'info' : 'verbose'),
-    json: !!config.json_logging,
-    stringify: !!config.json_logging
+    level: nconf.get('log_level') || (global.env === 'production' ? 'info' : 'verbose'),
+    json: !!nconf.get('json_logging'),
+    stringify: !!nconf.get('json_logging')
   })
 }
 
 function loadConfig (configFile) {
   winston.verbose('* using configuration stored in: %s', configFile)
+
+  nconf.argv().env() // 从参数中读取配置，并写入 nconf
 
   nconf.file({
     file: configFile
@@ -58,12 +59,14 @@ function printCopyright () {
 }
 
 module.exports = {
-  load: (config_file) => {
-    if (!config_file) {
-      config_file = path.join(__dirname, '../', 'config.json')
+  load: (configFile) => {
+    if (!configFile) {
+      configFile = path.join(__dirname, '../data', './config.json')
     }
-    setupWinston()
-    loadConfig(config_file)
     printCopyright()
+    winston.level = 'info'
+    loadConfig(configFile)
+    setupWinston()
+    loadConfig(configFile)
   }
 }
