@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 COPY ["package.json", "yarn.lock", "./"]
 RUN npm install --production --silent && mv node_modules ../
 COPY . .
-VOLUME [ "/data" ]
+VOLUME [ "./data" ]
+COPY "config.example.json" "./data"
 EXPOSE 8000
 CMD yarn start
