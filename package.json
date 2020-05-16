@@ -7,8 +7,8 @@
     "node": ">=12"
   },
   "scripts": {
-    "start": "node core --harmony",
-    "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" --harmony -- \"core.js\"",
+    "start": "node core",
+    "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
     "mocha": "mocha test/unit",
     "test": "nyc --reporter=html --reporter=text-summary mocha test\\unit",
     "coverall": "nyc report --reporter=text-lcov | coveralls && rm -r coverage"
