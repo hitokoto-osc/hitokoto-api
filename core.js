@@ -3,7 +3,7 @@
 // Import Packages
 const winston = require('winston')
 const nconf = require('nconf')
-// const path = require('path')
+const path = require('path')
 const colors = require('colors/safe')
 const Koa = require('koa') // Koa v2
 // const pkg = require('./package.json')
@@ -23,8 +23,25 @@ preStart.load(program.config_file || null)
 const app = new Koa()
 
 // Load CronJob
-const cron = require('./src/cron')
-cron.load()
+const childProcess = require('child_process')
+function spawnCronProcess () {
+  const process = childProcess.fork(path.join(__dirname, './src/cron.js'))
+  process.on('message', (message) => {
+    if (message === 'loaded') {
+      winston.verbose('Cron jobs are loaded.')
+    } else if (message.key) {
+      if (message.key === 'error') {
+        console.log(colors.red(message.data))
+        winston.error('error was thrown while loading cron jobs, process existing.')
+      }
+    }
+  })
+  process.on('exit', () => {
+    winston.warn('cron job process exited. try to respawn it.')
+    spawnCronProcess()
+  })
+}
+spawnCronProcess()
 
 // Register Middlewares (Plugins)
 async function registerMiddlewares () {
@@ -39,7 +56,7 @@ async function registerMiddlewares () {
         app.use(middleware)
       })
     }
-    winston.verbose('All Plugins Load done.')
+    winston.verbose('Plugins are loaded.')
   } catch (e) {
     winston.error(e)
     // mail.error(e)
@@ -60,7 +77,7 @@ async function registerRoutes (routes) {
         // mail.error(err)
         process.exit(1)
       })
-    winston.verbose('All Routes Load done.')
+    winston.verbose('Routes are loaded.')
   } catch (e) {
     winston.error(e)
     // mail.error(e)

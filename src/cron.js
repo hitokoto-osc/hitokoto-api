@@ -3,11 +3,11 @@
 const winston = require('winston')
 const path = require('path')
 const fs = require('fs')
-const colors = require('colors/safe')
+// const colors = require('colors/safe')
 const CronJob = require('cron').CronJob
 
 // 加载 Cron
-class cron {
+class Cron {
   static async load () {
     try {
       // 加载 cron
@@ -60,10 +60,13 @@ class cron {
 
           job.start()
         })
-        winston.verbose('All Cron Jobs Load done.')
+        process.send('loaded')
       }
     } catch (e) {
-      winston.error(colors.red(e))
+      process.send({
+        key: 'error',
+        data: e.stack
+      })
       process.exit(1)
     }
   }
@@ -75,18 +78,23 @@ class cron {
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/crons'))
       if (isArray) {
         await dir.map((item, index, input) => {
-          crons[index] = module.parent.require(path.join(__dirname, '../', './src/crons/' + item))
+          crons[index] = require(path.join(__dirname, '../', './src/crons/' + item))
         })
       } else {
         await dir.map((item, index, input) => {
-          crons[item.substring(0, item.length - 3)] = module.parent.require(path.join(__dirname, '../', './src/crons/' + item))
+          crons[item.substring(0, item.length - 3)] = require(path.join(__dirname, '../', './src/crons/' + item))
         })
       }
       return crons
     } catch (e) {
-      winston.error(colors.red(e))
+      process.send({
+        key: 'error',
+        data: e.stack
+      })
       process.exit(1)
     }
   }
 }
-module.exports = cron
+
+require('./prestart').load()
+Cron.load()
