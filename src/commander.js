@@ -6,6 +6,7 @@ function process () {
     .name('node')
     .usage('core [options]')
     .option('-c, --config_file <string>', '指定配置文件路径')
+    .option('-D, --dev', '开发者模式')
     .version(pkg.version, '-v, --version', '查看程序版本号')
     .helpOption('-h, --help', '查看程序指令帮助')
 
@@ -15,6 +16,11 @@ function process () {
     console.log('  $ yarn start')
   })
   program.parse(process.argv)
+
+  global.prod = true
+  if (program.dev) {
+    global.prod = false
+  }
   return program
 }
 

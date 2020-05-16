@@ -30,9 +30,15 @@ cron.load()
 async function registerMiddlewares () {
   try {
     const middlewares = require('./plugins')
-    await middlewares.map((middleware, index, input) => {
+    await middlewares[0].map((middleware, index, input) => {
       app.use(middleware)
     })
+    if (!global.prod) {
+      winston.info('You are running at development mode.')
+      await middlewares[0].map((middleware, index, input) => {
+        app.use(middleware)
+      })
+    }
     winston.verbose('All Plugins Load done.')
   } catch (e) {
     winston.error(e)
