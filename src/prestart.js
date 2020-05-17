@@ -8,6 +8,11 @@ const dirname = path.join(__dirname, '../')
 
 function setupWinston () {
   const logFile = nconf.get('log_path') || path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
+  // createDir while running at docker
+  const dirPath = path.join(logFile, '../')
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath)
+  }
   fs.existsSync(logFile) || fs.writeFileSync(logFile, '')
   winston.remove(winston.transports.Console)
   winston.add(winston.transports.File, {
@@ -36,7 +41,10 @@ function loadConfig (configFile, isChild = false) {
   }
 
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
-
+  // check config file while running at dokcer
+  if (!fs.existsSync(configFile)) {
+    fs.copyFileSync(path.join(__dirname, '../config.example.json'), configFile)
+  }
   nconf.file({
     file: configFile
   })
