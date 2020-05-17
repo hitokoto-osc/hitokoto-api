@@ -97,4 +97,9 @@ class Cron {
 }
 
 require('./prestart').load(null, true)
+process.on('message', message => {
+  if (message.key === 'debug') {
+    winston.level = 'verbose'
+  }
+})
 Cron.load()

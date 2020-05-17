@@ -29,8 +29,14 @@ const app = new Koa()
 // Load CronJob
 const childProcess = require('child_process')
 function spawnCronProcess () {
-  const process = childProcess.fork(path.join(__dirname, './src/cron.js'))
-  process.on('message', (message) => {
+  const child = childProcess.fork(path.join(__dirname, './src/cron.js'))
+  if (program.dev) {
+    child.send({
+      key: 'debug',
+      data: {}
+    })
+  }
+  child.on('message', (message) => {
     if (message === 'loaded') {
       winston.verbose('Cron jobs are loaded.')
     } else if (message.key) {
@@ -40,7 +46,7 @@ function spawnCronProcess () {
       }
     }
   })
-  process.on('exit', () => {
+  child.on('exit', () => {
     winston.warn('cron job process exited. try to respawn it.')
     spawnCronProcess()
   })
