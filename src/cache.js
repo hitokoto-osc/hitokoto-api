@@ -30,8 +30,9 @@ class cache {
         console.log(colors.red(err.stack))
         if (connectionFailedAttemp >= 3) {
           winston.error('Attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed. Process exiting.')
+          process.exit(1)
         }
-        winston.error('failed to connect to redis. Attemp again')
+        winston.error('failed to connect to redis. Attemp again...')
         connectionFailedAttemp++
         cache.connect()
       })
