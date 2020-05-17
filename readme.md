@@ -15,7 +15,7 @@
 * Mysql
 
 ## 日记
-日记默认保存在 `./logs/Hitokoto-api.log`
+日记默认保存在 `./data/logs/Hitokoto-api.log`
 
 ## 开始使用
 ### 常规使用
@@ -27,4 +27,12 @@
 5. 启动程序 `yarn start`
 
 ### 容器使用
-待补充
+* 常规使用（需要预先安装好 redis），由于使用共享网络，请留意 8000 端口是否被占用。
+```shell
+docker run \
+-v /path/to/your/data/dir:/usr/src/app/data \
+--network host \
+hitokoto/api
+```
+其他高深玩法（比如说不共享网络），还请自己摸索。
+* 我们提供 docker-compose 配置（提供 redis 依赖），有需要的可以自行下载使用。
