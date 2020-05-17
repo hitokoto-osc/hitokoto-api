@@ -7,6 +7,7 @@ const colors = require('colors')
 // Promisify Redis
 const redis = bluebrid.promisifyAll(require('redis'))
 
+let connectionFailedAttemp = 0
 class cache {
   static connect (newConnection = false) {
     // Get Config
@@ -22,9 +23,16 @@ class cache {
     // Connect Redis
     if (!newConnection) {
       this.redis = redis.createClient(config)
+      this.redis.on('connect', () => {
+        connectionFailedAttemp = 0 // clear the attemp count
+      })
       this.redis.on('error', err => {
         console.log(colors.red(err.stack))
-        winston.error('redis connection is closed. try to reconnect.')
+        if (connectionFailedAttemp >= 3) {
+          winston.error('Attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed. Process exiting.')
+        }
+        winston.error('failed to connect to redis. Attemp again')
+        connectionFailedAttemp++
         cache.connect()
       })
       return true
