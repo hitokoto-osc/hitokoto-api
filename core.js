@@ -15,6 +15,10 @@ const program = commander.process()
 // PreStart
 const preStart = require('./src/prestart')
 preStart.load(program.config_file || null)
+if (program.dev) {
+  winston.info('You are running at development mode.')
+  winston.level = 'verbose'
+}
 
 // Use blubird promise
 // global.Promise = require('bluebird')
@@ -47,12 +51,12 @@ spawnCronProcess()
 async function registerMiddlewares () {
   try {
     const middlewares = require('./plugins')
-    await middlewares[0].map((middleware, index, input) => {
+    await middlewares.map((middleware, index, input) => {
       app.use(middleware)
     })
-    if (!global.prod) {
-      winston.info('You are running at development mode.')
-      await middlewares[0].map((middleware, index, input) => {
+    if (program.dev) {
+      const devMiddlewares = require('./plugins.dev')
+      await devMiddlewares.map((middleware, index, input) => {
         app.use(middleware)
       })
     }
