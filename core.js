@@ -46,9 +46,18 @@ function spawnCronProcess () {
       }
     }
   })
+  // register master exit process
+  let masterExitFlag = false
+  process.on('exit', () => {
+    // kill child process
+    masterExitFlag = true
+    child.exit()
+  })
   child.on('exit', () => {
-    winston.warn('cron job process exited. try to respawn it.')
-    spawnCronProcess()
+    if (!masterExitFlag) {
+      winston.warn('cron job process exited. try to respawn it.')
+      spawnCronProcess()
+    }
   })
 }
 spawnCronProcess()
@@ -109,10 +118,10 @@ async function start () {
     await app.listen(nconf.get('server:port'))
   } catch (e) {
     console.log(colors.red(e.stack))
-    winston.error('occur error while starting, process exiting.')
+    winston.error('error was thrown while starting, process exiting.')
     // mail.error(e)
     process.exit(1)
   }
 }
 start()
-winston.info(colors.green('Server is started. Listening on Port:' + nconf.get('server:port')))
+winston.info(colors.green('Hitokoto Sentences Api Service is started. Listening on Port:' + nconf.get('server:port')))
