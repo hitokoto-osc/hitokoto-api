@@ -70,14 +70,14 @@ async function registerMiddlewares () {
   try {
     const middlewares = require('./plugins')
     await middlewares.map((middleware, index, input) => {
-      if (middleware) { // skip invalid middleware
+      if (middleware && typeof middleware === 'function') { // skip invalid middleware
         app.use(middleware)
       }
     })
     if (program.dev) {
       const devMiddlewares = require('./plugins.dev')
       await devMiddlewares.map((middleware, index, input) => {
-        if (middleware) { // skip invalid middleware
+        if (middleware && typeof middleware === 'function') { // skip invalid middleware
           app.use(middleware)
         }
       })
