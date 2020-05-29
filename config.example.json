@@ -29,5 +29,6 @@
         "database": 0
     },
     "log_level": "info",
-    "remote_sentences_url": "https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/"
+    "remote_sentences_url": "https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/",
+    "compress_body": true
 }
