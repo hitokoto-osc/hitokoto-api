@@ -51,7 +51,10 @@ function spawnCronProcess () {
   process.on('exit', () => {
     // kill child process
     masterExitFlag = true
-    child.exit()
+    child.send({
+      key: 'exit',
+      data: ''
+    })
   })
   child.on('exit', () => {
     if (!masterExitFlag) {

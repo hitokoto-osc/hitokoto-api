@@ -1,5 +1,7 @@
 'use strict'
 const path = require('path')
+const nconf = require('nconf')
+
 module.exports = [
   // MiddleWares
   require('./src/middlewares/requestId')(),
@@ -24,7 +26,7 @@ module.exports = [
     exposeHeaders: ['X-Request-Id']
   }),
   require('koa-favicon')(path.join(__dirname, './public/favicon.ico')),
-  require('koa-compress')({
+  !nconf.get('compress_body') || require('koa-compress')({
     filter: (contentType) => {
       return /text/i.test(contentType)
     },
@@ -32,5 +34,4 @@ module.exports = [
     flush: require('zlib').Z_SYNC_FLUSH
   }),
   require('./src/logger')()
-
 ]
