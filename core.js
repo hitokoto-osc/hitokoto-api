@@ -70,12 +70,16 @@ async function registerMiddlewares () {
   try {
     const middlewares = require('./plugins')
     await middlewares.map((middleware, index, input) => {
-      app.use(middleware)
+      if (middleware) { // skip invalid middleware
+        app.use(middleware)
+      }
     })
     if (program.dev) {
       const devMiddlewares = require('./plugins.dev')
       await devMiddlewares.map((middleware, index, input) => {
-        app.use(middleware)
+        if (middleware) { // skip invalid middleware
+          app.use(middleware)
+        }
       })
     }
     winston.verbose('Plugins are loaded.')
