@@ -10,15 +10,19 @@ const semver = require('semver')
 const _ = require('lodash')
 
 const cache = require('../cache')
+const AB = require('../extensions/sentencesABSwitcher')
 
 async function Task () {
   // TODO: 按需同步流程中移除失效句子（在包中移除的句子）
   winston.verbose('开始更新句子记录...')
   const startTick = Date.now()
+  // 取得 AB 库的指针
+  const currentABSlot = await cache.get('hitokoto:ab') || 'a'
+  AB.setDatabase(currentABSlot)
   // 取得本地数据版本
-  const localBundleVersion = await cache.get('hitokoto:bundle:version') || '0.0.0'
-  const localBundleUpdatedAt = await cache.get('hitokoto:bundle:updated_at') || 0
-  const localBundleVersionData = await cache.get('hitokoto:bundle:version:record') || {}
+  const localBundleVersion = await AB.get('hitokoto:bundle:version') || '0.0.0'
+  const localBundleUpdatedAt = await AB.get('hitokoto:bundle:updated_at') || 0
+  const localBundleVersionData = await AB.get('hitokoto:bundle:version:record') || {}
   // 获取远程数据的版控文件
   const remoteUrl = nconf.get('remote_sentences_url') || 'https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/'
   let response = await axios.get(url.resolve(remoteUrl, './version.json'))
@@ -33,33 +37,35 @@ async function Task () {
     return // 版本相同且生成时间戳相同、无需更新
   }
   // 需要更新，首先确认本地版本
+  const targetDatabase = currentABSlot === 'a' ? 'b' : 'a'
+  const SideAB = AB.getConnection(targetDatabase)
   if (localBundleVersion === '0.0.0') { // 初次启动、全量同步数据
     // 获取分类数据
     response = await axios.get(url.resolve(remoteUrl, remoteVersionData.categories.path))
     const remoteCategoriesData = response.data
-    await cache.set('hitokoto:bundle:categories', remoteCategoriesData)
+    await SideAB.set('hitokoto:bundle:categories', remoteCategoriesData)
 
-    const rClient = cache.getClient()
+    const rClient = SideAB.getClient()
     for (const category of remoteCategoriesData) {
       // 读取分类的数据
       response = await axios.get(url.resolve(remoteUrl, category.path))
       const categorySentences = response.data
       for (const sentence of categorySentences) {
         await Promise.all([
-          cache.set('hitokoto:sentence:' + sentence.uuid, sentence),
+          SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
           rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
         ])
       }
     }
   } else { // 挨个比对，按需求同步
     // 首先比对分类信息
-    const localCategoriesData = cache.get('hitokoto:bundle:categories') || []
+    const localCategoriesData = SideAB.get('hitokoto:bundle:categories') || []
     if (localCategoriesData.length === 0) {
-      await cache.set('hitokoto:bundle:version', '0.0.0')
+      await SideAB.set('hitokoto:bundle:version', '0.0.0')
       RunTask()
       return
     }
-    const rClient = cache.getClient()
+    const rClient = SideAB.getClient()
     if (!remoteVersionData.categories.timestamp !== localBundleVersionData.categories.timestamp) {
       // 读取远端分类信息
       response = await axios.get(url.resolve(remoteUrl, remoteVersionData.categories.path))
@@ -78,12 +84,12 @@ async function Task () {
         const categorySentences = response.data
         for (const sentence of categorySentences) {
           await Promise.all([
-            cache.set('hitokoto:sentence:' + sentence.uuid, sentence),
+            SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
             rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
           ])
         }
       }
-      await cache.set('hitokoto:bundle:categories', remoteCategoryData)
+      await SideAB.set('hitokoto:bundle:categories', remoteCategoryData)
     }
 
     // 然后比对句子信息
@@ -96,7 +102,7 @@ async function Task () {
       if (remoteVersion.timestamp !== categoryVersion.timestamp) { // 需要更新
         response = await axios.get(url.resolve(remoteUrl, categoryVersion.path))
         const categorySentences = response.data
-        const queue = (await cache.getClient(true)).multi()
+        const queue = (await cache.getClient()).multi()
         queue.del('hitokoto:bundle:category:' + categoryVersion.key)
         for (const sentence of categorySentences) {
           queue.set('hitokoto:sentence:' + sentence.uuid, sentence)
@@ -110,11 +116,13 @@ async function Task () {
 
   // 更新版本记录
   await Promise.all([
-    cache.set('hitokoto:bundle:version', remoteVersionData.bundle_version),
-    cache.set('hitokoto:bundle:updated_at', remoteVersionData.updated_at),
-    cache.set('hitokoto:bundle:version:record', remoteVersionData)
+    SideAB.set('hitokoto:bundle:version', remoteVersionData.bundle_version),
+    SideAB.set('hitokoto:bundle:updated_at', remoteVersionData.updated_at),
+    SideAB.set('hitokoto:bundle:version:record', remoteVersionData)
   ])
-
+  // 切换数据库
+  AB.setDatabase(targetDatabase)
+  cache.set('hitokoto:ab', targetDatabase)
   winston.verbose('执行完成，耗时：' + (Date.now() - startTick) + ' ms')
 }
 

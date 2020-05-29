@@ -28,6 +28,10 @@
         "password": "",
         "database": 0
     },
+    "sentences_ab_switchter": {
+        "a": 1,
+        "b": 2
+    },
     "log_level": "info",
     "remote_sentences_url": "https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/",
     "compress_body": true
