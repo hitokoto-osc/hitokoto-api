@@ -3,20 +3,20 @@
 # Discussion, issues and change requests at:
 #   https://github.com/nodesource/distributions
 #
-# Script to install the NodeSource Node.js v8.x LTS Carbon repo onto a
+# Script to install the NodeSource Node.js v12.x LTS Carbon repo onto a
 # Debian or Ubuntu system.
 #
 # Run as root or insert `sudo -E` before `bash`:
 #
-# curl -sL https://deb.nodesource.com/setup_8.x | bash -
+# curl -sL https://deb.nodesource.com/setup_12.x | bash -
 #   or
-# wget -qO- https://deb.nodesource.com/setup_8.x | bash -
+# wget -qO- https://deb.nodesource.com/setup_12.x | bash -
 #
 
 export DEBIAN_FRONTEND=noninteractive
-SCRSUFFIX="_8.x"
-NODENAME="Node.js v8.x LTS Carbon"
-NODEREPO="node_8.x"
+SCRSUFFIX="_12.x"
+NODENAME="Node.js v12.x LTS Carbon"
+NODEREPO="node_12.x"
 NODEPKG="nodejs"
 
 print_status() {

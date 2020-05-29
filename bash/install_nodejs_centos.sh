@@ -3,14 +3,14 @@
 # Discussion, issues and change requests at:
 #   https://github.com/nodesource/distributions
 #
-# Script to install the NodeSource Node.js 8.x repo onto an
+# Script to install the NodeSource Node.js 12.x repo onto an
 # Enterprise Linux or Fedora Core based system.
 #
 # Run as root or insert `sudo -E` before `bash`:
 #
-# curl -sL https://rpm.nodesource.com/setup_8.x | bash -
+# curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 #   or
-# wget -qO- https://rpm.nodesource.com/setup_8.x | bash -
+# wget -qO- https://rpm.nodesource.com/setup_12.x | bash -
 #
 
 print_status() {
@@ -34,7 +34,7 @@ exec_cmd() {
   exec_cmd_nobail "$1" || bail
 }
 
-print_status "Installing the NodeSource Node.js 8.x repo..."
+print_status "Installing the NodeSource Node.js 12.x repo..."
 
 print_status "Inspecting system..."
 
@@ -126,7 +126,7 @@ fi
 ## we include the arch in the directory tree anyway)
 RELEASE_URL_VERSION_STRING="${DIST_TYPE}${DIST_VERSION}"
 RELEASE_URL="\
-https://mirrors.ustc.edu.cn/nodesource/rpm/pub_8.x/\
+https://mirrors.ustc.edu.cn/nodesource/rpm/pub_12.x/\
 ${DIST_TYPE}/\
 ${DIST_VERSION}/\
 ${DIST_ARCH}/\
@@ -223,7 +223,7 @@ Run \`\033[1myum remove -y nodejs npm\033[22m\` (as root) to remove these first.
 fi
 
 print_status "\
-Run \`\033[1myum install -y nodejs\033[22m\` (as root) to install Node.js 8.x and npm.\n\
+Run \`\033[1myum install -y nodejs\033[22m\` (as root) to install Node.js 12.x and npm.\n\
 You may also need development tools to build native addons:\n\
   \`yum install -y gcc-c++ make\`\
 "
