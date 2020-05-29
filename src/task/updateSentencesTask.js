@@ -50,12 +50,29 @@ async function Task () {
       // 读取分类的数据
       response = await axios.get(url.resolve(remoteUrl, category.path))
       const categorySentences = response.data
+      let minLength
+      let maxLength
       for (const sentence of categorySentences) {
+        // generate Length range
+        if (!minLength) {
+          minLength = sentence.length
+        }
+        if (!maxLength) {
+          maxLength = sentence.length
+        }
+        if (sentence.length < minLength) {
+          minLength = sentence.length
+        } else if (sentence.length > maxLength) {
+          maxLength = sentence.length
+        }
         await Promise.all([
           SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
           rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
         ])
       }
+      // 保存句子长度范围
+      await SideAB.set(`hitokoto:bundle:category:${category.key}:max`, maxLength)
+      await SideAB.set(`hitokoto:bundle:category:${category.key}:min`, minLength)
     }
   } else { // 挨个比对，按需求同步
     // 首先比对分类信息
@@ -82,12 +99,29 @@ async function Task () {
         // 读取分类的数据
         response = await axios.get(url.resolve(remoteUrl, category.path))
         const categorySentences = response.data
+        let minLength
+        let maxLength
         for (const sentence of categorySentences) {
+          // generate Length range
+          if (!minLength) {
+            minLength = sentence.length
+          }
+          if (!maxLength) {
+            maxLength = sentence.length
+          }
+          if (sentence.length < minLength) {
+            minLength = sentence.length
+          } else if (sentence.length > maxLength) {
+            maxLength = sentence.length
+          }
           await Promise.all([
             SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
             rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
           ])
         }
+        // 保存句子长度范围
+        await SideAB.set(`hitokoto:bundle:category:${category.key}:max`, maxLength)
+        await SideAB.set(`hitokoto:bundle:category:${category.key}:min`, minLength)
       }
       await SideAB.set('hitokoto:bundle:categories', remoteCategoryData)
     }
@@ -104,10 +138,27 @@ async function Task () {
         const categorySentences = response.data
         const queue = (await cache.getClient()).multi()
         queue.del('hitokoto:bundle:category:' + categoryVersion.key)
+        let minLength
+        let maxLength
         for (const sentence of categorySentences) {
+          // generate Length range
+          if (!minLength) {
+            minLength = sentence.length
+          }
+          if (!maxLength) {
+            maxLength = sentence.length
+          }
+          if (sentence.length < minLength) {
+            minLength = sentence.length
+          } else if (sentence.length > maxLength) {
+            maxLength = sentence.length
+          }
           queue.set('hitokoto:sentence:' + sentence.uuid, sentence)
           queue.zadd(['hitokoto:bundle:category:' + categoryVersion.key, sentence.length, sentence.uuid])
         }
+        // 保存句子长度范围
+        await queue.set(`hitokoto:bundle:category:${queue.key}:max`, maxLength)
+        await queue.set(`hitokoto:bundle:category:${queue.key}:min`, minLength)
         await queue.execAsync()
         queue.quit() // 结束连接
       }
