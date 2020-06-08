@@ -2539,10 +2539,10 @@ fast-json-stable-stringify@^2.0.0:
   resolved "http://registry.npm.taobao.org/fast-json-stable-stringify/download/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
   integrity sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
 
-fast-json-stringify@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/fast-json-stringify/download/fast-json-stringify-2.0.0.tgz#37d3809000cdc05d4aa0fd2831847039c0d1940e"
-  integrity sha1-N9OAkADNwF1KoP0oMYRwOcDRlA4=
+fast-json-stringify@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fast-json-stringify/-/fast-json-stringify-2.0.1.tgz#f8d7bfba7e705a1ef319954196a86e26691f9853"
+  integrity sha512-n3LQfUhYTk2p95RxPA0BEfzmAcCdJLCRQ0qphNiXMBmxHgteiCtUfBYc7ZNCzBTBWm/kHg81CI+hkxVwIHWTAw==
   dependencies:
     ajv "^6.11.0"
     deepmerge "^4.2.2"
