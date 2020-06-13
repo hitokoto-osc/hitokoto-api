@@ -39,7 +39,7 @@
     "husky": "^4.2.0",
     "jest": "^26.0.1",
     "koa-livereload": "^0.2.0",
-    "lint-staged": "^10.2.7",
+    "lint-staged": "^10.2.10",
     "nyc": "^13.0.0",
     "supervisor": "^0.12.0"
   },
