@@ -14,7 +14,7 @@ module.exports = {
     let middlewares = require(path.join(__dirname, '../plugins'))
     checkMiddlewaresFileValid(middlewares) 
     if (isDev) {
-      devMiddlewares = require(path.join(__dirname, '../plugins.dev'))
+      const devMiddlewares = require(path.join(__dirname, '../plugins.dev'))
       checkMiddlewaresFileValid(devMiddlewares)
       middlewares = middlewares.concat(devMiddlewares)
     }
