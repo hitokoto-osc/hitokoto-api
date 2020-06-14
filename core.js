@@ -72,7 +72,7 @@ async function registerMiddlewares () {
 
 // Run Task
 // TODO: crate a task tree file
-const {Task} = require('./src/task/updateSentencesTask')
+const { Task } = require('./src/task/updateSentencesTask')
 
 // Load Route
 async function registerRoutes (routes) {

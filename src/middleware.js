@@ -12,7 +12,7 @@ function checkMiddlewaresFileValid (middlewares) {
 module.exports = {
   fetch (isDev) {
     let middlewares = require(path.join(__dirname, '../plugins'))
-    checkMiddlewaresFileValid(middlewares) 
+    checkMiddlewaresFileValid(middlewares)
     if (isDev) {
       const devMiddlewares = require(path.join(__dirname, '../plugins.dev'))
       checkMiddlewaresFileValid(devMiddlewares)
