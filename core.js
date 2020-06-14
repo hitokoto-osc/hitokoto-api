@@ -67,27 +67,7 @@ spawnCronProcess()
 
 // Register Middlewares (Plugins)
 async function registerMiddlewares () {
-  try {
-    const middlewares = require('./plugins')
-    await middlewares.map((middleware, index, input) => {
-      if (middleware && typeof middleware === 'function') { // skip invalid middleware
-        app.use(middleware)
-      }
-    })
-    if (program.dev) {
-      const devMiddlewares = require('./plugins.dev')
-      await devMiddlewares.map((middleware, index, input) => {
-        if (middleware && typeof middleware === 'function') { // skip invalid middleware
-          app.use(middleware)
-        }
-      })
-    }
-    winston.verbose('Plugins are loaded.')
-  } catch (e) {
-    winston.error(e)
-    // mail.error(e)
-    process.exit(1)
-  }
+  require('./src/middleware').register(app, program.dev)
 }
 
 // Run Task
