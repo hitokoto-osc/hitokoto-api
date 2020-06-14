@@ -2,10 +2,12 @@
 
 // Import Packages
 const Koa = require('koa') // Koa v2
-const winston = require('winston')
-const nconf = require('nconf')
-// const path = require('path')
 const colors = require('colors/safe')
+const http = require('http')
+const nconf = require('nconf')
+const os = require('os')
+const winston = require('winston')
+// const path = require('path')
 // const pkg = require('./package.json')
 // const mail = require('./src/mail')
 
@@ -84,7 +86,6 @@ function handleProcessExitSignal (signal) {
 }
 process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
 process.on('SIGTERM', handleProcessExitSignal)
-
 process.on('exit', (code) => { // handle unexpected exit event
   if (code) { // ignore zero exit code
     winston.error('[core] receiving exit code: ' + code + ', process will be destoryed.')
@@ -95,6 +96,16 @@ process.on('exit', (code) => { // handle unexpected exit event
   }
 })
 
+// TODO: start Workers involved Koa(experimental support)
+// const { Worker } = require('worker_threads')
+function startKoa (app) {
+  let threadsNumber = nconf.get('worker') || 1
+  if (threadsNumber === 0) {
+    const cpusCount = os.cpus().length
+    threadsNumber = cpusCount || 1
+  }
+  http.createServer(app.callback()).listen(nconf.get('server:port'))
+}
 // Start Server
 async function start () {
   try {
@@ -103,7 +114,7 @@ async function start () {
     await registerMiddlewares()
     const Routes = require('./src/route')
     await registerRoutes(new Routes())
-    await app.listen(nconf.get('server:port'))
+    await startKoa(app)
     winston.verbose('[init] All init processes are exceeded.')
     winston.info('[core] Web Server is started, listening on' + colors.yellow(' port') + ': ' + colors.blue(nconf.get('server:port')))
   } catch (e) {
