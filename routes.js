@@ -1,4 +1,5 @@
-'use strict'
+const nconf = require('nconf')
+
 module.exports = (router, middlewares, controller) => {
   // Route Map
   /* router.get('/', async (ctx, next) => {
@@ -8,40 +9,43 @@ module.exports = (router, middlewares, controller) => {
     }
   })
   */
-  router.get('/crash', async ctx => {
-    throw new Error('崩溃测试')
-  })
-  router.get('/test', async ctx => {
-    const nconf = require('nconf')
-    const os = require('os')
-    let memoryUsage = 0
-    for (const v of Object.values(process.memoryUsage())) {
-      memoryUsage += parseInt(v)
-    }
-    memoryUsage = memoryUsage / (1024 * 1024)
-    ctx.body = {
-      header: ctx.headers,
-      host: ctx.request.host,
-      server_id: nconf.get('api_name'),
-      server_status: {
-        memory: {
-          totol: os.totalmem() / (1024 * 1024),
-          free: os.freemem() / (1024 * 1024),
-          usage: memoryUsage
+  if (nconf.get('dev')) {
+    router.get('/crash', async ctx => {
+      throw new Error('崩溃测试')
+    })
+    router.get('/test', async ctx => {
+      const nconf = require('nconf')
+      const os = require('os')
+      let memoryUsage = 0
+      for (const v of Object.values(process.memoryUsage())) {
+        memoryUsage += parseInt(v)
+      }
+      memoryUsage = memoryUsage / (1024 * 1024)
+      ctx.body = {
+        header: ctx.headers,
+        host: ctx.request.host,
+        server_id: nconf.get('api_name'),
+        server_status: {
+          memory: {
+            totol: os.totalmem() / (1024 * 1024),
+            free: os.freemem() / (1024 * 1024),
+            usage: memoryUsage
+          },
+          cpu: os.cpus(),
+          load: os.loadavg()
         },
-        cpu: os.cpus(),
-        load: os.loadavg()
-      },
-      hostname: ctx.request.hostname,
-      URL: ctx.request.URL,
-      url: ctx.request.url,
-      origin: ctx.request.origin,
-      originalUrl: ctx.request.originalUrl,
-      queryParams: ctx.query,
-      queryLength: ctx.query && ctx.query.c ? ctx.query.c.length : '',
-      now: new Date().toUTCString()
-    }
-  })
+        hostname: ctx.request.hostname,
+        URL: ctx.request.URL,
+        url: ctx.request.url,
+        origin: ctx.request.origin,
+        originalUrl: ctx.request.originalUrl,
+        queryParams: ctx.query,
+        queryLength: ctx.query && ctx.query.c ? ctx.query.c.length : '',
+        now: new Date().toUTCString()
+      }
+    })
+  }
+
   router.get('/', controller.hitokoto)
   // router.get('/test', controller.hello.index)
   router.get('/status', controller.status)
