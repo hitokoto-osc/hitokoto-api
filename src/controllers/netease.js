@@ -150,7 +150,7 @@ controllers.djProgram = async (ctx, next) => {
     return
   }
   const asc = !!(ctx.query && ctx.query.asc)
-  let result = ctx.query.nocache ? null : await cache.get(`nm:dj:program:${rid}:${limit}:${offset}`, false)
+  let result = (ctx.query && ctx.query.nocache) ? null : await cache.get(`nm:dj:program:${rid}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
@@ -195,7 +195,7 @@ controllers.userDj = async (ctx, next) => {
     }
     return
   }
-  let result = ctx.query.nocache ? null : await cache.get(`nm:user:dj:${uid}:${limit}:${offset}`, false)
+  let result = (ctx.query && ctx.query.nocache) ? null : await cache.get(`nm:user:dj:${uid}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
@@ -240,7 +240,7 @@ controllers.musicComment = async (ctx, next) => {
     }
     return
   }
-  let result = ctx.query.nocache ? null : await cache.get(`nm:music:comment:${id}:${limit}:${offset}`, false)
+  let result = (ctx.query && ctx.query.nocache) ? null : await cache.get(`nm:music:comment:${id}:${limit}:${offset}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
@@ -283,7 +283,7 @@ controllers.record = async (ctx, next) => {
     return
   }
   const type = ctx.query && ctx.query.weekly ? 1 : 0
-  let result = ctx.query.nocache ? null : await cache.get(`nm:user:record:${uid}:${type}`, false)
+  let result = (ctx.query && ctx.query.nocache) ? null : await cache.get(`nm:user:record:${uid}:${type}`, false)
   if (result) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = result
@@ -489,7 +489,7 @@ controllers.artist = async (ctx, next) => {
       }
       return
     }
-    if (ret.code === 200) {
+    if (ret && ret.code === 200) {
       cache.set('nm:artist:' + ctx.params.id, ret, 60 * 60 * 2) // Cache 2 Hour
     }
   }
@@ -724,7 +724,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
     }
   }
   if (!detail || !detail.songs || !detail.songs[0]) { // 添加错误处理
-    const v = detail.code === -460 ? '一言节点被屏蔽，请联系一言管理员' : '获取信息失败'
+    const v = detail && detail.code === -460 ? '一言节点被屏蔽，请联系一言管理员' : '获取信息失败'
     data.name = v
     data.artists = [v]
     data.album = {
@@ -823,8 +823,8 @@ const getLyric = async (id, check = false) => {
   const data = {}
   data.id = id
   data.lyric = {}
-  data.lyric.base = (lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。\n'
-  data.lyric.translate = (lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
+  data.lyric.base = (lyric && lyric.lrc && lyric.lrc.lyric) ? lyric.lrc.lyric : '[00:00.00] 纯音乐，敬请聆听。\n'
+  data.lyric.translate = (lyric && lyric.tlyric && lyric.tlyric.lyric) ? lyric.tlyric.lyric : null
   cache.set('nm:lyricSeries:' + id, data, cacheTime)
   return data
 }

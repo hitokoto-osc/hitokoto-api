@@ -50,8 +50,8 @@ class SentencesABSwitcher extends Cache {
     if (this.redis) {
       return true
     } else {
-      this.connect('a', !!(database === 'a'))
-      this.connect('b', !(database === 'a'))
+      this.connect('a', database === 'a')
+      this.connect('b', database !== 'a')
     }
   }
 

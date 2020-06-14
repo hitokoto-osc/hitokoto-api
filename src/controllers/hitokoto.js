@@ -38,7 +38,7 @@ async function updateCategories () {
   }
 }
 
-function excludeNotMatchCategories (ctx, minLength, maxLength, cats = []) {
+function excludeNotMatchCategories (minLength, maxLength, cats = []) {
   const targetCategories = []
   if (cats.length === 0) {
     cats = categories.collection
@@ -79,7 +79,7 @@ async function hitokoto (ctx, next) {
     }
     // process array
     // exclude the category that is out of range
-    const targetCategories = excludeNotMatchCategories(ctx, minLength, maxLength, Array.isArray(category) ? category : [category])
+    const targetCategories = excludeNotMatchCategories(minLength, maxLength, Array.isArray(category) ? category : [category])
     if (targetCategories.length === 0) {
       ctx.status = 404
       ctx.body = {
@@ -106,8 +106,8 @@ async function hitokoto (ctx, next) {
   } else {
     // Not Params or just has callback
     // parse length
-    const minLength = ctx.query.min_length || 0
-    const maxLength = ctx.query.max_length && ctx.query.max_length <= 1000 && ctx.query.max_length > minLength ? ctx.query.max_length : 30
+    const minLength = ctx.query ? (ctx.query.min_length || 0) : 0
+    const maxLength = ctx.query && ctx.query.max_length && ctx.query.max_length <= 1000 && ctx.query.max_length > minLength ? ctx.query.max_length : 30
     if (maxLength < minLength) {
       ctx.status = 400
       ctx.body = {
@@ -117,7 +117,7 @@ async function hitokoto (ctx, next) {
       return
     }
     // exclude the category that is out of range
-    const targetCategories = excludeNotMatchCategories(ctx, minLength, maxLength)
+    const targetCategories = excludeNotMatchCategories(minLength, maxLength)
     if (targetCategories.length === 0) {
       ctx.status = 404
       ctx.body = {
