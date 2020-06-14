@@ -21,34 +21,43 @@ function saveHostsCount (ts, count) {
 }
 function autoSave (ts, requests) {
   saveCount(ts, requests.all)
-  winston.debug('Save All requests total to Cache. Requests: ' + requests.all)
+  winston.debug('[countRequestsCron] requests: ' + requests.all + ', saving to redis.')
   saveHostsCount(ts, requests.hosts)
-  winston.debug('Save Host requests total to Cache. Requests: ' + requests.hosts)
+  winston.debug('[countRequestsCron] host equests: ' + JSON.stringify(requests.hosts) + '\n, saving to redis.')
 }
+let requests = {
+  all: 0,
+  hosts: {}
+}
+process.on('message', (params) => {
+  if (params && params.key === 'updateRequests' && params.to === 'countRequestsCron') {
+    requests = params.data
+  }
+})
 module.exports = [
   '* * * * * *', // Cron 配置
   () => {
     // 每次触发计划任务时执行...
     const ts = Date.now().toString().slice(0, 10)
-    if (!global.requests) {
+    if (!requests.all) {
       Promise.all([cache.get('requests'), cache.get('requests:hosts')])
         .then(data => {
           // Init
-          global.requests = {}
-          global.requests.all = data[0] || 0
-          global.requests.hosts = data[1] || {}
-          return global.requests
+          requests = {}
+          requests.all = data[0] || 0
+          requests.hosts = data[1] || {}
+          return requests
         })
         .then(requests => {
           autoSave(ts, requests)
         })
     } else {
-      autoSave(ts, global.requests)
+      autoSave(ts, requests)
     }
   },
   () => {
     // 该方法会在计划任务停止时执行
-    winston.error('Requests statistics job is stopped. Try RESTART Job.')
+    winston.error('[countRequestsCron] job is stopped. Try to RESTART the job.')
   },
   false, // 是否立即启动计划任务
   'Asia/Shanghai', // 时区
