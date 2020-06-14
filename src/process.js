@@ -4,6 +4,25 @@ const childProcess = require('child_process')
 const winston = require('winston')
 const nconf = require('nconf')
 const colors = require('colors')
+const _ = require('lodash')
+
+class ProcessInteract {
+  constructor (list) {
+    this.routeMap = Array.isArray(list) ? list : []
+  }
+
+  register () {
+    process.on('message', data => {
+      if (data && data.key) {
+        // check route
+        const matches = _.find(this.routeMap, { key: data.key, to: data.to })
+        if (matches) {
+          matches.listener(data.data)
+        }
+      }
+    })
+  }
+}
 
 class Process {
   constructor () {
@@ -69,5 +88,6 @@ function staticProcess () {
 
 module.exports = {
   Process,
+  ProcessInteract,
   staticProcess
 }

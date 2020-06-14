@@ -183,10 +183,20 @@ async function Task () {
   AB.setDatabase(targetDatabase)
   cache.set('hitokoto:ab', targetDatabase)
   winston.verbose('[sentencesUpdateTask] having finished the update, spend ' + (Date.now() - startTick) + ' ms.')
+  return targetDatabase
 }
 
 function RunTask () {
   Task()
+    .then(targetDB => {
+      if (process.send) { // is in CronProcess
+        process.send({
+          key: 'switchAB',
+          to: 'ab',
+          data: targetDB
+        })
+      }
+    })
     .catch(err => {
       console.log(colors.red(err.stack))
       winston.error('[sentencesUpdateTask] occur errors while update, please check the details. if occurs frequently, contact the author please.')

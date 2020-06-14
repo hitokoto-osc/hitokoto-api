@@ -32,7 +32,7 @@ const app = new Koa()
 // Load childProcesses
 let childProcessList = []
 async function registerProcesses () {
-  const processesMap = require('./processes')
+  const { processes: processesMap, receivers } = require('./processes')
   const processesToStart = []
   const isDev = program.dev
   for (const process of processesMap) {
@@ -40,9 +40,13 @@ async function registerProcesses () {
       processesToStart.push(process)
     }
   }
-  const { staticProcess } = require('./src/process')
+  const { staticProcess, ProcessInteract } = require('./src/process')
   processesToStart.forEach(v => staticProcess().spawnProcess(v.path, v.name, v.messageListener))
   childProcessList = staticProcess().ProcessList
+
+  // load receviers
+  const processInteract = new ProcessInteract(receivers)
+  processInteract.register()
 }
 
 // Register Middlewares (Plugins)
