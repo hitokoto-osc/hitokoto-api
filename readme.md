@@ -2,7 +2,7 @@
 
 ![alt](./img/screenshot.png)
   
-[![DeepScan grade](https://travis-ci.org/github/hitokoto-osc/hitokoto-api)](https://travis-ci.org/hitokoto-osc/hitokoto-api.svg?branch=master) [![DeepScan grade](https://deepscan.io/api/teams/9730/projects/12316/branches/188710/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9730&pid=12316&bid=188710) [https://codeclimate.com/github/hitokoto-osc/hitokoto-api](https://codeclimate.com/github/hitokoto-osc/hitokoto-api/badges/gpa.svg)
+[![DeepScan grade](https://travis-ci.org/hitokoto-osc/hitokoto-api.svg?branch=master)](https://travis-ci.org/github/hitokoto-osc/hitokoto-api) [![DeepScan grade](https://deepscan.io/api/teams/9730/projects/12316/branches/188710/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9730&pid=12316&bid=188710) [https://codeclimate.com/github/hitokoto-osc/hitokoto-api/badges/gpa.svg](https://codeclimate.com/github/hitokoto-osc/hitokoto-api )
 本项目是基于 Teng-koa 实现的一言接口程序。相较于单纯的一言程序，此框架提供了扩展性。
 
 以下是相对于 v0 （PHP 版本）新加入的功能：
