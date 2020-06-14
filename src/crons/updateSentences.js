@@ -1,6 +1,6 @@
 'use strict'
 const winston = require('winston')
-const {RunTask} = require('../task/updateSentencesTask')
+const { RunTask } = require('../task/updateSentencesTask')
 
 module.exports = [
   '1 */30 * * * *', // Cron 配置

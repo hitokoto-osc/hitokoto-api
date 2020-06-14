@@ -34,7 +34,7 @@ function fetchCurrentVersion () {
     // Axios 配置
     {
       headers: {
-        'Accept': 'application/vnd.github.v3+json',
+        Accept: 'application/vnd.github.v3+json',
         'User-Agent': encodeURIComponent('Hitokoto Update Service - Current Version: ' + version)
       },
       auth: {

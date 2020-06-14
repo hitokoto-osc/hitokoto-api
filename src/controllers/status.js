@@ -76,14 +76,14 @@ async function getHostsDayMap (limitHosts, now) {
   }
   const result = await Promise.all(events)
   const data = {}
-  for (let host of limitHosts) {
+  for (const host of limitHosts) {
     const _ = result[0] ? now[host] - parseInt(result[0][host]) : 0
     data[host] = {}
     data[host].dayMap = []
     data[host].dayMap.push(_)
   }
   for (let index = 0; index < (result.length - 2); index++) {
-    for (let host of limitHosts) {
+    for (const host of limitHosts) {
       const _ = result[index] && result[index + 1] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
       data[host].dayMap.push(_)
     }
@@ -125,9 +125,9 @@ module.exports = async (ctx, next) => {
   all.pastHour = fetchData[2]
   all.pastDay = fetchData[3]
 
-  let hosts = {}
+  const hosts = {}
   // Generate totals
-  let limitHost = [
+  const limitHost = [
     'v1.hitokoto.cn',
     'api.hitokoto.cn',
     'sslapi.hitokoto.cn',
@@ -135,7 +135,7 @@ module.exports = async (ctx, next) => {
     'international.v1.hitokoto.cn'
   ]
   const HostToDelete = []
-  for (let i of limitHost) {
+  for (const i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
       winston.verbose(`host be removed: ${i}`)
@@ -158,14 +158,14 @@ module.exports = async (ctx, next) => {
   all.dayMap = fetchDayMap[0]
   all.FiveMinuteMap = fetchDayMap[2]
   // console.log(limitHost)
-  for (let host of limitHost) {
+  for (const host of limitHost) {
     Object.assign(hosts[host], fetchDayMap[1][host])
   }
   // hosts = Object.assign({}, hosts, fetchDayMap[1])
 
   // get memory usage
   let memoryUsage = 0
-  for (let v of Object.values(process.memoryUsage())) {
+  for (const v of Object.values(process.memoryUsage())) {
     memoryUsage += parseInt(v)
   }
   ctx.body = {

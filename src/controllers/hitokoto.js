@@ -152,10 +152,8 @@ async function hitokoto (ctx, next) {
       ctx.body = sentence.hitokoto
       break
     case 'js':
-      const select = ctx.query.select ? ctx.query.select : '.hitokoto'
-      const response = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${select}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
       ctx.type = 'text/javascript'
-      ctx.body = response
+      ctx.body = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${ctx.query.select || '.hitokoto'}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
       break
     default:
       ctx.type = 'application/json'

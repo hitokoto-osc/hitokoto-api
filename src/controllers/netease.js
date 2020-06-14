@@ -421,7 +421,7 @@ controllers.search = async (ctx, next) => {
 // Playlist API
 controllers.playlist = async (ctx, next) => {
   let ret
-  let Cache = ctx.query.nocache ? null : await cache.get('nm:playlist:' + ctx.params.id, false)
+  const Cache = ctx.query.nocache ? null : await cache.get('nm:playlist:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
@@ -468,7 +468,7 @@ controllers.picture = async (ctx, next) => {
 // Artist API
 controllers.artist = async (ctx, next) => {
   let ret
-  let Cache = ctx.query.nocache ? null : await cache.get('nm:artist:' + ctx.params.id, false)
+  const Cache = ctx.query.nocache ? null : await cache.get('nm:artist:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
@@ -504,7 +504,7 @@ controllers.artist = async (ctx, next) => {
 // Album API
 controllers.album = async (ctx, next) => {
   let ret
-  let Cache = ctx.query.nocache ? null : await cache.get('nm:album:' + ctx.params.id, false)
+  const Cache = ctx.query.nocache ? null : await cache.get('nm:album:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
@@ -540,7 +540,7 @@ controllers.album = async (ctx, next) => {
 // Lyric API
 controllers.lyric = async (ctx, next) => {
   let ret
-  let Cache = ctx.query.nocache ? null : await cache.get('nm:lyric:' + ctx.params.id, false)
+  const Cache = ctx.query.nocache ? null : await cache.get('nm:lyric:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
@@ -602,7 +602,7 @@ controllers.url = async (ctx, next) => {
 // Song Detail API
 controllers.detail = async (ctx, next) => {
   let ret
-  let Cache = ctx.query.nocache ? null : await cache.get('nm:detail:' + ctx.params.id, false)
+  const Cache = ctx.query.nocache ? null : await cache.get('nm:detail:' + ctx.params.id, false)
   if (Cache) {
     ctx.set('Content-Type', 'application/json')
     ctx.body = Cache
@@ -664,7 +664,7 @@ const silentSummary = async (id, ctx) => {
   const URLs = await nm.url(id)
   if (URLs && Array.isArray(URLs.data) && URLs.data.length > 0) {
     const ids = []
-    for (let _ of URLs.data) {
+    for (const _ of URLs.data) {
       if (_.code !== 404 && _.url) {
         ids.push(_.id)
       }
@@ -736,7 +736,7 @@ const handleSummary = async (id, url, ctx, check = false) => {
   }
   data.name = detail.songs[0].name
   data.artists = []
-  for (let artist of detail.songs[0].ar) {
+  for (const artist of detail.songs[0].ar) {
     data.artists.push(artist.name)
   }
 
@@ -835,18 +835,18 @@ const handleResult = (result, common = false) => {
   if (common) {
     data.songs = []
   }
-  for (let _ of result) {
+  for (const _ of result) {
     const id = _[0].id
     ids.push(id)
     if (common) {
       const song = {}
-      for (let $ of _) {
+      for (const $ of _) {
         Object.assign(song, $)
       }
       data.songs.push(song)
     } else {
       data[id] = {}
-      for (let $ of _) {
+      for (const $ of _) {
         Object.assign(data[id], $)
       }
     }

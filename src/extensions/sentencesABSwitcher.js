@@ -54,6 +54,7 @@ class SentencesABSwitcher extends Cache {
       this.connect('b', !(database === 'a'))
     }
   }
+
   static setDatabase (target) {
     if (target === 'a') {
       this.redis = this.redisA
@@ -107,6 +108,7 @@ class WrapperRedis {
   constructor (redisConnection) {
     this.redis = redisConnection
   }
+
   command (commands, params) {
     const param = params
     param[0] = 'cache:' + param[0]
@@ -135,6 +137,7 @@ class WrapperRedis {
       return data
     }
   }
+
   getClient () {
     return this.redis
   }
