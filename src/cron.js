@@ -74,7 +74,7 @@ class Cron {
   static async autoLoad (isArray) {
     try {
       // Load Crons
-      let crons = {}
+      const crons = {}
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/crons'))
       if (isArray) {
         await dir.map((item, index, input) => {

@@ -34,6 +34,7 @@ class mail {
       return this.smtp
     }
   }
+
   /*
   * msg - Object
   *   -- to To Mail (String)
@@ -51,6 +52,7 @@ class mail {
     delete msg.title
     return this.smtp.sendMailAsync(msg)
   }
+
   static error (errStruct) {
     // Send Error to Admins
     const admin = nconf.get('admin')

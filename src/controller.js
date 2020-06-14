@@ -1,4 +1,3 @@
-'use strict'
 // Load Packages
 const fs = require('fs')
 const winston = require('winston')
@@ -29,7 +28,7 @@ class controllers {
   async load () {
     try {
       // Load Controller
-      let controllers = {}
+      const controllers = {}
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/controllers'))
       await dir.map((item, index, input) => {
         controllers[item.substring(0, item.length - 3)] = module.parent.require(path.join(__dirname, '../', './src/controllers/' + item))

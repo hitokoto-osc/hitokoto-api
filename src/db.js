@@ -8,6 +8,7 @@ class db {
     this.connect()
     return this.registerModel(model)
   }
+
   static async connect () {
     if (this.sequelize) {
       return this.sequelize
@@ -48,6 +49,7 @@ class db {
       return sequelize
     }
   }
+
   static async registerModel (model) {
     await this.connect()
     if (this[model]) {

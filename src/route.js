@@ -11,13 +11,10 @@ class route {
 
   async routes () {
     try {
-      let routes
       const controller = await this.controller
-      // Load RouteMap
+      // RouteMap
       const Router = require('koa-router')
-      const RouteMap = require(path.join(__dirname, '../', './routes'))(new Router(), controller)
-      routes = RouteMap
-      return routes
+      return require(path.join(__dirname, '../', './routes'))(new Router(), controller)
     } catch (err) {
       winston.error(err)
       process.exit(1)

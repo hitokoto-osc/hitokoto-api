@@ -41,13 +41,15 @@ class cache {
     const client = redis.createClient(config)
     return client
   }
+
   static connectOrSkip () {
-    if (this.hasOwnProperty('redis')) {
+    if (this.redis) {
       return true
     } else {
       return this.connect()
     }
   }
+
   static command (commands, params) {
     this.connectOrSkip()
     const param = params

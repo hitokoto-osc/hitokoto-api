@@ -94,7 +94,7 @@ function log (ctx, start, len, err, event) {
 
   // set the color of the status code;
   const s = status / 100 | 0
-  const color = colorCodes.hasOwnProperty(s) ? colorCodes[s] : 0
+  const color = colorCodes.s ? colorCodes[s] : 0
 
   // get the human readable response length
   let length
