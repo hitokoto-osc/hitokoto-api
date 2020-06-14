@@ -63,15 +63,15 @@ async function registerRoutes (routes) {
         .use(router.allowedMethods())
     })
       .catch(err => {
-        winston.error(err)
+        winston.error(colors.red(err.stack))
         // mail.error(err)
-        process.exit(1)
+        process.exit()
       })
     winston.verbose('[init] koa routes are loaded.')
   } catch (e) {
-    winston.error(e)
+    winston.error(colors.red(e.stack))
     // mail.error(e)
-    process.exit(1)
+    process.exit()
   }
 }
 
@@ -123,7 +123,7 @@ async function start () {
     console.log(colors.red(e.stack))
     winston.error('[init] error was thrown while initializing, process exiting.')
     // mail.error(e)
-    process.exit(1)
+    process.exit()
   }
 }
 start()

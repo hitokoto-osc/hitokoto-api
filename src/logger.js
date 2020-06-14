@@ -109,11 +109,10 @@ function log (ctx, start, len, err, event) {
   const upstream = err ? chalk.red('xxx')
     : event === 'close' ? chalk.yellow('-x-')
       : chalk.gray('-->')
-
   winston.verbose('  ' + upstream +
     ' ' + chalk.bold('%s') +
     ' ' + chalk.gray('%s') +
-    ' ' + chalk[color]('%s') +
+    ' ' + chalk[colorCodes[color]]('%s') +
     ' ' + chalk.gray('%s') +
     ' ' + chalk.gray('%s'),
   ctx.method,
