@@ -7,7 +7,7 @@ const fs = require('fs')
 const util = require('util')
 const dirname = path.join(__dirname, '../')
 
-function setupWinston (configFile) {
+function setupWinston () {
   const logFile = nconf.get('log_path') || path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
   // createDir while running at docker
   const dirPath = path.join(logFile, '../')
