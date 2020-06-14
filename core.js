@@ -5,7 +5,7 @@ const Koa = require('koa') // Koa v2
 const colors = require('colors/safe')
 const http = require('http')
 const nconf = require('nconf')
-const os = require('os')
+// const os = require('os')
 const winston = require('winston')
 // const path = require('path')
 // const pkg = require('./package.json')
@@ -99,11 +99,13 @@ process.on('exit', (code) => { // handle unexpected exit event
 // TODO: start Workers involved Koa(experimental support)
 // const { Worker } = require('worker_threads')
 function startKoa (app) {
-  let threadsNumber = nconf.get('worker') || 1
-  if (threadsNumber === 0) {
-    const cpusCount = os.cpus().length
-    threadsNumber = cpusCount || 1
-  }
+  /**
+    let threadsNumber = nconf.get('worker') || 1
+    if (threadsNumber === 0) {
+      const cpusCount = os.cpus().length
+      threadsNumber = cpusCount || 1
+    }
+  */
   http.createServer(app.callback()).listen(nconf.get('server:port'))
 }
 // Start Server
@@ -114,7 +116,7 @@ async function start () {
     await registerMiddlewares()
     const Routes = require('./src/route')
     await registerRoutes(new Routes())
-    await startKoa(app)
+    startKoa(app)
     winston.verbose('[init] All init processes are exceeded.')
     winston.info('[core] Web Server is started, listening on' + colors.yellow(' port') + ': ' + colors.blue(nconf.get('server:port')))
   } catch (e) {
