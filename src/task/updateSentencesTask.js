@@ -14,7 +14,7 @@ const AB = require('../extensions/sentencesABSwitcher')
 
 async function Task () {
   // TODO: 按需同步流程中移除失效句子（在包中移除的句子）
-  winston.verbose('开始更新句子记录...')
+  winston.verbose('[sentencesUpdateTask] start to update...')
   const startTick = Date.now()
   // 取得 AB 库的指针
   const currentABSlot = await cache.get('hitokoto:ab') || 'a'
@@ -29,11 +29,11 @@ async function Task () {
   const remoteVersionData = response.data
 
   if (!semver.satisfies(remoteVersionData.protocol_version, '>=1.0 <1.1')) {
-    winston.error('当前程序版本不支持此协议版本，请更新程序！')
+    winston.error('[sentencesUpdateTask] This program version is NOT support the protocol version: ' + remoteVersionData.protocol_version + ', please update your program.')
     return
   }
   if (semver.eq(remoteVersionData.bundle_version, localBundleVersion) && localBundleUpdatedAt === remoteVersionData.updated_at) {
-    winston.verbose('与服务器记录一致，无需更新。')
+    winston.verbose('[sentencesUpdateTask] The local records are same with the remote one, update ended.')
     return // 版本相同且生成时间戳相同、无需更新
   }
   // 需要更新，首先确认本地版本
@@ -174,14 +174,14 @@ async function Task () {
   // 切换数据库
   AB.setDatabase(targetDatabase)
   cache.set('hitokoto:ab', targetDatabase)
-  winston.verbose('执行完成，耗时：' + (Date.now() - startTick) + ' ms')
+  winston.verbose('[sentencesUpdateTask] having finished the update, spend ' + (Date.now() - startTick) + ' ms.')
 }
 
 function RunTask () {
   Task()
     .catch(err => {
       console.log(colors.red(err.stack))
-      winston.error('执行同步句子操作时发生错误。')
+      winston.error('[sentencesUpdateTask] occur errors while update, please check the details. if occurs frequently, contact the author please.')
     })
 }
 
