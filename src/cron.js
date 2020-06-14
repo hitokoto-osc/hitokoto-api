@@ -102,11 +102,9 @@ if (process.env && process.env.dev) {
   winston.level = 'verbose'
   nconf.set('dev', true)
 }
-
-process.on('message', message => {
-  if (message.key === 'exit') {
-    winston.verbose('[cronJob] receive exit signal, cron process exiting.')
-    process.exit()
+process.on('exit', (code) => {
+  if (code && code === 1000) {
+    winston.info('[cronJob] receiving exiting signal, cronJob process exits.')
   }
 })
 Cron.load()
