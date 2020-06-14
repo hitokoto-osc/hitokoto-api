@@ -1,5 +1,5 @@
 'use strict'
-module.exports = (router, controller) => {
+module.exports = (router, middlewares, controller) => {
   // Route Map
   /* router.get('/', async (ctx, next) => {
     ctx.body = {
@@ -15,7 +15,7 @@ module.exports = (router, controller) => {
     const nconf = require('nconf')
     const os = require('os')
     let memoryUsage = 0
-    for (let v of Object.values(process.memoryUsage())) {
+    for (const v of Object.values(process.memoryUsage())) {
       memoryUsage += parseInt(v)
     }
     memoryUsage = memoryUsage / (1024 * 1024)

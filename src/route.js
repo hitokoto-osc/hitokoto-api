@@ -1,11 +1,12 @@
-'use strict'
+const fs = require('fs')
 const path = require('path')
 const winston = require('winston')
 
 class route {
   constructor () {
-    const Controller = require(path.join(__dirname, '../', './src/controller'))
+    const Controller = require('./controller')
     this.controller = new Controller()
+    this.middlewares = require('./middleware').fetch(false) // TODO: Support Dev Routes
     return this.routes()
   }
 
@@ -14,7 +15,11 @@ class route {
       const controller = await this.controller
       // RouteMap
       const Router = require('koa-router')
-      return require(path.join(__dirname, '../', './routes'))(new Router(), controller)
+      if (!fs.existsSync(path.join(__dirname, '../', './routes.js'))) {
+        winston.error('[route] can\'t find the route file, program exiting.')
+        process.exitCode(1)
+      }
+      return require(path.join(__dirname, '../', './routes'))(new Router(), this.middlewares, controller)
     } catch (err) {
       winston.error(err)
       process.exit(1)
