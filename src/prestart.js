@@ -37,6 +37,7 @@ function setupWinston () {
 }
 
 function loadConfig (configFile, isChild = false, next) {
+  nconf.use('memory') // use memory store
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
   // check config file while running at dokcer
   if (!fs.existsSync(configFile)) {

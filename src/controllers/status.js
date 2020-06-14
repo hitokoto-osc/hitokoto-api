@@ -3,9 +3,9 @@
 const os = require('os')
 const path = require('path')
 const nconf = require('nconf')
-const cache = require(path.join(__dirname, '../cache'))
+const cache = require('../cache')
+const AB = require('../extensions/sentencesABSwitcher')
 const _ = require('lodash')
-const winston = require('winston')
 
 async function getAllRequests () {
   const requests = await cache.get('requests')
@@ -138,7 +138,6 @@ module.exports = async (ctx, next) => {
   for (const i of limitHost) {
     if (!fetchData[4][i]) {
       // if not exist
-      winston.verbose(`host be removed: ${i}`)
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
@@ -168,6 +167,17 @@ module.exports = async (ctx, next) => {
   for (const v of Object.values(process.memoryUsage())) {
     memoryUsage += parseInt(v)
   }
+
+  // fetch hitokoto status
+  const hitokoto = {}
+  const collection = await Promise.all([
+    AB.get('hitokoto:bundle:categories'),
+    AB.get('hitokoto:bundle:sentences:total'),
+    AB.get('hitokoto:bundle:updated_at')
+  ])
+  hitokoto.categroy = collection[0].map(v => v.key)
+  hitokoto.total = collection[1]
+  hitokoto.lastUpdate = collection[2]
   ctx.body = {
     name: pkg.name,
     version: pkg.version,
@@ -182,11 +192,7 @@ module.exports = async (ctx, next) => {
       },
       // cpu: os.cpus(),
       load: os.loadavg(),
-      hitokto: {
-        total: !global.hitokoto ? 0 : global.hitokoto.total,
-        categroy: !global.hitokoto ? 0 : global.hitokoto.categroy,
-        lastUpdate: !global.hitokoto ? 0 : global.hitokoto.lastUpdated
-      }
+      hitokoto
     },
     requests: {
       all: {

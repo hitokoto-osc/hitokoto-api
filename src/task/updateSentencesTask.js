@@ -39,6 +39,7 @@ async function Task () {
   // 需要更新，首先确认本地版本
   const targetDatabase = currentABSlot === 'a' ? 'b' : 'a'
   const SideAB = AB.getConnection(targetDatabase)
+  let sentenceTotal = 0
   if (localBundleVersion === '0.0.0') { // 初次启动、全量同步数据
     // 获取分类数据
     response = await axios.get(url.resolve(remoteUrl, remoteVersionData.categories.path))
@@ -73,6 +74,7 @@ async function Task () {
       // 保存句子长度范围
       await SideAB.set(`hitokoto:bundle:category:${category.key}:max`, maxLength)
       await SideAB.set(`hitokoto:bundle:category:${category.key}:min`, minLength)
+      sentenceTotal += categorySentences.length
     }
   } else { // 挨个比对，按需求同步
     // 首先比对分类信息
@@ -163,13 +165,19 @@ async function Task () {
         queue.quit() // 结束连接
       }
     }
+
+    // 获得句子总数，由于以上的增量实现无法正确统计，因此咱们用一个偷懒的方法（以后优化）
+    for (const category of await SideAB.get('hitokoto:bundle:categories')) {
+      sentenceTotal += await SideAB.command('zcount', 'hitokoto:bundle:category:', category.key)
+    }
   }
 
   // 更新版本记录
   await Promise.all([
     SideAB.set('hitokoto:bundle:version', remoteVersionData.bundle_version),
     SideAB.set('hitokoto:bundle:updated_at', remoteVersionData.updated_at),
-    SideAB.set('hitokoto:bundle:version:record', remoteVersionData)
+    SideAB.set('hitokoto:bundle:version:record', remoteVersionData),
+    SideAB.set('hitokoto:bundle:sentences:total', sentenceTotal)
   ])
   // 切换数据库
   AB.setDatabase(targetDatabase)
