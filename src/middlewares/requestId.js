@@ -1,6 +1,6 @@
 'use strict'
 
-const ｛ v4: uuidV4 } = require('uuid/v4')
+const { v4: uuidV4 } = require('uuid/v4')
 /**
  * Return middleware that gets an unique request id from a header or
  * generates a new id.
