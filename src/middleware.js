@@ -4,7 +4,7 @@ const winston = require('winston')
 
 function checkMiddlewaresFileValid (middlewares) {
   if (!Array.isArray(middlewares)) {
-    winston.error('[init] common/dev koa plugins(middlewares) file is invalid, process existing.')
+    winston.error('[middleware] common/dev koa plugins(middlewares) file is invalid, process existing.')
     process.exit(1)
   }
 }

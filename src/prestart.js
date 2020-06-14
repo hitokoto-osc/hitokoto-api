@@ -4,9 +4,10 @@ const nconf = require('nconf')
 const pkg = require('../package.json')
 const path = require('path')
 const fs = require('fs')
+const util = require('util')
 const dirname = path.join(__dirname, '../')
 
-function setupWinston () {
+function setupWinston (configFile) {
   const logFile = nconf.get('log_path') || path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
   // createDir while running at docker
   const dirPath = path.join(logFile, '../')
@@ -35,11 +36,7 @@ function setupWinston () {
   })
 }
 
-function loadConfig (configFile, isChild = false) {
-  if (!isChild) {
-    winston.verbose('* using configuration stored in: %s', configFile)
-  }
-
+function loadConfig (configFile, isChild = false, next) {
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
   // check config file while running at dokcer
   if (!fs.existsSync(configFile)) {
@@ -57,6 +54,16 @@ function loadConfig (configFile, isChild = false) {
   if (!nconf.get('isCluster')) {
     nconf.set('isPrimary', 'true')
     nconf.set('isCluster', 'false')
+  }
+  if (next && util.types.isPromise(next)) {
+    Promise
+      .resolve(next)
+      .then(() => {
+        // Print logger
+        if (!isChild) {
+          winston.verbose('* using configuration stored in: %s', configFile)
+        }
+      })
   }
 }
 
@@ -77,8 +84,6 @@ module.exports = {
       printCopyright()
     }
     winston.level = 'info'
-    loadConfig(configFile, isChild)
-    setupWinston()
-    loadConfig(configFile, isChild)
+    loadConfig(configFile, isChild, setupWinston())
   }
 }

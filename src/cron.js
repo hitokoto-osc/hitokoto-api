@@ -3,6 +3,7 @@
 const winston = require('winston')
 const path = require('path')
 const fs = require('fs')
+const nconf = require('nconf')
 // const colors = require('colors/safe')
 const CronJob = require('cron').CronJob
 
@@ -97,12 +98,16 @@ class Cron {
 }
 
 require('./prestart').load(null, true)
+if (process.env && process.env.dev) {
+  winston.level = 'verbose'
+  nconf.set('dev', true)
+}
+
 process.on('message', message => {
-  if (message.key === 'debug') {
-    winston.level = 'verbose'
-  } else if (message.key === 'exit') {
-    winston.verbose('receive exit signal, cron process exiting.')
+  if (message.key === 'exit') {
+    winston.verbose('[cronJob] receive exit signal, cron process exiting.')
     process.exit()
   }
 })
 Cron.load()
+winston.verbose('[cronJob] cronJob process is started.')
