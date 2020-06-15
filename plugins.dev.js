@@ -1,4 +1,4 @@
 module.exports = [
   // Dev Plugins
-  require('koa-livereload')()
+  ['koa-livereload', require('koa-livereload')()]
 ]

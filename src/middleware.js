@@ -24,8 +24,9 @@ module.exports = {
     try {
       const middlewares = this.fetch(isDev)
       for (const middleware of middlewares) {
-        if (middleware && typeof middleware === 'function') { // skip invalid middleware
-          app.use(middleware)
+        if (middleware && middleware[1] && typeof middleware[1] === 'function') { // skip invalid middleware
+          winston.verbose('[middleware] global loaded: ' + middleware[0])
+          app.use(middleware[1])
         }
       }
       winston.verbose('[init] global koa plugins(middlewares) are loaded.')

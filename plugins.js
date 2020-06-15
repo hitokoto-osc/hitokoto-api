@@ -4,34 +4,34 @@ const nconf = require('nconf')
 
 module.exports = [
   // MiddleWares
-  require('./src/middlewares/requestId')(),
-  require('./src/middlewares/responseHandler')(),
-  require('./src/middlewares/countRequest')(),
+  ['requestId', require('./src/middlewares/requestId')()],
+  ['countRequests', require('./src/middlewares/countRequest')()],
+  ['responseHandler', require('./src/middlewares/responseHandler')()],
 
   // Mail Error
-  require('./src/middlewares/MailError')(),
+  ['MailError', require('./src/middlewares/MailError')()],
 
   // Basic Plugins
-  require('koa-helmet')(),
-  require('koa-query-pretty')(),
-  require('@hitokoto/koa-jsonp')(),
-  require('koa-bodyparser')({
+  ['koa-helmet', require('koa-helmet')()],
+  ['koa-query-pretty', require('koa-query-pretty')()],
+  ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
+  ['koa-bodyparser', require('koa-bodyparser')({
     enableTypes: ['json', 'form'],
     formLimit: '10mb',
     jsonLimit: '10mb'
-  }),
-  require('kcors')({
+  })],
+  ['kcors', require('kcors')({
     origin: '*',
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
     exposeHeaders: ['X-Request-Id']
-  }),
-  require('koa-favicon')(path.join(__dirname, './public/favicon.ico')),
-  !nconf.get('compress_body') || require('koa-compress')({
+  })],
+  ['koa-favicon', require('koa-favicon')(path.join(__dirname, './public/favicon.ico'))],
+  !nconf.get('compress_body') || ['koa-compress', require('koa-compress')({
     filter: (contentType) => {
       return /text/i.test(contentType)
     },
     threshold: 2048,
     flush: require('zlib').Z_SYNC_FLUSH
-  }),
-  require('./src/logger')()
+  })],
+  ['logger', require('./src/logger')()]
 ]
