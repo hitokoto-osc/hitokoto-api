@@ -81,7 +81,7 @@ async function registerRoutes (routes) {
 
 // handle the process exit event
 function handleProcessExitSignal (signal) {
-  winston.verbose('[core] receive signal: ' + colors.yellow(signal) + ', starting the exit produre.')
+  winston.verbose('[core] received signal: ' + colors.yellow(signal) + ', start the exit produre.')
   for (const child of childProcessList) {
     child.instance.kill('SIGTERM') // teng-koa exit signal code
   }
@@ -92,7 +92,7 @@ process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
 process.on('SIGTERM', handleProcessExitSignal)
 process.on('exit', (code) => { // handle unexpected exit event
   if (code) { // ignore zero exit code
-    winston.error('[core] receiving exit code: ' + code + ', process will be destoryed.')
+    winston.error('[core] received exit code: ' + code + ', process will be destoryed.')
     for (const child of childProcessList) {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
     }
@@ -121,7 +121,7 @@ async function start () {
     const Routes = require('./src/route')
     await registerRoutes(new Routes().routes())
     startKoa(app)
-    winston.verbose('[init] All init processes are exceeded.')
+    winston.verbose('[init] All init steps are exceeded.')
     winston.info('[core] Web Server is started, listening on' + colors.yellow(' port') + ': ' + colors.blue(nconf.get('server:port')))
   } catch (e) {
     console.log(colors.red(e.stack))
