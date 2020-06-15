@@ -106,11 +106,12 @@ class Cron {
   }
 }
 
-require('./prestart').load(null, true)
 if (process.env && process.env.dev) {
   winston.level = 'verbose'
   nconf.set('dev', true)
 }
+
+require('./prestart').load(null, true)
 process.on('exit', (code) => {
   if (code && code === 1000) {
     winston.info('[cronJob] receiving exiting signal, cronJob process exits.')
