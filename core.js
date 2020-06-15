@@ -119,7 +119,7 @@ async function start () {
     await registerProcesses()
     await registerMiddlewares()
     const Routes = require('./src/route')
-    await registerRoutes(new Routes())
+    await registerRoutes(new Routes().routes())
     startKoa(app)
     winston.verbose('[init] All init processes are exceeded.')
     winston.info('[core] Web Server is started, listening on' + colors.yellow(' port') + ': ' + colors.blue(nconf.get('server:port')))

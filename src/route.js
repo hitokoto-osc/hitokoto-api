@@ -1,13 +1,19 @@
 const fs = require('fs')
 const path = require('path')
+const nconf = require('nconf')
 const winston = require('winston')
 
-class route {
+class Route {
   constructor () {
     const Controller = require('./controller')
     this.controller = new Controller()
-    this.middlewares = require('./middleware').fetch(false) // TODO: Support Dev Routes
-    return this.routes()
+    const Middlewares = require('./middleware').fetch(!!nconf.get('dev'))
+    this.middlewares = {}
+    Middlewares.map(v => {
+      if (v && v[0] && v[1]) {
+        this.middlewares[v[0]] = v[1]
+      }
+    })
   }
 
   async routes () {
@@ -26,4 +32,4 @@ class route {
     }
   }
 }
-module.exports = route
+module.exports = Route

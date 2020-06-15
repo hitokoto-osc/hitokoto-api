@@ -19,11 +19,11 @@ function requestId (options = {}) {
     generator = uuidV4
   } = options
 
-  return (ctx, next) => {
+  return async (ctx, next) => {
     const reqId = ctx.request.get(header) || generator()
     ctx[propertyName] = reqId
     ctx.set(header, reqId)
-    return next()
+    await next()
   }
 }
 
