@@ -153,6 +153,7 @@ async function hitokoto (ctx, next) {
       break
     case 'js':
       ctx.type = 'text/javascript'
+      sentence = JSON.parse(sentence)
       ctx.body = `(function hitokoto(){var hitokoto=${rawString(sentence.hitokoto)};var dom=document.querySelector('${ctx.query.select || '.hitokoto'}');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()`
       break
     default:
