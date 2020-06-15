@@ -4,10 +4,9 @@ const nconf = require('nconf')
 const pkg = require('../package.json')
 const path = require('path')
 const fs = require('fs')
-const util = require('util')
 const dirname = path.join(__dirname, '../')
 
-function setupWinston () {
+async function setupWinston () {
   const logFile = nconf.get('log_path') || path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
   // createDir while running at docker
   const dirPath = path.join(logFile, '../')
@@ -56,9 +55,9 @@ function loadConfig (configFile, isChild = false, next) {
     nconf.set('isPrimary', 'true')
     nconf.set('isCluster', 'false')
   }
-  if (next && util.types.isPromise(next)) {
+  if (next && typeof next === 'function') {
     Promise
-      .resolve(next)
+      .resolve(next())
       .then(() => {
         // Print logger
         if (!isChild) {
@@ -85,6 +84,6 @@ module.exports = {
       printCopyright()
     }
     winston.level = 'info'
-    loadConfig(configFile, isChild, setupWinston())
+    loadConfig(configFile, isChild, setupWinston)
   }
 }
