@@ -3,7 +3,7 @@ const winston = require('winston')
 const { RunTask } = require('../task/updateSentencesTask')
 
 module.exports = [
-  '1 */30 * * * *', // Cron 配置
+  '1 * * * * *', // Cron 配置
   () => {
     RunTask()
   },

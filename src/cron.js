@@ -61,12 +61,19 @@ class Cron {
 
           job.start()
         })
-        process.send('loaded')
+        process.send({
+          key: 'loaded',
+          to: 'core',
+          data: null,
+          matchFrom: true
+        })
       }
     } catch (e) {
       process.send({
         key: 'error',
-        data: e.stack
+        to: 'core',
+        data: e.stack,
+        matchFrom: true
       })
       process.exit(1)
     }
@@ -90,7 +97,9 @@ class Cron {
     } catch (e) {
       process.send({
         key: 'error',
-        data: e.stack
+        to: 'core',
+        data: e.stack,
+        matchFrom: true
       })
       process.exit(1)
     }
