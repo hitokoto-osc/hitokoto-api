@@ -167,7 +167,8 @@ async function Task () {
     }
 
     // 获得句子总数，由于以上的增量实现无法正确统计，因此咱们用一个偷懒的方法（以后优化）
-    for (const category of await SideAB.get('hitokoto:bundle:categories')) {
+    const categories = await SideAB.get('hitokoto:bundle:categories')
+    for (const category of categories) {
       sentenceTotal += await SideAB.command('zcount', 'hitokoto:bundle:category:', category.key)
     }
   }
