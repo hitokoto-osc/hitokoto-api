@@ -1,6 +1,7 @@
 // This module is designed to load all middlewares
 const path = require('path')
 const winston = require('winston')
+const colors = require('colors')
 
 function checkMiddlewaresFileValid (middlewares) {
   if (!Array.isArray(middlewares)) {
@@ -25,7 +26,7 @@ module.exports = {
       const middlewares = this.fetch(isDev)
       for (const middleware of middlewares) {
         if (middleware && middleware[1] && typeof middleware[1] === 'function') { // skip invalid middleware
-          winston.verbose('[middleware] global loaded: ' + middleware[0])
+          winston.verbose('[middleware] global loaded: ' + colors.yellow(middleware[0]))
           app.use(middleware[1])
         }
       }
