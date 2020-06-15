@@ -33,10 +33,10 @@ class SentencesABSwitcher extends Cache {
     tmp.on('error', err => {
       console.log(colors.red(err.stack))
       if (connectionFailedAttemp >= 3) {
-        winston.error('Attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed. Process exiting.')
+        winston.error('[AB] attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed, process exiting.')
         process.exit(1)
       }
-      winston.error('failed to connect to redis. Attemp again...')
+      winston.error('[AB] failed to connect to redis, we will attemp again...')
       connectionFailedAttemp++
       SentencesABSwitcher.connect()
     })
