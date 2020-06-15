@@ -17,10 +17,10 @@ class ProcessInteract {
     winston.verbose('[processInteract] prepare to register receivers.')
     // DEV only
     this.routeMap.map(v => {
-      winston.verbose('[processInteract] receiver registered, key: ' + colors.red(v.key) + ' , to: ' + colors.yellow(v.to) + ' , from: ' + colors.green(v.from))
+      winston.verbose('[processInteract] receiver is registered, key: ' + colors.red(v.key) + ' , to: ' + colors.yellow(v.to) + ' , from: ' + colors.green(v.from))
     })
     event.on('message', (msg, moduleName) => {
-      winston.verbose('[processInteract] receive a message: ', colors.grey(JSON.stringify(msg)))
+      winston.verbose('[processInteract] received a message, detail: ', colors.grey(JSON.stringify(msg)))
       if (msg && msg.key) {
         // match route
         const matchRule = msg.from && msg.matchFrom ? { key: msg.key, to: msg.to, from: msg.from } : { key: msg.key, to: msg.to }
@@ -87,7 +87,7 @@ class Process {
         winston.error('[' + moduleName + '] child process exited with code: ' + code + ', master process exits to ensure the stablity.')
         process.exit(1)
       } else if (signal) { // exist ignore
-        winston.info('[' + moduleName + '] process is exited due to receive sinal: ' + colors.blue(signal))
+        winston.info('[' + moduleName + '] process is exited due to receiving a signal: ' + colors.blue(signal))
       } // ignore exit code: 0
     }
   }
