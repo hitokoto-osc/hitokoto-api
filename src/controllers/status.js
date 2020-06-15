@@ -6,9 +6,10 @@ const nconf = require('nconf')
 const cache = require('../cache')
 const AB = require('../extensions/sentencesABSwitcher')
 const _ = require('lodash')
+// const winston = require('winston')
 
 async function getAllRequests () {
-  const requests = await cache.get('requests')
+  const requests = nconf.get('middleware:requests:all')
   return requests
 }
 
@@ -31,7 +32,7 @@ async function getAllPastDay () {
 }
 
 async function getHosts () {
-  const requests = await cache.get('requests:hosts')
+  const requests = await nconf.get('middleware:requests:hosts')
   return requests
 }
 
@@ -120,7 +121,7 @@ module.exports = async (ctx, next) => {
     getHostsPastDay()
   ])
   const all = {}
-  all.now = fetchData[0]
+  all.now = fetchData[0] || 0
   all.pastMinute = fetchData[1]
   all.pastHour = fetchData[2]
   all.pastDay = fetchData[3]
@@ -135,16 +136,17 @@ module.exports = async (ctx, next) => {
     'international.v1.hitokoto.cn'
   ]
   const HostToDelete = []
+  const HostsData = fetchData[4] || {}
   for (const i of limitHost) {
-    if (!fetchData[4][i]) {
+    if (!HostsData[i]) {
       // if not exist
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
-      hosts[i].total = fetchData[4][i]
-      hosts[i].pastMinute = fetchData[5] ? parseInt(fetchData[4][i]) - parseInt(fetchData[5][i]) : null
-      hosts[i].pastHour = fetchData[6] ? parseInt(fetchData[4][i]) - parseInt(fetchData[6][i]) : null
-      hosts[i].pastDay = fetchData[7] ? parseInt(fetchData[4][i]) - parseInt(fetchData[7][i]) : null
+      hosts[i].total = HostsData[i] || 0
+      hosts[i].pastMinute = fetchData[5] ? parseInt(HostsData[i]) - parseInt(fetchData[5][i]) : null
+      hosts[i].pastHour = fetchData[6] ? parseInt(HostsData[i]) - parseInt(fetchData[6][i]) : null
+      hosts[i].pastDay = fetchData[7] ? parseInt(HostsData[i]) - parseInt(fetchData[7][i]) : null
     }
   }
   _.pullAll(limitHost, HostToDelete)
@@ -210,7 +212,7 @@ module.exports = async (ctx, next) => {
       freejishu: 'i@freejishu.com',
       a632079: 'a632079@qq.com'
     },
-    copyright: 'MoeCraft © ' + new Date().getFullYear() + ' All Rights Reserved. Powered by Teng-koa ( https://github.com/a632079/teng-koa ).',
+    copyright: 'MoeCraft © ' + new Date().getFullYear() + ' All Rights Reserved. Powered by Teng-koa. Open Source at https://github.com/hitokoto-osc/hitokoto-api .',
     now: new Date(Date.now()).toString(),
     ts: Date.now()
   }
