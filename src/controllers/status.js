@@ -32,7 +32,7 @@ async function getAllPastDay () {
 }
 
 async function getHosts () {
-  const requests = await nconf.get('middleware:requests:hosts')
+  const requests = await cache.get('requests:hosts')
   return requests
 }
 
