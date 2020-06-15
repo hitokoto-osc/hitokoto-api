@@ -62,7 +62,7 @@ function loadConfig (configFile, isChild = false, next) {
       .then(() => {
         // Print logger
         if (!isChild) {
-          winston.verbose('* using configuration stored in: %s', configFile)
+          winston.verbose('[prestart] * using configuration stored in: %s', configFile)
         }
       })
   }
