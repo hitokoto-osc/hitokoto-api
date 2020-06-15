@@ -189,7 +189,13 @@ async function Task () {
 function RunTask () {
   Task()
     .then(targetDB => {
-      if (process.send) { // is in CronProcess
+      if (targetDB && typeof targetDB === 'string') {
+        targetDB = Number.parseInt(targetDB)
+      }
+      return targetDB
+    })
+    .then(targetDB => {
+      if (process.send && Number.isInteger(targetDB)) { // is in CronProcess
         process.send({
           key: 'switchAB',
           to: 'ab',
