@@ -109,10 +109,8 @@ class WrapperRedis {
     this.redis = redisConnection
   }
 
-  command (commands, params) {
-    const param = params
-    param[0] = 'cache:' + param[0]
-    return this.redis[commands + 'Async'](param)
+  command (commands, ...params) {
+    return this.redis[commands + 'Async'](...params)
   }
 
   set (key, v, time) {

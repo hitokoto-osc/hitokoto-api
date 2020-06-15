@@ -50,11 +50,9 @@ class cache {
     }
   }
 
-  static command (commands, params) {
+  static command (commands, ...params) {
     this.connectOrSkip()
-    const param = params
-    param[0] = 'cache:' + param[0]
-    return this.redis[commands + 'Async'](param)
+    return this.redis[commands + 'Async'](...params)
   }
 
   static set (key, v, time) {
