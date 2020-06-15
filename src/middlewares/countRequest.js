@@ -23,6 +23,7 @@ function countRequest () {
       nconf.set('middleware:requests', requests)
     }
     const host = String(ctx.request.host)
+    requests.all++
     requests.hosts[host] = typeof requests.hosts[host] === 'undefined' || requests.hosts[host] === null ? 0 : parseInt(requests.hosts[host]) + 1
 
     // in memory store
