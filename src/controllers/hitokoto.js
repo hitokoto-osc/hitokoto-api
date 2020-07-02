@@ -149,6 +149,7 @@ async function hitokoto (ctx, next) {
       break
     case 'text':
       ctx.type = 'text/plain'
+      sentence = JSON.parse(sentence)
       ctx.body = sentence.hitokoto
       break
     case 'js':
