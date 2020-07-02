@@ -200,7 +200,7 @@ async function Task () {
   cache.set('hitokoto:ab', targetDatabase)
   winston.verbose('[sentencesUpdateTask] total sentences: ' + colors.cyan(sentenceTotal))
   winston.verbose('[sentencesUpdateTask] having finished the update, spend ' + (Date.now() - startTick) + ' ms.')
-  if (process.send && targetDatabase) { // is in CronProcess
+  if (process.send) { // is in CronProcess
     winston.verbose('[sentencesUpdateTask] notify master process to switch redis db to: ' + colors.yellow(targetDatabase))
     process.send({
       key: 'switchAB',
