@@ -27,7 +27,7 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
+    "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^14.1.1",
