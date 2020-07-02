@@ -78,7 +78,7 @@
     "semver": "^7.3.2",
     "sequelize": "^5.21.13",
     "simple-netease-cloud-music": "^0.5.0",
-    "uuid": "^8.1.0",
+    "uuid": "^8.2.0",
     "winston": "^2.4.5"
   }
 }
