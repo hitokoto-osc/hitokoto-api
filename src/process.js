@@ -57,9 +57,9 @@ class Process {
 
   spawnProcess (execFileAbsolutePath, moduleName, messageLisenner = null) {
     const child = childProcess.fork(path.join(execFileAbsolutePath), {
-      env: {
+      env: Object.assign(process.env, {
         dev: !!nconf.get('dev')
-      }
+      })
     })
     this.childProcessList.push({
       instance: child,
