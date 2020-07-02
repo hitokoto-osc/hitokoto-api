@@ -6549,10 +6549,10 @@ window-size@^0.1.4:
   resolved "http://registry.npm.taobao.org/window-size/download/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
   integrity sha1-+OGqHuWlPsW/FR/6CXQqatdpeHY=
 
-winston@^2.4.0:
-  version "2.4.4"
-  resolved "http://registry.npm.taobao.org/winston/download/winston-2.4.4.tgz#a01e4d1d0a103cf4eada6fc1f886b3110d71c34b"
-  integrity sha1-oB5NHQoQPPTq2m/B+IazEQ1xw0s=
+winston@^2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/winston/-/winston-2.4.5.tgz#f2e431d56154c4ea765545fc1003bd340c95b59a"
+  integrity sha512-TWoamHt5yYvsMarGlGEQE59SbJHqGsZV8/lwC+iCcGeAe0vUaOh+Lv6SYM17ouzC/a/LB1/hz/7sxFBtlu1l4A==
   dependencies:
     async "~1.0.0"
     colors "1.0.x"
