@@ -3932,10 +3932,10 @@ koa-query-pretty@^0.3.0:
   resolved "http://registry.npm.taobao.org/koa-query-pretty/download/koa-query-pretty-0.3.0.tgz#0a04384a1f902a2e6bce243e3873991127dcd172"
   integrity sha1-CgQ4Sh+QKi5rziQ+OHOZESfc0XI=
 
-koa-router@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/koa-router/-/koa-router-9.0.1.tgz#34fb0b849624ff8ae96823e2c5d8c672f91ac19b"
-  integrity sha512-KXCXDID3cMpfGb5QjCOUfkodWKQYIEYFK0aGSpeAZKZt2ebdV4TLq3cgtmnxvoaAQoPkSzev2kSLFOdPbpLdqg==
+koa-router@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/koa-router/-/koa-router-9.1.0.tgz#47d1ce2109fd62b1d76eb42df90b635ff93b6831"
+  integrity sha512-5xakU0Ip2oFXPaA5882NTLopb5iaNfipBmTU5AoGbgDHOsHqRQDnaMnazj8DmDCt2rSxNB2TBBVLO9OiM0TvdA==
   dependencies:
     debug "^4.1.1"
     http-errors "^1.7.3"
