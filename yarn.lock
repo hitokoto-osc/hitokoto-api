@@ -417,10 +417,10 @@
   resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-9.0.1.tgz#df281f0f3d8f3adb10c95e4dd72b16acf41b5400"
   integrity sha512-wo2rHprtDzTHf4tiSxavktJ52ntiwmg7eHNGFLH38G1of8OfGVwOc1sVbpM4jN/HK/rCMhYOi6xzoPqsv0537A==
 
-"@hitokoto/koa-jsonp@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.npm.taobao.org/@hitokoto/koa-jsonp/download/@hitokoto/koa-jsonp-3.0.2.tgz?cache=0&sync_timestamp=1589610487949&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hitokoto%2Fkoa-jsonp%2Fdownload%2F%40hitokoto%2Fkoa-jsonp-3.0.2.tgz#cf64d7ff336b858228193de4d275b90a9beeaaa3"
-  integrity sha1-z2TX/zNrhYIoGT3k0nW5CpvuqqM=
+"@hitokoto/koa-jsonp@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@hitokoto/koa-jsonp/-/koa-jsonp-3.0.4.tgz#d8b2861861296cd3b98b64e34eb912f66bcf1d90"
+  integrity sha512-Fule1/TIzYq3GOrTV8K8Gfy9XkzKyyPpPSUi2QMA0xiE1MoM5tPT6jv4gGLV3hsCqygX9NBk0vVp0PMP1ysaRw==
   dependencies:
     flatstr "^1.0.12"
 
