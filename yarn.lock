@@ -417,10 +417,10 @@
   resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-9.1.1.tgz#d97ebc35d20eed6d8458361cbca5c7cb85d45184"
   integrity sha512-SXY8bCQ1qacJ8AUTUxjabY8G6OjSmMPLN9MBCzGaKOjpPNX6z8zbXTbk9oU3GHZLtcxweWLCi2n49IRS4iQlwg==
 
-"@hitokoto/koa-jsonp@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@hitokoto/koa-jsonp/-/koa-jsonp-3.0.4.tgz#d8b2861861296cd3b98b64e34eb912f66bcf1d90"
-  integrity sha512-Fule1/TIzYq3GOrTV8K8Gfy9XkzKyyPpPSUi2QMA0xiE1MoM5tPT6jv4gGLV3hsCqygX9NBk0vVp0PMP1ysaRw==
+"@hitokoto/koa-jsonp@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@hitokoto/koa-jsonp/-/koa-jsonp-3.0.5.tgz#752800e70bb8b89efe75b620da65e99dc8f456a5"
+  integrity sha512-sjKVvbxi4Vau3qj5d+z1CzHNC70iLOd5ez8ALGOH0lXRTJMLvPSeXKwM4rksqMwPRMsHwnRv9sjqcG7un+ViNw==
   dependencies:
     flatstr "^1.0.12"
 
