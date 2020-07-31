@@ -49,7 +49,6 @@
     "async": "^3.2.0",
     "axios": "^0.19.2",
     "bilibili-api": "^0.0.2",
-    "bluebird": "^3.5.1",
     "bytes": "^3.0.0",
     "chalk": "^4.1.0",
     "colors": "^1.1.2",

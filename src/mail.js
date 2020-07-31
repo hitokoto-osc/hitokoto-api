@@ -1,10 +1,10 @@
 'use strict'
 const nconf = require('nconf')
 const winston = require('winston')
-const bluebird = require('bluebird')
 const nodemailer = require('nodemailer')
 const pkg = require('../package')
 const htmlEscape = require('./utils').htmlEscape
+const util = require('util')
 class mail {
   static async connect () {
     if (this.smtp) {
@@ -30,7 +30,7 @@ class mail {
           winston.verbose('SMTP Connection Pool is ready.')
         }
       })
-      this.smtp = bluebird.promisifyAll(transporter)
+      this.smtp = transporter
       return this.smtp
     }
   }
@@ -50,7 +50,7 @@ class mail {
     msg.html ? msg.html = msg.body : msg.text = msg.body
     delete msg.body
     delete msg.title
-    return this.smtp.sendMailAsync(msg)
+    return util.promisify(this.smtp.sendMail)(msg)
   }
 
   static error (errStruct) {
