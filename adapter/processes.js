@@ -2,12 +2,12 @@
 const path = require('path')
 const winston = require('winston')
 const colors = require('colors')
-const AB = require('./src/extensions/sentencesABSwitcher')
+const AB = require('../src/extensions/sentencesABSwitcher')
 
 module.exports = {
   processes: [
     {
-      path: path.join(__dirname, './src/cron.js'), // The absolute path of the process file
+      path: path.join(__dirname, '../src/cron.js'), // The absolute path of the process file
       name: 'cronJob', // The name of the process module
       messageListener: (message, { event, moduleName }) => {
         // emit msg to global process route

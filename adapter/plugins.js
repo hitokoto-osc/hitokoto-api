@@ -4,12 +4,12 @@ const nconf = require('nconf')
 
 module.exports = [
   // MiddleWares
-  ['requestId', require('./src/middlewares/requestId')()],
-  ['countRequests', require('./src/middlewares/countRequest')()],
-  ['responseHandler', require('./src/middlewares/responseHandler')()],
+  ['requestId', require('../src/middlewares/requestId')()],
+  ['countRequests', require('../src/middlewares/countRequest')()],
+  ['responseHandler', require('../src/middlewares/responseHandler')()],
 
   // Mail Error
-  ['MailError', require('./src/middlewares/MailError')()],
+  ['MailError', require('../src/middlewares/MailError')()],
 
   // Basic Plugins
   ['koa-helmet', require('koa-helmet')()],
@@ -33,5 +33,5 @@ module.exports = [
     threshold: 2048,
     flush: require('zlib').Z_SYNC_FLUSH
   })],
-  ['logger', require('./src/logger')()]
+  ['logger', require('../src/logger')()]
 ]
