@@ -1,11 +1,10 @@
 'use strict'
 // Import Packages
 const nconf = require('nconf')
-const bluebrid = require('bluebird')
 const winston = require('winston')
 const colors = require('colors')
-// Promisify Redis
-const redis = bluebrid.promisifyAll(require('redis'))
+
+const Redis = require('ioredis')
 
 let connectionFailedAttemp = 0
 class cache {
@@ -14,15 +13,22 @@ class cache {
     const config = {
       host: nconf.get('redis:host') || '127.0.0.1',
       port: nconf.get('redis:port') || 6379,
-      password: nconf.get('redis:password') && nconf.get('redis:password') !== '' ? nconf.get('redis:password') : false,
-      db: nconf.get('redis:database') || 0
+      db: nconf.get('redis:database') || 0,
+      family: nconf.get('redis:family') || 4,
+      reconnectOnError: (err) => {
+        const targetError = 'READONLY'
+        if (err.message.includes(targetError)) {
+          // Only reconnect when the error contains "READONLY"
+          return true
+        }
+      }
     }
-    if (!config.password) {
-      delete config.password
+    if (nconf.get('redis:password') && (nconf.get('redis:password') !== '')) {
+      config.password = nconf.get('redis:password')
     }
     // Connect Redis
     if (!newConnection) {
-      this.redis = redis.createClient(config)
+      this.redis = new Redis(config)
       this.redis.on('connect', () => {
         connectionFailedAttemp = 0 // clear the attemp count
       })
@@ -38,7 +44,7 @@ class cache {
       })
       return true
     }
-    const client = redis.createClient(config)
+    const client = new Redis(config)
     return client
   }
 
@@ -52,22 +58,22 @@ class cache {
 
   static command (commands, ...params) {
     this.connectOrSkip()
-    return this.redis[commands + 'Async'](...params)
+    return this.redis[commands](...params)
   }
 
   static set (key, v, time) {
     this.connectOrSkip()
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
-      return this.redis.setAsync('cache:' + key, value, 'EX', time)
+      return this.redis.set('cache:' + key, value, 'EX', time)
     } else {
-      return this.redis.setAsync('cache:' + key, value)
+      return this.redis.set('cache:' + key, value)
     }
   }
 
   static async get (key, toJson = true) {
     this.connectOrSkip()
-    const data = await this.redis.getAsync('cache:' + key)
+    const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
         const json = JSON.parse(data)

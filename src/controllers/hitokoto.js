@@ -91,7 +91,7 @@ async function hitokoto (ctx, next) {
     category = targetCategories[Math.floor(Math.random() * targetCategories.length)]
     // get hitokoto sentences id
     const client = AB.getClient()
-    const uuids = await client.zrangebyscoreAsync('hitokoto:bundle:category:' + category, minLength, maxLength)
+    const uuids = await client.zrangebyscore('hitokoto:bundle:category:' + category, minLength, maxLength)
     if (uuids.length === 0) {
       ctx.status = 404
       ctx.body = {
@@ -129,7 +129,7 @@ async function hitokoto (ctx, next) {
     const category = targetCategories[Math.floor(Math.random() * targetCategories.length)]
     // get hitokoto sentences id
     const client = AB.getClient()
-    const uuids = await client.zrangebyscoreAsync('hitokoto:bundle:category:' + category, minLength, maxLength)
+    const uuids = await client.zrangebyscore('hitokoto:bundle:category:' + category, minLength, maxLength)
     if (uuids.length === 0) {
       ctx.status = 404
       ctx.body = {

@@ -3,11 +3,10 @@
 // intended to implement a a/b redis switcher to acquire a non-aware sentences update.
 
 const Cache = require('../cache')
-const bluebrid = require('bluebird')
 const nconf = require('nconf')
 const colors = require('colors/safe')
 const winston = require('winston')
-const redis = bluebrid.promisifyAll(require('redis'))
+const Redis = require('ioredis')
 
 let connectionFailedAttemp = 0
 const databaseA = nconf.get('sentences_ab_switchter:a') || 1
@@ -19,19 +18,26 @@ class SentencesABSwitcher extends Cache {
     const config = {
       host: nconf.get('redis:host') || '127.0.0.1',
       port: nconf.get('redis:port') || 6379,
-      password: nconf.get('redis:password') && nconf.get('redis:password') !== '' ? nconf.get('redis:password') : false,
-      db: target === 'a' ? databaseA : databaseB // default connect to A database
+      db: target === 'a' ? databaseA : databaseB, // default connect to A database,
+      family: nconf.get('redis:family') || 4,
+      reconnectOnError: (err) => {
+        const targetError = 'READONLY'
+        if (err.message.includes(targetError)) {
+        // Only reconnect when the error contains "READONLY"
+          return true
+        }
+      }
     }
-    if (!config.password) {
-      delete config.password
+    if (nconf.get('redis:password') && (nconf.get('redis:password') !== '')) {
+      config.password = nconf.get('redis:password')
     }
     // Connect Redis
-    const tmp = redis.createClient(config)
+    const tmp = new Redis(config)
     tmp.on('connect', () => {
       connectionFailedAttemp = 0 // clear the attemp count
     })
     tmp.on('error', err => {
-      console.log(colors.red(err.stack))
+      winston.error(colors.red(err.stack))
       if (connectionFailedAttemp >= 3) {
         winston.error('[AB] attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed, process exiting.')
         process.exit(1)
@@ -67,22 +73,22 @@ class SentencesABSwitcher extends Cache {
     this.connectOrSkip()
     const param = params
     param[0] = 'cache:' + param[0]
-    return this.redis[commands + 'Async'](param)
+    return this.redis[commands](param)
   }
 
   static set (key, v, time) {
     this.connectOrSkip()
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
-      return this.redis.setAsync('cache:' + key, value, 'EX', time)
+      return this.redis.set('cache:' + key, value, 'EX', time)
     } else {
-      return this.redis.setAsync('cache:' + key, value)
+      return this.redis.set('cache:' + key, value)
     }
   }
 
   static async get (key, toJson = true) {
     this.connectOrSkip()
-    const data = await this.redis.getAsync('cache:' + key)
+    const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
         const json = JSON.parse(data)
@@ -110,20 +116,20 @@ class WrapperRedis {
   }
 
   command (commands, ...params) {
-    return this.redis[commands + 'Async'](...params)
+    return this.redis[commands](...params)
   }
 
   set (key, v, time) {
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
-      return this.redis.setAsync('cache:' + key, value, 'EX', time)
+      return this.redis.set('cache:' + key, value, 'EX', time)
     } else {
-      return this.redis.setAsync('cache:' + key, value)
+      return this.redis.set('cache:' + key, value)
     }
   }
 
   async get (key, toJson = true) {
-    const data = await this.redis.getAsync('cache:' + key)
+    const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
         const json = JSON.parse(data)

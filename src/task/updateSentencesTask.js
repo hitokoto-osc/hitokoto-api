@@ -77,7 +77,7 @@ async function Task () {
         }
         await Promise.all([
           SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
-          rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
+          rClient.zadd(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
         ])
       }
       // 保存句子长度范围
@@ -131,7 +131,7 @@ async function Task () {
           }
           await Promise.all([
             SideAB.set('hitokoto:sentence:' + sentence.uuid, sentence),
-            rClient.zaddAsync(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
+            rClient.zadd(['hitokoto:bundle:category:' + category.key, sentence.length, sentence.uuid])
           ])
         }
         // 保存句子长度范围
@@ -176,7 +176,7 @@ async function Task () {
         // 保存句子长度范围
         await queue.set(`hitokoto:bundle:category:${queue.key}:max`, maxLength)
         await queue.set(`hitokoto:bundle:category:${queue.key}:min`, minLength)
-        await queue.execAsync()
+        await queue.exec()
         queue.quit() // 结束连接
       }
     }
