@@ -32,7 +32,7 @@ const app = new Koa()
 // Load childProcesses
 let childProcessList = []
 async function registerProcesses () {
-  const { processes: processesMap, receivers } = require('./processes')
+  const { processes: processesMap, receivers } = require('./adapter/processes')
   const processesToStart = []
   const isDev = program.dev
   for (const process of processesMap) {

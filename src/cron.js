@@ -13,7 +13,7 @@ class Cron {
     try {
       // 加载 cron
       let crons = await this.autoLoad()
-      const cronMap = require(path.join(__dirname, '../crons.js'))(crons)
+      const cronMap = require(path.join(__dirname, '../adapter/crons.js'))(crons)
       if (cronMap === true) {
         // 自动加载所有计划任务
         crons = await this.autoLoad(true)

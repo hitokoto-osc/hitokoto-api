@@ -21,11 +21,11 @@ class Route {
       const controller = await this.controller
       // RouteMap
       const Router = require('koa-router')
-      if (!fs.existsSync(path.join(__dirname, '../', './routes.js'))) {
+      if (!fs.existsSync(path.join(__dirname, '../', './adapter/routes.js'))) {
         winston.error('[route] can\'t find the route file, program exiting.')
         process.exitCode(1)
       }
-      return require(path.join(__dirname, '../', './routes'))(new Router(), this.middlewares, controller)
+      return require(path.join(__dirname, '../', './adapter/routes'))(new Router(), this.middlewares, controller)
     } catch (err) {
       winston.error(err)
       process.exit(1)
