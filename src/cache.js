@@ -86,6 +86,24 @@ class cache {
     }
   }
 
+  static async remeber (key, time, ...params) {
+    if (params.length <= 0 || params.length > 3) {
+      throw new Error('the length of params is wrong')
+    }
+    if (typeof params[0] !== 'function') {
+      throw new Error('the remeber caller must be a function')
+    }
+    const caller = params[0]
+    const callerParams = params[1] ?? []
+    const toJSON = params[2] ?? true
+    let data = await this.get(key, toJSON)
+    if (!data) { // data is empty
+      data = await caller(...callerParams)
+      this.set(key, data, time) // async set
+    }
+    return data
+  }
+
   static getClient (newConnection = false) {
     return newConnection ? this.connect(true) : this.redis
   }
