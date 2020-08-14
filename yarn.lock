@@ -3980,10 +3980,10 @@ koa-query-pretty@0.3.0:
   resolved "https://registry.yarnpkg.com/koa-query-pretty/-/koa-query-pretty-0.3.0.tgz#0a04384a1f902a2e6bce243e3873991127dcd172"
   integrity sha512-w9/oTLi+EPiEEYCzIOeDPOz7sXZEylYknBo4yRZ2l0nDvf1uoNZHr6Z4srHKWt3rNOF2dvjMrDVpwDQN0La3VQ==
 
-koa-router@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/koa-router/-/koa-router-9.1.0.tgz#47d1ce2109fd62b1d76eb42df90b635ff93b6831"
-  integrity sha512-5xakU0Ip2oFXPaA5882NTLopb5iaNfipBmTU5AoGbgDHOsHqRQDnaMnazj8DmDCt2rSxNB2TBBVLO9OiM0TvdA==
+koa-router@9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/koa-router/-/koa-router-9.4.0.tgz#7bd3cd4f6247256e4b56fbb2203bde3851acc15a"
+  integrity sha512-RO/Y8XqSNM2J5vQeDaBI/7iRpL50C9QEudY4d3T4D1A2VMKLH0swmfjxDFPiIpVDLuNN6mVD9zBI1eFTHB6QaA==
   dependencies:
     debug "^4.1.1"
     http-errors "^1.7.3"
