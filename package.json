@@ -48,7 +48,6 @@
     "@hitokoto/koa-jsonp": "3.0.6",
     "async": "3.2.0",
     "axios": "0.19.2",
-    "bilibili-api": "0.0.2",
     "bytes": "3.1.0",
     "chalk": "4.1.0",
     "colors": "1.4.0",
@@ -70,13 +69,11 @@
     "lodash.curry": "4.1.1",
     "mysql2": "2.1.0",
     "nconf": "0.10.0",
-    "netease-music-sdk": "0.3.3",
     "nodemailer": "6.4.11",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.3.2",
     "sequelize": "6.3.4",
-    "simple-netease-cloud-music": "0.5.0",
     "uuid": "8.3.0",
     "winston": "2.4.5"
   }
