@@ -7,6 +7,7 @@ on:
     branches: [ master ]
 jobs:
   build:
+    name: Lint & Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,5 +35,7 @@ jobs:
           ${{ runner.os }}-yarn-
     - run: yarn
       name: Install dependencies...
+    - name: Lint
+      run: yarn lint
     - name: Test
       run: yarn test

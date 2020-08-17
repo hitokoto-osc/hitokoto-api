@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node core",
+    "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
     "test": "jest"
   },
