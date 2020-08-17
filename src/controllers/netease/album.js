@@ -35,7 +35,7 @@ module.exports = async (ctx) => {
     return
   }
   const data = await (params.nocache ? getAlbum(params, ctx) : Cache.remeber(
-    `nm:playlist:${params.id}`,
+    `nm:album:${params.id}`,
     60 * 60 * 2, // 2 Hours
     async () => {
       return getAlbum(params, ctx)
