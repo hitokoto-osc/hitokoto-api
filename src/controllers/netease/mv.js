@@ -36,9 +36,7 @@ module.exports = async (ctx) => {
     return
   }
   const data = await (params.nocache ? getMVDetail(params, ctx) : Cache.remeber(
-    params.time
-      ? `nm:music:comment:${params.id}:${params.limit}:${params.offset}:${params.time}`
-      : `nm:music:comment:${params.id}:${params.limit}:${params.offset}`,
+    `nm:mv:${params.id}:${params.limit}:${params.offset}`,
     60 * 60 * 2, // 2 Hours
     async () => {
       return getMVDetail(params, ctx)

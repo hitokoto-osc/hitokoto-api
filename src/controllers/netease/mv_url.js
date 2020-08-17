@@ -36,9 +36,7 @@ module.exports = async (ctx) => {
     return
   }
   const data = await (params.nocache ? getMVURL(params, ctx) : Cache.remeber(
-    params.time
-      ? `nm:mv:url:${params.id}`
-      : `nm:mv:url:${params.id}`,
+    `nm:mv:url:${params.mvid}`,
     60 * 60 * 2, // 2 Hours
     async () => {
       return getMVURL(params, ctx)
