@@ -71,11 +71,11 @@ module.exports = (router, middlewares, controller) => {
       ts: Date.now()
     }
   })
-  // router.get('/nm/comment/music/:id', controller.netease.musicComment)
-  // router.get('/nm/url/mv/:mvid', async (ctx) => {
-  //   ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
-  // })
-  // router.get('/nm/mv/:mvid', controller.netease.mv)
+  router.get('/nm/comment/music/:id', controller.netease.music_comment)
+  router.get('/nm/url/mv/:mvid', async (ctx) => {
+    ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
+  })
+  router.get('/nm/mv/:mvid', controller.netease.mv)
   // router.get('/nm/dj/program/detail/:pid', controller.netease.djProgramInfo)
   // router.get('/nm/user/dj/:uid', controller.netease.userDj)
   // router.get('/nm/dj/:rid', controller.netease.djProgram)
