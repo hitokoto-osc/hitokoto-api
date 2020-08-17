@@ -9,6 +9,9 @@ function readDir (dir) {
   if (files.length <= 0) return
   const map = {}
   for (const file of files) {
+    if (file.startsWith('_')) { // Ignore hidden files
+      continue
+    }
     const filePath = path.join(dir, file)
     const stat = fs.statSync(filePath)
     if (stat.isDirectory()) {
