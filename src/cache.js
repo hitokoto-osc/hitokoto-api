@@ -99,7 +99,9 @@ class cache {
     let data = await this.get(key, toJSON)
     if (!data) { // data is empty
       data = await caller(...callerParams)
-      this.set(key, data, time) // async set
+      if (data) {
+        this.set(key, data, time) // async set
+      }
     }
     return data
   }

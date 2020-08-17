@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.6",
+    "@hitokoto/koa-respond": "^3.0.3",
     "NeteaseCloudMusicApi": "^3.38.0",
     "async": "3.2.0",
     "axios": "0.19.2",
@@ -57,6 +58,7 @@
     "fast-json-stringify": "2.2.3",
     "humanize-number": "0.0.2",
     "ioredis": "4.17.3",
+    "joi": "^17.2.0",
     "kcors": "2.2.2",
     "koa": "2.13.0",
     "koa-bodyparser": "4.3.0",

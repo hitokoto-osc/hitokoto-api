@@ -13,7 +13,7 @@ function readDir (dir) {
     const stat = fs.statSync(filePath)
     if (stat.isDirectory()) {
       const subDirMaps = readDir(filePath)
-      if (subDirMaps && subDirMaps.length > 0) {
+      if (subDirMaps) {
         map[file] = map[file]
           ? Object.assign(
             map[file],

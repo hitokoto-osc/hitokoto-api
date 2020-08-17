@@ -3,6 +3,7 @@ const path = require('path')
 const nconf = require('nconf')
 
 module.exports = [
+  ['respond', require('@hitokoto/koa-respond')()],
   // MiddleWares
   ['requestId', require('../src/middlewares/requestId')()],
   ['countRequests', require('../src/middlewares/countRequest')()],
