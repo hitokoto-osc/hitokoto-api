@@ -57,7 +57,7 @@ module.exports = (router, middlewares, controller) => {
   router.get('/nm/picture/:id/:height?', controller.netease.picture)
   router.get('/nm/artist/:id', controller.netease.artist)
   router.get('/nm/album/:id', controller.netease.album)
-  // router.get('/nm/lyric/:id', controller.netease.lyric)
+  router.get('/nm/lyric/:id', controller.netease.lyric)
   router.get('/nm/url/:id', controller.netease.url)
   // router.get('/nm/detail/:id', controller.netease.detail)
   // router.get('/nm/summary/:id', controller.netease.summary)
