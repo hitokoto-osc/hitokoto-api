@@ -76,6 +76,7 @@ module.exports = (router, middlewares, controller) => {
     ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
   })
   router.get('/nm/mv/:mvid', controller.netease.mv)
+  router.get('/nm/mv/url/:mvid', controller.netease.mv_url)
   // router.get('/nm/dj/program/detail/:pid', controller.netease.djProgramInfo)
   // router.get('/nm/user/dj/:uid', controller.netease.userDj)
   // router.get('/nm/dj/:rid', controller.netease.djProgram)
