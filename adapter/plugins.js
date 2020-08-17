@@ -26,7 +26,7 @@ module.exports = [
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
     exposeHeaders: ['X-Request-Id']
   })],
-  ['koa-favicon', require('koa-favicon')(path.join(__dirname, './public/favicon.ico'))],
+  ['koa-favicon', require('koa-favicon')(path.join(__dirname, '../public/favicon.ico'))],
   !nconf.get('compress_body') || ['koa-compress', require('koa-compress')({
     filter: (contentType) => {
       return /text/i.test(contentType)
