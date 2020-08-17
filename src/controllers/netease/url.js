@@ -24,17 +24,6 @@ module.exports = async (ctx) => {
     br: params.br
   })
   winston.verbose(result)
-  if (result.status !== 200) {
-    ctx.status = Number.parseInt(result.status)
-    ctx.body = {
-      status: result.status,
-      message: '上游错误',
-      data: result.body,
-      ts: Date.now()
-    }
-    return
-  }
-
   ctx.status = 200
   ctx.body = result.body
 }

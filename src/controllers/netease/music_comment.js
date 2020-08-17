@@ -54,16 +54,6 @@ module.exports = async (ctx) => {
     }
   ))
   winston.verbose(data)
-  if (data.code !== 200) {
-    ctx.status = Number.parseInt(data.code)
-    ctx.body = {
-      status: data.code,
-      message: '上游错误',
-      data: data,
-      ts: Date.now()
-    }
-    return
-  }
   ctx.status = 200
   ctx.body = data
 }
