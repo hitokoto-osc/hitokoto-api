@@ -77,10 +77,17 @@ module.exports = (router, middlewares, controller) => {
   })
   router.get('/nm/mv/:mvid', controller.netease.mv)
   router.get('/nm/mv/url/:mvid', controller.netease.mv_url)
-  // router.get('/nm/dj/program/detail/:pid', controller.netease.djProgramInfo)
-  // router.get('/nm/user/dj/:uid', controller.netease.userDj)
-  // router.get('/nm/dj/:rid', controller.netease.djProgram)
-  // router.get('/nm/dj/detail/:rid', controller.netease.djDetail)
-
+  router.get('/nm/dj/:rid', controller.netease.dj_program)
+  router.get('/nm/dj/program/detail/:id', controller.netease.dj_program_info)
+  router.get('/nm/user/dj/:uid', (ctx) => {
+    ctx.status = 503
+    ctx.body = {
+      status: 503,
+      message: '由于此接口需登录后才能使用，因此本接口已移除。',
+      data: null,
+      ts: Date.now()
+    }
+  })
+  router.get('/nm/dj/detail/:rid', controller.netease.dj_detail)
   return router
 }
