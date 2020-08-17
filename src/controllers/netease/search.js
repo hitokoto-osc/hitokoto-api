@@ -26,11 +26,17 @@ const schema = Joi.object({
 })
 
 async function getSearchDetail (params, ctx) {
+  const {
+    keyword,
+    limit,
+    offset,
+    type
+  } = params
   const result = await sdk.search({
-    keywords: params.keyword,
-    limit: params.limit,
-    offset: params.offset,
-    type: typeMap[params.type],
+    keywords: keyword,
+    limit,
+    offset,
+    type: typeMap[type],
     realIP: ctx.get('X-Real-IP')
   })
   if (result.status !== 200) {
