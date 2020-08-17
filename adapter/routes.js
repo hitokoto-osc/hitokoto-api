@@ -62,7 +62,15 @@ module.exports = (router, middlewares, controller) => {
   router.get('/nm/detail/:id', controller.netease.detail)
   // router.get('/nm/summary/:id', controller.netease.summary)
   router.get('/nm/redirect/music/:id', controller.netease.redirect)
-  // router.get('/nm/record/:uid', controller.netease.record)
+  router.get('/nm/record/:uid', (ctx) => {
+    ctx.status = 503
+    ctx.body = {
+      status: 503,
+      message: '由于此接口需登录后才能使用，因此本接口已移除。',
+      data: null,
+      ts: Date.now()
+    }
+  })
   // router.get('/nm/comment/music/:id', controller.netease.musicComment)
   // router.get('/nm/url/mv/:mvid', async (ctx) => {
   //   ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
