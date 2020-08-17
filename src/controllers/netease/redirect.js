@@ -18,7 +18,7 @@ module.exports = async (ctx) => {
   const result = await sdk.song_url({
     id: ctx.params.id,
     realIP: ctx.get('X-Real-IP'),
-    br: params.br ?? 320000
+    br: params.brs
   })
   winston.verbose(result)
   if (result.status !== 200) {
@@ -47,5 +47,5 @@ module.exports = async (ctx) => {
   }
 
   ctx.status = 302
-  ctx.redirect(result.body.data[0].url)
+  ctx.redirect(result.body.data[0].url.replace(/http:\/\/m(\d+)[a-zA-Z]*/, 'https://m$1'))
 }
