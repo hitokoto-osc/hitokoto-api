@@ -65,7 +65,7 @@
     "koa-helmet": "5.2.0",
     "koa-query-pretty": "0.3.0",
     "koa-router": "9.4.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.20",
     "lodash.compact": "3.0.1",
     "lodash.curry": "4.1.1",
     "mysql2": "2.1.0",
