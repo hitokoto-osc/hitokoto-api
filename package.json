@@ -14,7 +14,7 @@
     "release": "release-it",
     "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
   },
-  "repository": "https://github.com/a632079/teng-koa",
+  "repository": "https://github.com/hitokoto-osc/hitokoto-api",
   "author": "a632079 <a632079@qq.com>",
   "license": "MIT",
   "private": true,
