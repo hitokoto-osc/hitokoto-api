@@ -13,7 +13,7 @@ const databaseA = nconf.get('sentences_ab_switchter:a') || 1
 const databaseB = nconf.get('sentences_ab_switchter:b') || 2
 
 class SentencesABSwitcher extends Cache {
-  static connect (target = 'a', isDefault = false) {
+  static connect(target = 'a', isDefault = false) {
     // Get Config
     const config = {
       host: nconf.get('redis:host') || '127.0.0.1',
@@ -23,12 +23,12 @@ class SentencesABSwitcher extends Cache {
       reconnectOnError: (err) => {
         const targetError = 'READONLY'
         if (err.message.includes(targetError)) {
-        // Only reconnect when the error contains "READONLY"
+          // Only reconnect when the error contains "READONLY"
           return true
         }
-      }
+      },
     }
-    if (nconf.get('redis:password') && (nconf.get('redis:password') !== '')) {
+    if (nconf.get('redis:password') && nconf.get('redis:password') !== '') {
       config.password = nconf.get('redis:password')
     }
     // Connect Redis
@@ -36,10 +36,14 @@ class SentencesABSwitcher extends Cache {
     tmp.on('connect', () => {
       connectionFailedAttemp = 0 // clear the attemp count
     })
-    tmp.on('error', err => {
+    tmp.on('error', (err) => {
       winston.error(colors.red(err.stack))
       if (connectionFailedAttemp >= 3) {
-        winston.error('[AB] attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed, process exiting.')
+        winston.error(
+          '[AB] attemp to connect to redis ' +
+            connectionFailedAttemp +
+            ' times, but all failed, process exiting.',
+        )
         process.exit(1)
       }
       winston.error('[AB] failed to connect to redis, we will attemp again...')
@@ -52,7 +56,7 @@ class SentencesABSwitcher extends Cache {
     this['redis' + target.toUpperCase()] = tmp
   }
 
-  static connectOrSkip (database = 'a') {
+  static connectOrSkip(database = 'a') {
     if (this.redis) {
       return true
     } else {
@@ -61,7 +65,7 @@ class SentencesABSwitcher extends Cache {
     }
   }
 
-  static setDatabase (target) {
+  static setDatabase(target) {
     if (target === 'a') {
       this.redis = this.redisA
     } else {
@@ -69,14 +73,14 @@ class SentencesABSwitcher extends Cache {
     }
   }
 
-  static command (commands, params) {
+  static command(commands, params) {
     this.connectOrSkip()
     const param = params
     param[0] = 'cache:' + param[0]
     return this.redis[commands](param)
   }
 
-  static set (key, v, time) {
+  static set(key, v, time) {
     this.connectOrSkip()
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
@@ -86,7 +90,7 @@ class SentencesABSwitcher extends Cache {
     }
   }
 
-  static async get (key, toJson = true) {
+  static async get(key, toJson = true) {
     this.connectOrSkip()
     const data = await this.redis.get('cache:' + key)
     if (toJson) {
@@ -101,7 +105,7 @@ class SentencesABSwitcher extends Cache {
     }
   }
 
-  static getConnection (target) {
+  static getConnection(target) {
     if (target === 'a') {
       return new WrapperRedis(this.redisA)
     } else {
@@ -111,15 +115,15 @@ class SentencesABSwitcher extends Cache {
 }
 
 class WrapperRedis {
-  constructor (redisConnection) {
+  constructor(redisConnection) {
     this.redis = redisConnection
   }
 
-  command (commands, ...params) {
+  command(commands, ...params) {
     return this.redis[commands](...params)
   }
 
-  set (key, v, time) {
+  set(key, v, time) {
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
       return this.redis.set('cache:' + key, value, 'EX', time)
@@ -128,7 +132,7 @@ class WrapperRedis {
     }
   }
 
-  async get (key, toJson = true) {
+  async get(key, toJson = true) {
     const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
@@ -142,7 +146,7 @@ class WrapperRedis {
     }
   }
 
-  getClient () {
+  getClient() {
     return this.redis
   }
 }

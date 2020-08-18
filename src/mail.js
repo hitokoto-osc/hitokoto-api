@@ -6,7 +6,7 @@ const pkg = require('../package')
 const htmlEscape = require('./utils').htmlEscape
 const util = require('util')
 class mail {
-  static async connect () {
+  static async connect() {
     if (this.smtp) {
       return this.smtp
     } else {
@@ -17,9 +17,9 @@ class mail {
         secure: nconf.get('mail:ssl'), // use TLS
         auth: {
           user: nconf.get('mail:username'),
-          pass: nconf.get('mail:password')
+          pass: nconf.get('mail:password'),
         },
-        tls: { rejectUnauthorized: false }
+        tls: { rejectUnauthorized: false },
       }
       const transporter = nodemailer.createTransport(config)
       await transporter.verify((err, success) => {
@@ -36,24 +36,24 @@ class mail {
   }
 
   /*
-  * msg - Object
-  *   -- to To Mail (String)
-  *   -- title Mail Title (String)
-  *   -- body Mail Body (String)
-  *   -- html is HTML Text (Bool)
-  */
-  static async send (params) {
+   * msg - Object
+   *   -- to To Mail (String)
+   *   -- title Mail Title (String)
+   *   -- body Mail Body (String)
+   *   -- html is HTML Text (Bool)
+   */
+  static async send(params) {
     await this.connect()
     const msg = params
     msg.subject = msg.title
     msg.from = pkg.name + ' <' + nconf.get('mail:username') + '>'
-    msg.html ? msg.html = msg.body : msg.text = msg.body
+    msg.html ? (msg.html = msg.body) : (msg.text = msg.body)
     delete msg.body
     delete msg.title
     return util.promisify(this.smtp.sendMail)(msg)
   }
 
-  static error (errStruct) {
+  static error(errStruct) {
     // Send Error to Admins
     const admin = nconf.get('admin')
     const to = Array.isArray(admin) ? admin.join(',') : admin
@@ -80,7 +80,7 @@ class mail {
       title: '发生意外错误！ 请进行修复！',
       to: to,
       body: html,
-      html: true
+      html: true,
     })
   }
 }

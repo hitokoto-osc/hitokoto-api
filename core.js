@@ -31,17 +31,23 @@ const app = new Koa()
 
 // Load childProcesses
 let childProcessList = []
-async function registerProcesses () {
+async function registerProcesses() {
   const { processes: processesMap, receivers } = require('./adapter/processes')
   const processesToStart = []
   const isDev = program.dev
   for (const process of processesMap) {
-    if ((process.isDev && isDev) || (process.isProd && !isDev) || (!process.isDev && !process.isDev)) {
+    if (
+      (process.isDev && isDev) ||
+      (process.isProd && !isDev) ||
+      (!process.isDev && !process.isDev)
+    ) {
       processesToStart.push(process)
     }
   }
   const { staticProcess, ProcessInteract } = require('./src/process')
-  processesToStart.forEach(v => staticProcess().spawnProcess(v.path, v.name, v.messageListener))
+  processesToStart.forEach((v) =>
+    staticProcess().spawnProcess(v.path, v.name, v.messageListener),
+  )
   childProcessList = staticProcess().ProcessList
 
   // load receviers
@@ -50,7 +56,7 @@ async function registerProcesses () {
 }
 
 // Register Middlewares (Plugins)
-async function registerMiddlewares () {
+async function registerMiddlewares() {
   require('./src/middleware').register(app, program.dev)
 }
 
@@ -59,14 +65,13 @@ async function registerMiddlewares () {
 const { Task: updateSentencesTask } = require('./src/task/updateSentencesTask')
 
 // Load Route
-async function registerRoutes (routes) {
+async function registerRoutes(routes) {
   try {
-    await routes.then(router => {
-      app
-        .use(router.routes())
-        .use(router.allowedMethods())
-    })
-      .catch(err => {
+    await routes
+      .then((router) => {
+        app.use(router.routes()).use(router.allowedMethods())
+      })
+      .catch((err) => {
         winston.error(colors.red(err.stack))
         // mail.error(err)
         process.exit()
@@ -80,8 +85,12 @@ async function registerRoutes (routes) {
 }
 
 // handle the process exit event
-function handleProcessExitSignal (signal) {
-  winston.verbose('[core] received signal: ' + colors.yellow(signal) + ', start the exit produre.')
+function handleProcessExitSignal(signal) {
+  winston.verbose(
+    '[core] received signal: ' +
+      colors.yellow(signal) +
+      ', start the exit produre.',
+  )
   for (const child of childProcessList) {
     child.instance.kill('SIGTERM') // teng-koa exit signal code
   }
@@ -90,9 +99,13 @@ function handleProcessExitSignal (signal) {
 }
 process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
 process.on('SIGTERM', handleProcessExitSignal)
-process.on('exit', (code) => { // handle unexpected exit event
-  if (code) { // ignore zero exit code
-    winston.error('[core] received exit code: ' + code + ', process will be destoryed.')
+process.on('exit', (code) => {
+  // handle unexpected exit event
+  if (code) {
+    // ignore zero exit code
+    winston.error(
+      '[core] received exit code: ' + code + ', process will be destoryed.',
+    )
     for (const child of childProcessList) {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
     }
@@ -102,7 +115,7 @@ process.on('exit', (code) => { // handle unexpected exit event
 
 // TODO: start Workers involved Koa(experimental support)
 // const { Worker } = require('worker_threads')
-function startKoa (app) {
+function startKoa(app) {
   /**
     let threadsNumber = nconf.get('worker') || 1
     if (threadsNumber === 0) {
@@ -113,7 +126,7 @@ function startKoa (app) {
   http.createServer(app.callback()).listen(nconf.get('server:port'))
 }
 // Start Server
-async function start () {
+async function start() {
   try {
     await updateSentencesTask()
     await registerProcesses()
@@ -122,10 +135,17 @@ async function start () {
     await registerRoutes(new Routes().routes())
     startKoa(app)
     winston.verbose('[init] All init steps are exceeded.')
-    winston.info('[core] Web Server is started, listening on' + colors.yellow(' port') + ': ' + colors.blue(nconf.get('server:port')))
+    winston.info(
+      '[core] Web Server is started, listening on' +
+        colors.yellow(' port') +
+        ': ' +
+        colors.blue(nconf.get('server:port')),
+    )
   } catch (e) {
     console.log(colors.red(e.stack))
-    winston.error('[init] error was thrown while initializing, process exiting.')
+    winston.error(
+      '[init] error was thrown while initializing, process exiting.',
+    )
     // mail.error(e)
     process.exit()
   }

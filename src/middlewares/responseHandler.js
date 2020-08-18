@@ -19,10 +19,10 @@ const statusCodes = {
   NOT_IMPLEMENTED: 501,
   BAD_GATEWAY: 502,
   SERVICE_UNAVAILABLE: 503,
-  GATEWAY_TIME_OUT: 504
+  GATEWAY_TIME_OUT: 504,
 }
 
-function responseHandler () {
+function responseHandler() {
   return async (ctx, next) => {
     ctx.res.statusCodes = statusCodes
     ctx.statusCodes = ctx.res.statusCodes
@@ -33,16 +33,16 @@ function responseHandler () {
     }
 
     ctx.res.fail = (code = null, message = null, data = null) => {
-      ctx.status = ctx.status >= 400 && ctx.status < 500
-        ? ctx.status
-        : statusCodes.BAD_REQUEST
+      ctx.status =
+        ctx.status >= 400 && ctx.status < 500
+          ? ctx.status
+          : statusCodes.BAD_REQUEST
       ctx.body = { status: 'fail', code, data, message }
     }
 
     ctx.res.error = (code = null, message = null, data = null) => {
-      ctx.status = ctx.status < 500
-        ? statusCodes.INTERNAL_SERVER_ERROR
-        : ctx.status
+      ctx.status =
+        ctx.status < 500 ? statusCodes.INTERNAL_SERVER_ERROR : ctx.status
       ctx.body = { status: 'error', code, data, message }
     }
 

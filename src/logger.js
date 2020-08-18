@@ -26,23 +26,30 @@ const colorCodes = {
   3: 'cyan',
   2: 'green',
   1: 'green',
-  0: 'yellow'
+  0: 'yellow',
 }
 
 /**
  * Development logger.
  */
 
-function dev (opts) {
-  return async function logger (ctx, next) {
+function dev(opts) {
+  return async function logger(ctx, next) {
     // request
     const start = Date.now()
-    winston.verbose('[web] ' + chalk.gray('<--') +
-      ' ' + chalk.bold('%s') +
-      ' ' + chalk.gray('%s') +
-      ' ' + chalk.gray('%s'),
-    ctx.method,
-    ctx.originalUrl, ctx.reqId)
+    winston.verbose(
+      '[web] ' +
+        chalk.gray('<--') +
+        ' ' +
+        chalk.bold('%s') +
+        ' ' +
+        chalk.gray('%s') +
+        ' ' +
+        chalk.gray('%s'),
+      ctx.method,
+      ctx.originalUrl,
+      ctx.reqId,
+    )
 
     try {
       await next()
@@ -59,9 +66,7 @@ function dev (opts) {
     const body = ctx.body
     let counter
     if (length == null && body && body.readable) {
-      ctx.body = body
-        .pipe(counter = Counter())
-        .on('error', ctx.onerror)
+      ctx.body = body.pipe((counter = Counter())).on('error', ctx.onerror)
     }
 
     // log when the response is finished or closed,
@@ -74,7 +79,7 @@ function dev (opts) {
     res.once('finish', onfinish)
     res.once('close', onclose)
 
-    function done (event) {
+    function done(event) {
       res.removeListener('finish', onfinish)
       res.removeListener('close', onclose)
       log(ctx, start, counter ? counter.length : length, null, event)
@@ -86,14 +91,16 @@ function dev (opts) {
  * Log helper.
  */
 
-function log (ctx, start, len, err, event) {
+function log(ctx, start, len, err, event) {
   // get the status code of the response
   const status = err
-    ? (err.isBoom ? err.output.statusCode : err.status || 500)
-    : (ctx.status || 404)
+    ? err.isBoom
+      ? err.output.statusCode
+      : err.status || 500
+    : ctx.status || 404
 
   // set the color of the status code;
-  const s = status / 100 | 0
+  const s = (status / 100) | 0
   const color = colorCodes.s ? colorCodes[s] : 0
 
   // get the human readable response length
@@ -106,20 +113,30 @@ function log (ctx, start, len, err, event) {
     length = bytes(len).toLowerCase()
   }
 
-  const upstream = err ? chalk.red('xxx')
-    : event === 'close' ? chalk.yellow('-x-')
-      : chalk.gray('-->')
-  winston.verbose('[web] ' + upstream +
-    ' ' + chalk.bold('%s') +
-    ' ' + chalk.gray('%s') +
-    ' ' + chalk[colorCodes[color]]('%s') +
-    ' ' + chalk.gray('%s') +
-    ' ' + chalk.gray('%s'),
-  ctx.method,
-  ctx.originalUrl,
-  status,
-  time(start),
-  length)
+  const upstream = err
+    ? chalk.red('xxx')
+    : event === 'close'
+    ? chalk.yellow('-x-')
+    : chalk.gray('-->')
+  winston.verbose(
+    '[web] ' +
+      upstream +
+      ' ' +
+      chalk.bold('%s') +
+      ' ' +
+      chalk.gray('%s') +
+      ' ' +
+      chalk[colorCodes[color]]('%s') +
+      ' ' +
+      chalk.gray('%s') +
+      ' ' +
+      chalk.gray('%s'),
+    ctx.method,
+    ctx.originalUrl,
+    status,
+    time(start),
+    length,
+  )
 }
 
 /**
@@ -128,9 +145,7 @@ function log (ctx, start, len, err, event) {
  * in seconds otherwise.
  */
 
-function time (start) {
+function time(start) {
   const delta = Date.now() - start
-  return humanize(delta < 10000
-    ? delta + 'ms'
-    : Math.round(delta / 1000) + 's')
+  return humanize(delta < 10000 ? delta + 'ms' : Math.round(delta / 1000) + 's')
 }

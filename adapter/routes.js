@@ -11,10 +11,10 @@ module.exports = (router, middlewares, controller) => {
   })
   */
   if (nconf.get('dev')) {
-    router.get('/crash', async ctx => {
+    router.get('/crash', async (ctx) => {
       throw new Error('崩溃测试')
     })
-    router.get('/test', async ctx => {
+    router.get('/test', async (ctx) => {
       const nconf = require('nconf')
       const os = require('os')
       let memoryUsage = 0
@@ -30,10 +30,10 @@ module.exports = (router, middlewares, controller) => {
           memory: {
             totol: os.totalmem() / (1024 * 1024),
             free: os.freemem() / (1024 * 1024),
-            usage: memoryUsage
+            usage: memoryUsage,
           },
           cpu: os.cpus(),
-          load: os.loadavg()
+          load: os.loadavg(),
         },
         hostname: ctx.request.hostname,
         URL: ctx.request.URL,
@@ -42,7 +42,7 @@ module.exports = (router, middlewares, controller) => {
         originalUrl: ctx.request.originalUrl,
         queryParams: ctx.query,
         queryLength: ctx.query && ctx.query.c ? ctx.query.c.length : '',
-        now: new Date().toUTCString()
+        now: new Date().toUTCString(),
       }
     })
   }
@@ -68,7 +68,7 @@ module.exports = (router, middlewares, controller) => {
       status: 503,
       message: '由于此接口需登录后才能使用，因此本接口已移除。',
       data: null,
-      ts: Date.now()
+      ts: Date.now(),
     }
   })
   router.get('/nm/comment/music/:id', controller.netease.music_comment)
@@ -85,7 +85,7 @@ module.exports = (router, middlewares, controller) => {
       status: 503,
       message: '由于此接口需登录后才能使用，因此本接口已移除。',
       data: null,
-      ts: Date.now()
+      ts: Date.now(),
     }
   })
   router.get('/nm/dj/detail/:rid', controller.netease.dj_detail)

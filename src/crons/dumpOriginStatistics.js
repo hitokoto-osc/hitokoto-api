@@ -9,7 +9,11 @@ module.exports = [
   () => {
     // Do something
     if (global.originStatistics) {
-      cache.set(`statistics:orgin:${new Date(new Date().toDateString()).getTime()}`, global.originStatistics, 60 * 60 * 25)
+      cache.set(
+        `statistics:orgin:${new Date(new Date().toDateString()).getTime()}`,
+        global.originStatistics,
+        60 * 60 * 25,
+      )
     }
   },
   () => {
@@ -18,5 +22,5 @@ module.exports = [
     process.exit(1)
   },
   true, // Start the job right now,
-  'Asia/Shanghai' // Timezone
+  'Asia/Shanghai', // Timezone
 ]

@@ -4,33 +4,41 @@ const winston = require('winston')
 const path = require('path')
 const cache = require(path.join(__dirname, '../cache'))
 
-function saveCount (ts, count) {
-  cache.set('requests:count:' + ts, count, 60 * 60 * 25)
-    .catch(err => {
-      winston.error(err)
-      saveCount(ts, count)
-    })
+function saveCount(ts, count) {
+  cache.set('requests:count:' + ts, count, 60 * 60 * 25).catch((err) => {
+    winston.error(err)
+    saveCount(ts, count)
+  })
 }
 
-function saveHostsCount (ts, count) {
-  cache.set('requests:hosts:count:' + ts, count, 60 * 60 * 25)
-    .catch(err => {
-      winston.error(err)
-      saveCount(ts, count)
-    })
+function saveHostsCount(ts, count) {
+  cache.set('requests:hosts:count:' + ts, count, 60 * 60 * 25).catch((err) => {
+    winston.error(err)
+    saveCount(ts, count)
+  })
 }
-function autoSave (ts, requests) {
+function autoSave(ts, requests) {
   saveCount(ts, requests.all)
-  winston.debug('[countRequestsCron] requests: ' + requests.all + ', saving to redis.')
+  winston.debug(
+    '[countRequestsCron] requests: ' + requests.all + ', saving to redis.',
+  )
   saveHostsCount(ts, requests.hosts)
-  winston.debug('[countRequestsCron] host equests: ' + JSON.stringify(requests.hosts) + '\n, saving to redis.')
+  winston.debug(
+    '[countRequestsCron] host equests: ' +
+      JSON.stringify(requests.hosts) +
+      '\n, saving to redis.',
+  )
 }
 let requests = {
   all: 0,
-  hosts: {}
+  hosts: {},
 }
 process.on('message', (params) => {
-  if (params && params.key === 'updateRequests' && params.to === 'countRequestsCron') {
+  if (
+    params &&
+    params.key === 'updateRequests' &&
+    params.to === 'countRequestsCron'
+  ) {
     requests = params.data
   }
 })
@@ -41,14 +49,14 @@ module.exports = [
     const ts = Date.now().toString().slice(0, 10)
     if (!requests.all) {
       Promise.all([cache.get('requests'), cache.get('requests:hosts')])
-        .then(data => {
+        .then((data) => {
           // Init
           requests = {}
           requests.all = data[0] || 0
           requests.hosts = data[1] || {}
           return requests
         })
-        .then(requests => {
+        .then((requests) => {
           autoSave(ts, requests)
         })
     } else {
@@ -61,5 +69,5 @@ module.exports = [
   },
   false, // 是否立即启动计划任务
   'Asia/Shanghai', // 时区
-  true // 开启 自动重启？
+  true, // 开启 自动重启？
 ]

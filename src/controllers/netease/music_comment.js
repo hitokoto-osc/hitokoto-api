@@ -10,29 +10,24 @@ const schema = Joi.object({
   limit: Joi.number().min(1).max(10000).default(20),
   offset: Joi.number().min(0).default(0),
   before: Joi.number(), // 分页参数，取上一页最后一项的 time 获取下一页数据(获取超过5000条评论的时候需要用到)
-  nocache: Joi.boolean().default(false)
+  nocache: Joi.boolean().default(false),
 })
 
-async function getSongComments (params, ctx) {
-  const {
-    id,
-    limit,
-    offset,
-    before
-  } = params
+async function getSongComments(params, ctx) {
+  const { id, limit, offset, before } = params
   const result = await sdk.comment_music({
     id,
     limit,
     offset,
     before,
-    realIP: ctx.get('X-Real-IP')
+    realIP: ctx.get('X-Real-IP'),
   })
   if (result.status !== 200) {
     ctx.body = {
       status: result.status,
       message: '上游错误',
       data: result.body,
-      ts: Date.now()
+      ts: Date.now(),
     }
     return
   }
@@ -41,18 +36,21 @@ async function getSongComments (params, ctx) {
 
 module.exports = async (ctx) => {
   const params = Object.assign({}, ctx.params, ctx.query, ctx.request.body)
-  if (!await ValidateParams(params, schema, ctx)) { // validateParams
+  if (!(await ValidateParams(params, schema, ctx))) {
+    // validateParams
     return
   }
-  const data = await (params.nocache ? getSongComments(params, ctx) : Cache.remeber(
-    params.time
-      ? `nm:music:comment:${params.id}:${params.limit}:${params.offset}:${params.time}`
-      : `nm:music:comment:${params.id}:${params.limit}:${params.offset}`,
-    60 * 60 * 2, // 2 Hours
-    async () => {
-      return getSongComments(params, ctx)
-    }
-  ))
+  const data = await (params.nocache
+    ? getSongComments(params, ctx)
+    : Cache.remeber(
+        params.time
+          ? `nm:music:comment:${params.id}:${params.limit}:${params.offset}:${params.time}`
+          : `nm:music:comment:${params.id}:${params.limit}:${params.offset}`,
+        60 * 60 * 2, // 2 Hours
+        async () => {
+          return getSongComments(params, ctx)
+        },
+      ))
   winston.verbose(data)
   ctx.status = 200
   ctx.body = data

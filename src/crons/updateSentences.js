@@ -13,5 +13,5 @@ module.exports = [
   },
   true, // 是否立即启动计划任务
   'Asia/Shanghai', // 时区
-  true // 开启 自动重启？
+  true, // 开启 自动重启？
 ]

@@ -1,6 +1,6 @@
 'use strict'
 const pkg = require('../package.json')
-function process () {
+function process() {
   const { program } = require('commander')
   program
     .name('node')
@@ -25,5 +25,5 @@ function process () {
 }
 
 module.exports = {
-  process
+  process,
 }

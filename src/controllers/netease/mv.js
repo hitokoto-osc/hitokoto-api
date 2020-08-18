@@ -7,23 +7,21 @@ const Cache = require('../../cache')
 const { ValidateParams } = require('../../utils/response')
 const schema = Joi.object({
   mvid: Joi.number().min(1).max(1000000000000).required(),
-  nocache: Joi.boolean().default(false)
+  nocache: Joi.boolean().default(false),
 })
 
-async function getMVDetail (params, ctx) {
-  const {
-    mvid
-  } = params
+async function getMVDetail(params, ctx) {
+  const { mvid } = params
   const result = await sdk.mv_detail({
     mvid,
-    realIP: ctx.get('X-Real-IP')
+    realIP: ctx.get('X-Real-IP'),
   })
   if (result.status !== 200) {
     ctx.body = {
       status: result.status,
       message: '上游错误',
       data: result.body,
-      ts: Date.now()
+      ts: Date.now(),
     }
     return
   }
@@ -32,16 +30,19 @@ async function getMVDetail (params, ctx) {
 
 module.exports = async (ctx) => {
   const params = Object.assign({}, ctx.params, ctx.query, ctx.request.body)
-  if (!await ValidateParams(params, schema, ctx)) { // validateParams
+  if (!(await ValidateParams(params, schema, ctx))) {
+    // validateParams
     return
   }
-  const data = await (params.nocache ? getMVDetail(params, ctx) : Cache.remeber(
-    `nm:mv:${params.id}:${params.limit}:${params.offset}`,
-    60 * 60 * 2, // 2 Hours
-    async () => {
-      return getMVDetail(params, ctx)
-    }
-  ))
+  const data = await (params.nocache
+    ? getMVDetail(params, ctx)
+    : Cache.remeber(
+        `nm:mv:${params.id}:${params.limit}:${params.offset}`,
+        60 * 60 * 2, // 2 Hours
+        async () => {
+          return getMVDetail(params, ctx)
+        },
+      ))
   winston.verbose(data)
   ctx.status = 200
   ctx.body = data

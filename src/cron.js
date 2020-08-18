@@ -9,11 +9,13 @@ const CronJob = require('cron').CronJob
 
 // 加载 Cron
 class Cron {
-  static async load () {
+  static async load() {
     try {
       // 加载 cron
       let crons = await this.autoLoad()
-      const cronMap = require(path.join(__dirname, '../adapter/crons.js'))(crons)
+      const cronMap = require(path.join(__dirname, '../adapter/crons.js'))(
+        crons,
+      )
       if (cronMap === true) {
         // 自动加载所有计划任务
         crons = await this.autoLoad(true)
@@ -34,7 +36,8 @@ class Cron {
                 })
             },
             item[3],
-            item[4])
+            item[4],
+          )
           job.start()
         })
         winston.verbose('All Cron Jobs Load done.')
@@ -57,7 +60,8 @@ class Cron {
                 })
             },
             item[3],
-            item[4])
+            item[4],
+          )
 
           job.start()
         })
@@ -65,7 +69,7 @@ class Cron {
           key: 'loaded',
           to: 'core',
           data: null,
-          matchFrom: true
+          matchFrom: true,
         })
       }
     } catch (e) {
@@ -73,24 +77,32 @@ class Cron {
         key: 'error',
         to: 'core',
         data: e.stack,
-        matchFrom: true
+        matchFrom: true,
       })
       process.exit(1)
     }
   }
 
-  static async autoLoad (isArray) {
+  static async autoLoad(isArray) {
     try {
       // Load Crons
       const crons = {}
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/crons'))
       if (isArray) {
         await dir.map((item, index, input) => {
-          crons[index] = require(path.join(__dirname, '../', './src/crons/' + item))
+          crons[index] = require(path.join(
+            __dirname,
+            '../',
+            './src/crons/' + item,
+          ))
         })
       } else {
         await dir.map((item, index, input) => {
-          crons[item.substring(0, item.length - 3)] = require(path.join(__dirname, '../', './src/crons/' + item))
+          crons[item.substring(0, item.length - 3)] = require(path.join(
+            __dirname,
+            '../',
+            './src/crons/' + item,
+          ))
         })
       }
       return crons
@@ -99,7 +111,7 @@ class Cron {
         key: 'error',
         to: 'core',
         data: e.stack,
-        matchFrom: true
+        matchFrom: true,
       })
       process.exit(1)
     }

@@ -11,7 +11,7 @@ exports.getSongsURLs = async (ids, br = 320000, realIP = undefined) => {
   const config = {
     id: ids.join(','),
     realIP,
-    br
+    br,
   }
   return sdk.song_url(config)
 }

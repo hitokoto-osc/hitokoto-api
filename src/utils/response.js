@@ -11,9 +11,9 @@ module.exports.ValidateParams = async (rawObject, schema, ctx) => {
       message: '请求参数错误',
       data: {
         raw_data: err._original,
-        details: err.details
+        details: err.details,
       },
-      ts: Date.now()
+      ts: Date.now(),
     })
     return false
   }

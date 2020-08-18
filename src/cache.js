@@ -8,7 +8,7 @@ const Redis = require('ioredis')
 
 let connectionFailedAttemp = 0
 class cache {
-  static connect (newConnection = false) {
+  static connect(newConnection = false) {
     // Get Config
     const config = {
       host: nconf.get('redis:host') || '127.0.0.1',
@@ -21,9 +21,9 @@ class cache {
           // Only reconnect when the error contains "READONLY"
           return true
         }
-      }
+      },
     }
-    if (nconf.get('redis:password') && (nconf.get('redis:password') !== '')) {
+    if (nconf.get('redis:password') && nconf.get('redis:password') !== '') {
       config.password = nconf.get('redis:password')
     }
     // Connect Redis
@@ -32,13 +32,19 @@ class cache {
       this.redis.on('connect', () => {
         connectionFailedAttemp = 0 // clear the attemp count
       })
-      this.redis.on('error', err => {
+      this.redis.on('error', (err) => {
         console.log(colors.red(err.stack))
         if (connectionFailedAttemp >= 3) {
-          winston.error('[cache] attemp to connect to redis ' + connectionFailedAttemp + ' times, but all failed, process exiting.')
+          winston.error(
+            '[cache] attemp to connect to redis ' +
+              connectionFailedAttemp +
+              ' times, but all failed, process exiting.',
+          )
           process.exit(1)
         }
-        winston.error('[cache] failed to connect to redis, we will attemp again...')
+        winston.error(
+          '[cache] failed to connect to redis, we will attemp again...',
+        )
         connectionFailedAttemp++
         cache.connect()
       })
@@ -48,7 +54,7 @@ class cache {
     return client
   }
 
-  static connectOrSkip () {
+  static connectOrSkip() {
     if (this.redis) {
       return true
     } else {
@@ -56,12 +62,12 @@ class cache {
     }
   }
 
-  static command (commands, ...params) {
+  static command(commands, ...params) {
     this.connectOrSkip()
     return this.redis[commands](...params)
   }
 
-  static set (key, v, time) {
+  static set(key, v, time) {
     this.connectOrSkip()
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
@@ -71,7 +77,7 @@ class cache {
     }
   }
 
-  static async get (key, toJson = true) {
+  static async get(key, toJson = true) {
     this.connectOrSkip()
     const data = await this.redis.get('cache:' + key)
     if (toJson) {
@@ -86,7 +92,7 @@ class cache {
     }
   }
 
-  static async remeber (key, time, ...params) {
+  static async remeber(key, time, ...params) {
     if (params.length <= 0 || params.length > 3) {
       throw new Error('the length of params is wrong')
     }
@@ -97,7 +103,8 @@ class cache {
     const callerParams = params[1] ?? []
     const toJSON = params[2] ?? true
     let data = await this.get(key, toJSON)
-    if (!data) { // data is empty
+    if (!data) {
+      // data is empty
       data = await caller(...callerParams)
       if (data) {
         this.set(key, data, time) // async set
@@ -106,7 +113,7 @@ class cache {
     return data
   }
 
-  static getClient (newConnection = false) {
+  static getClient(newConnection = false) {
     return newConnection ? this.connect(true) : this.redis
   }
 }
