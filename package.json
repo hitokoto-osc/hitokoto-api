@@ -9,12 +9,18 @@
   "scripts": {
     "start": "node core",
     "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
-    "test": "jest"
+    "test": "jest",
+    "commit": "git-cz"
   },
   "repository": "https://github.com/a632079/teng-koa",
   "author": "a632079 <a632079@qq.com>",
   "license": "MIT",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -29,6 +35,8 @@
   "devDependencies": {
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-conventional": "9.1.2",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "14.1.1",
