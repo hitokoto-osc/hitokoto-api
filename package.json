@@ -10,12 +10,20 @@
     "start": "node core",
     "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
-    "test": "jest"
+    "test": "jest",
+    "commit": "git-cz",
+    "release": "release-it",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
   },
-  "repository": "https://github.com/a632079/teng-koa",
+  "repository": "https://github.com/hitokoto-osc/hitokoto-api",
   "author": "a632079 <a632079@qq.com>",
   "license": "MIT",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -30,12 +38,18 @@
   "devDependencies": {
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-conventional": "9.1.2",
+    "commitizen": "4.1.2",
+    "conventional-changelog-cli": "2.1.0",
+    "conventional-changelog-conventionalcommits": "4.4.0",
+    "cz-conventional-changelog": "3.2.0",
     "eslint": "7.7.0",
+    "eslint-config-prettier": "6.11.0",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-html": "6.0.3",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
     "husky": "4.2.5",
@@ -43,6 +57,8 @@
     "koa-livereload": "0.2.0",
     "lint-staged": "10.2.11",
     "nyc": "15.1.0",
+    "prettier": "2.0.5",
+    "release-it": "13.6.6",
     "supervisor": "0.12.0"
   },
   "dependencies": {
