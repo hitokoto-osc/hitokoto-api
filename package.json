@@ -10,7 +10,8 @@
     "start": "node core",
     "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
     "test": "jest",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "release-it"
   },
   "repository": "https://github.com/a632079/teng-koa",
   "author": "a632079 <a632079@qq.com>",
@@ -53,6 +54,7 @@
     "lint-staged": "10.2.11",
     "nyc": "15.1.0",
     "prettier": "^2.0.5",
+    "release-it": "^13.6.6",
     "supervisor": "0.12.0"
   },
   "dependencies": {
