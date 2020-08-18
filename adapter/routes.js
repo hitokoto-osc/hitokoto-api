@@ -60,7 +60,7 @@ module.exports = (router, middlewares, controller) => {
   router.get('/nm/lyric/:id', controller.netease.lyric)
   router.get('/nm/url/:id', controller.netease.url)
   router.get('/nm/detail/:id', controller.netease.detail)
-  // router.get('/nm/summary/:id', controller.netease.summary)
+  router.get('/nm/summary/:id', controller.netease.summary)
   router.get('/nm/redirect/music/:id', controller.netease.redirect)
   router.get('/nm/record/:uid', (ctx) => {
     ctx.status = 503
