@@ -11,7 +11,8 @@
     "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
     "test": "jest",
     "commit": "git-cz",
-    "release": "release-it"
+    "release": "release-it",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
   },
   "repository": "https://github.com/a632079/teng-koa",
   "author": "a632079 <a632079@qq.com>",
@@ -37,6 +38,8 @@
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-conventional": "9.1.2",
     "commitizen": "^4.1.2",
+    "conventional-changelog-cli": "^2.1.0",
+    "conventional-changelog-conventionalcommits": "^4.4.0",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "7.7.0",
     "eslint-config-prettier": "^6.11.0",
