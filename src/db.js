@@ -4,12 +4,12 @@ const path = require('path')
 const winston = require('winston')
 
 class db {
-  constructor (model) {
+  constructor(model) {
     this.connect()
     return this.registerModel(model)
   }
 
-  static async connect () {
+  static async connect() {
     if (this.sequelize) {
       return this.sequelize
     } else {
@@ -19,29 +19,37 @@ class db {
         username: nconf.get(type + ':username'),
         database: nconf.get(type + ':database'),
         host: nconf.get(type + ':host'),
-        port: nconf.get(type + ':port')
+        port: nconf.get(type + ':port'),
       }
-      const sequelize = new Sequelize(config.database, config.username, config.password, {
-        host: config.host,
-        port: config.port,
-        dialect: type,
-        pool: {
-          max: 5,
-          min: 0,
-          acquire: 30000,
-          idle: 10000
+      const sequelize = new Sequelize(
+        config.database,
+        config.username,
+        config.password,
+        {
+          host: config.host,
+          port: config.port,
+          dialect: type,
+          pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000,
+            idle: 10000,
+          },
+          logging: (log) => {
+            winston.debug(log)
+          },
+          operatorsAliases: false,
         },
-        logging: (log) => {
-          winston.debug(log)
-        },
-        operatorsAliases: false
-      })
+      )
       // Test Connection
-      await sequelize.authenticate()
+      await sequelize
+        .authenticate()
         .then(() => {
-          winston.verbose('Database Connection has been established successfully.')
+          winston.verbose(
+            'Database Connection has been established successfully.',
+          )
         })
-        .catch(err => {
+        .catch((err) => {
           winston.error(err.message)
         })
 
@@ -50,19 +58,24 @@ class db {
     }
   }
 
-  static async registerModel (model) {
+  static async registerModel(model) {
     await this.connect()
     if (this[model]) {
       return this[model]
     } else {
       // Register Model
-      const modelArray = require(path.join(__dirname, '../', './src/models/databases', model))
+      const modelArray = require(path.join(
+        __dirname,
+        '../',
+        './src/models/databases',
+        model,
+      ))
       this[model] = this.sequelize.define(model, modelArray[0], modelArray[1])
       return this[model]
     }
   }
 
-  static get () {
+  static get() {
     this.connect()
     return this
   }

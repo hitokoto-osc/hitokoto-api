@@ -8,72 +8,76 @@ const AB = require('../extensions/sentencesABSwitcher')
 const _ = require('lodash')
 // const winston = require('winston')
 
-async function getAllRequests () {
+async function getAllRequests() {
   const requests = nconf.get('middleware:requests:all')
   return requests
 }
 
-async function getAllPastMinute () {
+async function getAllPastMinute() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getAllPastHour () {
+async function getAllPastHour() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getAllPastDay () {
+async function getAllPastDay() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60 * 24
   const requests = await cache.get('requests:count:' + ts.toString())
   return requests
 }
 
-async function getHosts () {
+async function getHosts() {
   const requests = await cache.get('requests:hosts')
   return requests
 }
 
-async function getHostsPastMinute () {
+async function getHostsPastMinute() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60
   const requests = await cache.get('requests:hosts:count:' + ts.toString())
   return requests
 }
 
-async function getHostsPastHour () {
+async function getHostsPastHour() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60
   const requests = await cache.get('requests:hosts:count:' + ts.toString())
   return requests
 }
 
-async function getHostsPastDay () {
+async function getHostsPastDay() {
   const ts = parseInt(Date.now().toString().slice(0, 10)) - 60 * 60 * 24
   const requests = await cache.get('requests:hosts:count:' + ts.toString())
   return requests
 }
 
-async function getAllDayMap (now) {
+async function getAllDayMap(now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 26; index++) {
-    events.push(cache.get('requests:count:' + (ts - index * 60 * 60).toString()))
+    events.push(
+      cache.get('requests:count:' + (ts - index * 60 * 60).toString()),
+    )
   }
   const result = await Promise.all(events)
   const data = []
   data.push(now - parseInt(result[0]))
-  for (let index = 0; index < (result.length - 2); index++) {
+  for (let index = 0; index < result.length - 2; index++) {
     data.push(parseInt(result[index]) - parseInt(result[index + 1]))
   }
   return data
 }
 
-async function getHostsDayMap (limitHosts, now) {
+async function getHostsDayMap(limitHosts, now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 26; index++) {
-    events.push(cache.get('requests:hosts:count:' + (ts - index * 60 * 60).toString()))
+    events.push(
+      cache.get('requests:hosts:count:' + (ts - index * 60 * 60).toString()),
+    )
   }
   const result = await Promise.all(events)
   const data = {}
@@ -83,16 +87,19 @@ async function getHostsDayMap (limitHosts, now) {
     data[host].dayMap = []
     data[host].dayMap.push(_)
   }
-  for (let index = 0; index < (result.length - 2); index++) {
+  for (let index = 0; index < result.length - 2; index++) {
     for (const host of limitHosts) {
-      const _ = result[index] && result[index + 1] ? parseInt(result[index][host]) - parseInt(result[index + 1][host]) : null
+      const _ =
+        result[index] && result[index + 1]
+          ? parseInt(result[index][host]) - parseInt(result[index + 1][host])
+          : null
       data[host].dayMap.push(_)
     }
   }
   return data
 }
 
-async function getPast5MinuteMap (now) {
+async function getPast5MinuteMap(now) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 7; index++) {
@@ -101,7 +108,7 @@ async function getPast5MinuteMap (now) {
   const result = await Promise.all(events)
   const data = []
   data.push(now - parseInt(result[0]))
-  for (let index = 0; index < (result.length - 2); index++) {
+  for (let index = 0; index < result.length - 2; index++) {
     data.push(parseInt(result[index]) - parseInt(result[index + 1]))
   }
   return data
@@ -118,7 +125,7 @@ module.exports = async (ctx, next) => {
     getHosts(),
     getHostsPastMinute(),
     getHostsPastHour(),
-    getHostsPastDay()
+    getHostsPastDay(),
   ])
   const all = {}
   all.now = fetchData[0] || 0
@@ -133,7 +140,7 @@ module.exports = async (ctx, next) => {
     'api.hitokoto.cn',
     'sslapi.hitokoto.cn',
     'api.a632079.me',
-    'international.v1.hitokoto.cn'
+    'international.v1.hitokoto.cn',
   ]
   const HostToDelete = []
   const HostsData = fetchData[4] || {}
@@ -144,9 +151,15 @@ module.exports = async (ctx, next) => {
     } else {
       hosts[i] = {}
       hosts[i].total = HostsData[i] || 0
-      hosts[i].pastMinute = fetchData[5] ? parseInt(HostsData[i]) - parseInt(fetchData[5][i]) : null
-      hosts[i].pastHour = fetchData[6] ? parseInt(HostsData[i]) - parseInt(fetchData[6][i]) : null
-      hosts[i].pastDay = fetchData[7] ? parseInt(HostsData[i]) - parseInt(fetchData[7][i]) : null
+      hosts[i].pastMinute = fetchData[5]
+        ? parseInt(HostsData[i]) - parseInt(fetchData[5][i])
+        : null
+      hosts[i].pastHour = fetchData[6]
+        ? parseInt(HostsData[i]) - parseInt(fetchData[6][i])
+        : null
+      hosts[i].pastDay = fetchData[7]
+        ? parseInt(HostsData[i]) - parseInt(fetchData[7][i])
+        : null
     }
   }
   _.pullAll(limitHost, HostToDelete)
@@ -154,7 +167,7 @@ module.exports = async (ctx, next) => {
   const fetchDayMap = await Promise.all([
     getAllDayMap(all.now),
     getHostsDayMap(limitHost, fetchData[4]),
-    getPast5MinuteMap(all.now)
+    getPast5MinuteMap(all.now),
   ])
   all.dayMap = fetchDayMap[0]
   all.FiveMinuteMap = fetchDayMap[2]
@@ -175,9 +188,9 @@ module.exports = async (ctx, next) => {
   const collection = await Promise.all([
     AB.get('hitokoto:bundle:categories'),
     AB.get('hitokoto:bundle:sentences:total'),
-    AB.get('hitokoto:bundle:updated_at')
+    AB.get('hitokoto:bundle:updated_at'),
   ])
-  hitokoto.categroy = collection[0].map(v => v.key)
+  hitokoto.categroy = collection[0].map((v) => v.key)
   hitokoto.total = collection[1]
   hitokoto.lastUpdate = collection[2]
   ctx.body = {
@@ -190,11 +203,11 @@ module.exports = async (ctx, next) => {
       memory: {
         totol: os.totalmem() / (1024 * 1024),
         free: os.freemem() / (1024 * 1024),
-        usage: memoryUsage / (1024 * 1024)
+        usage: memoryUsage / (1024 * 1024),
       },
       // cpu: os.cpus(),
       load: os.loadavg(),
-      hitokoto
+      hitokoto,
     },
     requests: {
       all: {
@@ -203,17 +216,20 @@ module.exports = async (ctx, next) => {
         pastHour: parseInt(all.now) - parseInt(all.pastHour),
         pastDay: parseInt(all.now) - parseInt(all.pastDay),
         dayMap: all.dayMap,
-        FiveMinuteMap: all.FiveMinuteMap
+        FiveMinuteMap: all.FiveMinuteMap,
       },
-      hosts
+      hosts,
     },
     feedback: {
       Kuertianshi: 'i@loli.online',
       freejishu: 'i@freejishu.com',
-      a632079: 'a632079@qq.com'
+      a632079: 'a632079@qq.com',
     },
-    copyright: 'MoeCraft © ' + new Date().getFullYear() + ' All Rights Reserved. Powered by Teng-koa. Open Source at https://github.com/hitokoto-osc/hitokoto-api .',
+    copyright:
+      'MoeCraft © ' +
+      new Date().getFullYear() +
+      ' All Rights Reserved. Powered by Teng-koa. Open Source at https://github.com/hitokoto-osc/hitokoto-api .',
     now: new Date(Date.now()).toString(),
-    ts: Date.now()
+    ts: Date.now(),
   }
 }

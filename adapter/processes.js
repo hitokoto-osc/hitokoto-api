@@ -17,9 +17,9 @@ module.exports = {
         }
       }, // the handler of the receiving message
       isDev: false, // if set true, this process will start only in Dev
-      isProd: false // if set true, this process will start only in prod
-    // if isDev and isProd both be set false, process will both start in Dev and Prod
-    }
+      isProd: false, // if set true, this process will start only in prod
+      // if isDev and isProd both be set false, process will both start in Dev and Prod
+    },
   ],
   receivers: [
     {
@@ -27,9 +27,11 @@ module.exports = {
       to: 'ab',
       from: 'cronJob',
       listener: (targetDB) => {
-        winston.verbose('[AB] receiving signal, switching to db: ' + colors.yellow(targetDB))
+        winston.verbose(
+          '[AB] receiving signal, switching to db: ' + colors.yellow(targetDB),
+        )
         AB.setDatabase(targetDB)
-      }
+      },
     },
     {
       key: 'loaded',
@@ -37,7 +39,7 @@ module.exports = {
       from: 'cronJob',
       listener: (message, moduleName) => {
         winston.verbose('[init] all cronJobs are loaded. ')
-      }
+      },
     },
     {
       key: 'error',
@@ -45,9 +47,11 @@ module.exports = {
       from: 'cronJob',
       listener: (data, moduleName) => {
         console.log(colors.red(data))
-        winston.error('[init] error was thrown while loading cron jobs, process existing.')
+        winston.error(
+          '[init] error was thrown while loading cron jobs, process existing.',
+        )
         process.exit(1)
-      }
-    }
-  ]
+      },
+    },
+  ],
 }

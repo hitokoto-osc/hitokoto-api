@@ -11,7 +11,7 @@ const shouldEmitError = (err, status) => {
   return !err.expose && status >= 500
 }
 
-async function sendMail (ctx, next) {
+async function sendMail(ctx, next) {
   try {
     await next()
     // future proof status
@@ -32,8 +32,8 @@ async function sendMail (ctx, next) {
           url: ctx.request.originalUrl, // 请求地址
           headers: ctx.headers, // 请求头信息
           query: ctx.query || [], // GET 参数
-          body: ctx.request.body || [] // POST 参数
-        }
+          body: ctx.request.body || [], // POST 参数
+        },
       })
       mail.error(mailStruct)
     }
@@ -41,7 +41,7 @@ async function sendMail (ctx, next) {
     shouldEmitError(e, ctx.status) && winston.error(e)
   }
 }
-function init () {
+function init() {
   return sendMail
 }
 module.exports = init

@@ -4,7 +4,7 @@ module.exports = (cron) => {
   return [
     // Register cron
     cron.countRequests,
-    cron.updateSentences
+    cron.updateSentences,
     // cron.checkUpdate
   ]
 }

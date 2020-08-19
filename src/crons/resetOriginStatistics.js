@@ -16,5 +16,5 @@ module.exports = [
     process.exit(1)
   },
   true, // Start the job right now,
-  'Asia/Shanghai' // Timezone
+  'Asia/Shanghai', // Timezone
 ]

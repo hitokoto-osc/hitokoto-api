@@ -11,7 +11,7 @@ const generateSign = Symbol('generateSign')
 const generateRequestBody = Symbol('generateRequestBody')
 
 class Configure {
-  construct (config) {
+  construct(config) {
     /**
      * 初始化配置器
      */
@@ -21,40 +21,30 @@ class Configure {
   /**
    * 从配置服务器中取得配置
    */
-  async getConfig () {
-
-  }
+  async getConfig() {}
 
   /**
    * 生成请求体
    * @returns {object}
    */
-  [generateRequestBody] () {
-
-  }
+  [generateRequestBody]() {}
 
   /**
    * 生产请求签名
    * @returns {string}
    */
-  [generateSign] () {
-
-  }
+  [generateSign]() {}
 
   /**
    * 用于请求数据加密， 防止配置请求流程被恶意获取
    * @returns {string}
    */
-  [dataEncrypt] () {
-
-  }
+  [dataEncrypt]() {}
 
   /**
    * 用于解密请求数据， 还原成基础配置
    * @returns {string}
    */
-  [dataDecrypt] () {
-
-  }
+  [dataDecrypt]() {}
 }
 module.export = Configure
