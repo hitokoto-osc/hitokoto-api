@@ -58,7 +58,7 @@
     "lint-staged": "10.2.11",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
-    "release-it": "13.6.6",
+    "release-it": "13.6.8",
     "supervisor": "0.12.0"
   },
   "dependencies": {
