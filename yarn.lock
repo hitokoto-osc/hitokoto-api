@@ -450,10 +450,10 @@
   dependencies:
     flatstr "^1.0.12"
 
-"@hitokoto/koa-respond@^3.0.3":
+"@hitokoto/koa-respond@3.0.3":
   version "3.0.3"
-  resolved "https://registry.npm.taobao.org/@hitokoto/koa-respond/download/@hitokoto/koa-respond-3.0.3.tgz#494f44d2567dd28a3c583513524af7102163712e"
-  integrity sha1-SU9E0lZ90oo8WDUTUkr3ECFjcS4=
+  resolved "https://registry.yarnpkg.com/@hitokoto/koa-respond/-/koa-respond-3.0.3.tgz#494f44d2567dd28a3c583513524af7102163712e"
+  integrity sha512-bcVBwzFjegF6w4lHRHYuia1E0pNasN1kem5pk+WB+Dk8IQH73HWF6Rl+wAtVZI40tH1B51Vbcn7RIHg82RZgqg==
   dependencies:
     is-string "^1.0.4"
 
@@ -981,10 +981,10 @@ JSONStream@^1.0.4:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
-NeteaseCloudMusicApi@^3.38.0:
+NeteaseCloudMusicApi@3.38.0:
   version "3.38.0"
-  resolved "https://registry.npm.taobao.org/NeteaseCloudMusicApi/download/NeteaseCloudMusicApi-3.38.0.tgz#c68fa285d3a31e979fb54075e1883e49bae1e05e"
-  integrity sha1-xo+ihdOjHpeftUB14Yg+Sbrh4F4=
+  resolved "https://registry.yarnpkg.com/NeteaseCloudMusicApi/-/NeteaseCloudMusicApi-3.38.0.tgz#c68fa285d3a31e979fb54075e1883e49bae1e05e"
+  integrity sha512-QjvqcOWiXmbj/QWdgNuAWkvhJRbJ535j9ysyaK4vZ+4oDYMmF7F7hV7eZQwmzliKsYwTJtukBDcXYKr/Czgqzw==
   dependencies:
     axios "^0.19.2"
     express "^4.17.1"
@@ -4964,10 +4964,10 @@ jest@26.4.0:
     import-local "^3.0.2"
     jest-cli "^26.4.0"
 
-joi@^17.2.0:
+joi@17.2.0:
   version "17.2.0"
-  resolved "https://registry.npm.taobao.org/joi/download/joi-17.2.0.tgz?cache=0&sync_timestamp=1596593123846&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.2.0.tgz#81cba6c1145130482d57b6d50129c7ab0e7d8b0a"
-  integrity sha1-gcumwRRRMEgtV7bVASnHqw59iwo=
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.2.0.tgz#81cba6c1145130482d57b6d50129c7ab0e7d8b0a"
+  integrity sha512-9ZC8pMSitNlenuwKARENBGVvvGYHNlwWe5rexo2WxyogaxCB5dNHAgFA1BJQ6nsJrt/jz1p5vSqDT6W6kciDDw==
   dependencies:
     "@hapi/address" "^4.1.0"
     "@hapi/formula" "^2.0.0"
