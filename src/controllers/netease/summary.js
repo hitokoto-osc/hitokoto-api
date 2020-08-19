@@ -1,51 +1,31 @@
 // This module is intended to search songs
 const winston = require('winston')
-const sdk = require('NeteaseCloudMusicApi')
 const Joi = require('joi')
-const Cache = require('../../cache')
+const { getSummery } = require('./_summary_utils')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
 const schema = Joi.object({
-  id: Joi.number().min(1).max(1000000000000).required(),
-  s: Joi.number().min(1).max(10000).default(8),
+  id: Joi.string(),
+  ids: Joi.array().items(Joi.number().min(1).max(1000000000000000)).required(),
+  br: Joi.number().valid(999000, 320000, 128000).default(320000), // flac, 320k, 128k
+  lyric: Joi.boolean().default(false),
+  common: Joi.boolean().default(false),
   nocache: Joi.boolean().default(false),
+  quick: Joi.boolean().default(false),
+  extraInfo: Joi.boolean().default(false),
 })
 
-async function getPlaylistDetail(params, ctx) {
-  const { id, s } = params
-  const result = await sdk.playlist_detail({
-    id,
-    s,
-    realIP: ctx.get('X-Real-IP'),
-  })
-  if (result.status !== 200) {
-    ctx.body = {
-      status: result.status,
-      message: '上游错误',
-      data: result.body,
-      ts: Date.now(),
-    }
-    return
-  }
-  return result.body
-}
-
 module.exports = async (ctx) => {
+  // handle the ids
+  ctx.params.ids = ctx.params.id.split(',')
   const params = Object.assign({}, ctx.params, ctx.query, ctx.request.body)
   if (!(await ValidateParams(params, schema, ctx))) {
     // validateParams
     return
   }
-  const data = await (params.nocache
-    ? getPlaylistDetail(params, ctx)
-    : Cache.remeber(
-        `nm:playlist:${params.id}`,
-        60 * 60 * 2, // 2 Hours
-        async () => {
-          return getPlaylistDetail(params, ctx)
-        },
-      ))
-  winston.verbose(data)
-  ctx.status = 200
-  ctx.body = data
+  params.realIP = ctx.get('X-Real-IP') ?? null
+  ctx.body = await getSummery(params, !params.quick, params.realIP)
+  ctx.status = ctx.body.code = 200
+  ctx.body.message = 'ok'
+  winston.verbose(ctx.body)
 }

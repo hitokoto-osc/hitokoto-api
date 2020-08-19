@@ -1,7 +1,6 @@
 const nconf = require('nconf')
 
 module.exports = (router, middlewares, controller) => {
-  console.log(controller)
   // Route Map
   /* router.get('/', async (ctx, next) => {
     ctx.body = {
