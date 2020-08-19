@@ -48,7 +48,7 @@ const checkAPIResponseData = (data) => {
       'ResponseNullErr',
     )
   }
-  if (data && data.code !== 200) {
+  if (data.code !== 200) {
     throw new ResponseValidationException(
       '上游接口返回状态码非 200，操作失败。',
     )

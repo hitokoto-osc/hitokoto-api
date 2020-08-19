@@ -12,7 +12,7 @@ exports.getLyric = async (id, params) => {
       : await getLyricWithCache(id, realIP)
   if (!lyric || !lyric.code || lyric.code !== 200) {
     throw new ResponseValidationException('获取歌词错误，操作失败。', {
-      statusCode: lyric.code,
+      statusCode: lyric ?? lyric.code,
       responseBody: lyric,
     })
   }
@@ -20,11 +20,10 @@ exports.getLyric = async (id, params) => {
     id,
     lyric: {
       base:
-        lyric && lyric.lrc && lyric.lrc.lyric
+        lyric.lrc && lyric.lrc.lyric
           ? lyric.lrc.lyric
           : '[00:00.00] 纯音乐，敬请聆听。\n',
-      translate:
-        lyric && lyric.tlyric && lyric.tlyric.lyric ? lyric.tlyric.lyric : null,
+      translate: lyric.tlyric && lyric.tlyric.lyric ? lyric.tlyric.lyric : null,
     },
   }
 }
