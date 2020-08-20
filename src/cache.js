@@ -92,6 +92,7 @@ const callAndStore = async (caller, params, key, time) => {
   if (data) {
     Cache.set(key, data, time)
   }
+  return data
 }
 
 module.exports = Cache

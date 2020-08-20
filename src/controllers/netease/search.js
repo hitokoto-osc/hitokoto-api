@@ -1,5 +1,4 @@
 // This module is intended to search songs
-const winston = require('winston')
 const Joi = require('joi')
 const { search, searchWithCache } = require('./_sdk_wrapper')
 // validation schema
@@ -48,7 +47,6 @@ module.exports = async (ctx) => {
   } catch (err) {
     data = recoverRequest(err)
   }
-  winston.verbose(data)
   ctx.status = 200
   ctx.body = data
 }
