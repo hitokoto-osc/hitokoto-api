@@ -3,9 +3,9 @@ const fs = require('fs')
 const winston = require('winston')
 const chalk = require('chalk')
 const path = require('path')
-
-function readDir(dir) {
-  const files = fs.readdirSync(dir)
+const { promisify } = require('util')
+async function readDir(dir) {
+  const files = await promisify(fs.readdir)(dir)
   if (files.length <= 0) return
   const map = {}
   for (const file of files) {
@@ -14,9 +14,9 @@ function readDir(dir) {
       continue
     }
     const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
+    const stat = await promisify(fs.stat)(filePath)
     if (stat.isDirectory()) {
-      const subDirMaps = readDir(filePath)
+      const subDirMaps = await readDir(filePath)
       if (subDirMaps) {
         map[file] = map[file]
           ? Object.assign(map[file], subDirMaps)
@@ -70,7 +70,7 @@ class controllers {
   async load() {
     try {
       // Load Controller
-      const controllers = genControllersMap()
+      const controllers = await genControllersMap()
       return controllers
     } catch (e) {
       winston.error(chalk.red(e))
