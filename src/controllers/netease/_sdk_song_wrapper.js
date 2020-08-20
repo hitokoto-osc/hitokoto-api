@@ -2,6 +2,7 @@
 const sdk = require('NeteaseCloudMusicApi')
 const { APIRemeberCaller, SDKRequestGenerator } = require('./_sdk_utils')
 const Cache = require('../../cache')
+const { md5 } = require('../../utils/crypto')
 
 /**
  * Get Songs' URLs by ids
@@ -41,7 +42,7 @@ exports.getSongsDetail = (ids, realIP) => {
  */
 exports.getSongsDetailWithCache = (ids, realIP) => {
   return Cache.remeber(
-    'nm:detail:' + ids,
+    'nm:detail:' + md5(ids),
     60 * 60 * 2, // 2 Hours
     APIRemeberCaller,
     [exports.getSongsDetail, [ids, realIP]],

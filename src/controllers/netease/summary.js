@@ -1,5 +1,4 @@
 // This module is intended to search songs
-const winston = require('winston')
 const Joi = require('joi')
 const { getSummery } = require('./_summary_utils')
 // validation schema
@@ -27,5 +26,4 @@ module.exports = async (ctx) => {
   ctx.body = await getSummery(params, !params.quick, params.realIP)
   ctx.status = ctx.body.code = 200
   ctx.body.message = 'ok'
-  winston.verbose(ctx.body)
 }

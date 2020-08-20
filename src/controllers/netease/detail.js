@@ -1,32 +1,14 @@
 // This module is intended to get song details
-const winston = require('winston')
-const sdk = require('NeteaseCloudMusicApi')
 const Joi = require('joi')
-const Cache = require('../../cache')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
+const { getSongsDetail, getSongsDetailWithCache } = require('./_sdk_wrapper')
+const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   id: Joi.string(),
   ids: Joi.array().items(Joi.number().min(1).max(1000000000000000)).required(),
+  nocache: Joi.boolean().default(false),
 })
-
-async function getSongDetail(params, ctx) {
-  const { id } = params
-  const result = await sdk.song_detail({
-    ids: id,
-    realIP: ctx.get('X-Real-IP'),
-  })
-  if (result.status !== 200) {
-    ctx.body = {
-      status: result.status,
-      message: '上游错误',
-      data: result.body,
-      ts: Date.now(),
-    }
-    return
-  }
-  return result.body
-}
 
 module.exports = async (ctx) => {
   // handle the ids
@@ -36,16 +18,15 @@ module.exports = async (ctx) => {
     // validateParams
     return
   }
-  const data = await (params.nocache
-    ? getSongDetail(params, ctx)
-    : Cache.remeber(
-        `nm:detail:${params.id}`,
-        60 * 60 * 2, // 2 Hours
-        async () => {
-          return getSongDetail(params, ctx)
-        },
-      ))
-  winston.verbose(data)
+  const { id, nocache } = params
+  let data
+  try {
+    data = await (nocache
+      ? getSongsDetail(id, ctx.get('X-Real-IP'))
+      : getSongsDetailWithCache(id, ctx.get('X-Real-IP')))
+  } catch (error) {
+    data = recoverRequest(error)
+  }
   ctx.status = 200
   ctx.body = data
 }

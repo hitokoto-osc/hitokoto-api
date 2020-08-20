@@ -1,31 +1,13 @@
 // This module is intended to get album details
-const winston = require('winston')
-const sdk = require('NeteaseCloudMusicApi')
 const Joi = require('joi')
-const Cache = require('../../cache')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
+const { getAlbum, getArtistsWitchCache } = require('./_sdk_wrapper')
+const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   id: Joi.number().min(1).max(1000000000000).required(),
+  nocache: Joi.bool().default(false),
 })
-
-async function getAlbum(params, ctx) {
-  const { id } = params
-  const result = await sdk.album({
-    id,
-    realIP: ctx.get('X-Real-IP'),
-  })
-  if (result.status !== 200) {
-    ctx.body = {
-      status: result.status,
-      message: '上游错误',
-      data: result.body,
-      ts: Date.now(),
-    }
-    return
-  }
-  return result.body
-}
 
 module.exports = async (ctx) => {
   const params = Object.assign({}, ctx.params, ctx.query, ctx.request.body)
@@ -33,16 +15,15 @@ module.exports = async (ctx) => {
     // validateParams
     return
   }
-  const data = await (params.nocache
-    ? getAlbum(params, ctx)
-    : Cache.remeber(
-        `nm:album:${params.id}`,
-        60 * 60 * 2, // 2 Hours
-        async () => {
-          return getAlbum(params, ctx)
-        },
-      ))
-  winston.verbose(data)
+  const { id, nocache } = params
+  let data
+  try {
+    data = await (nocache
+      ? getAlbum(id, ctx.get('X-Real-IP'))
+      : getArtistsWitchCache(id, ctx.get('X-Real-IP')))
+  } catch (error) {
+    data = recoverRequest(error)
+  }
   ctx.status = 200
   ctx.body = data
 }

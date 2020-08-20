@@ -1,5 +1,4 @@
 // This module is intended to get MV Detail
-const winston = require('winston')
 const Joi = require('joi')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
@@ -19,13 +18,12 @@ module.exports = async (ctx) => {
   const { mvid, nocache } = params
   let data
   try {
-    data = (await nocache)
+    data = await (nocache
       ? getMVDetail(mvid, ctx.get('X-Real-IP'))
-      : getMVDetailWithCache(mvid, ctx.get('X-Real-IP'))
+      : getMVDetailWithCache(mvid, ctx.get('X-Real-IP')))
   } catch (err) {
     data = recoverRequest(err)
   }
-  winston.verbose(data)
   ctx.status = 200
   ctx.body = data
 }

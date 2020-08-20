@@ -36,7 +36,7 @@ module.exports = async (ctx) => {
   const { keyword, limit, offset, type, nocache } = params
   let data
   try {
-    data = (await nocache)
+    data = await (nocache
       ? search(keyword, limit, offset, typeMap[type], ctx.get('X-Real-IP'))
       : searchWithCache(
           keyword,
@@ -44,7 +44,7 @@ module.exports = async (ctx) => {
           offset,
           typeMap[type],
           ctx.get('X-Real-IP'),
-        )
+        ))
   } catch (err) {
     data = recoverRequest(err)
   }

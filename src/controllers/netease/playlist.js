@@ -1,5 +1,4 @@
 // This module is intended to search songs
-const winston = require('winston')
 const Joi = require('joi')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
@@ -23,13 +22,12 @@ module.exports = async (ctx) => {
   const { id, s, nocache } = params
   let data
   try {
-    data = (await nocache)
+    data = await (nocache
       ? getPlaylistDetail(id, s, ctx.get('X-Real-IP'))
-      : getPlaylistDetailWithCache(id, s, ctx.get('X-Real-IP'))
+      : getPlaylistDetailWithCache(id, s, ctx.get('X-Real-IP')))
   } catch (err) {
     data = recoverRequest(err)
   }
-  winston.verbose(data)
   ctx.status = 200
   ctx.body = data
 }

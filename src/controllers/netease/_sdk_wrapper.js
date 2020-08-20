@@ -29,6 +29,12 @@ const {
   getDJProgram,
   getDJProgramWithCache,
 } = require('./_sdk_dj_wrapper')
+const {
+  getMVURL,
+  getMVURLWithCache,
+  getMVDetail,
+  getMVDetailWithCache,
+} = require('./_sdk_mv_wrapper')
 // Exports
 module.exports = exports = {
   // Songs SDK Wrapper
@@ -55,6 +61,11 @@ module.exports = exports = {
   getDJProgramDetailWithCache,
   getDJProgram,
   getDJProgramWithCache,
+  // MV SDK Wrapper
+  getMVURL,
+  getMVURLWithCache,
+  getMVDetail,
+  getMVDetailWithCache,
 }
 
 /**

@@ -1,5 +1,4 @@
 // This module is intended to get the play url of ncm songs
-const winston = require('winston')
 const Joi = require('joi')
 const { getSongsURLs } = require('./_sdk_wrapper')
 
@@ -26,7 +25,6 @@ module.exports = async (ctx) => {
   } catch (err) {
     data = recoverRequest(err)
   }
-  winston.verbose(data)
   ctx.status = 200
   ctx.body = data
 }
