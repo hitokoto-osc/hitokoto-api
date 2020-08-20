@@ -1,74 +1,39 @@
 'use strict'
 // Import Packages
 const nconf = require('nconf')
-const winston = require('winston')
-const colors = require('colors')
-
 const Redis = require('ioredis')
 
-let connectionFailedAttemp = 0
-class cache {
+const { handleError, ConnectionConfig } = require('./utils/cache')
+class Cache {
   static connect(newConnection = false) {
     // Get Config
-    const config = {
-      host: nconf.get('redis:host') || '127.0.0.1',
-      port: nconf.get('redis:port') || 6379,
-      db: nconf.get('redis:database') || 0,
-      family: nconf.get('redis:family') || 4,
-      reconnectOnError: (err) => {
-        const targetError = 'READONLY'
-        if (err.message.includes(targetError)) {
-          // Only reconnect when the error contains "READONLY"
-          return true
-        }
-      },
-    }
     if (nconf.get('redis:password') && nconf.get('redis:password') !== '') {
-      config.password = nconf.get('redis:password')
+      ConnectionConfig.password = nconf.get('redis:password')
     }
     // Connect Redis
     if (!newConnection) {
-      this.redis = new Redis(config)
-      this.redis.on('connect', () => {
-        connectionFailedAttemp = 0 // clear the attemp count
-      })
-      this.redis.on('error', (err) => {
-        console.log(colors.red(err.stack))
-        if (connectionFailedAttemp >= 3) {
-          winston.error(
-            '[cache] attemp to connect to redis ' +
-              connectionFailedAttemp +
-              ' times, but all failed, process exiting.',
-          )
-          process.exit(1)
-        }
-        winston.error(
-          '[cache] failed to connect to redis, we will attemp again...',
-        )
-        connectionFailedAttemp++
-        cache.connect()
-      })
+      this.redis = new Redis(ConnectionConfig)
+      this.redis.on('connect', () => nconf.set('connectionFailedAttemp', 0))
+      this.redis.on('error', handleError.bind(this))
       return true
     }
-    const client = new Redis(config)
-    return client
+    return new Redis(ConnectionConfig)
   }
 
-  static connectOrSkip() {
-    if (this.redis) {
-      return true
-    } else {
-      return this.connect()
+  static connectOrSkip(isABSwitcher) {
+    if (isABSwitcher) {
+      return
     }
+    return this.redis ? true : this.connect()
   }
 
   static command(commands, ...params) {
-    this.connectOrSkip()
-    return this.redis[commands](...params)
+    params[0] = 'cache:' + params[0]
+    return this.redis[commands](params)
   }
 
   static set(key, v, time) {
-    this.connectOrSkip()
+    this.connectOrSkip(this.isABSwitcher)
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
       return this.redis.set('cache:' + key, value, 'EX', time)
@@ -78,7 +43,7 @@ class cache {
   }
 
   static async get(key, toJson = true) {
-    this.connectOrSkip()
+    this.connectOrSkip(this.isABSwitcher)
     const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
@@ -92,7 +57,16 @@ class cache {
     }
   }
 
+  /**
+   * Call Caller and store, or return cached Caller Data
+   * @param {string} key
+   * @param {number} time
+   * @param {number} caller the callerFunc
+   * @param {any[]} callerParams the callerFunc params
+   * @param {boolean} toJSON
+   */
   static async remeber(key, time, ...params) {
+    this.connectOrSkip(this.isABSwitcher)
     if (params.length <= 0 || params.length > 3) {
       throw new Error('the length of params is wrong')
     }
@@ -102,15 +76,10 @@ class cache {
     const caller = params[0]
     const callerParams = params[1] ?? []
     const toJSON = params[2] ?? true
-    let data = await this.get(key, toJSON)
-    if (!data) {
-      // data is empty
-      data = await caller(...callerParams)
-      if (data) {
-        this.set(key, data, time) // async set
-      }
-    }
-    return data
+    return (
+      (await this.get(key, toJSON)) ||
+      (await callAndStore(caller, callerParams, key, time))
+    )
   }
 
   static getClient(newConnection = false) {
@@ -118,4 +87,11 @@ class cache {
   }
 }
 
-module.exports = cache
+const callAndStore = async (caller, params, key, time) => {
+  const data = await caller(...params)
+  if (data) {
+    Cache.set(key, data, time)
+  }
+}
+
+module.exports = Cache

@@ -4,52 +4,23 @@
 
 const Cache = require('../cache')
 const nconf = require('nconf')
-const colors = require('colors/safe')
-const winston = require('winston')
 const Redis = require('ioredis')
-
-let connectionFailedAttemp = 0
 const databaseA = nconf.get('sentences_ab_switchter:a') || 1
 const databaseB = nconf.get('sentences_ab_switchter:b') || 2
 
+const { ConnectionConfig, handleError } = require('../utils/cache')
 class SentencesABSwitcher extends Cache {
   static connect(target = 'a', isDefault = false) {
     // Get Config
-    const config = {
-      host: nconf.get('redis:host') || '127.0.0.1',
-      port: nconf.get('redis:port') || 6379,
-      db: target === 'a' ? databaseA : databaseB, // default connect to A database,
-      family: nconf.get('redis:family') || 4,
-      reconnectOnError: (err) => {
-        const targetError = 'READONLY'
-        if (err.message.includes(targetError)) {
-          // Only reconnect when the error contains "READONLY"
-          return true
-        }
-      },
-    }
+    const config = { ...ConnectionConfig }
+    config.db = target === 'a' ? databaseA : databaseB
     if (nconf.get('redis:password') && nconf.get('redis:password') !== '') {
       config.password = nconf.get('redis:password')
     }
     // Connect Redis
     const tmp = new Redis(config)
-    tmp.on('connect', () => {
-      connectionFailedAttemp = 0 // clear the attemp count
-    })
-    tmp.on('error', (err) => {
-      winston.error(colors.red(err.stack))
-      if (connectionFailedAttemp >= 3) {
-        winston.error(
-          '[AB] attemp to connect to redis ' +
-            connectionFailedAttemp +
-            ' times, but all failed, process exiting.',
-        )
-        process.exit(1)
-      }
-      winston.error('[AB] failed to connect to redis, we will attemp again...')
-      connectionFailedAttemp++
-      SentencesABSwitcher.connect()
-    })
+    tmp.on('connect', () => nconf.set('connectionFailedAttemp', 0))
+    tmp.on('error', handleError.bind(this))
     if (isDefault) {
       this.redis = tmp // set defalt slot
     }
@@ -70,38 +41,6 @@ class SentencesABSwitcher extends Cache {
       this.redis = this.redisA
     } else {
       this.redis = this.redisB
-    }
-  }
-
-  static command(commands, params) {
-    this.connectOrSkip()
-    const param = params
-    param[0] = 'cache:' + param[0]
-    return this.redis[commands](param)
-  }
-
-  static set(key, v, time) {
-    this.connectOrSkip()
-    const value = typeof v === 'object' ? JSON.stringify(v) : v
-    if (time) {
-      return this.redis.set('cache:' + key, value, 'EX', time)
-    } else {
-      return this.redis.set('cache:' + key, value)
-    }
-  }
-
-  static async get(key, toJson = true) {
-    this.connectOrSkip()
-    const data = await this.redis.get('cache:' + key)
-    if (toJson) {
-      try {
-        const json = JSON.parse(data)
-        return json
-      } catch (e) {
-        return data
-      }
-    } else {
-      return data
     }
   }
 
