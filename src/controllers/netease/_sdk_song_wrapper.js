@@ -5,13 +5,18 @@ const Cache = require('../../cache')
 
 /**
  * Get Songs' URLs by ids
- * @param {number[]} ids Song ids array
+ * @param {number[]|string|number} ids Song ids array
  * @param {number} br select in 999000, 320000, 128000. default is 320000
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getSongsURLs = async (ids, br = 320000, realIP) => {
+  if (Array.isArray(ids)) {
+    ids = ids.join(',')
+  } else if (!['string', 'number'].includes(typeof ids)) {
+    throw new Error('ids 类型错误')
+  }
   return SDKRequestGenerator(sdk.song_url, {
-    id: ids.join(','),
+    id: String(ids),
     realIP,
     br,
   })

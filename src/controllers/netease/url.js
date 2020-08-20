@@ -1,10 +1,11 @@
 // This module is intended to get the play url of ncm songs
 const winston = require('winston')
-const sdk = require('NeteaseCloudMusicApi')
 const Joi = require('joi')
+const { getSongsURLs } = require('./_sdk_wrapper')
 
 // validation schema
 const { ValidateParams } = require('../../utils/response')
+const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   id: Joi.string(),
   ids: Joi.array().items(Joi.number().min(1).max(1000000000000000)).required(),
@@ -19,12 +20,13 @@ module.exports = async (ctx) => {
     // validateParams
     return
   }
-  const result = await sdk.song_url({
-    id: ctx.params.id,
-    realIP: ctx.get('X-Real-IP'),
-    br: params.br,
-  })
-  winston.verbose(result)
+  let data
+  try {
+    data = await getSongsURLs(params.id, params.br, ctx.get('X-Real-IP'))
+  } catch (err) {
+    data = recoverRequest(err)
+  }
+  winston.verbose(data)
   ctx.status = 200
-  ctx.body = result.body
+  ctx.body = data
 }

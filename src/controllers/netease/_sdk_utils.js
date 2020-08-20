@@ -1,5 +1,6 @@
 // This module contains series utils  of sdk
 const crypto = require('crypto')
+const winston = require('winston')
 const {
   RequestFailedException,
   ResponseValidationException,
@@ -67,10 +68,25 @@ const SDKRequestGenerator = async (SDKFunc, params) => {
   return response.body
 }
 
+const recoverRequest = (err) => {
+  if (err.type && err.detail && err.detail.responseBody) {
+    winston.verbose('[ncm] SDK recover a error, detail:')
+    winston.verbose(JSON.stringify(err.detail))
+    return err.detail.responseBody
+  } else {
+    throw new ResponseValidationException(
+      '无法恢复上游请求信息',
+      { statusCode: err.statusCode, responseBody: err.responseBody },
+      'RecoverRequestFailed',
+    )
+  }
+}
+
 module.exports = {
   neteasePickey,
   checkResponseStatus,
   checkAPIResponseData,
   APIRemeberCaller,
   SDKRequestGenerator,
+  recoverRequest,
 }
