@@ -76,11 +76,11 @@ function loadConfig(configFile, isChild = false, next) {
 }
 
 function printCopyright() {
-  const colors = require('colors/safe')
+  const chalk = require('chalk')
   const date = new Date()
   console.log(
-    colors.bgBlue(
-      colors.black(
+    chalk.bgBlue(
+      chalk.black(
         ' ' +
           pkg.name +
           ' v' +
@@ -91,12 +91,12 @@ function printCopyright() {
       ),
     ) +
       '   ' +
-      colors.bgRed(colors.black(' Powered by teng-koa ')),
+      chalk.bgRed(chalk.black(' Powered by teng-koa ')),
   )
   console.log('')
   console.log(
-    colors.bgCyan(
-      colors.black(
+    chalk.bgCyan(
+      chalk.black(
         ' 我们一路奋战，不是为了改变世界，而是为了不让世界改变我们。 ',
       ),
     ),

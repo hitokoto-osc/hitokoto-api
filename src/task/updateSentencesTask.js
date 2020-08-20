@@ -4,7 +4,7 @@ const url = require('url')
 
 const winston = require('winston')
 const axios = require('axios')
-const colors = require('colors')
+const chalk = require('chalk')
 const nconf = require('nconf')
 const semver = require('semver')
 const _ = require('lodash')
@@ -38,7 +38,7 @@ async function Task() {
 
   winston.verbose(
     '[sentencesUpdateTask] remote bundle protocal version: ' +
-      colors.green('v' + remoteVersionData.protocol_version),
+      chalk.green('v' + remoteVersionData.protocol_version),
   )
   if (!semver.satisfies(remoteVersionData.protocol_version, '>=1.0 <1.1')) {
     winston.error(
@@ -50,11 +50,11 @@ async function Task() {
   }
   winston.verbose(
     '[sentencesUpdateTask] remote bundle version: ' +
-      colors.yellow('v' + remoteVersionData.bundle_version),
+      chalk.yellow('v' + remoteVersionData.bundle_version),
   )
   winston.verbose(
     '[sentencesUpdateTask] local bundle version: ' +
-      colors.yellow('v' + localBundleVersion),
+      chalk.yellow('v' + localBundleVersion),
   )
   if (
     semver.eq(remoteVersionData.bundle_version, localBundleVersion) &&
@@ -78,7 +78,7 @@ async function Task() {
     )
     winston.verbose(
       '[sentencesUpdateTask] fetching categroies data from: ' +
-        colors.green(remoteCategoriesUrl),
+        chalk.green(remoteCategoriesUrl),
     )
     response = await axios.get(remoteCategoriesUrl)
     const remoteCategoriesData = response.data
@@ -90,7 +90,7 @@ async function Task() {
       const remoteSentenceUrl = url.resolve(remoteUrl, category.path)
       winston.verbose(
         '[sentencesUpdateTask] fetching sentences data from: ' +
-          colors.green(remoteSentenceUrl),
+          chalk.green(remoteSentenceUrl),
       )
       response = await axios.get(remoteSentenceUrl)
       const categorySentences = response.data
@@ -150,7 +150,7 @@ async function Task() {
       )
       winston.verbose(
         '[sentencesUpdateTask] fetching categroies data from: ' +
-          colors.green(remoteCategoriesUrl),
+          chalk.green(remoteCategoriesUrl),
       )
       response = await axios.get(remoteCategoriesUrl)
       const remoteCategoryData = response.data
@@ -167,7 +167,7 @@ async function Task() {
         const remoteSentenceUrl = url.resolve(remoteUrl, category.path)
         winston.verbose(
           '[sentencesUpdateTask] fetching sentences data from: ' +
-            colors.green(remoteSentenceUrl),
+            chalk.green(remoteSentenceUrl),
         )
         response = await axios.get(remoteSentenceUrl)
         const categorySentences = response.data
@@ -222,7 +222,7 @@ async function Task() {
         const remoteSentencesUrl = url.resolve(remoteUrl, categoryVersion.path)
         winston.verbose(
           '[sentencesUpdateTask] fetching remote sentences data from: ' +
-            colors.green(remoteSentencesUrl),
+            chalk.green(remoteSentencesUrl),
         )
         response = await axios.get(remoteSentencesUrl)
         const categorySentences = response.data
@@ -282,7 +282,7 @@ async function Task() {
   AB.setDatabase(targetDatabase)
   cache.set('hitokoto:ab', targetDatabase)
   winston.verbose(
-    '[sentencesUpdateTask] total sentences: ' + colors.cyan(sentenceTotal),
+    '[sentencesUpdateTask] total sentences: ' + chalk.cyan(sentenceTotal),
   )
   winston.verbose(
     '[sentencesUpdateTask] having finished the update, spend ' +
@@ -293,7 +293,7 @@ async function Task() {
     // is in CronProcess
     winston.verbose(
       '[sentencesUpdateTask] notify master process to switch redis db to: ' +
-        colors.yellow(targetDatabase),
+        chalk.yellow(targetDatabase),
     )
     process.send({
       key: 'switchAB',
@@ -306,7 +306,7 @@ async function Task() {
 
 function RunTask() {
   Task().catch((err) => {
-    console.log(colors.red(err.stack))
+    console.log(chalk.red(err.stack))
     winston.error(
       '[sentencesUpdateTask] occur errors while update, please check the details. if occurs frequently, contact the author please.',
     )

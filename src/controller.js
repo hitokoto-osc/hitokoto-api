@@ -1,7 +1,7 @@
 // Load Packages
 const fs = require('fs')
 const winston = require('winston')
-const colors = require('colors/safe')
+const chalk = require('chalk')
 const path = require('path')
 
 function readDir(dir) {
@@ -61,7 +61,7 @@ class controllers {
         controller,
       ))
     } catch (e) {
-      winston.error(colors.red(e))
+      winston.error(chalk.red(e))
       // mail.error(e)
       process.exit(1)
     }
@@ -73,7 +73,7 @@ class controllers {
       const controllers = genControllersMap()
       return controllers
     } catch (e) {
-      winston.error(colors.red(e))
+      winston.error(chalk.red(e))
       process.exit(1)
     }
   }

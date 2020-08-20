@@ -4,7 +4,7 @@ const winston = require('winston')
 const path = require('path')
 const fs = require('fs')
 const nconf = require('nconf')
-// const colors = require('colors/safe')
+// const chalk = require('chalk')
 const CronJob = require('cron').CronJob
 
 // 加载 Cron

@@ -2,7 +2,7 @@
 
 // Import Packages
 const Koa = require('koa') // Koa v2
-const colors = require('colors/safe')
+const chalk = require('chalk')
 const http = require('http')
 const nconf = require('nconf')
 // const os = require('os')
@@ -72,13 +72,13 @@ async function registerRoutes(routes) {
         app.use(router.routes()).use(router.allowedMethods())
       })
       .catch((err) => {
-        winston.error(colors.red(err.stack))
+        winston.error(chalk.red(err.stack))
         // mail.error(err)
         process.exit()
       })
     winston.verbose('[init] koa routes are loaded.')
   } catch (e) {
-    winston.error(colors.red(e.stack))
+    winston.error(chalk.red(e.stack))
     // mail.error(e)
     process.exit()
   }
@@ -88,7 +88,7 @@ async function registerRoutes(routes) {
 function handleProcessExitSignal(signal) {
   winston.verbose(
     '[core] received signal: ' +
-      colors.yellow(signal) +
+      chalk.yellow(signal) +
       ', start the exit produre.',
   )
   for (const child of childProcessList) {
@@ -137,12 +137,12 @@ async function start() {
     winston.verbose('[init] All init steps are exceeded.')
     winston.info(
       '[core] Web Server is started, listening on' +
-        colors.yellow(' port') +
+        chalk.yellow(' port') +
         ': ' +
-        colors.blue(nconf.get('server:port')),
+        chalk.blue(nconf.get('server:port')),
     )
   } catch (e) {
-    console.log(colors.red(e.stack))
+    console.log(chalk.red(e.stack))
     winston.error(
       '[init] error was thrown while initializing, process exiting.',
     )

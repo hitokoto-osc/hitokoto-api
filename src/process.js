@@ -4,7 +4,7 @@ const childProcess = require('child_process')
 const { EventEmitter } = require('events')
 const winston = require('winston')
 const nconf = require('nconf')
-const colors = require('colors')
+const chalk = require('chalk')
 const _ = require('lodash')
 
 const event = new EventEmitter()
@@ -19,17 +19,17 @@ class ProcessInteract {
     this.routeMap.map((v) => {
       winston.verbose(
         '[processInteract] receiver is registered, key: ' +
-          colors.red(v.key) +
+          chalk.red(v.key) +
           ' , to: ' +
-          colors.yellow(v.to) +
+          chalk.yellow(v.to) +
           ' , from: ' +
-          colors.green(v.from),
+          chalk.green(v.from),
       )
     })
     event.on('message', (msg, moduleName) => {
       winston.verbose(
         '[processInteract] received a message, detail: ',
-        colors.grey(JSON.stringify(msg)),
+        chalk.grey(JSON.stringify(msg)),
       )
       if (msg && msg.key) {
         // match route
@@ -43,7 +43,7 @@ class ProcessInteract {
         } else {
           winston.warn(
             '[processInteract] routekey is missing, raw data: ' +
-              colors.grey(JSON.stringify(msg)),
+              chalk.grey(JSON.stringify(msg)),
           )
         }
       }
@@ -125,7 +125,7 @@ class Process {
           '[' +
             moduleName +
             '] process is exited due to receiving a signal: ' +
-            colors.blue(signal),
+            chalk.blue(signal),
         )
       } // ignore exit code: 0
     }
