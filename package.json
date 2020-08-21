@@ -67,7 +67,7 @@
     "@hitokoto/koa-respond": "3.0.3",
     "NeteaseCloudMusicApi": "3.38.0",
     "async": "3.2.0",
-    "axios": "0.19.2",
+    "axios": "0.20.0",
     "bytes": "3.1.0",
     "chalk": "4.1.0",
     "commander": "6.0.0",
