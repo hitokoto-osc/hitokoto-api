@@ -42,7 +42,7 @@
     "commitizen": "4.2.0",
     "conventional-changelog-cli": "2.1.0",
     "conventional-changelog-conventionalcommits": "4.4.0",
-    "cz-conventional-changelog": "3.2.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.7.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-config-standard": "14.1.1",
