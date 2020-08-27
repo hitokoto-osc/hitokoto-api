@@ -28,7 +28,7 @@ module.exports = {
       from: 'cronJob',
       listener: (targetDB) => {
         winston.verbose(
-          '[AB] receiving signal, switching to db: ' + chalk.yellow(targetDB),
+          '[AB] received signal, switching to db: ' + chalk.yellow(targetDB),
         )
         AB.setDatabase(targetDB)
       },

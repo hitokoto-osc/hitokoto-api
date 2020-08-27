@@ -10,18 +10,18 @@ const winston = require('winston')
 // const path = require('path')
 // const pkg = require('./package.json')
 // const mail = require('./src/mail')
+const preStart = require('./src/prestart')
+preStart.check() // Check Env
 
 // Read Command
 const commander = require('./src/commander')
 const program = commander.process()
+
 // PreStart
-const preStart = require('./src/prestart')
-preStart.check()
 preStart.load(program.config_file || null)
 if (program.dev) {
   winston.verbose('[debug] you are running at Development mode.')
   winston.level = 'verbose'
-  nconf.set('dev', true)
 }
 
 // Use blubird promise

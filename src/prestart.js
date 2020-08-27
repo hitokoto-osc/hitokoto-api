@@ -11,19 +11,17 @@ const dirname = path.join(__dirname, '../')
 async function setupWinston() {
   const logFile =
     nconf.get('log_path') ||
-    path.join(__dirname, '../', './data/logs/', pkg.name + '.log')
+    path.join(__dirname, '../', './data/logs/', pkg.name + '_error.log')
+
   // createDir while running at docker
   const dirPath = path.join(logFile, '../')
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath)
-  }
+  if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath)
+
   fs.existsSync(logFile) || fs.writeFileSync(logFile, '')
   winston.remove(winston.transports.Console)
   winston.add(winston.transports.File, {
     filename: logFile,
-    level:
-      nconf.get('log_level') ||
-      (global.env === 'production' ? 'info' : 'verbose'),
+    level: 'error',
     handleExceptions: true,
     maxsize: 5242880,
     maxFiles: 10,
@@ -37,8 +35,9 @@ async function setupWinston() {
         : date.toISOString() + ' [' + global.process.pid + ']'
     },
     level:
-      nconf.get('log_level') ||
-      (global.env === 'production' ? 'info' : 'verbose'),
+      !nconf.get('dev') || !(process.env && process.env.dev === 'true')
+        ? 'info'
+        : 'verbose',
     json: !!nconf.get('json_logging'),
     stringify: !!nconf.get('json_logging'),
   })
@@ -48,9 +47,9 @@ function loadConfig(configFile, isChild = false, next) {
   nconf.use('memory') // use memory store
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
   // check config file while running at dokcer
-  if (!fs.existsSync(configFile)) {
+  if (!fs.existsSync(configFile))
     fs.copyFileSync(path.join(__dirname, '../config.example.json'), configFile)
-  }
+
   nconf.file({
     file: configFile,
   })
@@ -59,11 +58,7 @@ function loadConfig(configFile, isChild = false, next) {
     base_dir: dirname,
     version: pkg.version,
   })
-
-  if (!nconf.get('isCluster')) {
-    nconf.set('isPrimary', 'true')
-    nconf.set('isCluster', 'false')
-  }
+  nconf.set('dev', !global.prod) // Inject Dev option
   if (next && typeof next === 'function') {
     Promise.resolve(next()).then(() => {
       // Print logger
@@ -122,13 +117,9 @@ function check() {
 
 module.exports = {
   load: (configFile, isChild = false) => {
-    if (!configFile) {
+    if (!configFile)
       configFile = path.join(__dirname, '../data', './config.json')
-    }
-    if (!isChild) {
-      printCopyright()
-    }
-    winston.level = 'info'
+    if (!isChild) printCopyright()
     loadConfig(configFile, isChild, setupWinston)
   },
   check,
