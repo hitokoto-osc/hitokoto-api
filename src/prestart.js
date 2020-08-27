@@ -1,9 +1,11 @@
 'use strict'
 const winston = require('winston')
 const nconf = require('nconf')
+const semver = require('semver')
 const pkg = require('../package.json')
 const path = require('path')
 const fs = require('fs')
+const chalk = require('chalk')
 const dirname = path.join(__dirname, '../')
 
 async function setupWinston() {
@@ -103,6 +105,21 @@ function printCopyright() {
   )
 }
 
+function checkNodeVersion() {
+  if (!semver.satisfies(process.versions.node, pkg.engines.node)) {
+    console.log(
+      '[env_check] ' +
+        chalk.white('Node.js 版本过旧，无法启动。要求版本为： ') +
+        chalk.blue(pkg.engines.node),
+    )
+    process.exit(1)
+  }
+}
+
+function check() {
+  checkNodeVersion()
+}
+
 module.exports = {
   load: (configFile, isChild = false) => {
     if (!configFile) {
@@ -114,4 +131,5 @@ module.exports = {
     winston.level = 'info'
     loadConfig(configFile, isChild, setupWinston)
   },
+  check,
 }

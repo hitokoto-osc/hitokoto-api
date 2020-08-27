@@ -16,6 +16,7 @@ const commander = require('./src/commander')
 const program = commander.process()
 // PreStart
 const preStart = require('./src/prestart')
+preStart.check()
 preStart.load(program.config_file || null)
 if (program.dev) {
   winston.verbose('[debug] you are running at Development mode.')
