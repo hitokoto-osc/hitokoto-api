@@ -1846,7 +1846,12 @@ combined-stream@^1.0.6, combined-stream@^1.0.8, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@6.0.0, commander@^6.0.0:
+commander@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
+  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
+
+commander@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npm.taobao.org/commander/download/commander-6.0.0.tgz?cache=0&sync_timestamp=1595168214577&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
   integrity sha1-KycNqU+PuQFEVTEvgpoRKdv4iH4=
