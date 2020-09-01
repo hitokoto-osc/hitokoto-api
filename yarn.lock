@@ -7353,10 +7353,10 @@ sequelize-pool@^6.0.0:
   resolved "https://registry.npm.taobao.org/sequelize-pool/download/sequelize-pool-6.1.0.tgz#caaa0c1e324d3c2c3a399fed2c7998970925d668"
   integrity sha1-yqoMHjJNPCw6OZ/tLHmYlwkl1mg=
 
-sequelize@6.3.4:
-  version "6.3.4"
-  resolved "https://registry.npm.taobao.org/sequelize/download/sequelize-6.3.4.tgz#dd6f4801ba5e4d7a6f845a5ad3e616f24453694f"
-  integrity sha1-3W9IAbpeTXpvhFpa0+YW8kRTaU8=
+sequelize@6.3.5:
+  version "6.3.5"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.3.5.tgz#80e3db7ac8b76d98c45ca93334197eb6e2335158"
+  integrity sha512-MiwiPkYSA8NWttRKAXdU9h0TxP6HAc1fl7qZmMO/VQqQOND83G4nZLXd0kWILtAoT9cxtZgFqeb/MPYgEeXwsw==
   dependencies:
     debug "^4.1.1"
     dottie "^2.0.0"
