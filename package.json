@@ -73,7 +73,7 @@
     "chalk": "4.1.0",
     "commander": "6.0.0",
     "cron": "1.8.2",
-    "fast-json-stringify": "2.2.3",
+    "fast-json-stringify": "2.2.4",
     "humanize-number": "0.0.2",
     "ioredis": "4.17.3",
     "joi": "17.2.1",
