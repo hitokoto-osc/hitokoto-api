@@ -7931,10 +7931,10 @@ superagent@^3.8.3:
     qs "^6.5.1"
     readable-stream "^2.3.5"
 
-supertest@^4.0.2:
+supertest@4.0.2:
   version "4.0.2"
-  resolved "https://registry.npm.taobao.org/supertest/download/supertest-4.0.2.tgz#c2234dbdd6dc79b6f15b99c8d6577b90e4ce3f36"
-  integrity sha1-wiNNvdbcebbxW5nI1ld7kOTOPzY=
+  resolved "https://registry.yarnpkg.com/supertest/-/supertest-4.0.2.tgz#c2234dbdd6dc79b6f15b99c8d6577b90e4ce3f36"
+  integrity sha512-1BAbvrOZsGA3YTCWqbmh14L0YEq0EGICX/nBnfkfVJn7SrxQV1I3pMYjSzG9y/7ZU2V9dWqyqk2POwxlb09duQ==
   dependencies:
     methods "^1.1.2"
     superagent "^3.8.3"
@@ -8066,10 +8066,10 @@ through@2, "through@>=2.2.7 <3", through@^2.3.6, through@^2.3.8:
   resolved "https://registry.npm.taobao.org/through/download/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-timer@^1.0.1:
+timer@1.0.1:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/timer/download/timer-1.0.1.tgz#98ffb7928e76c6c352ebf9b8943895c2eab07581"
-  integrity sha1-mP+3ko52xsNS6/m4lDiVwuqwdYE=
+  resolved "https://registry.yarnpkg.com/timer/-/timer-1.0.1.tgz#98ffb7928e76c6c352ebf9b8943895c2eab07581"
+  integrity sha512-sTkUaUaW3qc2aklbIkGYKPX4S4M5oneaIFroi/igorM+vSmKCBYwkfEjBK7bdgrStdR+M0GFgeGnxTG1FtJZ/w==
 
 tmp@^0.0.33:
   version "0.0.33"
