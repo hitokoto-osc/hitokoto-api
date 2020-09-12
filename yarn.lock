@@ -8028,6 +8028,11 @@ through@2, "through@>=2.2.7 <3", through@^2.3.6, through@^2.3.8:
   resolved "https://registry.npm.taobao.org/through/download/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
+timer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/timer/download/timer-1.0.1.tgz#98ffb7928e76c6c352ebf9b8943895c2eab07581"
+  integrity sha1-mP+3ko52xsNS6/m4lDiVwuqwdYE=
+
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.npm.taobao.org/tmp/download/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"

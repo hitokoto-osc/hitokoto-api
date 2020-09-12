@@ -1,6 +1,6 @@
 const nconf = require('nconf')
 
-module.exports = (router, middlewares, controller) => {
+module.exports = (router, middleware, controller) => {
   // Route Map
   /* router.get('/', async (ctx, next) => {
     ctx.body = {
@@ -27,7 +27,7 @@ module.exports = (router, middlewares, controller) => {
         server_id: nconf.get('api_name'),
         server_status: {
           memory: {
-            totol: os.totalmem() / (1024 * 1024),
+            total: os.totalmem() / (1024 * 1024),
             free: os.freemem() / (1024 * 1024),
             usage: memoryUsage,
           },
@@ -46,7 +46,7 @@ module.exports = (router, middlewares, controller) => {
     })
   }
 
-  router.get('/', controller.hitokoto)
+  router.get('/', controller.hitokoto.entry)
   // router.get('/test', controller.hello.index)
   router.get('/status', controller.status)
 
