@@ -48,7 +48,7 @@ module.exports = (router, middleware, controller) => {
 
   router.get('/', controller.hitokoto.entry)
   // router.get('/test', controller.hello.index)
-  router.get('/status', controller.status)
+  router.get('/status', controller.status.entry)
 
   // Netease API
   router.get('/nm/search/:keyword', controller.netease.search)

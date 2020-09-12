@@ -1,12 +1,19 @@
-'use strict'
 // Import Packages
-const os = require('os')
-const path = require('path')
 const nconf = require('nconf')
-const cache = require('../cache')
-const AB = require('../extensions/sentencesABSwitcher')
-const _ = require('lodash')
+const cache = require('../../cache')
 // const winston = require('winston')
+const AB = require('../../extensions/sentencesABSwitcher')
+const _ = require('lodash')
+const limitedHosts = [
+  // hitokoto.cn
+  'v1.hitokoto.cn',
+  'api.hitokoto.cn',
+  'sslapi.hitokoto.cn',
+  'international.v1.hitokoto.cn',
+  // a632079's public api
+  'api.a632079.me',
+  'legacy.api.a632079.me', // 新接口将移动到 api.a632079.me
+]
 
 async function getAllRequests() {
   const requests = nconf.get('middleware:requests:all')
@@ -71,7 +78,7 @@ async function getAllDayMap(now) {
   return data
 }
 
-async function getHostsDayMap(limitHosts, now) {
+async function getHostsDayMap(limitHosts, hosts) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 26; index++) {
@@ -82,10 +89,10 @@ async function getHostsDayMap(limitHosts, now) {
   const result = await Promise.all(events)
   const data = {}
   for (const host of limitHosts) {
-    const _ = result[0] ? now[host] - parseInt(result[0][host]) : 0
+    const _ = result[0] ? hosts[host] - parseInt(result[0][host]) : 0
     data[host] = {}
-    data[host].dayMap = []
-    data[host].dayMap.push(_)
+    data[host].day_map = []
+    data[host].day_map.push(_)
   }
   for (let index = 0; index < result.length - 2; index++) {
     for (const host of limitHosts) {
@@ -93,7 +100,7 @@ async function getHostsDayMap(limitHosts, now) {
         result[index] && result[index + 1]
           ? parseInt(result[index][host]) - parseInt(result[index + 1][host])
           : null
-      data[host].dayMap.push(_)
+      data[host].day_map.push(_)
     }
   }
   return data
@@ -113,9 +120,9 @@ async function getPast5MinuteMap(now) {
   }
   return data
 }
-module.exports = async (ctx, next) => {
-  const pkg = require(path.join('../../', 'package'))
-  const fetchData = await Promise.all([
+
+async function fetchData() {
+  return Promise.all([
     // fetch All Requests
     getAllRequests(),
     getAllPastMinute(),
@@ -127,109 +134,70 @@ module.exports = async (ctx, next) => {
     getHostsPastHour(),
     getHostsPastDay(),
   ])
-  const all = {}
-  all.now = fetchData[0] || 0
-  all.pastMinute = fetchData[1]
-  all.pastHour = fetchData[2]
-  all.pastDay = fetchData[3]
+}
 
+async function fetchDayMap({ now, limitedHosts, hosts }) {
+  return Promise.all([
+    getAllDayMap(now),
+    getHostsDayMap(limitedHosts, hosts),
+    getPast5MinuteMap(now),
+  ])
+}
+
+const fetchHitokotoCollection = () => {
+  return Promise.all([
+    AB.get('hitokoto:bundle:categories'),
+    AB.get('hitokoto:bundle:sentences:total'),
+    AB.get('hitokoto:bundle:updated_at'),
+  ])
+}
+
+const genHitokotoStats = async () => {
+  const hitokoto = {}
+  const collection = await fetchHitokotoCollection()
+  hitokoto.category = collection[0].map((v) => v.key)
+  hitokoto.total = collection[1]
+  hitokoto.last_updated = collection[2]
+  return hitokoto
+}
+
+const genHostsWithValidHostList = (fetchData) => {
   const hosts = {}
-  // Generate totals
-  const limitHost = [
-    'v1.hitokoto.cn',
-    'api.hitokoto.cn',
-    'sslapi.hitokoto.cn',
-    'api.a632079.me',
-    'international.v1.hitokoto.cn',
-  ]
   const HostToDelete = []
   const HostsData = fetchData[4] || {}
-  for (const i of limitHost) {
+  for (const i of limitedHosts) {
     if (!HostsData[i]) {
       // if not exist
       HostToDelete.push(i)
     } else {
       hosts[i] = {}
       hosts[i].total = HostsData[i] || 0
-      hosts[i].pastMinute = fetchData[5]
+      hosts[i].past_minute = fetchData[5]
         ? parseInt(HostsData[i]) - parseInt(fetchData[5][i])
         : null
-      hosts[i].pastHour = fetchData[6]
+      hosts[i].past_hour = fetchData[6]
         ? parseInt(HostsData[i]) - parseInt(fetchData[6][i])
         : null
-      hosts[i].pastDay = fetchData[7]
+      hosts[i].past_day = fetchData[7]
         ? parseInt(HostsData[i]) - parseInt(fetchData[7][i])
         : null
     }
   }
-  _.pullAll(limitHost, HostToDelete)
-  // fetch DayMap
-  const fetchDayMap = await Promise.all([
-    getAllDayMap(all.now),
-    getHostsDayMap(limitHost, fetchData[4]),
-    getPast5MinuteMap(all.now),
-  ])
-  all.dayMap = fetchDayMap[0]
-  all.FiveMinuteMap = fetchDayMap[2]
-  // console.log(limitHost)
-  for (const host of limitHost) {
-    Object.assign(hosts[host], fetchDayMap[1][host])
-  }
-  // hosts = Object.assign({}, hosts, fetchDayMap[1])
+  return [hosts, _.pullAll([...limitedHosts], HostToDelete)]
+}
 
-  // get memory usage
+const getMemoryUsage = () => {
   let memoryUsage = 0
   for (const v of Object.values(process.memoryUsage())) {
     memoryUsage += parseInt(v)
   }
+  return memoryUsage
+}
 
-  // fetch hitokoto status
-  const hitokoto = {}
-  const collection = await Promise.all([
-    AB.get('hitokoto:bundle:categories'),
-    AB.get('hitokoto:bundle:sentences:total'),
-    AB.get('hitokoto:bundle:updated_at'),
-  ])
-  hitokoto.categroy = collection[0].map((v) => v.key)
-  hitokoto.total = collection[1]
-  hitokoto.lastUpdate = collection[2]
-  ctx.body = {
-    name: pkg.name,
-    version: pkg.version,
-    message: 'Love us? donate at https://hitokoto.cn/donate',
-    website: 'https://hitokoto.cn',
-    server_id: nconf.get('api_name') ? nconf.get('api_name') : 'unallocated',
-    server_status: {
-      memory: {
-        totol: os.totalmem() / (1024 * 1024),
-        free: os.freemem() / (1024 * 1024),
-        usage: memoryUsage / (1024 * 1024),
-      },
-      // cpu: os.cpus(),
-      load: os.loadavg(),
-      hitokoto,
-    },
-    requests: {
-      all: {
-        total: parseInt(all.now),
-        pastMinute: parseInt(all.now) - parseInt(all.pastMinute),
-        pastHour: parseInt(all.now) - parseInt(all.pastHour),
-        pastDay: parseInt(all.now) - parseInt(all.pastDay),
-        dayMap: all.dayMap,
-        FiveMinuteMap: all.FiveMinuteMap,
-      },
-      hosts,
-    },
-    feedback: {
-      Kuertianshi: 'i@loli.online',
-      freejishu: 'i@freejishu.com',
-      a632079: 'a632079@qq.com',
-    },
-    copyright:
-      'MoeCraft © ' +
-      new Date().getFullYear() +
-      ' All Rights Reserved. Powered by Teng-koa. Open Source at https://github.com/hitokoto-osc/hitokoto-api .',
-    now: new Date(Date.now()).toString(),
-    ts: Date.now(),
-  }
+module.exports = {
+  fetchData,
+  fetchDayMap,
+  getMemoryUsage,
+  genHostsWithValidHostList,
+  genHitokotoStats,
 }
