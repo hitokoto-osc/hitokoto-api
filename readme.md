@@ -61,5 +61,10 @@ hitokoto/api
 
 ## Benchmark
 
+```shell
+$ node -v                                                                                                            ─╯
+v14.8.0
+```
+
 ![alt](./img/wrk.png)  
 ![alt](./img/screenfetch.png)
