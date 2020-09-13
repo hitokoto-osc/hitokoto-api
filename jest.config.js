@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'node',
-  collectCoverages: true,
+  collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{js,jsx}',
     '!**/node_modules/**',
