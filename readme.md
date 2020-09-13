@@ -62,9 +62,39 @@ hitokoto/api
 ## Benchmark
 
 ```shell
-$ node -v                                                                                                            ─╯
+$ node -v
 v14.8.0
+$ wrk -t16 -c1000 -d30s --latency http://127.0.0.1:8000
+Running 30s test @ http://127.0.0.1:8000
+  16 threads and 1000 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   306.38ms   60.05ms 810.86ms   74.60%
+    Req/Sec   213.41    150.01   626.00     64.98%
+  Latency Distribution
+     50%  311.57ms
+     75%  348.58ms
+     90%  372.48ms
+     99%  405.50ms
+  93875 requests in 30.05s, 68.19MB read
+Requests/sec:   3124.36
+Transfer/sec:      2.27MB
+$ screenfetch
+                          ./+o+-       root@DESKTOP-89TMCM6
+                  yyyyy- -yyyyyy+      OS: Ubuntu 20.04 focal(on the Windows Subsystem for Linux)
+               ://+//////-yyyyyyo      Kernel: x86_64 Linux 4.19.104-microsoft-standard
+           .++ .:/++++++/-.+sss/`      Uptime: 2h 52m
+         .:++o:  /++++++++/:--:/-      Packages: 745
+        o:+o+:++.`..```.-/oo+++++/     Shell: zsh 5.8
+       .:+o:+o/.          `+sssoo+/    Disk: 486G / 882G (56%)
+  .++/+:+oo+o:`             /sssooo.   CPU: Intel Core i7-10875H @ 16x 2.304GHz
+ /+++//+:`oo+o               /::--:.   RAM: 2602MiB / 12708MiB
+ \+/+o+++`o++o               ++////.
+  .++.o+++oo+:`             /dddhhh.
+       .+.o+oo:.          `oddhhhh+
+        \+.++o+o``-````.:ohdhhhhh+
+         `:o+++ `ohhhhhhhhyo++os:
+           .o:`.syhhhhhhh/.oo++o`
+               /osyyyyyyo++ooo+++/
+                   ````` +oo+++o\:
+                          `oo++.
 ```
-
-![alt](./img/wrk.png)  
-![alt](./img/screenfetch.png)
