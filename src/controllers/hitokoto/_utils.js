@@ -12,13 +12,13 @@ const MIME = new Map([
 ])
 
 const categories = {
-  collection: [],
+  collection: new Set(),
   lastUpdated: 0,
   updateLock: false,
-  lengthRange: {},
+  lengthRange: new Map(),
 }
 
-exports.getCategoriesList = () => categories.collection
+exports.getCategoriesList = () => Array.from(categories.collection)
 
 exports.getParamEncode = (encode) => {
   const tmp = encode ?? 'json'
@@ -45,15 +45,15 @@ exports.getSentenceByUUID = async (sentenceUUIDList) => {
 exports.excludeNotMatchCategories = (minLength, maxLength, cats = []) => {
   const targetCategories = []
   if (cats.length === 0) {
-    cats = categories.collection
+    cats = Array.from(categories.collection) // convert Set to Array
   }
   for (const cat of cats) {
-    if (!categories.lengthRange[cat]) {
+    if (!categories.lengthRange.has(cat)) {
       continue // skip invalid cats
     }
     if (
-      minLength <= categories.lengthRange[cat].max &&
-      maxLength >= categories.lengthRange[cat].min
+      minLength <= categories.lengthRange.get(cat).get('max') &&
+      maxLength >= categories.lengthRange.get(cat).get('min')
     ) {
       targetCategories.push(cat)
     }
@@ -83,12 +83,14 @@ async function updateCategories() {
         AB.get(`hitokoto:bundle:category:${category.key}:max`),
         AB.get(`hitokoto:bundle:category:${category.key}:min`),
       ])
-      categories.collection.push(category.key)
-      if (!categories.lengthRange[category.key]) {
-        categories.lengthRange[category.key] = {}
-      }
-      categories.lengthRange[category.key].max = maxLength
-      categories.lengthRange[category.key].min = minLength
+      categories.collection.add(category.key)
+      categories.lengthRange.set(
+        category.key,
+        new Map([
+          ['max', maxLength],
+          ['min', minLength],
+        ]),
+      )
     }
     categories.lastUpdated = Date.now()
     categories.updateLock = false
