@@ -36,7 +36,7 @@ module.exports = [
     'koa-favicon',
     require('koa-favicon')(path.join(__dirname, '../public/favicon.ico')),
   ],
-  !nconf.get('compress_body') || [
+  !nconf.get('server:compress_body') || [
     'koa-compress',
     require('koa-compress')({
       filter: (contentType) => {

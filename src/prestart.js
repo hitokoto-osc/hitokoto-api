@@ -46,12 +46,22 @@ async function setupWinston() {
 function loadConfig(configFile, isChild = false, next) {
   nconf.use('memory') // use memory store
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
-  // check config file while running at dokcer
+
+  // convert old config
+  const oldConfigFile = path.join(__dirname, '../data/config.json')
+  if (fs.existsSync(oldConfigFile)) {
+    const c = require(oldConfigFile)
+    const yaml = require('js-yaml')
+    fs.writeFileSync(configFile, yaml.safeDump(c), 'utf-8')
+  }
+
+  // check config file while running at docker
   if (!fs.existsSync(configFile))
-    fs.copyFileSync(path.join(__dirname, '../config.example.json'), configFile)
+    fs.copyFileSync(path.join(__dirname, '../config.example.yml'), configFile)
 
   nconf.file({
     file: configFile,
+    format: require('nconf-yaml'),
   })
 
   nconf.defaults({
@@ -118,7 +128,7 @@ function check() {
 module.exports = {
   load: (configFile, isChild = false) => {
     if (!configFile)
-      configFile = path.join(__dirname, '../data', './config.json')
+      configFile = path.join(__dirname, '../data', './config.yml')
     if (!isChild) printCopyright()
     loadConfig(configFile, isChild, setupWinston)
   },

@@ -1,0 +1,31 @@
+name: '' # 服务名称，例如：hitokoto
+url: '' # 服务地址，例如：https://v1.hitokoto.cn
+api_name: '' # 服务表示，例如：cd-01-demo
+server: # 配置 HTTP 服务的信息
+  host: 127.0.0.1 # 监听的地址
+  port: '8000' # 监听的端口
+  compress_body: true # 是否使用 GZIP 压缩
+mail: # 本节为 Web 控制器触发错误时发送邮件，目前本节已废弃
+  type: smtp
+  host: ''
+  username: ''
+  password: ''
+  port: ''
+  encrypt: ssl
+database: mysql # 数据库驱动，本节已废弃
+mysql: 
+  host: 127.0.0.1
+  database: ''
+  username: ''
+  password: ''
+  port: ''
+redis: # 配置 Redis
+  host: 127.0.0.1 # Redis 主机名
+  port: 6379 # Redis 端口
+  password: '' # Redis 密码
+  database: 0 # Redis 数据库
+sentences_ab_switchter: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
+  a: 1 # a 状态对应的 redis 数据库
+  b: 2 # b 状态对应的 redis 数据库
+log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。
+remote_sentences_url: https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/ # 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项

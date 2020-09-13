@@ -77,6 +77,7 @@
     "humanize-number": "0.0.2",
     "ioredis": "4.17.3",
     "joi": "17.2.1",
+    "js-yaml": "^3.14.0",
     "kcors": "2.2.2",
     "koa": "2.13.0",
     "koa-bodyparser": "4.3.0",
@@ -90,12 +91,12 @@
     "lodash.curry": "4.1.1",
     "mysql2": "2.1.0",
     "nconf": "0.10.0",
+    "nconf-yaml": "^1.0.2",
     "nodemailer": "6.4.11",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.3.2",
     "sequelize": "6.3.5",
-    "timer": "1.0.1",
     "uuid": "8.3.0",
     "winston": "2.4.5"
   }
