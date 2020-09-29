@@ -7,7 +7,7 @@ coverage/
 *.dll
 **/config.json
 **/config.yml
-
+.vscode/
 
 # Yarn 2
 .yarn/*
@@ -16,3 +16,5 @@ coverage/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+.yarn/sdks/
+
