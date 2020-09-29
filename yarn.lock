@@ -3616,16 +3616,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:6.11.0":
-  version: 6.11.0
-  resolution: "eslint-config-prettier@npm:6.11.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-config-prettier%2Fdownload%2Feslint-config-prettier-6.11.0.tgz"
+"eslint-config-prettier@npm:6.12.0":
+  version: 6.12.0
+  resolution: "eslint-config-prettier@npm:6.12.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-config-prettier%2Fdownload%2Feslint-config-prettier-6.12.0.tgz"
   dependencies:
     get-stdin: ^6.0.0
   peerDependencies:
     eslint: ">=3.14.1"
   bin:
     eslint-config-prettier-check: bin/cli.js
-  checksum: 59efd906c78d47753a673c205ef515fdab19cd6ea0fd992c9cb2366804861746238244526ab565ccc7448569f5472ce7646a77d0c9998787192e4ebae95df71d
+  checksum: 9371c0a8d05df36f3698247e703118a8eb95fa887aabc4b1e189c21e248ab9c49c3b8e5621f42826b89bbfd05aa52493ffddf0c41219db9b6e4df20e46e21da0
   languageName: node
   linkType: hard
 
@@ -5098,7 +5098,7 @@ fsevents@^2.1.2:
     cron: 1.8.2
     cz-conventional-changelog: 3.3.0
     eslint: 7.10.0
-    eslint-config-prettier: 6.11.0
+    eslint-config-prettier: 6.12.0
     eslint-config-standard: 14.1.1
     eslint-plugin-html: 6.1.0
     eslint-plugin-import: 2.22.1
