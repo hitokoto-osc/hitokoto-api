@@ -36,12 +36,13 @@
 
 ### 常规使用
 
-首先配置好 Node.js 环境（>=12.x)，以及 `yarn`。
+首先配置好 Node.js 环境（>=12.x)，以及 `yarn`。  
+**请注意：本项目使用 Yarn v2，因此使用前请将你的 Yarn 版本更新至 v1.22.4 或更高版本。此外，项目目前不支持使用 NPM，CNPM，PNPM管理包依赖。**  
 
 1. 克隆仓库 `git clone https://github.com/hitokoto-osc/hitokoto-api.git your_workdir`
 2. 进入仓库 `cd your_workdir`
-3. 安装依赖 `yarn`
-4. 复制配置 `cp config.example.json ./data/config.json`，根据需要对其进行配置。
+3. 安装依赖 `yarn install --production`
+4. 复制配置 `cp config.example.yml ./data/config.yml`，根据需要对其进行配置。
 5. 启动程序 `yarn start`
 
 ### 容器使用
