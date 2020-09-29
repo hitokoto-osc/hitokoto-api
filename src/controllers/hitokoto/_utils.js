@@ -45,7 +45,7 @@ exports.getSentenceByUUID = async (sentenceUUIDList) => {
 exports.excludeNotMatchCategories = (minLength, maxLength, cats = []) => {
   const targetCategories = []
   if (cats.length === 0) {
-    cats = Array.from(categories.collection) // convert Set to Array
+    cats = exports.getCategoriesList(categories.collection) // convert Set to Array
   }
   for (const cat of cats) {
     if (!categories.lengthRange.has(cat)) {

@@ -186,7 +186,7 @@ function getCategoriesThatShouldBeAppended(
 
 async function updateSpecificCategorySentences(SideAB, category) {
   let categorySentencesTotal = 0
-  let minLength = 0
+  let minLength = 1000 // TODO: 更合理的算法，目前赋值 1000 只是为了最小值正确
   let maxLength = 0
   const categorySentences = await fetchRemoteCategorySentencesByPath(
     category.path,
@@ -195,7 +195,7 @@ async function updateSpecificCategorySentences(SideAB, category) {
   await SideAB.getClient().del('hitokoto:bundle:category:' + category.key) // 预移除区间队列
   for (const sentence of categorySentences) {
     // 建立分类句子长度范围
-    if (sentence.length > minLength) {
+    if (sentence.length < minLength) {
       minLength = sentence.length
     } else if (sentence.length > maxLength) {
       maxLength = sentence.length
@@ -214,6 +214,15 @@ async function updateSpecificCategorySentences(SideAB, category) {
     SideAB.set(`hitokoto:bundle:category:${category.key}:max`, maxLength),
     SideAB.set(`hitokoto:bundle:category:${category.key}:min`, minLength),
   ])
+  winston.verbose(
+    `[sentencesUpdateTask] the sentences of category ${chalk.red(
+      category.key,
+    )} is updated. Max length: ${chalk.green(
+      maxLength,
+    )}, min length: ${chalk.green(minLength)}, total: ${chalk.blue(
+      categorySentencesTotal,
+    )}`,
+  )
   return categorySentencesTotal
 }
 
