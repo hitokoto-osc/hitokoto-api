@@ -24,7 +24,7 @@ redis: # 配置 Redis
   port: 6379 # Redis 端口
   password: '' # Redis 密码
   database: 0 # Redis 数据库
-sentences_ab_switchter: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
+sentences_ab_switcher: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
   a: 1 # a 状态对应的 redis 数据库
   b: 2 # b 状态对应的 redis 数据库
 log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。

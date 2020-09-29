@@ -5,8 +5,10 @@
 const Cache = require('../cache')
 const nconf = require('nconf')
 const Redis = require('ioredis')
-const databaseA = nconf.get('sentences_ab_switchter:a') || 1
-const databaseB = nconf.get('sentences_ab_switchter:b') || 2
+const databaseA = nconf.get('sentences_ab_switcher:a') || 1
+const databaseB = nconf.get('sentences_ab_switcher:b') || 2
+const chalk = require('chalk')
+const winston = require('winston')
 
 const { ConnectionConfig, handleError } = require('../utils/cache')
 class SentencesABSwitcher extends Cache {
@@ -19,29 +21,33 @@ class SentencesABSwitcher extends Cache {
     }
     // Connect Redis
     const tmp = new Redis(config)
-    tmp.on('connect', () => nconf.set('connectionFailedAttemp', 0))
+    tmp.on('connect', () => nconf.set('connectionFailedAttempt', 0))
     tmp.on('error', handleError.bind(this))
     if (isDefault) {
-      this.redis = tmp // set defalt slot
+      this.redis = tmp // set default slot
     }
     this['redis' + target.toUpperCase()] = tmp
   }
 
-  static connectOrSkip(database = 'a') {
+  static async connectOrSkip() {
     if (this.redis) {
       return true
     } else {
+      const database = await Cache.get('hitokoto:ab') // 初始化时读取默认分区
       this.connect('a', database === 'a')
       this.connect('b', database !== 'a')
+      this.db = database
     }
   }
 
   static setDatabase(target) {
+    winston.verbose('[AB] switching database: ' + chalk.blue(target))
     if (target === 'a') {
       this.redis = this.redisA
     } else {
       this.redis = this.redisB
     }
+    this.db = target
   }
 
   static getConnection(target) {

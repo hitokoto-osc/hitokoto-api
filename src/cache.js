@@ -13,7 +13,7 @@ class Cache {
     // Connect Redis
     if (!newConnection) {
       this.redis = new Redis(ConnectionConfig)
-      this.redis.on('connect', () => nconf.set('connectionFailedAttemp', 0))
+      this.redis.on('connect', () => nconf.set('connectionFailedAttempt', 0))
       this.redis.on('error', handleError.bind(this))
       return true
     }
@@ -27,13 +27,14 @@ class Cache {
     return this.redis ? true : this.connect()
   }
 
-  static command(commands, ...params) {
+  static async command(commands, ...params) {
+    this.connectOrSkip()
     params[0] = 'cache:' + params[0]
     return this.redis[commands](params)
   }
 
-  static set(key, v, time) {
-    this.connectOrSkip(this.isABSwitcher)
+  static async set(key, v, time) {
+    await this.connectOrSkip()
     const value = typeof v === 'object' ? JSON.stringify(v) : v
     if (time) {
       return this.redis.set('cache:' + key, value, 'EX', time)
@@ -43,7 +44,7 @@ class Cache {
   }
 
   static async get(key, toJson = true) {
-    this.connectOrSkip(this.isABSwitcher)
+    await this.connectOrSkip()
     const data = await this.redis.get('cache:' + key)
     if (toJson) {
       try {
@@ -65,13 +66,13 @@ class Cache {
    * @param {any[]} callerParams the callerFunc params
    * @param {boolean} toJSON
    */
-  static async remeber(key, time, ...params) {
-    this.connectOrSkip(this.isABSwitcher)
+  static async remember(key, time, ...params) {
+    await this.connectOrSkip()
     if (params.length <= 0 || params.length > 3) {
       throw new Error('the length of params is wrong')
     }
     if (typeof params[0] !== 'function') {
-      throw new Error('the remeber caller must be a function')
+      throw new Error('the remember caller must be a function')
     }
     const caller = params[0]
     const callerParams = params[1] ?? []
