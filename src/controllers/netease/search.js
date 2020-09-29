@@ -1,6 +1,6 @@
 // This module is intended to search songs
 const Joi = require('joi')
-const { search, searchWithCache } = require('./_sdk_wrapper')
+const { search, searchWithCache } = require('./_sdk_uncategorized_wrapper')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
 const { recoverRequest } = require('./_sdk_utils')

@@ -3,7 +3,7 @@ const Joi = require('joi')
 const _ = require('lodash')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
-const { getSongsURLs } = require('./_sdk_wrapper')
+const { getSongsURLs } = require('./_sdk_song_wrapper')
 const schema = Joi.object({
   id: Joi.number().integer().min(1).max(1000000000000000).required(), // the max number is intended to prevent the Number(int) overflow
   br: Joi.number().valid(999000, 320000, 128000).default(320000), // flac, 320k, 128k

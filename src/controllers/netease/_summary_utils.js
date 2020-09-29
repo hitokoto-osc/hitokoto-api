@@ -61,7 +61,7 @@ const getSummaryByID = (id, params) => {
   const { nocache, quick, extraInfo, br } = params
   return nocache
     ? genSummary(id, params)
-    : Cache.remeber(
+    : Cache.remember(
         'nm:song:' + id + ':' + md5(String(extraInfo)) + String(br),
         quick
           ? 60 * 60 * 2 // 2 Hours

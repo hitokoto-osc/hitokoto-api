@@ -1,6 +1,6 @@
 // This module is intended to impl warppers of songs in NeteaseCloudMusicApi
 const sdk = require('NeteaseCloudMusicApi')
-const { APIRemeberCaller, SDKRequestGenerator } = require('./_sdk_utils')
+const { APIRememberCaller, SDKRequestGenerator } = require('./_sdk_utils')
 const Cache = require('../../cache')
 const { md5 } = require('../../utils/crypto')
 
@@ -41,10 +41,10 @@ exports.getSongsDetail = (ids, realIP) => {
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getSongsDetailWithCache = (ids, realIP) => {
-  return Cache.remeber(
+  return Cache.remember(
     'nm:detail:' + md5(ids),
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getSongsDetail, [ids, realIP]],
   )
 }
@@ -64,10 +64,10 @@ exports.getLyric = (id, realIP) => {
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getLyricWithCache = (id, realIP) => {
-  return Cache.remeber(
+  return Cache.remember(
     'nm:lyric:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getLyric, [id, realIP]],
   )
 }
@@ -102,10 +102,10 @@ exports.getSongComment = (id, limit, offset, ...options) => {
  */
 exports.getSongCommentWithCache = (id, limit, offset, ...options) => {
   const [before, realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     'nm:lyric:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getSongComment, [id, limit, offset, before, realIP]],
   )
 }

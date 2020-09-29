@@ -12,7 +12,7 @@ const md5 = (data) => {
   return crypto.createHash('md5').update(str).digest('base64')
 }
 
-const neteasePickey = (id) => {
+const neteasePicKey = (id) => {
   id = String(id)
   const magic = '3go8&$8*3*3h0k(2)2'.split('')
   const songId = id
@@ -56,7 +56,7 @@ const checkAPIResponseData = (data) => {
   }
 }
 
-const APIRemeberCaller = async (func, params) => {
+const APIRememberCaller = async (func, params) => {
   const body = await func(...params)
   checkAPIResponseData(body)
   return body
@@ -83,10 +83,10 @@ const recoverRequest = (err) => {
 }
 
 module.exports = {
-  neteasePickey,
+  neteasePicKey,
   checkResponseStatus,
   checkAPIResponseData,
-  APIRemeberCaller,
+  APIRememberCaller,
   SDKRequestGenerator,
   recoverRequest,
 }

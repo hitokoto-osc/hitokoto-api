@@ -1,6 +1,6 @@
 // This module is intended to get the play url of ncm songs
 const Joi = require('joi')
-const { getSongsURLs } = require('./_sdk_wrapper')
+const { getSongsURLs } = require('./_sdk_song_wrapper')
 
 // validation schema
 const { ValidateParams } = require('../../utils/response')

@@ -1,6 +1,6 @@
 const sdk = require('NeteaseCloudMusicApi')
 const Cache = require('../../cache')
-const { SDKRequestGenerator, APIRemeberCaller } = require('./_sdk_utils')
+const { SDKRequestGenerator, APIRememberCaller } = require('./_sdk_utils')
 const { md5 } = require('../../utils/crypto')
 
 /**
@@ -23,10 +23,10 @@ exports.getAlbum = (id, ...options) => {
  */
 exports.getAlbumWitchCache = (id, ...options) => {
   const [realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     'nm:album:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getAlbum, [id, realIP]],
   )
 }
@@ -51,10 +51,10 @@ exports.getArtists = (id, ...options) => {
  */
 exports.getArtistsWitchCache = (id, ...options) => {
   const [realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     'nm:artist:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getArtists, [id, realIP]],
   )
 }
@@ -81,10 +81,10 @@ exports.getPlaylistDetail = (id, s, ...options) => {
  */
 exports.getPlaylistDetailWithCache = (id, s, ...options) => {
   const [realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     'nm:playlist:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getPlaylistDetail, [id, s, realIP]],
   )
 }
@@ -118,10 +118,10 @@ exports.search = (keywords, limit, offset, ...options) => {
  */
 exports.searchWithCache = (keywords, limit, offset, ...options) => {
   const [type, realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     `nm:search:${md5(keywords)}:${limit}:${offset}:${type}`,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.search, [keywords, limit, offset, type, realIP]],
   )
 }

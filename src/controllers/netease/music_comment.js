@@ -1,6 +1,9 @@
 // This module is intended to get song comments
 const Joi = require('joi')
-const { getSongComment, getSongsDetailWithCache } = require('./_sdk_wrapper')
+const {
+  getSongComment,
+  getSongsDetailWithCache,
+} = require('./_sdk_song_wrapper')
 const { recoverRequest } = require('./_sdk_utils')
 // validation schema
 const { ValidateParams } = require('../../utils/response')

@@ -5,7 +5,7 @@ const { ValidateParams } = require('../../utils/response')
 const {
   getPlaylistDetail,
   getPlaylistDetailWithCache,
-} = require('./_sdk_wrapper')
+} = require('./_sdk_uncategorized_wrapper')
 const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   id: Joi.number().min(1).max(1000000000000).required(),

@@ -1,6 +1,6 @@
 // This module is intended to impl warppers of songs in NeteaseCloudMusicApi
 const sdk = require('NeteaseCloudMusicApi')
-const { APIRemeberCaller, SDKRequestGenerator } = require('./_sdk_utils')
+const { APIRememberCaller, SDKRequestGenerator } = require('./_sdk_utils')
 const Cache = require('../../cache')
 
 /**
@@ -21,11 +21,11 @@ exports.getDJDetail = (rid, ...options) => {
  * @param {string} rid DJ ID
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getDJDetaillWithCache = (rid, realIP) => {
-  return Cache.remeber(
+exports.getDJDetailWithCache = (rid, realIP) => {
+  return Cache.remember(
     'nm:dj:detail:' + rid,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getDJDetail, [rid, realIP]],
   )
 }
@@ -46,10 +46,10 @@ exports.getDJProgramDetail = (id, ...options) => {
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getDJProgramDetailWithCache = (id, realIP) => {
-  return Cache.remeber(
+  return Cache.remember(
     'nm:dj:program:info:' + id,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getDJProgramDetail, [id, realIP]],
   )
 }
@@ -83,10 +83,10 @@ exports.getDJProgram = (rid, limit, offset, ...options) => {
  */
 exports.getDJProgramWithCache = (rid, limit, offset, ...options) => {
   const [asc, realIP] = options
-  return Cache.remeber(
+  return Cache.remember(
     `nm:dj:program:${rid}:${offset}:${limit}:${asc}`,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getDJProgram, [rid, limit, offset, asc, realIP]],
   )
 }

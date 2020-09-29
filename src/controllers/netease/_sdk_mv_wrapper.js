@@ -1,6 +1,6 @@
 // This module is intended to impl warppers of songs in NeteaseCloudMusicApi
 const sdk = require('NeteaseCloudMusicApi')
-const { APIRemeberCaller, SDKRequestGenerator } = require('./_sdk_utils')
+const { APIRememberCaller, SDKRequestGenerator } = require('./_sdk_utils')
 const Cache = require('../../cache')
 
 /**
@@ -21,10 +21,10 @@ exports.getMVURL = async (mvid, realIP) => {
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getMVURLWithCache = async (mvid, realIP) => {
-  return Cache.remeber(
+  return Cache.remember(
     `nm:mv:url:${mvid}`,
     60 * 5, // 2 Mins
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getMVURL, [mvid, realIP]],
   )
 }
@@ -35,10 +35,10 @@ exports.getMVURLWithCache = async (mvid, realIP) => {
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getMVDetailWithCache = (mvid, realIP) => {
-  return Cache.remeber(
+  return Cache.remember(
     'nm:mv:' + mvid,
     60 * 60 * 2, // 2 Hours
-    APIRemeberCaller,
+    APIRememberCaller,
     [exports.getMVDetailWithCache, [mvid, realIP]],
   )
 }
