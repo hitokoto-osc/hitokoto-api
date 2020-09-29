@@ -602,12 +602,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hitokoto/koa-jsonp@npm:3.0.6":
-  version: 3.0.6
-  resolution: "@hitokoto/koa-jsonp@npm:3.0.6::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hitokoto%2Fkoa-jsonp%2Fdownload%2F%40hitokoto%2Fkoa-jsonp-3.0.6.tgz"
+"@hitokoto/koa-jsonp@npm:3.0.7":
+  version: 3.0.7
+  resolution: "@hitokoto/koa-jsonp@npm:3.0.7::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hitokoto%2Fkoa-jsonp%2Fdownload%2F%40hitokoto%2Fkoa-jsonp-3.0.7.tgz"
   dependencies:
     flatstr: ^1.0.12
-  checksum: c6ea253aadbd69ca31aada652d75d904f1b01b69f10864bc67c818b75b0ccd3057e6d004781e714c286fb89c884a1f15322b99d372ef0a055f3bf44dabf717b4
+    iconv-lite: ^0.6.2
+  checksum: 82da1bfc028ae2be6c2a4ae8084c2a3a431ee049f050895f2c656db5047a0539e9e0c77ecec45839109b413c881cffd6860cbf8e7e15c6c43b2dacb7814a4b3a
   languageName: node
   linkType: hard
 
@@ -5164,7 +5165,7 @@ fsevents@^2.1.2:
   dependencies:
     "@commitlint/cli": 11.0.0
     "@commitlint/config-conventional": 11.0.0
-    "@hitokoto/koa-jsonp": 3.0.6
+    "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
     NeteaseCloudMusicApi: 3.41.2
     async: 3.2.0
@@ -5433,6 +5434,15 @@ fsevents@^2.1.2:
   dependencies:
     safer-buffer: ">= 2.1.2 < 3"
   checksum: b54433bf0128a26c5720d35785a7bc7ca0f72e8984e2fefcead1baeaee20266a8a6c397dd0598e74a9615b79142afb46bc937a218c887b10ca967278b508d933
+  languageName: node
+  linkType: hard
+
+"iconv-lite@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "iconv-lite@npm:0.6.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ficonv-lite%2Fdownload%2Ficonv-lite-0.6.2.tgz"
+  dependencies:
+    safer-buffer: ">= 2.1.2 < 3.0.0"
+  checksum: 0785670120f57b5912c6a4391d6a69914906746d259b59de884dc6d324a52a0abde38d5804f67370192fec6878d01e7306de525568abcea70eb41c2bceb9f547
   languageName: node
   linkType: hard
 
@@ -9596,7 +9606,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"safer-buffer@npm:>= 2.1.2 < 3, safer-buffer@npm:^2.0.2, safer-buffer@npm:^2.1.0, safer-buffer@npm:~2.1.0":
+"safer-buffer@npm:>= 2.1.2 < 3, safer-buffer@npm:>= 2.1.2 < 3.0.0, safer-buffer@npm:^2.0.2, safer-buffer@npm:^2.1.0, safer-buffer@npm:~2.1.0":
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsafer-buffer%2Fdownload%2Fsafer-buffer-2.1.2.tgz"
   checksum: 549ba83f5b314b59898efe3422120ce1ca7987a6eae5925a5fa5db930dc414d4a9dde0a5594f89638cd6ea60b6840ea961872908933ac2428d1726489db46fa5
