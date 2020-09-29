@@ -10,7 +10,7 @@
     "start": "node core",
     "pnpify": "yarn dlx @yarnpkg/pnpify",
     "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
-    "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"node\" -- \"core.js\"",
+    "watch": "supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
     "test": "jest",
     "commit": "git-cz",
     "release": "release-it",
