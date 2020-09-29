@@ -1915,13 +1915,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bowser@npm:2.9.0":
-  version: 2.9.0
-  resolution: "bowser@npm:2.9.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbowser%2Fdownload%2Fbowser-2.9.0.tgz"
-  checksum: 6267f890c4cb16798607a0961acbb58213f4e595bf7ab5c7960b0978d1dcc9f18463964ced3c1dccdd1447b2106d37cc6ef862cfca5dbfe02af28949b0c29521
-  languageName: node
-  linkType: hard
-
 "boxen@npm:^4.2.0":
   version: 4.2.0
   resolution: "boxen@npm:4.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fboxen%2Fdownload%2Fboxen-4.2.0.tgz"
@@ -2161,13 +2154,6 @@ __metadata:
   version: 6.0.0
   resolution: "camelcase@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcamelcase%2Fdownload%2Fcamelcase-6.0.0.tgz"
   checksum: d92305180bc2041141cc0c889ee54d14f90b16365dc7c01eabe6d54e913eb8011313f98dde3025ae11f0003b601ba320f56ee56db476c64060cf2305bf7f6f2a
-  languageName: node
-  linkType: hard
-
-"camelize@npm:1.0.0":
-  version: 1.0.0
-  resolution: "camelize@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcamelize%2Fdownload%2Fcamelize-1.0.0.tgz"
-  checksum: 6891ec64c7f4cf6a6182040d592915dc36770ec9f3e96e4dd03925f93f72aa92fc90b59b314ad3ebce406426955b1b8aded52bbb26e5d96242a724f324c95871
   languageName: node
   linkType: hard
 
@@ -2583,13 +2569,6 @@ __metadata:
   dependencies:
     safe-buffer: 5.1.2
   checksum: 8f1f235c0423be68023df7f5a3948601d859ce44ee94e1d0fa2a97383bd469e789320b6ddf6f31b3620605c75cf771522df11386f51aff401e5d51b6ccfde3e2
-  languageName: node
-  linkType: hard
-
-"content-security-policy-builder@npm:2.1.0":
-  version: 2.1.0
-  resolution: "content-security-policy-builder@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcontent-security-policy-builder%2Fdownload%2Fcontent-security-policy-builder-2.1.0.tgz"
-  checksum: ad2d7116f15ae1a2fd2cee980102fca3b4a047439e90dbdcd38574d5dd704921a93a10dd63b00eea3adf3b2e7cc1feae86bf046c373fd8ddeedd61c3ce0382c4
   languageName: node
   linkType: hard
 
@@ -3024,13 +3003,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dasherize@npm:2.0.0":
-  version: 2.0.0
-  resolution: "dasherize@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdasherize%2Fdownload%2Fdasherize-2.0.0.tgz"
-  checksum: a27652729a4460b76589564e352ecf807f801a3ea9104357eab22301a051c515621d628bd821abf33374c3e11f06b2c7dc25db5d968090c9212b07771b3b0ca6
-  languageName: node
-  linkType: hard
-
 "data-uri-to-buffer@npm:3":
   version: 3.0.1
   resolution: "data-uri-to-buffer@npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdata-uri-to-buffer%2Fdownload%2Fdata-uri-to-buffer-3.0.1.tgz"
@@ -3280,17 +3252,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:2.0.0, depd@npm:~2.0.0":
-  version: 2.0.0
-  resolution: "depd@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdepd%2Fdownload%2Fdepd-2.0.0.tgz"
-  checksum: 20726d843f5ab5e933211fcb5a440a1a3986ef9d6f85d38cf1eae815ea3cc12fa4436bd35a38e21bdb391a021b57f2d97b9f856873852506acac1b07ac913ba4
-  languageName: node
-  linkType: hard
-
 "depd@npm:^1.1.2, depd@npm:~1.1.2":
   version: 1.1.2
   resolution: "depd@npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdepd%2Fdownload%2Fdepd-1.1.2.tgz"
   checksum: f45566ff7019a346852f095768a380778ed544de24e103b479fd5d3e61982d670efbb5234c09d0588d7fdb09c26c48283d7150e4be5e6ce5d3d37cd268d75c4d
+  languageName: node
+  linkType: hard
+
+"depd@npm:~2.0.0":
+  version: 2.0.0
+  resolution: "depd@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdepd%2Fdownload%2Fdepd-2.0.0.tgz"
+  checksum: 20726d843f5ab5e933211fcb5a440a1a3986ef9d6f85d38cf1eae815ea3cc12fa4436bd35a38e21bdb391a021b57f2d97b9f856873852506acac1b07ac913ba4
   languageName: node
   linkType: hard
 
@@ -3427,13 +3399,6 @@ __metadata:
     domelementtype: ^2.0.1
     domhandler: ^3.2.0
   checksum: c2b58ed3bff78c1a54901f01e6a66761af6894351f9f27ba675c3f3f7cf8b179029138ecbd8e5477890764f6a9fcd8f994feaff3ac5766a6c5a1750ad95e37a9
-  languageName: node
-  linkType: hard
-
-"dont-sniff-mimetype@npm:1.1.0":
-  version: 1.1.0
-  resolution: "dont-sniff-mimetype@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdont-sniff-mimetype%2Fdownload%2Fdont-sniff-mimetype-1.1.0.tgz"
-  checksum: eeb1f3d29afad4458c2cdb5802175be22e33122ea13fb77b1924cf2e1939b76c36610ef302018567a17c86cb1f9a0ef84fd743b3179980c8fa539cd253c61bd4
   languageName: node
   linkType: hard
 
@@ -4208,13 +4173,6 @@ __metadata:
   dependencies:
     bser: 2.1.1
   checksum: f9ec24592a45026a6a7f54034a4b5efb010cac7d7fbc234fe9ae5d725c13efa9be0ded1ae348473fc42af4e28eea53f8b993857c0c49e6d721f7c9eb5b21217f
-  languageName: node
-  linkType: hard
-
-"feature-policy@npm:0.3.0":
-  version: 0.3.0
-  resolution: "feature-policy@npm:0.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffeature-policy%2Fdownload%2Ffeature-policy-0.3.0.tgz"
-  checksum: 13746df7d588368494d7e5692c91adac6e31aa2e6f2bb549dbe61d6390978d3be92e2931586c0e47f4343b2f9d5f884346a632a91dd4fb8a9d8c70b995f05e69
   languageName: node
   linkType: hard
 
@@ -5113,48 +5071,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"helmet-crossdomain@npm:0.4.0":
-  version: 0.4.0
-  resolution: "helmet-crossdomain@npm:0.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhelmet-crossdomain%2Fdownload%2Fhelmet-crossdomain-0.4.0.tgz"
-  checksum: 03a02a14612c4580899600aae2e8d794fe216c6e2700387b92199cbbcff04d89cf60a67f18ea7f4b4124b0c774d3d64338736a1a7bc637a0cd02c93b54fabafc
-  languageName: node
-  linkType: hard
-
-"helmet-csp@npm:2.10.0":
-  version: 2.10.0
-  resolution: "helmet-csp@npm:2.10.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhelmet-csp%2Fdownload%2Fhelmet-csp-2.10.0.tgz"
-  dependencies:
-    bowser: 2.9.0
-    camelize: 1.0.0
-    content-security-policy-builder: 2.1.0
-    dasherize: 2.0.0
-  checksum: 8ac43b050a900a8c8dc0bf192d99345e5692e755348b55546230bb7c9f7d2d019e942f2c839bee1b2706a4b2e56040cf4930b452024c76e3d8a25d12b1c4329d
-  languageName: node
-  linkType: hard
-
-"helmet@npm:^3.21.1":
-  version: 3.23.3
-  resolution: "helmet@npm:3.23.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhelmet%2Fdownload%2Fhelmet-3.23.3.tgz"
-  dependencies:
-    depd: 2.0.0
-    dont-sniff-mimetype: 1.1.0
-    feature-policy: 0.3.0
-    helmet-crossdomain: 0.4.0
-    helmet-csp: 2.10.0
-    hide-powered-by: 1.1.0
-    hpkp: 2.0.0
-    hsts: 2.2.0
-    nocache: 2.1.0
-    referrer-policy: 1.2.0
-    x-xss-protection: 1.3.0
-  checksum: 8620ed4d5df36c0284090dec90084030ba10af0670311eca37e8589b48dd89470869723d894b5e4ffc0e128058f47e1d88d0fa5a46a8ab0c6425e971021f283a
-  languageName: node
-  linkType: hard
-
-"hide-powered-by@npm:1.1.0":
-  version: 1.1.0
-  resolution: "hide-powered-by@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhide-powered-by%2Fdownload%2Fhide-powered-by-1.1.0.tgz"
-  checksum: e8f4c815aaa7fd000fb798ff742c3a583ce1cfb347409927455224e075f32e309c2a046a6241c50a0be28af8106d9e122c8e24c8fbef33d37720fca2a59c5a4e
+"helmet@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "helmet@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhelmet%2Fdownload%2Fhelmet-4.1.1.tgz"
+  checksum: 7d4371e3a4b5cb60c9d0b4e1341cade3836bff9734b837e04c6571ebe1237e6c52b928a4c9e308d80d6996bdf8561105e86911d04cff2f8957d355436191a19e
   languageName: node
   linkType: hard
 
@@ -5199,7 +5119,7 @@ fsevents@^2.1.2:
     koa-bodyparser: 4.3.0
     koa-compress: 5.0.1
     koa-favicon: 2.1.0
-    koa-helmet: 5.2.0
+    koa-helmet: 6.0.0
     koa-livereload: 0.2.0
     koa-query-pretty: 0.3.0
     koa-router: 9.4.0
@@ -5238,22 +5158,6 @@ fsevents@^2.1.2:
   version: 2.8.8
   resolution: "hosted-git-info@npm:2.8.8::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhosted-git-info%2Fdownload%2Fhosted-git-info-2.8.8.tgz"
   checksum: 3ecc389dc6ecbd5463fada7e04461e96f3c817fe2f989ca41e9dd3b503745a0bfa26fba405861b2831ca64edc1abc5d2fbc97ee977303f89650dac4fbfdc2d7a
-  languageName: node
-  linkType: hard
-
-"hpkp@npm:2.0.0":
-  version: 2.0.0
-  resolution: "hpkp@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhpkp%2Fdownload%2Fhpkp-2.0.0.tgz"
-  checksum: aa242ad5d5f22e09ac36f15d797e0165ae6fcfaaa96aff88a0e44957531e38c5bc7c7c318f794073f7c1b4be3dcad1b3929c86d433e2ad2a23e007f9120383ce
-  languageName: node
-  linkType: hard
-
-"hsts@npm:2.2.0":
-  version: 2.2.0
-  resolution: "hsts@npm:2.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhsts%2Fdownload%2Fhsts-2.2.0.tgz"
-  dependencies:
-    depd: 2.0.0
-  checksum: 7803631e59ce0f6601c001bc9bb4e23ea0415e8539b50073a0129594a24548b40f79184db2b9ed6ce6f73a70b66738b7a1fb3ee7f33e422ea3e718f50be8387f
   languageName: node
   linkType: hard
 
@@ -6952,12 +6856,12 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"koa-helmet@npm:5.2.0":
-  version: 5.2.0
-  resolution: "koa-helmet@npm:5.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa-helmet%2Fdownload%2Fkoa-helmet-5.2.0.tgz"
+"koa-helmet@npm:6.0.0":
+  version: 6.0.0
+  resolution: "koa-helmet@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa-helmet%2Fdownload%2Fkoa-helmet-6.0.0.tgz"
   dependencies:
-    helmet: ^3.21.1
-  checksum: d1c62814dad52820a029d06841ceef680c51bd19d01fdd6af7acda1546ac02125ab82e440803e81b7674329614ded93cb863fa682752d61e508fbccbb1c26c33
+    helmet: ^4.1.1
+  checksum: e0e3e273983264b10bfe8056610e371bc28d8a4ffaf97e1b7d35d9c691add4b53d933fb82e60dcc262403f724bf0f3276652f3fa79850060aa8f993afe3c7161
   languageName: node
   linkType: hard
 
@@ -7867,13 +7771,6 @@ fsevents@^2.1.2:
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnice-try%2Fdownload%2Fnice-try-1.0.5.tgz"
   checksum: 330f190bf68146a560008b661e1ddbb2eac667c16990b6bf791516d89cceb707ec67901ad647d2b32674bfa816b916489cead5c2fb6e96864c659573ab5aa3bb
-  languageName: node
-  linkType: hard
-
-"nocache@npm:2.1.0":
-  version: 2.1.0
-  resolution: "nocache@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnocache%2Fdownload%2Fnocache-2.1.0.tgz"
-  checksum: 002c9237df3f79d92784d15bf89e1d0a3112a6cbb5e4bb8ff91791bbd1f288c33f3d07a429bc3942499dc49caf5c7f0f578825daa9f3e5ffba3dd3c32080acb9
   languageName: node
   linkType: hard
 
@@ -9191,13 +9088,6 @@ fsevents@^2.1.2:
   dependencies:
     redis-errors: ^1.0.0
   checksum: 45dbcb05bed2c80a4aac288bbefed2347ecf3508c24d542ab42efa21fd63b5aaca4208b206f05818835a2ac43abe09250c2638c11c3b0b66a5d67e83985e350f
-  languageName: node
-  linkType: hard
-
-"referrer-policy@npm:1.2.0":
-  version: 1.2.0
-  resolution: "referrer-policy@npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Freferrer-policy%2Fdownload%2Freferrer-policy-1.2.0.tgz"
-  checksum: 44315474960848fd3508e22a3ba109cd77599e5f85ada06bcdbf420049e66ccf0a0190eeb3613508cccf2e9f9c13b70cb20a09a8a44e3cace39d6c7d2ec50acc
   languageName: node
   linkType: hard
 
@@ -11380,13 +11270,6 @@ fsevents@^2.1.2:
     utf-8-validate:
       optional: true
   checksum: 9302f1f6658c5f3ecd6d35d1c5a38ad708d8e5404cba66ad884ead072ef7a4c948f54d728649a2cb3af1865ca0e15f903e0e2ac9df30c1a0d4dd00d00e6e0d4a
-  languageName: node
-  linkType: hard
-
-"x-xss-protection@npm:1.3.0":
-  version: 1.3.0
-  resolution: "x-xss-protection@npm:1.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fx-xss-protection%2Fdownload%2Fx-xss-protection-1.3.0.tgz"
-  checksum: 58c3966b6b087363c937e5d4ee91a278e22b6388c87be48c23a97ca6699a6361b2c25803a7642c8cf691b04e1e8f8841732db2d9415b582c02130a8b09a8100f
   languageName: node
   linkType: hard
 
