@@ -4991,7 +4991,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"got@npm:^11.7.0":
+"got@npm:11.7.0":
   version: 11.7.0
   resolution: "got@npm:11.7.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgot%2Fdownload%2Fgot-11.7.0.tgz"
   dependencies:
@@ -5252,13 +5252,13 @@ fsevents@^2.1.2:
     eslint-plugin-promise: 4.2.1
     eslint-plugin-standard: 4.0.1
     fast-json-stringify: 2.2.6
-    got: ^11.7.0
+    got: 11.7.0
     humanize-number: 0.0.2
     husky: 4.3.0
     ioredis: 4.17.3
     jest: 26.4.2
     joi: 17.2.1
-    js-yaml: ^3.14.0
+    js-yaml: 3.14.0
     kcors: 2.2.2
     koa: 2.13.0
     koa-bodyparser: 4.3.0
@@ -5274,7 +5274,7 @@ fsevents@^2.1.2:
     lodash.curry: 4.1.1
     mysql2: 2.1.0
     nconf: 0.10.0
-    nconf-yaml: ^1.0.2
+    nconf-yaml: 1.0.2
     nodemailer: 6.4.11
     nyc: 15.1.0
     passthrough-counter: 1.0.0
@@ -6697,7 +6697,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.13.1, js-yaml@npm:^3.14.0, js-yaml@npm:^3.2.3":
+"js-yaml@npm:3.14.0, js-yaml@npm:^3.13.1, js-yaml@npm:^3.2.3":
   version: 3.14.0
   resolution: "js-yaml@npm:3.14.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-yaml%2Fdownload%2Fjs-yaml-3.14.0.tgz"
   dependencies:
@@ -7871,7 +7871,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"nconf-yaml@npm:^1.0.2":
+"nconf-yaml@npm:1.0.2":
   version: 1.0.2
   resolution: "nconf-yaml@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnconf-yaml%2Fdownload%2Fnconf-yaml-1.0.2.tgz"
   dependencies:
