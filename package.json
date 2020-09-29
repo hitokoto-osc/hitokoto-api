@@ -73,6 +73,7 @@
     "commander": "6.1.0",
     "cron": "1.8.2",
     "fast-json-stringify": "2.2.7",
+    "flatstr": "^1.0.12",
     "got": "11.7.0",
     "humanize-number": "0.0.2",
     "ioredis": "4.17.3",
