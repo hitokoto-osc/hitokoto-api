@@ -3282,7 +3282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flatstr@npm:^1.0.12":
+"flatstr@npm:1.0.12, flatstr@npm:^1.0.12":
   version: 1.0.12
   resolution: "flatstr@npm:1.0.12::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fflatstr%2Fdownload%2Fflatstr-1.0.12.tgz"
   checksum: 2803767f91887ffd60ac2aac0d6ccf2dd9e2d8f216628a73e3f525d5b5bfa4ac9a5b57334a4c1e6d5622f92f440c52562f7ca9719ace9d025d6c5b7a1a1579db
@@ -3891,7 +3891,7 @@ __metadata:
     eslint-plugin-promise: 4.2.1
     eslint-plugin-standard: 4.0.1
     fast-json-stringify: 2.2.7
-    flatstr: ^1.0.12
+    flatstr: 1.0.12
     got: 11.7.0
     humanize-number: 0.0.2
     husky: 4.3.0
