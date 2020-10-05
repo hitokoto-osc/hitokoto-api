@@ -217,11 +217,9 @@ async function updateSpecificCategorySentences(SideAB, category) {
   winston.verbose(
     `[sentencesUpdateTask] the sentences of category ${chalk.red(
       category.key,
-    )} is updated. Max length: ${chalk.green(
+    )} is updated. length range: [${chalk.green(minLength)}, ${chalk.green(
       maxLength,
-    )}, min length: ${chalk.green(minLength)}, total: ${chalk.blue(
-      categorySentencesTotal,
-    )}`,
+    )}], total: ${chalk.blue(categorySentencesTotal)}`,
   )
   return categorySentencesTotal
 }
