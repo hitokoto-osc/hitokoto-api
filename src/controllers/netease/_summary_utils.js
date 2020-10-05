@@ -6,10 +6,9 @@ const {
   getSongsURLs,
   getSongsDetail,
   getSongsDetailWithCache,
-  getAlbum,
-  getAlbumWitchCache,
-  getPictureURL,
-} = require('./_sdk_wrapper')
+} = require('./_sdk_song_wrapper')
+const { getAlbum, getAlbumWitchCache } = require('./_sdk_uncategorized_wrapper')
+const { getPictureURL } = require('./_sdk_wrapper')
 const { getLyricWithCache } = require('./_summary_wrapper')
 const { ResponseValidationException } = require('./_sdk_exception')
 const { md5 } = require('../../utils/crypto')
