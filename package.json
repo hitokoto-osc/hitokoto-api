@@ -1,6 +1,6 @@
 {
   "name": "hitokoto",
-  "version": "1.5.1",
+  "version": "1.6.0-alpha.1",
   "description": "Fast & Powerful Hitokoto API Framework.",
   "main": "core.js",
   "engines": {
