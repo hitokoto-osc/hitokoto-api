@@ -13,10 +13,10 @@ module.exports = async (ctx) => {
   const data = await fetchData()
   // All
   const all = {}
-  all.now = fetchData[0] || 0
-  all.past_minute = fetchData[1]
-  all.past_hour = fetchData[2]
-  all.past_day = fetchData[3]
+  all.now = data[0] || 0
+  all.past_minute = data[1]
+  all.past_hour = data[2]
+  all.past_day = data[3]
   // Hosts
   const [[hosts, limitedHosts], hitokoto] = await Promise.all([
     genHostsWithValidHostList(data),
@@ -27,7 +27,6 @@ module.exports = async (ctx) => {
     now: all.now,
     fetchData: data,
     limitedHosts,
-    hostsData: fetchData[4],
   })
   all.day_map = dayMap[0]
   all.five_minutes_map = fetchDayMap[2]

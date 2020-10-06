@@ -136,10 +136,10 @@ async function fetchData() {
   ])
 }
 
-async function fetchDayMap({ now, limitedHosts, hostsData }) {
+async function fetchDayMap({ now, limitedHosts, fetchData }) {
   return Promise.all([
     getAllDayMap(now),
-    getHostsDayMap(limitedHosts, hostsData),
+    getHostsDayMap(limitedHosts, fetchData[4]),
     getPast5MinuteMap(now),
   ])
 }
