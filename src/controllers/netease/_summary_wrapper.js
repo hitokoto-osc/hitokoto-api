@@ -1,6 +1,6 @@
 // This module is intended to impl series wrappers of exported func that will be used in summary.
 const Cache = require('../../cache')
-const { getLyricWithCache } = require('./_sdk_wrapper')
+const { getLyricWithCache } = require('./_sdk_song_wrapper')
 const { ResponseValidationException } = require('./_sdk_exception')
 
 exports.getLyric = async (id, params) => {
