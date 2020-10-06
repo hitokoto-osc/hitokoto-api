@@ -27,6 +27,7 @@ module.exports = async (ctx) => {
     now: all.now,
     fetchData: data,
     limitedHosts,
+    hostData: fetchData[4],
   })
   all.day_map = dayMap[0]
   all.five_minutes_map = fetchDayMap[2]

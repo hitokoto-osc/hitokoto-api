@@ -78,7 +78,7 @@ async function getAllDayMap(now) {
   return data
 }
 
-async function getHostsDayMap(limitHosts, hosts) {
+async function getHostsDayMap(limitHosts, hostsData) {
   const ts = parseInt(Date.now().toString().slice(0, 10))
   const events = []
   for (let index = 1; index < 26; index++) {
@@ -89,7 +89,7 @@ async function getHostsDayMap(limitHosts, hosts) {
   const result = await Promise.all(events)
   const data = {}
   for (const host of limitHosts) {
-    const _ = result[0] ? hosts[host] - parseInt(result[0][host]) : 0
+    const _ = result[0] ? hostsData[host] - parseInt(result[0][host]) : 0
     data[host] = {}
     data[host].day_map = []
     data[host].day_map.push(_)
@@ -136,10 +136,10 @@ async function fetchData() {
   ])
 }
 
-async function fetchDayMap({ now, limitedHosts, hosts }) {
+async function fetchDayMap({ now, limitedHosts, hostsData }) {
   return Promise.all([
     getAllDayMap(now),
-    getHostsDayMap(limitedHosts, hosts),
+    getHostsDayMap(limitedHosts, hostsData),
     getPast5MinuteMap(now),
   ])
 }
