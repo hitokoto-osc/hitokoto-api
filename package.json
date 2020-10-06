@@ -14,7 +14,7 @@
     "test": "yarn dlx jest",
     "commit": "yarn dlx git-cz",
     "release": "yarn dlx release-it",
-    "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -- \" -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js\""
+    "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
   },
   "repository": "https://github.com/hitokoto-osc/hitokoto-api",
   "author": "a632079 <a632079@qq.com>",
