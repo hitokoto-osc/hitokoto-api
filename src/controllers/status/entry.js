@@ -29,9 +29,9 @@ module.exports = async (ctx) => {
     limitedHosts,
   })
   all.day_map = dayMap[0]
-  all.five_minutes_map = fetchDayMap[2]
+  all.five_minutes_map = dayMap[2]
   for (const host of limitedHosts) {
-    Object.assign(hosts[host], fetchDayMap[1][host])
+    Object.assign(hosts[host], dayMap[1][host])
   }
 
   const memoryUsage = getMemoryUsage()
