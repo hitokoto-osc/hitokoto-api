@@ -2027,12 +2027,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4.1.1":
-  version: 4.1.1
-  resolution: "debug@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-4.1.1.tgz"
+"debug@npm:4.2.0":
+  version: 4.2.0
+  resolution: "debug@npm:4.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-4.2.0.tgz"
   dependencies:
-    ms: ^2.1.1
-  checksum: 3601a6ce96e4698ed3edf0ee6e67ef0317adfcdae2f66a43b23d1b14e8888b422337429b16dbbcba6801e7bfa6cbb8de3128fbacfb8ae1cd9bd7615ea6baf970
+    ms: 2.1.2
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: dcfb8ede26b4d899628a75806923ab9ad29daae7db0f6f1ca6227b660693ae0ca085c7f87261793abe0832ad56aff2afc33f907c6b5dc96a41fc208771feb465
   languageName: node
   linkType: hard
 
@@ -3457,12 +3460,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-url-parse@npm:11.2.0":
-  version: 11.2.0
-  resolution: "git-url-parse@npm:11.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgit-url-parse%2Fdownload%2Fgit-url-parse-11.2.0.tgz"
+"git-url-parse@npm:11.3.0":
+  version: 11.3.0
+  resolution: "git-url-parse@npm:11.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgit-url-parse%2Fdownload%2Fgit-url-parse-11.3.0.tgz"
   dependencies:
     git-up: ^4.0.0
-  checksum: e9919fd1240917f74241a60b571a93e748a9e24648caf96f7b4183bbf44ff7de133a3554e1c3fda6a23e5b3b12ea2316e0f692c03e12ee590cae0a05ebcd5b66
+  checksum: 86155163c8e33c0268d2741c65bc01eecf82c6d9818759de65993b04ca2baa7009a6a77dd1dfdb527510e24dac558f3cb4d134e41a88d0374c2fd39b0676ef84
   languageName: node
   linkType: hard
 
@@ -3572,25 +3575,6 @@ __metadata:
     merge2: ^1.3.0
     slash: ^3.0.0
   checksum: e7239e9e468c3692aec31dc97b5efc13dd21edf38820baeda98118ade39f475c4ff9e7610859eb4a3c75277ca2616e371265fec3c626aba5db4335bc41c59ac7
-  languageName: node
-  linkType: hard
-
-"got@npm:11.6.2":
-  version: 11.6.2
-  resolution: "got@npm:11.6.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgot%2Fdownload%2Fgot-11.6.2.tgz"
-  dependencies:
-    "@sindresorhus/is": ^3.1.1
-    "@szmarczak/http-timer": ^4.0.5
-    "@types/cacheable-request": ^6.0.1
-    "@types/responselike": ^1.0.0
-    cacheable-lookup: ^5.0.3
-    cacheable-request: ^7.0.1
-    decompress-response: ^6.0.0
-    http2-wrapper: ^1.0.0-beta.5.2
-    lowercase-keys: ^2.0.0
-    p-cancelable: ^2.0.0
-    responselike: ^2.0.0
-  checksum: 846791374184544a65892074120dac129c0eeffa83e92bd1a12600d7e73f401836e6527dcfa80010a907ee0bb2ba13e303bcfe019a6754b92ff7fda48598d8e3
   languageName: node
   linkType: hard
 
@@ -3795,7 +3779,7 @@ __metadata:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.1.2
-    release-it: 14.0.3
+    release-it: 14.0.4
     semver: 7.3.2
     sequelize: 6.3.5
     supertest: 5.0.0
@@ -4358,10 +4342,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-npm@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "is-npm@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-npm%2Fdownload%2Fis-npm-4.0.0.tgz"
-  checksum: 94ab2edae37293ceba039729ba1de851448059979138f72d7184a89a484bf70fbefc462268fecf59865e54ce972c15164229acc73bd56c025a7afc7dd0702c40
+"is-npm@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "is-npm@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-npm%2Fdownload%2Fis-npm-5.0.0.tgz"
+  checksum: e424b2040ae8923ce5fc67d6bd1cf0a396eea3c63b7c0b483aa320aa2585a27f6609fab93127361d5af6c67528ba400d11834641ad11cff10c94561537006639
   languageName: node
   linkType: hard
 
@@ -5530,7 +5514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.2, ms@npm:^2.1.1":
+"ms@npm:2.1.2":
   version: 2.1.2
   resolution: "ms@npm:2.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.1.2.tgz"
   checksum: 9b65fb709bc30c0c07289dcbdb61ca032acbb9ea5698b55fa62e2cebb04c5953f1876a1f3f7f4bc2e91d4bf4d86003f3e207c3bc6ee2f716f99827e62389cd0e
@@ -6665,23 +6649,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.0.3":
-  version: 14.0.3
-  resolution: "release-it@npm:14.0.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.0.3.tgz"
+"release-it@npm:14.0.4":
+  version: 14.0.4
+  resolution: "release-it@npm:14.0.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.0.4.tgz"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 18.0.6
     async-retry: 1.3.1
     chalk: 4.1.0
     cosmiconfig: 7.0.0
-    debug: 4.1.1
+    debug: 4.2.0
     deprecated-obj: 2.0.0
     execa: 4.0.3
     find-up: 5.0.0
     form-data: 3.0.0
-    git-url-parse: 11.2.0
+    git-url-parse: 11.3.0
     globby: 11.0.1
-    got: 11.6.2
+    got: 11.7.0
     import-cwd: 3.0.0
     inquirer: 7.3.3
     is-ci: 2.0.0
@@ -6692,14 +6676,14 @@ __metadata:
     parse-json: 5.1.0
     semver: 7.3.2
     shelljs: 0.8.4
-    update-notifier: 4.1.1
+    update-notifier: 5.0.0
     url-join: 4.0.1
-    uuid: 8.3.0
+    uuid: 8.3.1
     yaml: 1.10.0
-    yargs-parser: 20.0.0
+    yargs-parser: 20.2.1
   bin:
     release-it: bin/release-it.js
-  checksum: b83ee0f183ed620692dc52afd217ca931d971b8aadd7d19ec7b3ab1096701f40602268d00c0ee827c252b1c99fb771fce85c54986c60917ab5aafa88c8afc083
+  checksum: 0bc3bb4a2214405b10480cad4caa97932f9f1a8fb0208dd7b4d38e89336fe37d767743f9299304c3e28fcb2e72bf11c8397ba4f4c581ae39efc5af30f6c2aee7
   languageName: node
   linkType: hard
 
@@ -8030,24 +8014,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"update-notifier@npm:4.1.1":
-  version: 4.1.1
-  resolution: "update-notifier@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fupdate-notifier%2Fdownload%2Fupdate-notifier-4.1.1.tgz"
+"update-notifier@npm:5.0.0":
+  version: 5.0.0
+  resolution: "update-notifier@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fupdate-notifier%2Fdownload%2Fupdate-notifier-5.0.0.tgz"
   dependencies:
     boxen: ^4.2.0
-    chalk: ^3.0.0
+    chalk: ^4.1.0
     configstore: ^5.0.1
     has-yarn: ^2.1.0
     import-lazy: ^2.1.0
     is-ci: ^2.0.0
     is-installed-globally: ^0.3.1
-    is-npm: ^4.0.0
+    is-npm: ^5.0.0
     is-yarn-global: ^0.3.0
     latest-version: ^5.0.0
     pupa: ^2.0.1
+    semver: ^7.3.2
     semver-diff: ^3.1.1
     xdg-basedir: ^4.0.0
-  checksum: e607ff849d83e1112cc6ed5bfd2c8081723f1bce9ce3904c49ef0a1e5bc930afb8ebb725f015f35b481c0ce508483648f4e6dc8da9a1b7819210ec0800ae2cc9
+  checksum: 241e08952de7b879fd79a631efa179cf7acb1728c679ff44f5f6b3dc43d85c6272a1b616fd16fdb18b8720b0a6376870b03fac36697097836daaef4daa863fd1
   languageName: node
   linkType: hard
 
@@ -8104,15 +8089,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:8.3.0, uuid@npm:^8.1.0":
-  version: 8.3.0
-  resolution: "uuid@npm:8.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fuuid%2Fdownload%2Fuuid-8.3.0.tgz"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: a2bdb8a3eb80a53506e9657e7e1f70d7600562bf43fa010a645fd1deb7de1686df61c496c6f9826bac4be8db4d1ac1b976dd6fdf3bd083207eec1674507936fb
-  languageName: node
-  linkType: hard
-
 "uuid@npm:8.3.1":
   version: 8.3.1
   resolution: "uuid@npm:8.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fuuid%2Fdownload%2Fuuid-8.3.1.tgz"
@@ -8128,6 +8104,15 @@ __metadata:
   bin:
     uuid: ./bin/uuid
   checksum: 1ce3f37e214d6d0dc94a6a9663a0365013ace66bc3fd5b203e6f5d2eeb978aaee1192367222386345d30b4c6a447928c501121aa84c637724bf105ef57284949
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.1.0":
+  version: 8.3.0
+  resolution: "uuid@npm:8.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fuuid%2Fdownload%2Fuuid-8.3.0.tgz"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: a2bdb8a3eb80a53506e9657e7e1f70d7600562bf43fa010a645fd1deb7de1686df61c496c6f9826bac4be8db4d1ac1b976dd6fdf3bd083207eec1674507936fb
   languageName: node
   linkType: hard
 
@@ -8369,10 +8354,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:20.0.0":
-  version: 20.0.0
-  resolution: "yargs-parser@npm:20.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-20.0.0.tgz"
-  checksum: ddd40e7c1a23416f46b08fd5b07b9ac87b56682cbeb164dd56c7bd14a5a2274be2450a1ac8e2c320bf3b558c9b69fd20dd14d03481c75664662838275250cdfa
+"yargs-parser@npm:20.2.1":
+  version: 20.2.1
+  resolution: "yargs-parser@npm:20.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-20.2.1.tgz"
+  checksum: c4945ade7d792bde00e3f68930f56f1fdd531e501c4ecf944c524c1541c5fe2468c27b4f76b0b459009ef09e338750d01810732f99f0a1fa061af4126cf5f53e
   languageName: node
   linkType: hard
 
