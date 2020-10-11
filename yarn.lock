@@ -3779,7 +3779,7 @@ __metadata:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.1.2
-    release-it: 14.0.4
+    release-it: 14.1.0
     semver: 7.3.2
     sequelize: 6.3.5
     supertest: 5.0.0
@@ -6649,9 +6649,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.0.4":
-  version: 14.0.4
-  resolution: "release-it@npm:14.0.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.0.4.tgz"
+"release-it@npm:14.1.0":
+  version: 14.1.0
+  resolution: "release-it@npm:14.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.1.0.tgz"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 18.0.6
@@ -6683,7 +6683,7 @@ __metadata:
     yargs-parser: 20.2.1
   bin:
     release-it: bin/release-it.js
-  checksum: 0bc3bb4a2214405b10480cad4caa97932f9f1a8fb0208dd7b4d38e89336fe37d767743f9299304c3e28fcb2e72bf11c8397ba4f4c581ae39efc5af30f6c2aee7
+  checksum: 19b43b57600d7975df915d6ed56284aa249146b7ca4426bb30912590401ac963111952e7043c23aaee3753a9d2d1ccddd4a1ce135300286b75e93b86ffa9aba8
   languageName: node
   linkType: hard
 
