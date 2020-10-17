@@ -3813,7 +3813,7 @@ __metadata:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.1.2
-    release-it: 14.1.0
+    release-it: 14.2.0
     semver: 7.3.2
     sequelize: 6.3.5
     supertest: 5.0.0
@@ -6684,9 +6684,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.1.0":
-  version: 14.1.0
-  resolution: "release-it@npm:14.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.1.0.tgz"
+"release-it@npm:14.2.0":
+  version: 14.2.0
+  resolution: "release-it@npm:14.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.2.0.tgz"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 18.0.6
@@ -6715,10 +6715,10 @@ __metadata:
     url-join: 4.0.1
     uuid: 8.3.1
     yaml: 1.10.0
-    yargs-parser: 20.2.1
+    yargs-parser: 20.2.3
   bin:
     release-it: bin/release-it.js
-  checksum: 19b43b57600d7975df915d6ed56284aa249146b7ca4426bb30912590401ac963111952e7043c23aaee3753a9d2d1ccddd4a1ce135300286b75e93b86ffa9aba8
+  checksum: 407ddbaf4d080ac634d6da1b1a72366eafac4dd53406b82eb24cccd168232d446a68cf59520ff53b48cde87a44e96d001912a9ebf5db536d92294156e9d67d12
   languageName: node
   linkType: hard
 
@@ -8396,10 +8396,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:20.2.1":
-  version: 20.2.1
-  resolution: "yargs-parser@npm:20.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-20.2.1.tgz"
-  checksum: c4945ade7d792bde00e3f68930f56f1fdd531e501c4ecf944c524c1541c5fe2468c27b4f76b0b459009ef09e338750d01810732f99f0a1fa061af4126cf5f53e
+"yargs-parser@npm:20.2.3":
+  version: 20.2.3
+  resolution: "yargs-parser@npm:20.2.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-20.2.3.tgz"
+  checksum: 6504b053bbb7ac0a3cd4c0e343447f2a7bb7ee18f3de8865a83874531ac8b8b0661cab4a4603a515224d5f5cfcd26d0d9998642b07a58ceab29eea12878123f7
   languageName: node
   linkType: hard
 
