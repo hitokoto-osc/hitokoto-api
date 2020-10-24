@@ -416,33 +416,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hapi/address@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@hapi/address@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Faddress%2Fdownload%2F%40hapi%2Faddress-4.1.0.tgz"
-  dependencies:
-    "@hapi/hoek": ^9.0.0
-  checksum: 2844aceeb993bb767ae2c34e75767e7eff1b0cf811c4655c6500206d8d06a7deacdf4cf4172901e3bcafcbd7e8892b5ff786d0469071b9ba5ec14d0896034497
-  languageName: node
-  linkType: hard
-
-"@hapi/formula@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@hapi/formula@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Fformula%2Fdownload%2F%40hapi%2Fformula-2.0.0.tgz"
-  checksum: 02d14257149799b478e21f2620639470efb152f09dd2083fb9a6f247f29760de4af6ceb938b2337ecdf2a0514c2edd5beca6df5415d5c2cea909977fb0da4eaf
-  languageName: node
-  linkType: hard
-
 "@hapi/hoek@npm:^9.0.0":
   version: 9.1.0
   resolution: "@hapi/hoek@npm:9.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Fhoek%2Fdownload%2F%40hapi%2Fhoek-9.1.0.tgz"
   checksum: c77ac8f0c1ae6e21b3d77fa63f462dc1b0c84481388f5e54c651e86cf565d58cb701c396a1fa86a746d5dc278013ad5b3513a58c4cb19a493802d17b68c90740
-  languageName: node
-  linkType: hard
-
-"@hapi/pinpoint@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@hapi/pinpoint@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Fpinpoint%2Fdownload%2F%40hapi%2Fpinpoint-2.0.0.tgz"
-  checksum: 445ca018999145dccff58ca1be71fa533c3124a1d0f256b8c3daf88067992a20aebfbdee49664741cfac160d924c76d24bd3e8eeb521af721e6f606f4bd64634
   languageName: node
   linkType: hard
 
@@ -646,6 +623,29 @@ __metadata:
   dependencies:
     "@types/node": ">= 8"
   checksum: ef5429c90b6d8d4a8816611f39ae469f238f0de76085818081b6185c9a53c9dd8e1e024000c633f935920bdb8075c18cea6475bb2c1fc67aa5d0f50c8e104a12
+  languageName: node
+  linkType: hard
+
+"@sideway/address@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@sideway/address@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sideway%2Faddress%2Fdownload%2F%40sideway%2Faddress-4.1.0.tgz"
+  dependencies:
+    "@hapi/hoek": ^9.0.0
+  checksum: 13f0a6b4178b03d7c0062894312313892d9a728987a5d07d43cb42c04bcdf55cd02092eb6f09ffb8d78a1dfae8cf5ce6c9b4ad66934771ea6a18e2b3fcd752d9
+  languageName: node
+  linkType: hard
+
+"@sideway/formula@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@sideway/formula@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sideway%2Fformula%2Fdownload%2F%40sideway%2Fformula-3.0.0.tgz"
+  checksum: b83ecd35fea33e7b826ddcdc9f0735a79bd374927efea36885203200c418ad0f9975c329eaf9e990a7c61cf96f560ed2020227a35e699324ddd3c94dd3f4045f
+  languageName: node
+  linkType: hard
+
+"@sideway/pinpoint@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@sideway/pinpoint@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sideway%2Fpinpoint%2Fdownload%2F%40sideway%2Fpinpoint-2.0.0.tgz"
+  checksum: e5528639aef1d266c23050897a6571c1e2aeccb59b6a22006a153fbd73aee78ae995bf19c022d70de5a00589a7f51372e78ef9aacd34a3dd9b13720c866aca7e
   languageName: node
   linkType: hard
 
@@ -3782,7 +3782,7 @@ __metadata:
     humanize-number: 0.0.2
     husky: 4.3.0
     ioredis: 4.17.3
-    joi: 17.2.1
+    joi: 17.3.0
     js-yaml: 3.14.0
     kcors: 2.2.2
     koa: 2.13.0
@@ -4646,16 +4646,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:17.2.1":
-  version: 17.2.1
-  resolution: "joi@npm:17.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.2.1.tgz"
+"joi@npm:17.3.0":
+  version: 17.3.0
+  resolution: "joi@npm:17.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.3.0.tgz"
   dependencies:
-    "@hapi/address": ^4.1.0
-    "@hapi/formula": ^2.0.0
     "@hapi/hoek": ^9.0.0
-    "@hapi/pinpoint": ^2.0.0
     "@hapi/topo": ^5.0.0
-  checksum: 197c86238922203a34a894a6240342462815bb538412333b496500520ec4d5ad04db3c7ae6d3ea58e8b1780252c91e53eb22ac7822cb82c14572920f60f031f7
+    "@sideway/address": ^4.1.0
+    "@sideway/formula": ^3.0.0
+    "@sideway/pinpoint": ^2.0.0
+  checksum: 3a2a6a8df5df408b33661d61abf6389f21d71478748daebe4edf4be2176548a70396601fcf2fd4fc0bc44fc12ab67fa72de310509db47579ad21bca0f2e0611b
   languageName: node
   linkType: hard
 
