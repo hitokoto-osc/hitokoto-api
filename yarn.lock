@@ -1701,7 +1701,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.2.1, commitizen@npm:^4.0.3":
+"commitizen@npm:4.2.2":
+  version: 4.2.2
+  resolution: "commitizen@npm:4.2.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommitizen%2Fdownload%2Fcommitizen-4.2.2.tgz"
+  dependencies:
+    cachedir: 2.2.0
+    cz-conventional-changelog: 3.3.0
+    dedent: 0.7.0
+    detect-indent: 6.0.0
+    find-node-modules: 2.0.0
+    find-root: 1.1.0
+    fs-extra: 8.1.0
+    glob: 7.1.4
+    inquirer: 6.5.2
+    is-utf8: ^0.2.1
+    lodash: ^4.17.20
+    minimist: 1.2.5
+    strip-bom: 4.0.0
+    strip-json-comments: 3.0.1
+  bin:
+    commitizen: bin/commitizen
+    cz: bin/git-cz
+    git-cz: bin/git-cz
+  checksum: 3b126399bb75742cd73910d9d154e3f4367ff48f9c19609ee8065b00291c010e72a06863001c3c3cffe7f7d16c8dfa9e6c9e141b7afd897e09e237d61d19f7b5
+  languageName: node
+  linkType: hard
+
+"commitizen@npm:^4.0.3":
   version: 4.2.1
   resolution: "commitizen@npm:4.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommitizen%2Fdownload%2Fcommitizen-4.2.1.tgz"
   dependencies:
@@ -3770,7 +3796,7 @@ __metadata:
     bytes: 3.1.0
     chalk: 4.1.0
     commander: 6.2.0
-    commitizen: 4.2.1
+    commitizen: 4.2.2
     conventional-changelog-conventionalcommits: 4.4.0
     cron: 1.8.2
     cz-conventional-changelog: 3.3.0
