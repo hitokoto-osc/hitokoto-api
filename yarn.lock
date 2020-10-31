@@ -3815,7 +3815,7 @@ __metadata:
     got: 11.8.0
     humanize-number: 0.0.2
     husky: 4.3.0
-    ioredis: 4.19.0
+    ioredis: 4.19.2
     joi: 17.3.0
     js-yaml: 3.14.0
     kcors: 2.2.2
@@ -4188,21 +4188,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.19.0":
-  version: 4.19.0
-  resolution: "ioredis@npm:4.19.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fioredis%2Fdownload%2Fioredis-4.19.0.tgz"
+"ioredis@npm:4.19.2":
+  version: 4.19.2
+  resolution: "ioredis@npm:4.19.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fioredis%2Fdownload%2Fioredis-4.19.2.tgz"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.1.1
     denque: ^1.1.0
     lodash.defaults: ^4.2.0
     lodash.flatten: ^4.4.0
-    p-map: ^4.0.0
+    p-map: ^2.1.0
     redis-commands: 1.6.0
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.0.1
-  checksum: bdfa661fc62108ad3bf12c48bec42f64e1a2d0e2affb1a4116447231169d7375d6ef15e904f4979ffe4f8e67aabfa90c10b74ba3a0186531ee7d602cf32c7fc2
+  checksum: 4ab4be67ea60ca508f480890ee0135365cc28423163601333e2bfc1b0f1b9957786984daca284b76cd55cf1c2c4cdc81e303814c8ac353dce5b7e029d15dcb34
   languageName: node
   linkType: hard
 
@@ -6065,6 +6065,13 @@ __metadata:
   dependencies:
     p-limit: ^3.0.2
   checksum: a233d775c870e00c734adabd29f66f93824df076683c0d5a2dc16e5285b02d80c1bf3bab43b9881e4a5b16b37bb86f1922aebb094674703d30a4973041d5c0f6
+  languageName: node
+  linkType: hard
+
+"p-map@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "p-map@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fp-map%2Fdownload%2Fp-map-2.1.0.tgz"
+  checksum: 8557e841ed832a489aaee7d825b7bea73e0559c452578821f5af418f430a8455727ab8dd5b4318b6b6733096029cfa571aa0e8d21bdd2c213025f02f919f7a9a
   languageName: node
   linkType: hard
 
