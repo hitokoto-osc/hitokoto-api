@@ -605,15 +605,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/rest@npm:18.0.6":
-  version: 18.0.6
-  resolution: "@octokit/rest@npm:18.0.6::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40octokit%2Frest%2Fdownload%2F%40octokit%2Frest-18.0.6.tgz"
+"@octokit/rest@npm:18.0.7":
+  version: 18.0.7
+  resolution: "@octokit/rest@npm:18.0.7::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40octokit%2Frest%2Fdownload%2F%40octokit%2Frest-18.0.7.tgz"
   dependencies:
     "@octokit/core": ^3.0.0
     "@octokit/plugin-paginate-rest": ^2.2.0
     "@octokit/plugin-request-log": ^1.0.0
     "@octokit/plugin-rest-endpoint-methods": 4.2.0
-  checksum: 3353b232ff80619cf8c976338ee581e29910771931534e5b7937e2e96f541d5c9606d42c62742635f0229a6f51cd6785ed037a0389b51cd972cae1443659550b
+  checksum: 7d0e731115877a18f2bbd6d43026298c9093003cccb559ad18f4392cb920df884930ce5733e0bc26e14c394468431e7199034dcac44674419d397ec59c4a7bfb
   languageName: node
   linkType: hard
 
@@ -653,13 +653,6 @@ __metadata:
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sindresorhus%2Fis%2Fdownload%2F%40sindresorhus%2Fis-0.14.0.tgz"
   checksum: da26389d6e23f64726224ffda6f6a04bab88e15b9c4eb8f9e5fdafc3baaaa071c85c47816723b7e61e14bf2f4dcff25d6bc1629032c2916ffb8b3fe759ad7b1f
-  languageName: node
-  linkType: hard
-
-"@sindresorhus/is@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "@sindresorhus/is@npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sindresorhus%2Fis%2Fdownload%2F%40sindresorhus%2Fis-3.1.2.tgz"
-  checksum: da0047761ed8f7803955bedefe75324f3601b950b98c38f6e5e409ed3ce4c07035ed2733cce9b48377d9fc8cfbaa5b2aa8bac0505188a7c5b65a06c47057a610
   languageName: node
   linkType: hard
 
@@ -2868,7 +2861,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:4.0.3, execa@npm:^4.0.2, execa@npm:^4.0.3":
+"execa@npm:4.1.0":
+  version: 4.1.0
+  resolution: "execa@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-4.1.0.tgz"
+  dependencies:
+    cross-spawn: ^7.0.0
+    get-stream: ^5.0.0
+    human-signals: ^1.1.1
+    is-stream: ^2.0.0
+    merge-stream: ^2.0.0
+    npm-run-path: ^4.0.0
+    onetime: ^5.1.0
+    signal-exit: ^3.0.2
+    strip-final-newline: ^2.0.0
+  checksum: 79bd736acd63aa7c0afb32cc99af21cfd70db696580686c7cd56c177857b93b78bc0b9bb2b4410f377f46c71c566c8e723987e71ef0bc9b23791bfbced02f75c
+  languageName: node
+  linkType: hard
+
+"execa@npm:^4.0.2, execa@npm:^4.0.3":
   version: 4.0.3
   resolution: "execa@npm:4.0.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-4.0.3.tgz"
   dependencies:
@@ -3501,12 +3511,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-url-parse@npm:11.3.0":
-  version: 11.3.0
-  resolution: "git-url-parse@npm:11.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgit-url-parse%2Fdownload%2Fgit-url-parse-11.3.0.tgz"
+"git-url-parse@npm:11.4.0":
+  version: 11.4.0
+  resolution: "git-url-parse@npm:11.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgit-url-parse%2Fdownload%2Fgit-url-parse-11.4.0.tgz"
   dependencies:
     git-up: ^4.0.0
-  checksum: 86155163c8e33c0268d2741c65bc01eecf82c6d9818759de65993b04ca2baa7009a6a77dd1dfdb527510e24dac558f3cb4d134e41a88d0374c2fd39b0676ef84
+  checksum: 9c6073f0b03576dd80810433bf5b6f8bc83a96aa73a9f897315c5cbb1420c0ff8db5aeed9ddf472bdf0135a3ce2d8f36cd269d10d58f84c93f21b33d54034c4c
   languageName: node
   linkType: hard
 
@@ -3616,25 +3626,6 @@ __metadata:
     merge2: ^1.3.0
     slash: ^3.0.0
   checksum: e7239e9e468c3692aec31dc97b5efc13dd21edf38820baeda98118ade39f475c4ff9e7610859eb4a3c75277ca2616e371265fec3c626aba5db4335bc41c59ac7
-  languageName: node
-  linkType: hard
-
-"got@npm:11.7.0":
-  version: 11.7.0
-  resolution: "got@npm:11.7.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fgot%2Fdownload%2Fgot-11.7.0.tgz"
-  dependencies:
-    "@sindresorhus/is": ^3.1.1
-    "@szmarczak/http-timer": ^4.0.5
-    "@types/cacheable-request": ^6.0.1
-    "@types/responselike": ^1.0.0
-    cacheable-lookup: ^5.0.3
-    cacheable-request: ^7.0.1
-    decompress-response: ^6.0.0
-    http2-wrapper: ^1.0.0-beta.5.2
-    lowercase-keys: ^2.0.0
-    p-cancelable: ^2.0.0
-    responselike: ^2.0.0
-  checksum: 780b4b1d33d1a08aa7ae044baa379c0abe1b781ae1101ca0fc8b335195386a0653aa0d9af1ff3f8dd02020fd75aabdf62358988473edf869f34202cc21fd9ce0
   languageName: node
   linkType: hard
 
@@ -3839,7 +3830,7 @@ __metadata:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.1.2
-    release-it: 14.2.0
+    release-it: 14.2.1
     semver: 7.3.2
     sequelize: 6.3.5
     supertest: 5.0.0
@@ -6710,23 +6701,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.2.0":
-  version: 14.2.0
-  resolution: "release-it@npm:14.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.2.0.tgz"
+"release-it@npm:14.2.1":
+  version: 14.2.1
+  resolution: "release-it@npm:14.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frelease-it%2Fdownload%2Frelease-it-14.2.1.tgz"
   dependencies:
     "@iarna/toml": 2.2.5
-    "@octokit/rest": 18.0.6
+    "@octokit/rest": 18.0.7
     async-retry: 1.3.1
     chalk: 4.1.0
     cosmiconfig: 7.0.0
     debug: 4.2.0
     deprecated-obj: 2.0.0
-    execa: 4.0.3
+    execa: 4.1.0
     find-up: 5.0.0
     form-data: 3.0.0
-    git-url-parse: 11.3.0
+    git-url-parse: 11.4.0
     globby: 11.0.1
-    got: 11.7.0
+    got: 11.8.0
     import-cwd: 3.0.0
     inquirer: 7.3.3
     is-ci: 2.0.0
@@ -6744,7 +6735,7 @@ __metadata:
     yargs-parser: 20.2.3
   bin:
     release-it: bin/release-it.js
-  checksum: 407ddbaf4d080ac634d6da1b1a72366eafac4dd53406b82eb24cccd168232d446a68cf59520ff53b48cde87a44e96d001912a9ebf5db536d92294156e9d67d12
+  checksum: 6bb9d3744400e682c847c6d2087a10c4fc522026b5de52e31f89d5c68e8bfe9b0e430bfaac90f43a0967f4c3c3592b5ae9e674da69501408134c3ff0244aead8
   languageName: node
   linkType: hard
 
