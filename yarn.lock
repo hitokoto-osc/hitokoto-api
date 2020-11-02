@@ -3825,7 +3825,7 @@ __metadata:
     koa-helmet: 6.0.0
     koa-livereload: 0.2.0
     koa-query-pretty: 0.3.0
-    koa-router: 9.4.0
+    koa-router: 10.0.0
     lint-staged: 10.4.2
     lodash: 4.17.20
     lodash.compact: 3.0.1
@@ -4967,16 +4967,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-router@npm:9.4.0":
-  version: 9.4.0
-  resolution: "koa-router@npm:9.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa-router%2Fdownload%2Fkoa-router-9.4.0.tgz"
+"koa-router@npm:10.0.0":
+  version: 10.0.0
+  resolution: "koa-router@npm:10.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa-router%2Fdownload%2Fkoa-router-10.0.0.tgz"
   dependencies:
     debug: ^4.1.1
     http-errors: ^1.7.3
     koa-compose: ^4.1.0
     methods: ^1.1.2
     path-to-regexp: ^6.1.0
-  checksum: 19a3202e5294cc8ec5e11628a16e04e2f65c3e2f2b96bf3a777452e4825a983ccfba2201dcc24f8cbd3ac4d578a155e6d0dbfc139e1c3cf6b56cc8684eceb49f
+  checksum: f9cb48ab8587987c4d223a639e1483344a62a69cbf15c7ec1a7c6745909232180095a46f94df75111e3ed4509710cc5438a364a552003ee999864ff2b3fa0111
   languageName: node
   linkType: hard
 
