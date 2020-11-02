@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: hitokoto_api
+    image: hitokoto/api
     container_name: hitokoto_api
     hostname: hitokoto_api
     build: .
