@@ -11,7 +11,7 @@
     "pnpify": "yarn dlx @yarnpkg/pnpify",
     "lint": "yarn dlx eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
-    "test": "yarn dlx jest",
+    "test": "yarn dlx jest@24",
     "commit": "yarn dlx git-cz",
     "release": "yarn dlx release-it",
     "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
