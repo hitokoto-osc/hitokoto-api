@@ -10,7 +10,7 @@ const { md5 } = require('../../utils/crypto')
  * @param {number} br select in 999000, 320000, 128000. default is 320000
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getSongsURLs = async (ids, br = 320000, realIP) => {
+exports.getSongsURLs = async (ids, realIP, br = 320000) => {
   if (Array.isArray(ids)) {
     ids = ids.join(',')
   } else if (!['string', 'number'].includes(typeof ids)) {

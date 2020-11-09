@@ -177,7 +177,7 @@ const tryCorrectPictureID = async (albumID, params) => {
  * @param {string} realIP Client RealIP
  */
 const getValidSongIds = async (ids, br, realIP) => {
-  const body = await getSongsURLs(ids, br, realIP)
+  const body = await getSongsURLs(ids, realIP, br)
   // gen valid id list
   ids = []
   for (const s of body.data) {

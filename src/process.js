@@ -16,7 +16,7 @@ class ProcessInteract {
   register() {
     winston.verbose('[processInteract] prepare to register receivers.')
     // DEV only
-    this.routeMap.map((v) => {
+    this.routeMap.forEach((v) => {
       winston.verbose(
         '[processInteract] receiver is registered, key: ' +
           chalk.red(v.key) +
@@ -42,7 +42,7 @@ class ProcessInteract {
           matches.listener(msg.data)
         } else {
           winston.warn(
-            '[processInteract] routekey is missing, raw data: ' +
+            '[processInteract] route key is missing, raw data: ' +
               chalk.grey(JSON.stringify(msg)),
           )
         }
@@ -71,7 +71,7 @@ class Process {
     return this.childProcessList
   }
 
-  spawnProcess(execFileAbsolutePath, moduleName, messageLisenner = null) {
+  spawnProcess(execFileAbsolutePath, moduleName, messageListener = null) {
     const child = childProcess.fork(path.join(execFileAbsolutePath), {
       env: Object.assign(process.env, {
         dev: !!nconf.get('dev'),
@@ -82,8 +82,8 @@ class Process {
       name: moduleName,
     })
     const ml =
-      typeof messageLisenner === 'function'
-        ? messageLisenner
+      typeof messageListener === 'function'
+        ? messageListener
         : (message, { event, moduleName }) => {
             // emit msg to global process route
             if (message && message.key) {
@@ -98,7 +98,7 @@ class Process {
     )
   }
 
-  handleChildProcessExitEvent(moduleName, path, messageLisenner) {
+  handleChildProcessExitEvent(moduleName, path, messageListener) {
     return (code, signal) => {
       if (code === null && !signal) {
         winston.warn(
@@ -108,7 +108,7 @@ class Process {
         )
         // rm invalid process
         _.remove(this.childProcessList, { name: moduleName })
-        this.spawnProcess(path, moduleName, messageLisenner)
+        this.spawnProcess(path, moduleName, messageListener)
       } else if (code > 0) {
         // errors might be thrown
         winston.error(
@@ -116,7 +116,7 @@ class Process {
             moduleName +
             '] child process exited with code: ' +
             code +
-            ', master process exits to ensure the stablity.',
+            ', master process exits to ensure the stability.',
         )
         process.exit(1)
       } else if (signal) {

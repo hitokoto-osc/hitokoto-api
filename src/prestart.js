@@ -29,7 +29,7 @@ async function setupWinston() {
   winston.add(winston.transports.Console, {
     colorize: nconf.get('log-colorize') !== 'false',
     timestamp: function () {
-      var date = new Date()
+      const date = new Date()
       return nconf.get('json_logging')
         ? date.toJSON()
         : date.toISOString() + ' [' + global.process.pid + ']'
@@ -43,7 +43,7 @@ async function setupWinston() {
   })
 }
 
-function loadConfig(configFile, isChild = false, next) {
+function loadConfig(configFile, next, isChild = false) {
   nconf.use('memory') // use memory store
   nconf.argv().env() // 从参数中读取配置，并写入 nconf
 
@@ -130,7 +130,7 @@ module.exports = {
     if (!configFile)
       configFile = path.join(__dirname, '../data', './config.yml')
     if (!isChild) printCopyright()
-    loadConfig(configFile, isChild, setupWinston)
+    loadConfig(configFile, setupWinston, isChild)
   },
   check,
 }

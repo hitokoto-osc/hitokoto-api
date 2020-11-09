@@ -14,7 +14,7 @@ const remoteURL =
   nconf.get('remote_sentences_url') ||
   'https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/'
 
-async function performRequest(url, method = 'GET', params) {
+async function performRequest(url, params, method = 'GET') {
   const response = await got[method.toLocaleLowerCase()](
     url,
     Object.assign(

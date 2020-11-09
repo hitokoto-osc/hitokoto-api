@@ -21,7 +21,7 @@ module.exports = async (ctx) => {
   }
   let data
   try {
-    data = await getSongsURLs(params.id, params.br, ctx.get('X-Real-IP'))
+    data = await getSongsURLs(params.id, ctx.get('X-Real-IP'), params.br)
   } catch (err) {
     data = recoverRequest(err)
   }

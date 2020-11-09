@@ -7,11 +7,11 @@ class Route {
   constructor() {
     const Controller = require('./controller')
     this.controller = new Controller()
-    const Middlewares = require('./middleware').fetch(!!nconf.get('dev'))
-    this.middlewares = {}
-    Middlewares.map((v) => {
+    const Middleware = require('./middleware').fetch(!!nconf.get('dev'))
+    this.middleware = {}
+    Middleware.forEach((v) => {
       if (v && v[0] && v[1]) {
-        this.middlewares[v[0]] = v[1]
+        this.middleware[v[0]] = v[1]
       }
     })
   }
@@ -27,7 +27,7 @@ class Route {
       }
       return require(path.join(__dirname, '../', './adapter/routes'))(
         new Router(),
-        this.middlewares,
+        this.middleware,
         controller,
       )
     } catch (err) {

@@ -19,7 +19,7 @@ class Cron {
       if (cronMap === true) {
         // 自动加载所有计划任务
         crons = await this.autoLoad(true)
-        await crons.map((item, index, input) => {
+        await crons.forEach((item, index, input) => {
           // 注册 CronJob
           const job = new CronJob(
             item[0],
@@ -43,7 +43,7 @@ class Cron {
         winston.verbose('All Cron Jobs Load done.')
       } else {
         // 已经指定了 cronMap
-        await cronMap.map((item, index, input) => {
+        await cronMap.forEach((item, index, input) => {
           // Register CronJob
           const job = new CronJob(
             item[0],
@@ -89,7 +89,7 @@ class Cron {
       const crons = {}
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/crons'))
       if (isArray) {
-        await dir.map((item, index, input) => {
+        await dir.forEach((item, index, input) => {
           crons[index] = require(path.join(
             __dirname,
             '../',
@@ -97,7 +97,7 @@ class Cron {
           ))
         })
       } else {
-        await dir.map((item, index, input) => {
+        await dir.forEach((item, index, input) => {
           crons[item.substring(0, item.length - 3)] = require(path.join(
             __dirname,
             '../',
