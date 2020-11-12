@@ -2622,14 +2622,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:24.1.0":
-  version: 24.1.0
-  resolution: "eslint-plugin-jest@npm:24.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-jest%2Fdownload%2Feslint-plugin-jest-24.1.0.tgz"
+"eslint-plugin-jest@npm:24.1.3":
+  version: 24.1.3
+  resolution: "eslint-plugin-jest@npm:24.1.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-jest%2Fdownload%2Feslint-plugin-jest-24.1.3.tgz"
   dependencies:
     "@typescript-eslint/experimental-utils": ^4.0.1
   peerDependencies:
     eslint: ">=5"
-  checksum: 17aa55e6e51e54d170a8846f255e230a9ae17dedb4efa8ce948a4b0401889617d79f2d389e54af50c7bf2eb4e514f51ae3af754bd0f82bbde51378c4190d3b40
+  checksum: d1b8f14d7553ee9cd1b85d4e3478439b9c2c789fff9b10f19f047c4aae83acb62b966a4fdd5182740a6d9339ac54d56e67be5e15f3326a53ea6b772753076cd7
   languageName: node
   linkType: hard
 
@@ -3744,7 +3744,7 @@ __metadata:
     eslint-config-standard: 16.0.2
     eslint-plugin-html: 6.1.0
     eslint-plugin-import: 2.22.1
-    eslint-plugin-jest: 24.1.0
+    eslint-plugin-jest: 24.1.3
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 3.1.4
     eslint-plugin-promise: 4.2.1
