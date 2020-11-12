@@ -3824,7 +3824,7 @@ __metadata:
     mysql2: 2.2.5
     nconf: 0.10.0
     nconf-yaml: 1.0.2
-    nodemailer: 6.4.14
+    nodemailer: 6.4.16
     nyc: 15.1.0
     passthrough-counter: 1.0.0
     pify: 5.0.0
@@ -5701,10 +5701,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.4.14":
-  version: 6.4.14
-  resolution: "nodemailer@npm:6.4.14::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnodemailer%2Fdownload%2Fnodemailer-6.4.14.tgz"
-  checksum: 52612b623ecbb5b23a2ce8b78d20e08a2a8384df276dde918db5752c279f298aee99fd4980583bd916281bba6340abc45c064ab347bbbde8b10ed2e4e6cfa760
+"nodemailer@npm:6.4.16":
+  version: 6.4.16
+  resolution: "nodemailer@npm:6.4.16::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnodemailer%2Fdownload%2Fnodemailer-6.4.16.tgz"
+  checksum: 95c4d1c4150d6160abc4964dc3d7facaf859e8a7296da2aeabd3e3dd1267e7e0c3bbf8fb0dea78915c6ee51c4b4516d964db07153b48b179e3f272011770a4ff
   languageName: node
   linkType: hard
 
