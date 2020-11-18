@@ -2582,15 +2582,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-standard@npm:16.0.1":
-  version: 16.0.1
-  resolution: "eslint-config-standard@npm:16.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-config-standard%2Fdownload%2Feslint-config-standard-16.0.1.tgz"
+"eslint-config-standard@npm:16.0.2":
+  version: 16.0.2
+  resolution: "eslint-config-standard@npm:16.0.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-config-standard%2Fdownload%2Feslint-config-standard-16.0.2.tgz"
   peerDependencies:
     eslint: ^7.12.1
     eslint-plugin-import: ^2.22.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-promise: ^4.2.1
-  checksum: 496bd25045dd8cfba1d34d9b1d1cdd34a3243eebf924b147e9cf51661342a77a0af03582dd1fd4968101700f61d55a5437b14a12a90ef9b4c5d759065cc39449
+  checksum: 9db750eab1fb190deed50cd1b52df94f517142b6bc73edc38d22dc1ccb28ee628d969028017536d65301fbd15daf1487d7b7420f7c2689477f73bb213f6a25fc
   languageName: node
   linkType: hard
 
@@ -3792,7 +3792,7 @@ __metadata:
     cz-conventional-changelog: 3.3.0
     eslint: 7.13.0
     eslint-config-prettier: 6.14.0
-    eslint-config-standard: 16.0.1
+    eslint-config-standard: 16.0.2
     eslint-plugin-html: 6.1.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: 24.1.0
