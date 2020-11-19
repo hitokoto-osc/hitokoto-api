@@ -2,14 +2,17 @@ module.exports = {
   extends: ['standard', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   parserOptions: {
-    ecmaVersion: '2020',
+    ecmaVersion: '2021',
     sourceType: 'script',
-    ecmaFeatures: {
-      impliedStrict: true,
-    },
   },
   env: {
+    commonjs: true,
+    es6: true,
     node: true,
+  },
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
   overrides: [
     {
