@@ -16,21 +16,20 @@ module.exports = async (ctx) => {
     throw new Error('Runtime Error: `ctx.query` is not defined.')
   }
   // Query Params
+  const tmp = {
+    max: parseInt(ctx.query.max_length),
+    min: parseInt(ctx.query.min_length),
+  }
   const params = {
     c: getParamCategory(ctx.query.c),
     encode: getParamEncode(ctx.query.encode),
     select: ctx.query.select ?? '.hitokoto',
-    min_length:
-      ctx.query.min_length && ctx.query.min_length >= 0
-        ? parseInt(ctx.query.min_length)
-        : 0,
-    max_length:
-      ctx.query.max_length &&
-      ctx.query.max_length <= 1000 &&
-      ctx.query.max_length > ctx.query.min_length
-        ? parseInt(ctx.query.max_length)
-        : 30,
   }
+  params.min_length = tmp.min && tmp.min >= 0 ? tmp.min : 0
+  params.max_length =
+    tmp.max && tmp.max <= 1000 && tmp.max > params.min_length
+      ? parseInt(ctx.query.max_length)
+      : 30
   // 检查句子长度配置
   if (params.max_length < params.min_length) {
     return fail(ctx, '`max_length` 不能小于 `min_length`！', 400)
