@@ -64,7 +64,7 @@
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
     "@hitokoto/koa-respond": "3.0.3",
-    "NeteaseCloudMusicApi": "3.47.3",
+    "NeteaseCloudMusicApi": "3.47.4",
     "async": "3.2.0",
     "bytes": "3.1.0",
     "chalk": "4.1.0",
