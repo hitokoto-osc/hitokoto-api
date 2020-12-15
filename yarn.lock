@@ -3782,7 +3782,7 @@ __metadata:
     koa-livereload: 0.2.0
     koa-query-pretty: 0.3.0
     koa-router: 10.0.0
-    lint-staged: 10.5.2
+    lint-staged: 10.5.3
     lodash: 4.17.20
     lodash.compact: 3.0.1
     lodash.curry: 4.1.1
@@ -5017,9 +5017,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:10.5.2":
-  version: 10.5.2
-  resolution: "lint-staged@npm:10.5.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.5.2.tgz"
+"lint-staged@npm:10.5.3":
+  version: 10.5.3
+  resolution: "lint-staged@npm:10.5.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.5.3.tgz"
   dependencies:
     chalk: ^4.1.0
     cli-truncate: ^2.1.0
@@ -5038,7 +5038,7 @@ __metadata:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 285a0da521786db1a2a98fe875b8c330e9a607fd2d3ff687b6ce4dfa22b38acfd5ab9aaf556c6a4a34164875062a388647fcca9538a70bd01485a5d804a594f1
+  checksum: cd34098f62feac51a8eb6a6abff6a15be292bfcac55d04c3e9f21c3ea8e472b94fac27507e4d087f0c6e159881216cd22bdf02d2b8d21cd8d0ffdf8ed00875b4
   languageName: node
   linkType: hard
 
