@@ -76,7 +76,7 @@
     "humanize-number": "0.0.2",
     "ioredis": "4.19.2",
     "joi": "17.3.0",
-    "js-yaml": "3.14.0",
+    "js-yaml": "3.14.1",
     "kcors": "2.2.2",
     "koa": "2.13.0",
     "koa-bodyparser": "4.3.0",
