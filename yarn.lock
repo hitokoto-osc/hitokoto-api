@@ -3781,7 +3781,7 @@ __metadata:
     husky: 4.3.0
     ioredis: 4.19.4
     joi: 17.3.0
-    js-yaml: 3.14.0
+    js-yaml: 3.14.1
     kcors: 2.2.2
     koa: 2.13.0
     koa-bodyparser: 4.3.0
@@ -4667,7 +4667,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:3.14.0, js-yaml@npm:^3.13.1, js-yaml@npm:^3.2.3":
+"js-yaml@npm:3.14.1":
+  version: 3.14.1
+  resolution: "js-yaml@npm:3.14.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-yaml%2Fdownload%2Fjs-yaml-3.14.1.tgz"
+  dependencies:
+    argparse: ^1.0.7
+    esprima: ^4.0.0
+  bin:
+    js-yaml: bin/js-yaml.js
+  checksum: 46b61f889796a20d16b0b64580a01b6a02b2e45c1a2744906346da54d07e14cde764e887ab6d1512d8b2541c63711bd4b75859c28eb99605baf59fa173fc38c2
+  languageName: node
+  linkType: hard
+
+"js-yaml@npm:^3.13.1, js-yaml@npm:^3.2.3":
   version: 3.14.0
   resolution: "js-yaml@npm:3.14.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-yaml%2Fdownload%2Fjs-yaml-3.14.0.tgz"
   dependencies:
