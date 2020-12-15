@@ -74,7 +74,7 @@
     "flatstr": "1.0.12",
     "got": "11.8.0",
     "humanize-number": "0.0.2",
-    "ioredis": "4.19.2",
+    "ioredis": "4.19.4",
     "joi": "17.3.0",
     "js-yaml": "3.14.0",
     "kcors": "2.2.2",
