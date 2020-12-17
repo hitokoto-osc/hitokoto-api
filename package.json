@@ -70,7 +70,7 @@
     "chalk": "4.1.0",
     "commander": "6.2.1",
     "cron": "1.8.2",
-    "fast-json-stringify": "2.2.10",
+    "fast-json-stringify": "2.3.0",
     "flatstr": "1.0.12",
     "got": "11.8.1",
     "humanize-number": "0.0.2",

@@ -2998,14 +2998,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:2.2.10":
-  version: 2.2.10
-  resolution: "fast-json-stringify@npm:2.2.10::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-json-stringify%2Fdownload%2Ffast-json-stringify-2.2.10.tgz"
+"fast-json-stringify@npm:2.3.0":
+  version: 2.3.0
+  resolution: "fast-json-stringify@npm:2.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-json-stringify%2Fdownload%2Ffast-json-stringify-2.3.0.tgz"
   dependencies:
     ajv: ^6.11.0
     deepmerge: ^4.2.2
     string-similarity: ^4.0.1
-  checksum: 2dea860a19542792cd20005a8b099d1c6220dfc04dd93e8827386fd98c3697958255c7fbc25244e98f6413140d96da41d36540325fd60984944697db79b1a1bf
+  checksum: b5994375752e6fe3175f2e47647f6374a17e8082f2b23a3bbe4358d00d87ea2a4fe2ad037a8116b727e01908f48c952d67b1330d76d502725b31724c18c071b8
   languageName: node
   linkType: hard
 
@@ -3766,7 +3766,7 @@ __metadata:
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 3.3.0
     eslint-plugin-promise: 4.2.1
-    fast-json-stringify: 2.2.10
+    fast-json-stringify: 2.3.0
     flatstr: 1.0.12
     got: 11.8.1
     humanize-number: 0.0.2
