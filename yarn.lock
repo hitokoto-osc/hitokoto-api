@@ -844,16 +844,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:3.47.4":
-  version: 3.47.4
-  resolution: "NeteaseCloudMusicApi@npm:3.47.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-3.47.4.tgz"
+"NeteaseCloudMusicApi@npm:3.47.5":
+  version: 3.47.5
+  resolution: "NeteaseCloudMusicApi@npm:3.47.5::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-3.47.5.tgz"
   dependencies:
     axios: ^0.20.0
     express: ^4.17.1
     express-fileupload: ^1.1.9
     pac-proxy-agent: ^4.0.0
     tunnel: ^0.0.6
-  checksum: 2418b8099ccc3994a11a7aa7b2126f542bc13e5328b3022474b3b78d040321dc6210c88757632d419165dc7e1704d13afe523d973ac573e67db9bb300519bdbc
+  checksum: e382ec740ba7862a5141b239acd9bde289c089cf45da2442dc6e59b8e2ad0aec840c753e971b94fb7f54aeedd335cb9457e57d831fe5d6590a1e1603ac577932
   languageName: node
   linkType: hard
 
@@ -3748,7 +3748,7 @@ __metadata:
     "@commitlint/config-conventional": 11.0.0
     "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
-    NeteaseCloudMusicApi: 3.47.4
+    NeteaseCloudMusicApi: 3.47.5
     async: 3.2.0
     bytes: 3.1.0
     chalk: 4.1.0
