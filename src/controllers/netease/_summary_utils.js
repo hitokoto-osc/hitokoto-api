@@ -181,7 +181,7 @@ const getValidSongIds = async (ids, br, realIP) => {
   // gen valid id list
   ids = []
   for (const s of body.data) {
-    if (s.code === 200 && s.url) {
+    if (s.code === 200 && s.url && !s.freeTrialInfo) {
       // 修复网易云播放地址问题
       ids.push(s.id)
     }
