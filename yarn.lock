@@ -2212,7 +2212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:~2.0.0":
+"depd@npm:^2.0.0, depd@npm:~2.0.0":
   version: 2.0.0
   resolution: "depd@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdepd%2Fdownload%2Fdepd-2.0.0.tgz"
   checksum: 20726d843f5ab5e933211fcb5a440a1a3986ef9d6f85d38cf1eae815ea3cc12fa4436bd35a38e21bdb391a021b57f2d97b9f856873852506acac1b07ac913ba4
@@ -3768,7 +3768,7 @@ __metadata:
     joi: 17.3.0
     js-yaml: 3.14.1
     kcors: 2.2.2
-    koa: 2.13.0
+    koa: 2.13.1
     koa-bodyparser: 4.3.0
     koa-compress: 5.0.1
     koa-favicon: 2.1.0
@@ -4944,7 +4944,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa@npm:2.13.0, koa@npm:^2.0.0":
+"koa@npm:2.13.1":
+  version: 2.13.1
+  resolution: "koa@npm:2.13.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa%2Fdownload%2Fkoa-2.13.1.tgz"
+  dependencies:
+    accepts: ^1.3.5
+    cache-content-type: ^1.0.0
+    content-disposition: ~0.5.2
+    content-type: ^1.0.4
+    cookies: ~0.8.0
+    debug: ~3.1.0
+    delegates: ^1.0.0
+    depd: ^2.0.0
+    destroy: ^1.0.4
+    encodeurl: ^1.0.2
+    escape-html: ^1.0.3
+    fresh: ~0.5.2
+    http-assert: ^1.3.0
+    http-errors: ^1.6.3
+    is-generator-function: ^1.0.7
+    koa-compose: ^4.1.0
+    koa-convert: ^1.2.0
+    on-finished: ^2.3.0
+    only: ~0.0.2
+    parseurl: ^1.3.2
+    statuses: ^1.5.0
+    type-is: ^1.6.16
+    vary: ^1.1.2
+  checksum: d7e5a6f483c2e5b40b14e063951687ac914bdeec8afc58a0e2cc75d5ab931fbf30753b9751932cd31a506abe5f3d4599b2c002ac5ac7a179b9d3304983470afd
+  languageName: node
+  linkType: hard
+
+"koa@npm:^2.0.0":
   version: 2.13.0
   resolution: "koa@npm:2.13.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fkoa%2Fdownload%2Fkoa-2.13.0.tgz"
   dependencies:
