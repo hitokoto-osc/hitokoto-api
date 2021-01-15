@@ -3791,7 +3791,7 @@ __metadata:
     release-it: 14.2.2
     semver: 7.3.4
     sequelize: 6.3.5
-    supertest: 6.0.1
+    supertest: 6.1.1
     supervisor: 0.12.0
     uuid: 8.3.2
     winston: 2.4.5
@@ -5337,7 +5337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"methods@npm:1.1.2, methods@npm:^1.1.2, methods@npm:~1.1.2":
+"methods@npm:^1.1.2, methods@npm:~1.1.2":
   version: 1.1.2
   resolution: "methods@npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fmethods%2Fdownload%2Fmethods-1.1.2.tgz"
   checksum: 450e4ea0fd4a0f3de8c0593d753c7d6c8f2ee49766f5ef35c68cc2ac41699d5e295b7d6330fc2b7271b8569a07857e3eb0b5df0599a353c5808265b4b5066168
@@ -7587,7 +7587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"superagent@npm:6.1.0":
+"superagent@npm:^6.1.0":
   version: 6.1.0
   resolution: "superagent@npm:6.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsuperagent%2Fdownload%2Fsuperagent-6.1.0.tgz"
   dependencies:
@@ -7606,13 +7606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supertest@npm:6.0.1":
-  version: 6.0.1
-  resolution: "supertest@npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsupertest%2Fdownload%2Fsupertest-6.0.1.tgz"
+"supertest@npm:6.1.1":
+  version: 6.1.1
+  resolution: "supertest@npm:6.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsupertest%2Fdownload%2Fsupertest-6.1.1.tgz"
   dependencies:
-    methods: 1.1.2
-    superagent: 6.1.0
-  checksum: 6083017645fe078eb81ec5c99d72dfcc53e9d73815514e47c7b3a5feb6a7d46b1cae781293c816d68cf181a7f3e842b06de796f3da79cfe76ce9160891618d7b
+    methods: ^1.1.2
+    superagent: ^6.1.0
+  checksum: 18b03819aff3df43d130df197707c16fbe672694431bb8dd0414640c2abeda4baa0beb7f4feeef76ca9f49712194eb241f37858ac6d3a0b239d4f0fcfe5c95cb
   languageName: node
   linkType: hard
 
