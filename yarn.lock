@@ -1672,7 +1672,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.2.2, commitizen@npm:^4.0.3":
+"commitizen@npm:4.2.3":
+  version: 4.2.3
+  resolution: "commitizen@npm:4.2.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommitizen%2Fdownload%2Fcommitizen-4.2.3.tgz"
+  dependencies:
+    cachedir: 2.2.0
+    cz-conventional-changelog: 3.2.0
+    dedent: 0.7.0
+    detect-indent: 6.0.0
+    find-node-modules: 2.0.0
+    find-root: 1.1.0
+    fs-extra: 8.1.0
+    glob: 7.1.4
+    inquirer: 6.5.2
+    is-utf8: ^0.2.1
+    lodash: ^4.17.20
+    minimist: 1.2.5
+    strip-bom: 4.0.0
+    strip-json-comments: 3.0.1
+  bin:
+    commitizen: bin/commitizen
+    cz: bin/git-cz
+    git-cz: bin/git-cz
+  checksum: b7d74861e2e9fdee67b74581e0cb4a9f37546b5d2fc641317d0b971f70afcd795363130df5534a805090f64dbfed100e4bb9664c01d381922019e00ade4ebd01
+  languageName: node
+  linkType: hard
+
+"commitizen@npm:^4.0.3":
   version: 4.2.2
   resolution: "commitizen@npm:4.2.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommitizen%2Fdownload%2Fcommitizen-4.2.2.tgz"
   dependencies:
@@ -1950,6 +1976,24 @@ __metadata:
   version: 1.0.3
   resolution: "cycle@npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcycle%2Fdownload%2Fcycle-1.0.3.tgz"
   checksum: afa6901859ed2e914ff095a5a5a2a856c2006600506737079d93be2a35172107f4ac57f64535724d42da724d089008b9d9f3dba6b10ae7f71188db184b6dcfa8
+  languageName: node
+  linkType: hard
+
+"cz-conventional-changelog@npm:3.2.0":
+  version: 3.2.0
+  resolution: "cz-conventional-changelog@npm:3.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcz-conventional-changelog%2Fdownload%2Fcz-conventional-changelog-3.2.0.tgz"
+  dependencies:
+    "@commitlint/load": ">6.1.1"
+    chalk: ^2.4.1
+    commitizen: ^4.0.3
+    conventional-commit-types: ^3.0.0
+    lodash.map: ^4.5.1
+    longest: ^2.0.1
+    word-wrap: ^1.0.3
+  dependenciesMeta:
+    "@commitlint/load":
+      optional: true
+  checksum: 8fce253c2c99181994ea16f52606ec1e23d710fc04f928560c5918ae686b07b58384fd49173212a378643397c2b05008fc55fc27a865412a1771bc4377957f3f
   languageName: node
   linkType: hard
 
@@ -3746,7 +3790,7 @@ __metadata:
     bytes: 3.1.0
     chalk: 4.1.0
     commander: 6.2.1
-    commitizen: 4.2.2
+    commitizen: 4.2.3
     conventional-changelog-conventionalcommits: 4.5.0
     cron: 1.8.2
     cz-conventional-changelog: 3.3.0
