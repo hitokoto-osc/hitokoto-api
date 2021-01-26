@@ -89,7 +89,7 @@
     "lodash.compact": "3.0.1",
     "lodash.curry": "4.1.1",
     "mysql2": "2.2.5",
-    "nconf": "0.11.0",
+    "nconf": "0.11.2",
     "nconf-yaml": "1.0.2",
     "nodemailer": "6.4.17",
     "passthrough-counter": "1.0.0",

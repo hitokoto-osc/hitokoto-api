@@ -3781,7 +3781,7 @@ __metadata:
     lodash.compact: 3.0.1
     lodash.curry: 4.1.1
     mysql2: 2.2.5
-    nconf: 0.11.0
+    nconf: 0.11.2
     nconf-yaml: 1.0.2
     nodemailer: 6.4.17
     nyc: 15.1.0
@@ -4083,10 +4083,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ini@npm:^1.3.0, ini@npm:^1.3.4, ini@npm:^1.3.5, ini@npm:~1.3.0":
+"ini@npm:^1.3.4, ini@npm:^1.3.5, ini@npm:~1.3.0":
   version: 1.3.5
   resolution: "ini@npm:1.3.5::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fini%2Fdownload%2Fini-1.3.5.tgz"
   checksum: 304a78d1e0ec49c6dc316b6a21bee5340ba85159c6581235b26a4cf27e2bac5f66f2c8f0e074ceaf3c48085f89fb974691cbf812df2128d2d74c5ef726d1b19a
+  languageName: node
+  linkType: hard
+
+"ini@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "ini@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fini%2Fdownload%2Fini-2.0.0.tgz"
+  checksum: 4ad34607409491b6ebe8e7b1e6b06ad1c147851cae5838186e27a906bf33abc1511fb539df7b96bdf8993fc0f81fd3f1e5995812fb616a965d8d4d4ad738bcf5
   languageName: node
   linkType: hard
 
@@ -5612,15 +5619,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nconf@npm:0.11.0":
-  version: 0.11.0
-  resolution: "nconf@npm:0.11.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnconf%2Fdownload%2Fnconf-0.11.0.tgz"
+"nconf@npm:0.11.2":
+  version: 0.11.2
+  resolution: "nconf@npm:0.11.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnconf%2Fdownload%2Fnconf-0.11.2.tgz"
   dependencies:
     async: ^1.4.0
-    ini: ^1.3.0
+    ini: ^2.0.0
     secure-keys: ^1.0.0
     yargs: ^16.1.1
-  checksum: e67f917d87ad442c55a8376d2c71fc836a61ccf1817b74bf77a561e206b7a671874b6b8e5262a66c548e4d824f58fc4a2f47c24e9b4b3b918b4333d7fbe5a805
+  checksum: 300048cbc0cd45a90d46d623fb88a2e7ef9c8aa6435323798da062ca00f3fe3242a93207677be437598c5de33ac9f3bda00718a5dfaea846552b394cb7477028
   languageName: node
   linkType: hard
 
