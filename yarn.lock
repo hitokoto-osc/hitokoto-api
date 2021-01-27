@@ -3790,7 +3790,7 @@ __metadata:
     prettier: 2.2.1
     release-it: 14.2.2
     semver: 7.3.4
-    sequelize: 6.3.5
+    sequelize: 6.5.0
     supertest: 6.0.1
     supervisor: 0.12.0
     uuid: 8.3.2
@@ -7033,14 +7033,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sequelize@npm:6.3.5":
-  version: 6.3.5
-  resolution: "sequelize@npm:6.3.5::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsequelize%2Fdownload%2Fsequelize-6.3.5.tgz"
+"sequelize@npm:6.5.0":
+  version: 6.5.0
+  resolution: "sequelize@npm:6.5.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsequelize%2Fdownload%2Fsequelize-6.5.0.tgz"
   dependencies:
     debug: ^4.1.1
     dottie: ^2.0.0
     inflection: 1.12.0
-    lodash: ^4.17.15
+    lodash: ^4.17.20
     moment: ^2.26.0
     moment-timezone: ^0.5.31
     retry-as-promised: ^3.2.0
@@ -7063,7 +7063,7 @@ __metadata:
       optional: true
     tedious:
       optional: true
-  checksum: 782919c7a92b7d3125547065f0514624df41300d56564da85493e3ec796895bd5957356fe9f28f949b14872789af7dcac673c0275a59d9255b58dd6b2c5a3669
+  checksum: 38f55f316683ecb6017b5d18ba3d94616e4104a4ce26162c297e4a61f97800a088d38728706f2a19b634195325c466e25ecb6029dcb31735939e66ee796ed612
   languageName: node
   linkType: hard
 
