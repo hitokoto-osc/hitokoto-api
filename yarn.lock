@@ -3765,7 +3765,7 @@ __metadata:
     humanize-number: 0.0.2
     husky: 4.3.6
     ioredis: 4.19.4
-    joi: 17.3.0
+    joi: 17.4.0
     js-yaml: 3.14.1
     kcors: 2.2.2
     koa: 2.13.0
@@ -4632,16 +4632,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:17.3.0":
-  version: 17.3.0
-  resolution: "joi@npm:17.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.3.0.tgz"
+"joi@npm:17.4.0":
+  version: 17.4.0
+  resolution: "joi@npm:17.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.4.0.tgz"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
     "@sideway/address": ^4.1.0
     "@sideway/formula": ^3.0.0
     "@sideway/pinpoint": ^2.0.0
-  checksum: 3a2a6a8df5df408b33661d61abf6389f21d71478748daebe4edf4be2176548a70396601fcf2fd4fc0bc44fc12ab67fa72de310509db47579ad21bca0f2e0611b
+  checksum: 2f6203d4513c063d457a935dab5e8060413479880d55af2c4fada987c7fe1bedff46d46eec36b14cf433ecc4df3b580fe1c0a0fed5b73a265b78011f97ff5c2d
   languageName: node
   linkType: hard
 
