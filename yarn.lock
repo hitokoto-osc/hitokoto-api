@@ -2650,10 +2650,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:4.2.1":
-  version: 4.2.1
-  resolution: "eslint-plugin-promise@npm:4.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-promise%2Fdownload%2Feslint-plugin-promise-4.2.1.tgz"
-  checksum: 8c233a0b5f5646e08709e999aa75973481ee46c45255ec4b4d1577915f68d79ae52f6f84e361af5b761971294bdb38ec86021515fa4cff178f57c989226dd671
+"eslint-plugin-promise@npm:4.3.1":
+  version: 4.3.1
+  resolution: "eslint-plugin-promise@npm:4.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-promise%2Fdownload%2Feslint-plugin-promise-4.3.1.tgz"
+  checksum: 01aa61c2bea6cfd2e612cda9aaaf079c7652503dd613248a251c99b58414245ee999a8f5ca0a15f62c6b1605aca4dcbace272d67f22d79aac3f698547eb75d9a
   languageName: node
   linkType: hard
 
@@ -3758,7 +3758,7 @@ __metadata:
     eslint-plugin-jest: 24.1.3
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 3.3.0
-    eslint-plugin-promise: 4.2.1
+    eslint-plugin-promise: 4.3.1
     fast-json-stringify: 2.3.0
     flatstr: 1.0.12
     got: 11.8.1
