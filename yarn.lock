@@ -1658,10 +1658,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:6.2.1":
-  version: 6.2.1
-  resolution: "commander@npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.2.1.tgz"
-  checksum: 47856aae6f194404122e359d8463e5e1a18f7cbab26722ce69f1379be8514bd49a160ef81a983d3d2091e3240022643354101d1276c797dcdd0b5bfc3c3f04a3
+"commander@npm:7.1.0":
+  version: 7.1.0
+  resolution: "commander@npm:7.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-7.1.0.tgz"
+  checksum: 2b6dacb11f17cd9b702ae18b586b060327590dd57e2702edefbff701ec7c63b55338e70544210893bad280fc9579ffb839dd8ae0a6bc652fceffe3f9ad1c2c44
   languageName: node
   linkType: hard
 
@@ -3745,7 +3745,7 @@ __metadata:
     async: 3.2.0
     bytes: 3.1.0
     chalk: 4.1.0
-    commander: 6.2.1
+    commander: 7.1.0
     commitizen: 4.2.2
     conventional-changelog-conventionalcommits: 4.5.0
     cron: 1.8.2
