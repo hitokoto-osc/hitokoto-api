@@ -1715,13 +1715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compare-versions@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "compare-versions@npm:3.6.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcompare-versions%2Fdownload%2Fcompare-versions-3.6.0.tgz"
-  checksum: 09525264502bda1f6667ad2429eaf5520b543d997e79e7a94b66a5896df8921cdc3a97140dfff75af6c9ba1859c872de1921c3cf8a6c48ed807bbf9f582cf093
-  languageName: node
-  linkType: hard
-
 "component-emitter@npm:^1.2.1, component-emitter@npm:^1.3.0":
   version: 1.3.0
   resolution: "component-emitter@npm:1.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcomponent-emitter%2Fdownload%2Fcomponent-emitter-1.3.0.tgz"
@@ -3152,15 +3145,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-versions@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "find-versions@npm:3.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffind-versions%2Fdownload%2Ffind-versions-3.2.0.tgz"
-  dependencies:
-    semver-regex: ^2.0.0
-  checksum: 2ddc16b4265184e2b7ab68bfd9d84835178fef4193abd957ebe328e0de98e8ca3b31e2a19201c1c8308e24786faa295aab46c0bc21fa89440e2a1bc8174987f0
-  languageName: node
-  linkType: hard
-
 "findup-sync@npm:^3.0.0":
   version: 3.0.0
   resolution: "findup-sync@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffindup-sync%2Fdownload%2Ffindup-sync-3.0.0.tgz"
@@ -3763,7 +3747,7 @@ __metadata:
     flatstr: 1.0.12
     got: 11.8.1
     humanize-number: 0.0.2
-    husky: 4.3.6
+    husky: 5.1.2
     ioredis: 4.19.4
     joi: 17.3.0
     js-yaml: 3.14.1
@@ -3943,24 +3927,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:4.3.6":
-  version: 4.3.6
-  resolution: "husky@npm:4.3.6::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-4.3.6.tgz"
-  dependencies:
-    chalk: ^4.0.0
-    ci-info: ^2.0.0
-    compare-versions: ^3.6.0
-    cosmiconfig: ^7.0.0
-    find-versions: ^3.2.0
-    opencollective-postinstall: ^2.0.2
-    pkg-dir: ^4.2.0
-    please-upgrade-node: ^3.2.0
-    slash: ^3.0.0
-    which-pm-runs: ^1.0.0
+"husky@npm:5.1.2":
+  version: 5.1.2
+  resolution: "husky@npm:5.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-5.1.2.tgz"
   bin:
-    husky-run: bin/run.js
-    husky-upgrade: lib/upgrader/bin.js
-  checksum: 3c8708887822c93094c4af22608df00a3bdd74784172d13cd08c5d1ed3e7a602f6016bce9982de206f060661f1ea801362edf5658c18fc4a3866d605c47ecaf9
+    husky: lib/bin.js
+  checksum: 2c20d7132fa8c6f63ba5d7457361351f3c736d60f8faea53e8fde4735e8d75243771fa36bdda94b6e8cbd53f7caa600fa55dbdfc553184903538a9c72cbc61f1
   languageName: node
   linkType: hard
 
@@ -5869,15 +5841,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opencollective-postinstall@npm:^2.0.2":
-  version: 2.0.3
-  resolution: "opencollective-postinstall@npm:2.0.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fopencollective-postinstall%2Fdownload%2Fopencollective-postinstall-2.0.3.tgz"
-  bin:
-    opencollective-postinstall: index.js
-  checksum: d75b06b80eb426aaf099307ca4398f3119c8c86ff3806a95cfe234b979b80c07080040734fe2dc3c51fed5b15bd98dae88340807980bdc74aa1ebf045c74ef06
-  languageName: node
-  linkType: hard
-
 "optionator@npm:^0.8.1":
   version: 0.8.3
   resolution: "optionator@npm:0.8.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Foptionator%2Fdownload%2Foptionator-0.8.3.tgz"
@@ -6273,7 +6236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-dir@npm:^4.1.0, pkg-dir@npm:^4.2.0":
+"pkg-dir@npm:^4.1.0":
   version: 4.2.0
   resolution: "pkg-dir@npm:4.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fpkg-dir%2Fdownload%2Fpkg-dir-4.2.0.tgz"
   dependencies:
@@ -6950,13 +6913,6 @@ __metadata:
   dependencies:
     semver: ^6.3.0
   checksum: d5c9b693e6118bf56226b52fe4bb51f1f05fd7b91bd7979d3d01b32d4e136e16e4ea110f28f0690608712473d682e7a71a05f0ab65b8ba4a70d63b536d4c6278
-  languageName: node
-  linkType: hard
-
-"semver-regex@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "semver-regex@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver-regex%2Fdownload%2Fsemver-regex-2.0.0.tgz"
-  checksum: 9b96cc8bd559c1d46968b334ccc88115a2d9d2f7a2125d6838471114ed0c52057e77aae760fbe4932aee06687584733b32aed6d2c9654b2db33e383bfb8f26ce
   languageName: node
   linkType: hard
 
@@ -8151,13 +8107,6 @@ __metadata:
   version: 2.0.0
   resolution: "which-module@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fwhich-module%2Fdownload%2Fwhich-module-2.0.0.tgz"
   checksum: 3d2107ab18c3c2a0ffa4f1a2a0a8862d0bb3fd5c72b10df9cbd75a15b496533bf4c4dc6fa65cefba6fdb8af7935ffb939ef4c8f2eb7835b03d1b93680e9101e9
-  languageName: node
-  linkType: hard
-
-"which-pm-runs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "which-pm-runs@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fwhich-pm-runs%2Fdownload%2Fwhich-pm-runs-1.0.0.tgz"
-  checksum: 0bb79a782e98955afec8f35a3ae95c4711fdd3d0743772ee98211da67c2421fdd4c92c95c93532cc0b4dcc085d8e27f3ad2f8a9173cb632692379bd3d2818821
   languageName: node
   linkType: hard
 
