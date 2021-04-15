@@ -2912,9 +2912,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:3.3.1":
-  version: 3.3.1
-  resolution: "eslint-plugin-prettier@npm:3.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-prettier%2Fdownload%2Feslint-plugin-prettier-3.3.1.tgz"
+"eslint-plugin-prettier@npm:3.4.0":
+  version: 3.4.0
+  resolution: "eslint-plugin-prettier@npm:3.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-prettier%2Fdownload%2Feslint-plugin-prettier-3.4.0.tgz"
   dependencies:
     prettier-linter-helpers: ^1.0.0
   peerDependencies:
@@ -2923,7 +2923,7 @@ __metadata:
   peerDependenciesMeta:
     eslint-config-prettier:
       optional: true
-  checksum: cf35b0f0e9ef30782fe82913db92f6874181723d77f0c4613f9d69c87069f73d0dc420ef850ebc844613c00a8e87eb9762a36b7d028334c5c7b091763118347b
+  checksum: 322be1af8c7a6b7f1c718d912090722b65da072fda05bbc0a9d94523e6c3dfda49a7f62fd411126f1909c12bbc63e827ee6459163b2ce3458adb292541decf66
   languageName: node
   linkType: hard
 
@@ -4088,13 +4088,13 @@ __metadata:
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: 24.3.5
     eslint-plugin-node: 11.1.0
-    eslint-plugin-prettier: 3.3.1
+    eslint-plugin-prettier: 3.4.0
     eslint-plugin-promise: 5.1.0
     fast-json-stringify: 2.5.4
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
-    husky: 6.0.0
+    husky: ^6.0.0
     ioredis: 4.26.0
     joi: 17.4.0
     js-yaml: 4.0.0
@@ -4281,7 +4281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
+"husky@npm:^6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-6.0.0.tgz"
   bin:
