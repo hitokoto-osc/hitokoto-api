@@ -4,7 +4,7 @@ services:
     image: hitokoto_api
     container_name: hitokoto_api
     hostname: hitokoto_api
-    build: .
+    build: docker/mainline
     environment:
       NODE_ENV: production
     ports:
