@@ -1612,6 +1612,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:4.1.1":
+  version: 4.1.1
+  resolution: "chalk@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.1.tgz"
+  dependencies:
+    ansi-styles: ^4.1.0
+    supports-color: ^7.1.0
+  checksum: 445c12db7aeed0046500a1e4184d31209a77d165654c885a789c41c8598a6a95bd2392180987cac572c967b93a2a730dda778bb7f87fa06ca63fd8592f8cc59f
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fchalk%2Fdownload%2Fchalk-2.4.2.tgz"
@@ -4075,7 +4085,7 @@ __metadata:
     NeteaseCloudMusicApi: 4.0.10
     async: 3.2.0
     bytes: 3.1.0
-    chalk: 4.1.0
+    chalk: 4.1.1
     commander: 7.2.0
     commitizen: 4.2.3
     conventional-changelog-conventionalcommits: 4.5.0
@@ -4094,7 +4104,7 @@ __metadata:
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
-    husky: 6.0.0
+    husky: ^6.0.0
     ioredis: 4.26.0
     joi: 17.4.0
     js-yaml: 4.0.0
@@ -4281,7 +4291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
+"husky@npm:^6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-6.0.0.tgz"
   bin:
