@@ -1612,6 +1612,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:4.1.1":
+  version: 4.1.1
+  resolution: "chalk@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.1.tgz"
+  dependencies:
+    ansi-styles: ^4.1.0
+    supports-color: ^7.1.0
+  checksum: 445c12db7aeed0046500a1e4184d31209a77d165654c885a789c41c8598a6a95bd2392180987cac572c967b93a2a730dda778bb7f87fa06ca63fd8592f8cc59f
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fchalk%2Fdownload%2Fchalk-2.4.2.tgz"
@@ -2912,9 +2922,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:3.3.1":
-  version: 3.3.1
-  resolution: "eslint-plugin-prettier@npm:3.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-prettier%2Fdownload%2Feslint-plugin-prettier-3.3.1.tgz"
+"eslint-plugin-prettier@npm:3.4.0":
+  version: 3.4.0
+  resolution: "eslint-plugin-prettier@npm:3.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Feslint-plugin-prettier%2Fdownload%2Feslint-plugin-prettier-3.4.0.tgz"
   dependencies:
     prettier-linter-helpers: ^1.0.0
   peerDependencies:
@@ -2923,7 +2933,7 @@ __metadata:
   peerDependenciesMeta:
     eslint-config-prettier:
       optional: true
-  checksum: cf35b0f0e9ef30782fe82913db92f6874181723d77f0c4613f9d69c87069f73d0dc420ef850ebc844613c00a8e87eb9762a36b7d028334c5c7b091763118347b
+  checksum: 322be1af8c7a6b7f1c718d912090722b65da072fda05bbc0a9d94523e6c3dfda49a7f62fd411126f1909c12bbc63e827ee6459163b2ce3458adb292541decf66
   languageName: node
   linkType: hard
 
@@ -3287,15 +3297,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:2.5.4":
-  version: 2.5.4
-  resolution: "fast-json-stringify@npm:2.5.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-json-stringify%2Fdownload%2Ffast-json-stringify-2.5.4.tgz"
+"fast-json-stringify@npm:2.6.0":
+  version: 2.6.0
+  resolution: "fast-json-stringify@npm:2.6.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ffast-json-stringify%2Fdownload%2Ffast-json-stringify-2.6.0.tgz"
   dependencies:
     ajv: ^6.11.0
     deepmerge: ^4.2.2
     rfdc: ^1.2.0
     string-similarity: ^4.0.1
-  checksum: e908643af1bf1853fb063e1cc9308ad3251bf042cdf3329d1448be1e0f88a17fc50c9a6449b3f347d63b824f6cf324b1c76ea1c9abe78789c16657677f55048e
+  checksum: 73275d112d36b0ec5fb115f6a3811c6c969a69ce70ee49f26bf82b77a57e78d6e052dbd35f39ec0fc8e97608942d8646fefdc3b012b15658d4d38a5369768baf
   languageName: node
   linkType: hard
 
@@ -4075,7 +4085,7 @@ __metadata:
     NeteaseCloudMusicApi: 4.0.10
     async: 3.2.0
     bytes: 3.1.0
-    chalk: 4.1.0
+    chalk: 4.1.1
     commander: 7.2.0
     commitizen: 4.2.3
     conventional-changelog-conventionalcommits: 4.5.0
@@ -4088,16 +4098,16 @@ __metadata:
     eslint-plugin-import: 2.22.1
     eslint-plugin-jest: 24.3.5
     eslint-plugin-node: 11.1.0
-    eslint-plugin-prettier: 3.3.1
+    eslint-plugin-prettier: 3.4.0
     eslint-plugin-promise: 5.1.0
-    fast-json-stringify: 2.5.4
+    fast-json-stringify: 2.6.0
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
-    husky: 6.0.0
+    husky: ^6.0.0
     ioredis: 4.26.0
     joi: 17.4.0
-    js-yaml: 4.0.0
+    js-yaml: 4.1.0
     kcors: 2.2.2
     koa: 2.13.1
     koa-bodyparser: 4.3.0
@@ -4281,7 +4291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
+"husky@npm:^6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-6.0.0.tgz"
   bin:
@@ -5017,14 +5027,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:4.0.0":
-  version: 4.0.0
-  resolution: "js-yaml@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-yaml%2Fdownload%2Fjs-yaml-4.0.0.tgz"
+"js-yaml@npm:4.1.0":
+  version: 4.1.0
+  resolution: "js-yaml@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-yaml%2Fdownload%2Fjs-yaml-4.1.0.tgz"
   dependencies:
     argparse: ^2.0.1
   bin:
     js-yaml: bin/js-yaml.js
-  checksum: ee9b16cdbba690ec70f46d61737b28b35e26e6d51606c466de7fa876d3517de0cfdffd2e1ef21263d5ca3b32659d2e4c65255f50d6e236f022305bce72242d46
+  checksum: 8973cf4296c944cc2551d1e3d3d064e7de0d0a6db3f7bafe40339ee9e5e0329560b52c4b8492b9b22365404c9be0822b62340ab49884e1dedfcc7ff80158abe0
   languageName: node
   linkType: hard
 
