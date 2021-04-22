@@ -16,7 +16,7 @@
     "release": "yarn dlx release-it",
     "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js",
     "prepare": "husky install",
-    "postinstall": "husky install"
+    "postinstall": "sh -c 'if [ command -v ./node_modules/.bin/husky ]; then ./node_modules/.bin/husky install; fi;'"
   },
   "repository": "https://github.com/hitokoto-osc/hitokoto-api",
   "author": "a632079 <a632079@qq.com>",
