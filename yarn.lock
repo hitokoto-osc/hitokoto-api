@@ -2022,14 +2022,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:4.5.0":
-  version: 4.5.0
-  resolution: "conventional-changelog-conventionalcommits@npm:4.5.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fconventional-changelog-conventionalcommits%2Fdownload%2Fconventional-changelog-conventionalcommits-4.5.0.tgz"
+"conventional-changelog-conventionalcommits@npm:4.6.0":
+  version: 4.6.0
+  resolution: "conventional-changelog-conventionalcommits@npm:4.6.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fconventional-changelog-conventionalcommits%2Fdownload%2Fconventional-changelog-conventionalcommits-4.6.0.tgz"
   dependencies:
     compare-func: ^2.0.0
     lodash: ^4.17.15
     q: ^1.5.1
-  checksum: 0e57187fc7b25160401aa1bb165b2de56c57c7d9b92ac79e46ee96cd8f08982e08fd13d45a60bcb36e950a2bfcc1fc6d51f255d5c60312933a130328f0b4a6d6
+  checksum: 60114ccba24cb59c0cd4afd4974998343f21313d447f854a2b9403396405b9cf539747b2aa4b4c8e3c6360fcfd5d00961d23d8e74306f0536afcfe165eaee54e
   languageName: node
   linkType: hard
 
@@ -4088,7 +4088,7 @@ __metadata:
     chalk: 4.1.1
     commander: 7.2.0
     commitizen: 4.2.3
-    conventional-changelog-conventionalcommits: 4.5.0
+    conventional-changelog-conventionalcommits: 4.6.0
     cron: 1.8.2
     cz-conventional-changelog: 3.3.0
     eslint: 7.24.0
