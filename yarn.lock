@@ -1612,7 +1612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:4.1.1":
+"chalk@npm:4.1.1, chalk@npm:^4.1.1":
   version: 4.1.1
   resolution: "chalk@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.1.tgz"
   dependencies:
@@ -1869,17 +1869,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:7.2.0":
+"commander@npm:7.2.0, commander@npm:^7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-7.2.0.tgz"
   checksum: bdc0eca5e25cd24af8440163d3c9a996785bbac4b49a590365699cdc1ed08cefbac8f268153208ab2bc5dc3cb1d3fb573fd1590c681e36e371342186bd331a4c
-  languageName: node
-  linkType: hard
-
-"commander@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "commander@npm:6.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.2.0.tgz"
-  checksum: c78501cd98e6ad66839004adc27940f5fc1a0102b306fbbc177965101d586cf6dd2e01bdffd64f99f2d4862101f24e602e3e4baa641b6f6a11c01ec5c900e412
   languageName: node
   linkType: hard
 
@@ -2254,7 +2247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4.3.1, debug@npm:^4.2.0":
+"debug@npm:4.3.1":
   version: 4.3.1
   resolution: "debug@npm:4.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-4.3.1.tgz"
   dependencies:
@@ -3104,7 +3097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:5.0.0":
+"execa@npm:5.0.0, execa@npm:^5.0.0":
   version: 5.0.0
   resolution: "execa@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-5.0.0.tgz"
   dependencies:
@@ -3121,7 +3114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.2, execa@npm:^4.1.0":
+"execa@npm:^4.0.2":
   version: 4.1.0
   resolution: "execa@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-4.1.0.tgz"
   dependencies:
@@ -4117,7 +4110,7 @@ __metadata:
     koa-livereload: 0.2.0
     koa-query-pretty: 0.3.0
     koa-router: 10.0.0
-    lint-staged: 10.5.4
+    lint-staged: 11.0.0
     lodash: 4.17.21
     lodash.compact: 3.0.1
     lodash.curry: 4.1.1
@@ -5416,46 +5409,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:10.5.4":
-  version: 10.5.4
-  resolution: "lint-staged@npm:10.5.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.5.4.tgz"
+"lint-staged@npm:11.0.0":
+  version: 11.0.0
+  resolution: "lint-staged@npm:11.0.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flint-staged%2Fdownload%2Flint-staged-11.0.0.tgz"
   dependencies:
-    chalk: ^4.1.0
+    chalk: ^4.1.1
     cli-truncate: ^2.1.0
-    commander: ^6.2.0
+    commander: ^7.2.0
     cosmiconfig: ^7.0.0
-    debug: ^4.2.0
+    debug: ^4.3.1
     dedent: ^0.7.0
     enquirer: ^2.3.6
-    execa: ^4.1.0
-    listr2: ^3.2.2
-    log-symbols: ^4.0.0
-    micromatch: ^4.0.2
+    execa: ^5.0.0
+    listr2: ^3.8.2
+    log-symbols: ^4.1.0
+    micromatch: ^4.0.4
     normalize-path: ^3.0.0
     please-upgrade-node: ^3.2.0
     string-argv: 0.3.1
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: dbcafe3679668379fc03f3aef481c3f710794ec03dd5c3915f26a0de110977fbcb44b55ab6dfcff9e8e5789c568ea5629e92f55944fc43f6f6fa1890ee5b07ba
+  checksum: e5d9c38f468fae090939d150f8a1676ca208e50c714f20c9957a16833eeae20ca9676c8679883d0a005fda58375581c26352e18a2227d6449a29adaca650f957
   languageName: node
   linkType: hard
 
-"listr2@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "listr2@npm:3.2.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flistr2%2Fdownload%2Flistr2-3.2.2.tgz"
+"listr2@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "listr2@npm:3.8.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flistr2%2Fdownload%2Flistr2-3.8.2.tgz"
   dependencies:
-    chalk: ^4.1.0
+    chalk: ^4.1.1
     cli-truncate: ^2.1.0
     figures: ^3.2.0
     indent-string: ^4.0.0
     log-update: ^4.0.0
     p-map: ^4.0.0
-    rxjs: ^6.6.3
+    rxjs: ^6.6.7
     through: ^2.3.8
+    wrap-ansi: ^7.0.0
   peerDependencies:
     enquirer: ">= 2.3.0 < 3"
-  checksum: e4cccac610bc18cf75f1248f599ce6fb9637e481dc8ebca480c84b6a57802f580a2df2915b54acaa4268dfcc42a87bb6c86bd7ec5cee793e4df8ee1c8f0822ff
+  checksum: ecc039103c8d1065782d327b87045431b609105bcdada16cd209daf1b2f971605ba5c083fbe74e4d17a0002d7f8ab038c94c4feaaf48a0601dba628cd6f0b6e3
   languageName: node
   linkType: hard
 
@@ -5588,15 +5582,6 @@ __metadata:
   version: 4.17.20
   resolution: "lodash@npm:4.17.20::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
-  languageName: node
-  linkType: hard
-
-"log-symbols@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "log-symbols@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flog-symbols%2Fdownload%2Flog-symbols-4.0.0.tgz"
-  dependencies:
-    chalk: ^4.0.0
-  checksum: 2cbdb0427d1853f2bd36645bff42aaca200902284f28aadacb3c0fa4c8c43fe6bfb71b5d61ab08b67063d066d7c55b8bf5fbb43b03e4a150dbcdd643e9cd1dbf
   languageName: node
   linkType: hard
 
@@ -5822,6 +5807,16 @@ __metadata:
     braces: ^3.0.1
     picomatch: ^2.0.5
   checksum: 0cb0e11d647cbb65e398a0a8a1340a7fb751ae2722346219c435704cfac8b3275a94a6464236fe867f52ad46a24046d3bc4ac11b3d21ddb73bc44e27cf1e4904
+  languageName: node
+  linkType: hard
+
+"micromatch@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "micromatch@npm:4.0.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fmicromatch%2Fdownload%2Fmicromatch-4.0.4.tgz"
+  dependencies:
+    braces: ^3.0.1
+    picomatch: ^2.2.3
+  checksum: bc522ad93c086aa176f50fea2dc8060a8f7d7a621c811cf9ba02a1912577cc100190508166d721231465f10a575a40ec8a1bffc23bbc2c0108fcbf02e4be04ed
   languageName: node
   linkType: hard
 
@@ -6750,6 +6745,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "picomatch@npm:2.2.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fpicomatch%2Fdownload%2Fpicomatch-2.2.3.tgz"
+  checksum: f8c9323bc3b21ff448e81dd32277135d781abae5d53a1415d69a4ce6317a2c11404d449c550110b8fa402c07d5e80ff0e2657f263a312517cc809e9010d25791
+  languageName: node
+  linkType: hard
+
 "pify@npm:5.0.0":
   version: 5.0.0
   resolution: "pify@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fpify%2Fdownload%2Fpify-5.0.0.tgz"
@@ -7425,7 +7427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.4.0, rxjs@npm:^6.6.3":
+"rxjs@npm:^6.4.0":
   version: 6.6.3
   resolution: "rxjs@npm:6.6.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frxjs%2Fdownload%2Frxjs-6.6.3.tgz"
   dependencies:
@@ -7437,6 +7439,15 @@ __metadata:
 "rxjs@npm:^6.6.6":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frxjs%2Fdownload%2Frxjs-6.6.7.tgz"
+  dependencies:
+    tslib: ^1.9.0
+  checksum: 1146975cbd5388ee5e61450235dc5670931e43cce71813f567977d334acc4d75c6e8d9d293df67e1fb31510b99fc8957943d4a9b550d109e4dc69967a8471543
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:^6.6.7":
+  version: 6.6.7
+  resolution: "rxjs@npm:6.6.7::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Frxjs%2Fdownload%2Frxjs-6.6.7.tgz"
   dependencies:
     tslib: ^1.9.0
   checksum: 1146975cbd5388ee5e61450235dc5670931e43cce71813f567977d334acc4d75c6e8d9d293df67e1fb31510b99fc8957943d4a9b550d109e4dc69967a8471543
