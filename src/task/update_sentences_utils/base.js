@@ -76,7 +76,7 @@ exports.updateSentences = async (
     SideAB.set('hitokoto:bundle:sentences:total', sentenceTotal),
   ])
   // 切换数据库分区
-  Cache.set('hitokoto:ab', targetDatabase)
+  await Cache.set('hitokoto:ab', targetDatabase)
   AB.setDatabase(targetDatabase)
   logger.verbose(
     '[sentencesUpdateTask] total sentences: ' + chalk.cyan(sentenceTotal),
