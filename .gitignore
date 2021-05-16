@@ -8,6 +8,7 @@ coverage/
 **/config.json
 **/config.yml
 .vscode/
+.idea
 
 # Yarn 2
 .yarn/*
