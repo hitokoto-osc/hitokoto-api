@@ -1,6 +1,6 @@
 'use strict'
 const nconf = require('nconf')
-const winston = require('winston')
+const { logger } = require('./logger')
 const nodemailer = require('nodemailer')
 const pkg = require('../package')
 const htmlEscape = require('./utils').htmlEscape
@@ -24,10 +24,10 @@ class mail {
       const transporter = nodemailer.createTransport(config)
       await transporter.verify((err, success) => {
         if (err) {
-          winston.error(err)
+          logger.error(err)
           process.exit(1)
         } else {
-          winston.verbose('SMTP Connection Pool is ready.')
+          logger.verbose('SMTP Connection Pool is ready.')
         }
       })
       this.smtp = transporter

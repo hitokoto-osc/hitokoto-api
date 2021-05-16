@@ -1,9 +1,8 @@
 // This file is a map of child processes
 const path = require('path')
-const winston = require('winston')
 const chalk = require('chalk')
 const AB = require('../src/extensions/sentencesABSwitcher')
-
+const { logger } = require('../src/logger')
 module.exports = {
   processes: [
     {
@@ -27,7 +26,7 @@ module.exports = {
       to: 'ab',
       from: 'cronJob',
       listener: (targetDB) => {
-        winston.verbose(
+        logger.verbose(
           '[AB] received signal, switching to db: ' + chalk.yellow(targetDB),
         )
         AB.setDatabase(targetDB)
@@ -38,7 +37,7 @@ module.exports = {
       to: 'core',
       from: 'cronJob',
       listener: (message, moduleName) => {
-        winston.verbose('[init] all cronJobs are loaded. ')
+        logger.verbose('[init] all cronJobs are loaded. ')
       },
     },
     {
@@ -47,7 +46,7 @@ module.exports = {
       from: 'cronJob',
       listener: (data, moduleName) => {
         console.log(chalk.red(data))
-        winston.error(
+        logger.error(
           '[init] error was thrown while loading cron jobs, process existing.',
         )
         process.exit(1)

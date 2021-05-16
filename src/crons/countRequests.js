@@ -1,29 +1,29 @@
 'use strict'
 // Import Packages
-const winston = require('winston')
+const { logger } = require('../logger')
 const path = require('path')
 const cache = require(path.join(__dirname, '../cache'))
 
 function saveCount(ts, count) {
   cache.set('requests:count:' + ts, count, 60 * 60 * 25).catch((err) => {
-    winston.error(err)
+    logger.error(err)
     saveCount(ts, count)
   })
 }
 
 function saveHostsCount(ts, count) {
   cache.set('requests:hosts:count:' + ts, count, 60 * 60 * 25).catch((err) => {
-    winston.error(err)
+    logger.error(err)
     saveCount(ts, count)
   })
 }
 function autoSave(ts, requests) {
   saveCount(ts, requests.all)
-  winston.debug(
+  logger.debug(
     '[countRequestsCron] requests: ' + requests.all + ', saving to redis.',
   )
   saveHostsCount(ts, requests.hosts)
-  winston.debug(
+  logger.debug(
     '[countRequestsCron] host equests: ' +
       JSON.stringify(requests.hosts) +
       '\n, saving to redis.',
@@ -65,7 +65,7 @@ module.exports = [
   },
   () => {
     // 该方法会在计划任务停止时执行
-    winston.error('[countRequestsCron] job is stopped. Try to RESTART the job.')
+    logger.error('[countRequestsCron] job is stopped. Try to RESTART the job.')
   },
   false, // 是否立即启动计划任务
   'Asia/Shanghai', // 时区

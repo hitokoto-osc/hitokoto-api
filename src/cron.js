@@ -1,6 +1,5 @@
 'use strict'
 // Import Packages
-const winston = require('winston')
 const path = require('path')
 const fs = require('fs')
 const nconf = require('nconf')
@@ -40,7 +39,8 @@ class Cron {
           )
           job.start()
         })
-        winston.verbose('All Cron Jobs Load done.')
+        const { logger } = require('./logger')
+        logger.verbose('All Cron Jobs Load done.')
       } else {
         // 已经指定了 cronMap
         await cronMap.forEach((item, index, input) => {
@@ -117,15 +117,21 @@ class Cron {
     }
   }
 }
-
-require('./prestart').load(null, true)
 if (process.env && process.env.dev === 'true') {
   nconf.set('dev', true)
 }
+
+require('./prestart')
+  .loadAsync(null, true)
+  .then(() => {
+    Cron.load()
+    const { logger } = require('./logger')
+    logger.verbose('[cronJob] cronJob process is started.')
+  })
+
 process.on('exit', (code) => {
   if (code && code === 1000) {
-    winston.info('[cronJob] receiving exiting signal, cronJob process exits.')
+    const { logger } = require('./logger')
+    logger.info('[cronJob] receiving exiting signal, cronJob process exits.')
   }
 })
-Cron.load()
-winston.verbose('[cronJob] cronJob process is started.')

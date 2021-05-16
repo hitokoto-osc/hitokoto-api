@@ -1,7 +1,7 @@
 const mail = require('../mail')
 const formatError = require('../utils').formatError
 const nconf = require('nconf')
-const winston = require('winston')
+const { logger } = require('../logger')
 
 const shouldThrow404 = (status, body) => {
   return !status || (status === 404 && body == null)
@@ -35,10 +35,12 @@ async function sendMail(ctx, next) {
           body: ctx.request.body || [], // POST 参数
         },
       })
-      mail.error(mailStruct)
+      mail.error(mailStruct).catch((e) => {
+        logger.error(e)
+      })
     }
     // Emit the error if we really care
-    shouldEmitError(e, ctx.status) && winston.error(e)
+    shouldEmitError(e, ctx.status) && logger.error(e)
   }
 }
 function init() {

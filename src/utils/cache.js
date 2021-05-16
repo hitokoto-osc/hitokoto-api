@@ -1,4 +1,4 @@
-const winston = require('winston')
+const { logger } = require('../logger')
 const nconf = require('nconf')
 const chalk = require('chalk')
 
@@ -21,16 +21,16 @@ const ConnectionConfig = {
 }
 
 const handleError = (err) => {
-  winston.error(chalk.red(err.stack))
+  logger.error(chalk.red(err.stack))
   if (connectionFailedAttempt >= 3) {
-    winston.error(
+    logger.error(
       '[cache] attempt to connect to redis ' +
         connectionFailedAttempt +
         ' times, but all failed, process exiting.',
     )
     process.exit(1)
   }
-  winston.error('[cache] failed to connect to redis, we will attempt again...')
+  logger.error('[cache] failed to connect to redis, we will attempt again...')
   connectionFailedAttempt++
   nconf.set('connectionFailedAttempt', connectionFailedAttempt)
   this.connect()

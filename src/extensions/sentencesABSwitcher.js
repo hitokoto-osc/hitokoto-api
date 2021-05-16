@@ -8,7 +8,7 @@ const Redis = require('ioredis')
 const databaseA = nconf.get('sentences_ab_switcher:a') || 1
 const databaseB = nconf.get('sentences_ab_switcher:b') || 2
 const chalk = require('chalk')
-const winston = require('winston')
+const { logger } = require('../logger')
 
 const { ConnectionConfig, handleError } = require('../utils/cache')
 class SentencesABSwitcher extends Cache {
@@ -41,7 +41,7 @@ class SentencesABSwitcher extends Cache {
   }
 
   static setDatabase(target) {
-    winston.verbose('[AB] switching database: ' + chalk.blue(target))
+    logger.verbose('[AB] switching database: ' + chalk.blue(target))
     if (target === 'a') {
       this.redis = this.redisA
     } else {

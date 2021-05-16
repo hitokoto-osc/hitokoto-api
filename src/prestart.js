@@ -1,5 +1,4 @@
 'use strict'
-const winston = require('winston')
 const nconf = require('nconf')
 const semver = require('semver')
 const pkg = require('../package.json')
@@ -7,45 +6,15 @@ const path = require('path')
 const fs = require('fs')
 const chalk = require('chalk')
 const dirname = path.join(__dirname, '../')
+const { SetupLogger } = require('./logger')
 
 async function setupWinston() {
-  const logFile =
-    nconf.get('log_path') ||
-    path.join(__dirname, '../', './data/logs/', pkg.name + '_error.log')
-
-  // createDir while running at docker
-  const dirPath = path.join(logFile, '../')
-  if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath)
-
-  fs.existsSync(logFile) || fs.writeFileSync(logFile, '')
-  winston.remove(winston.transports.Console)
-  winston.add(winston.transports.File, {
-    filename: logFile,
-    level: 'error',
-    handleExceptions: true,
-    maxsize: 5242880,
-    maxFiles: 10,
-  })
-  winston.add(winston.transports.Console, {
-    colorize: nconf.get('log-colorize') !== 'false',
-    timestamp: function () {
-      const date = new Date()
-      return nconf.get('json_logging')
-        ? date.toJSON()
-        : date.toISOString() + ' [' + global.process.pid + ']'
-    },
-    level:
-      !nconf.get('dev') || !(process.env && process.env.dev === 'true')
-        ? 'info'
-        : 'verbose',
-    json: !!nconf.get('json_logging'),
-    stringify: !!nconf.get('json_logging'),
-  })
+  await SetupLogger()
 }
 
 function loadConfig(configFile, next, isChild = false) {
   nconf.use('memory') // use memory store
-  nconf.argv().env() // 从参数中读取配置，并写入 nconf
+  nconf.env().argv() // 从参数中读取配置，并写入 nconf
 
   // convert old config
   const oldConfigFile = path.join(__dirname, '../data/config.json')
@@ -70,16 +39,30 @@ function loadConfig(configFile, next, isChild = false) {
   })
   nconf.set('dev', !global.prod) // Inject Dev option
   if (next && typeof next === 'function') {
-    Promise.resolve(next()).then(() => {
-      // Print logger
-      if (!isChild) {
-        winston.verbose(
-          '[prestart] * using configuration stored in: %s',
-          configFile,
-        )
-      }
+    doNext({
+      next,
+      isChild,
+      configFile,
+    }).catch((err) => {
+      const { logger } = require('./logger')
+      logger.error(err)
+      process.exit(1)
     })
   }
+}
+
+function doNext(opts) {
+  const { configFile, next, isChild } = opts
+  return Promise.resolve(next()).then(() => {
+    // Print logger
+    if (!isChild) {
+      const { logger } = require('./logger')
+      logger.verbose(
+        '[prestart] * using configuration stored in: %s',
+        configFile,
+      )
+    }
+  })
 }
 
 function printCopyright() {
@@ -131,6 +114,17 @@ module.exports = {
       configFile = path.join(__dirname, '../data', './config.yml')
     if (!isChild) printCopyright()
     loadConfig(configFile, setupWinston, isChild)
+  },
+  loadAsync: async (configFile, isChild = false) => {
+    if (!configFile)
+      configFile = path.join(__dirname, '../data', './config.yml')
+    if (!isChild) printCopyright()
+    loadConfig(configFile, undefined, isChild)
+    await doNext({
+      configFile,
+      isChild,
+      next: setupWinston,
+    })
   },
   check,
 }

@@ -1,5 +1,6 @@
 'use strict'
 const pkg = require('../package.json')
+const nconf = require('nconf')
 function process() {
   const { program } = require('commander')
   program
@@ -16,12 +17,11 @@ function process() {
     console.log('  $ yarn start')
   })
   program.parse(process.argv)
-
-  global.prod = true
-  if (program.dev) {
-    global.prod = false
+  const opts = program.opts()
+  if (opts.dev) {
+    nconf.set('dev', true)
   }
-  return program
+  return { program, opts }
 }
 
 module.exports = {

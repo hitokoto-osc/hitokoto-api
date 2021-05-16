@@ -1,6 +1,6 @@
 // Load Packages
 const fs = require('fs')
-const winston = require('winston')
+const { logger } = require('./logger')
 const chalk = require('chalk')
 const path = require('path')
 const { promisify } = require('util')
@@ -61,7 +61,7 @@ class controllers {
         controller,
       ))
     } catch (e) {
-      winston.error(chalk.red(e))
+      logger.error(chalk.red(e))
       // mail.error(e)
       process.exit(1)
     }
@@ -73,7 +73,7 @@ class controllers {
       const controllers = await genControllersMap()
       return controllers
     } catch (e) {
-      winston.error(chalk.red(e))
+      logger.error(chalk.red(e))
       process.exit(1)
     }
   }

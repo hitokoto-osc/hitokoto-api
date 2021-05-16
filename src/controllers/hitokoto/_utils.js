@@ -1,5 +1,5 @@
 const AB = require('../../extensions/sentencesABSwitcher')
-const winston = require('winston')
+const { logger } = require('../../logger')
 const flatstr = require('flatstr')
 
 module.exports = exports = {}
@@ -96,10 +96,10 @@ async function updateCategories() {
     categories.updateLock = false
   } catch (e) {
     categories.updateLock = false
-    winston.error(
+    logger.error(
       '[hitokoto.updateCategories] occur error while updating, error details:',
     )
-    winston.error(e)
+    logger.error(e)
     // throw e
   }
 }

@@ -2,7 +2,7 @@
 const _ = require('lodash')
 const AB = require('../../extensions/sentencesABSwitcher')
 const Cache = require('../../cache')
-const winston = require('winston')
+const { logger } = require('../../logger')
 const got = require('got')
 const chalk = require('chalk')
 const nconf = require('nconf')
@@ -26,7 +26,7 @@ async function performRequest(url, params, method = 'GET') {
     ),
   )
   if (response.statusCode !== 200) {
-    winston.error(response)
+    logger.error(response)
     throw new Error(
       '[sentencesUpdateTask] Request failed because the response status code is not 200.',
     )
@@ -36,7 +36,7 @@ async function performRequest(url, params, method = 'GET') {
 
 exports.fetchRemoteVersionData = async () => {
   const remoteVersionURL = new URL('./version.json', remoteURL).toString()
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] fetching version data from: ' +
       chalk.green(remoteVersionURL),
   )
@@ -47,7 +47,7 @@ exports.fetchRemoteVersionData = async () => {
 exports.checkBundleProtocolVersion = (remoteVersionData, local) => {
   if (!semver.satisfies(remoteVersionData.protocol_version, '>=1.0 <1.1')) {
     // 约束协议范围
-    winston.error(
+    logger.error(
       '[sentencesUpdateTask] This program is currently NOT support the protocol version: ' +
         remoteVersionData.protocol_version +
         ', please update your program.',
@@ -78,10 +78,10 @@ exports.updateSentences = async (
   // 切换数据库分区
   Cache.set('hitokoto:ab', targetDatabase)
   AB.setDatabase(targetDatabase)
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] total sentences: ' + chalk.cyan(sentenceTotal),
   )
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] having finished the update, spend ' +
       (Date.now() - startTick) +
       ' ms.',
@@ -93,7 +93,7 @@ exports.updateSentences = async (
 }
 
 function notifyMasterSwitchDB(targetDatabase) {
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] notify master process to switch redis db to: ' +
       chalk.yellow(targetDatabase),
   )
@@ -214,7 +214,7 @@ async function updateSpecificCategorySentences(SideAB, category) {
     SideAB.set(`hitokoto:bundle:category:${category.key}:max`, maxLength),
     SideAB.set(`hitokoto:bundle:category:${category.key}:min`, minLength),
   ])
-  winston.verbose(
+  logger.verbose(
     `[sentencesUpdateTask] the sentences of category ${chalk.red(
       category.key,
     )} is updated. length range: [${chalk.green(minLength)}, ${chalk.green(
@@ -226,7 +226,7 @@ async function updateSpecificCategorySentences(SideAB, category) {
 
 async function fetchRemoteCategorySentencesByPath(path) {
   const remoteSentenceURL = new URL(path, remoteURL).toString()
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] fetching sentences data from: ' +
       chalk.green(remoteSentenceURL),
   )
@@ -238,7 +238,7 @@ async function fetchRemoteCategoriesData(remoteVersionData) {
     remoteVersionData.categories.path,
     remoteURL,
   ).toString()
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] fetching categories data from: ' +
       chalk.green(remoteCategoriesURL),
   )

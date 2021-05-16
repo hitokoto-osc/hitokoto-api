@@ -1,6 +1,6 @@
 /* eslint-disable node/no-deprecated-api */
 // const path = require('path')
-const winston = require('winston')
+const { logger } = require('../logger')
 const chalk = require('chalk')
 // const nconf = require('nconf')
 const semver = require('semver')
@@ -15,12 +15,12 @@ const {
 
 async function Task() {
   // TODO: 按需同步流程中移除失效句子（在包中移除的句子）
-  winston.verbose('[sentencesUpdateTask] start to update...')
+  logger.verbose('[sentencesUpdateTask] start to update...')
   const startTick = Date.now()
   // 取得 AB 库的指针
   const currentABSlot = (await cache.get('hitokoto:ab')) || 'a'
   AB.setDatabase(currentABSlot)
-  winston.verbose('[sentencesUpdateTask] current AB slot: ' + chalk.blue(AB.db))
+  logger.verbose('[sentencesUpdateTask] current AB slot: ' + chalk.blue(AB.db))
   // 取得本地数据版本
   const local = {
     bundleVersion: (await AB.get('hitokoto:bundle:version')) || '0.0.0',
@@ -30,16 +30,16 @@ async function Task() {
 
   // 获取远程数据的版控文件
   const remoteVersionData = await fetchRemoteVersionData()
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] remote bundle protocol version: ' +
       chalk.green('v' + remoteVersionData.protocol_version),
   )
   checkBundleProtocolVersion(remoteVersionData, local)
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] remote bundle version: ' +
       chalk.yellow('v' + remoteVersionData.bundle_version),
   )
-  winston.verbose(
+  logger.verbose(
     '[sentencesUpdateTask] local bundle version: ' +
       chalk.yellow('v' + local.bundleVersion),
   )
@@ -47,7 +47,7 @@ async function Task() {
     semver.eq(remoteVersionData.bundle_version, local.bundleVersion) &&
     local.bundleUpdatedAt === remoteVersionData.updated_at
   ) {
-    winston.verbose(
+    logger.verbose(
       '[sentencesUpdateTask] the local records are same with the remote one, update ended.',
     )
     return // 版本相同且生成时间戳相同、无需更新
@@ -68,7 +68,7 @@ async function Task() {
 function RunTask() {
   Task().catch((err) => {
     console.log(chalk.red(err.stack))
-    winston.error(
+    logger.error(
       '[sentencesUpdateTask] occur errors while update, please check the details. if occurs frequently, contact the author please.',
     )
   })

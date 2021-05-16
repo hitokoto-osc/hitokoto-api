@@ -46,5 +46,5 @@ module.exports = [
       flush: require('zlib').Z_SYNC_FLUSH,
     }),
   ],
-  ['logger', require('../src/logger')()],
+  ['logger', require('../src/middlewares/logger')()],
 ]

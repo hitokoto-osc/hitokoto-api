@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const nconf = require('nconf')
 const path = require('path')
-const winston = require('winston')
+const { logger } = require('./logger')
 
 class db {
   constructor(model) {
@@ -36,7 +36,7 @@ class db {
             idle: 10000,
           },
           logging: (log) => {
-            winston.debug(log)
+            logger.debug(log)
           },
           operatorsAliases: false,
         },
@@ -45,12 +45,12 @@ class db {
       await sequelize
         .authenticate()
         .then(() => {
-          winston.verbose(
+          logger.verbose(
             'Database Connection has been established successfully.',
           )
         })
         .catch((err) => {
-          winston.error(err.message)
+          logger.error(err.message)
         })
 
       this.sequelize = sequelize

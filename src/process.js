@@ -2,7 +2,7 @@
 const path = require('path')
 const childProcess = require('child_process')
 const { EventEmitter } = require('events')
-const winston = require('winston')
+const { logger } = require('./logger')
 const nconf = require('nconf')
 const chalk = require('chalk')
 const _ = require('lodash')
@@ -14,10 +14,10 @@ class ProcessInteract {
   }
 
   register() {
-    winston.verbose('[processInteract] prepare to register receivers.')
+    logger.verbose('[processInteract] prepare to register receivers.')
     // DEV only
     this.routeMap.forEach((v) => {
-      winston.verbose(
+      logger.verbose(
         '[processInteract] receiver is registered, key: ' +
           chalk.red(v.key) +
           ' , to: ' +
@@ -27,7 +27,7 @@ class ProcessInteract {
       )
     })
     event.on('message', (msg, moduleName) => {
-      winston.verbose(
+      logger.verbose(
         '[processInteract] received a message, detail: ',
         chalk.grey(JSON.stringify(msg)),
       )
@@ -41,7 +41,7 @@ class ProcessInteract {
         if (matches) {
           matches.listener(msg.data)
         } else {
-          winston.warn(
+          logger.warn(
             '[processInteract] route key is missing, raw data: ' +
               chalk.grey(JSON.stringify(msg)),
           )
@@ -101,7 +101,7 @@ class Process {
   handleChildProcessExitEvent(moduleName, path, messageListener) {
     return (code, signal) => {
       if (code === null && !signal) {
-        winston.warn(
+        logger.warn(
           '[' +
             moduleName +
             '] process is exited accidentally. Try to respawn it.',
@@ -111,7 +111,7 @@ class Process {
         this.spawnProcess(path, moduleName, messageListener)
       } else if (code > 0) {
         // errors might be thrown
-        winston.error(
+        logger.error(
           '[' +
             moduleName +
             '] child process exited with code: ' +
@@ -121,7 +121,7 @@ class Process {
         process.exit(1)
       } else if (signal) {
         // exist ignore
-        winston.info(
+        logger.info(
           '[' +
             moduleName +
             '] process is exited due to receiving a signal: ' +

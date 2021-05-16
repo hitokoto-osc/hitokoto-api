@@ -6,22 +6,20 @@ const chalk = require('chalk')
 const http = require('http')
 const nconf = require('nconf')
 // const os = require('os')
-const winston = require('winston')
 // const path = require('path')
 // const pkg = require('./package.json')
 // const mail = require('./src/mail')
 const preStart = require('./src/prestart')
 preStart.check() // Check Env
-
 // Read Command
 const commander = require('./src/commander')
-const program = commander.process()
-
+const { opts } = commander.process()
 // PreStart
-preStart.load(program.config_file || null)
-if (program.dev) {
-  winston.verbose('[debug] you are running at Development mode.')
-  winston.level = 'verbose'
+preStart.load(opts.config_file || null)
+const { logger } = require('./src/logger')
+if (opts.dev) {
+  logger.verbose('[debug] you are running at Development mode.')
+  logger.level = 'verbose'
 }
 
 // Use blubird promise
@@ -35,7 +33,7 @@ let childProcessList = []
 async function registerProcesses() {
   const { processes: processesMap, receivers } = require('./adapter/processes')
   const processesToStart = []
-  const isDev = program.dev
+  const isDev = opts.dev
   for (const process of processesMap) {
     if (
       (process.isDev && isDev) ||
@@ -51,14 +49,14 @@ async function registerProcesses() {
   )
   childProcessList = staticProcess().ProcessList
 
-  // load receviers
+  // load receivers
   const processInteract = new ProcessInteract(receivers)
   processInteract.register()
 }
 
 // Register Middlewares (Plugins)
 async function registerMiddlewares() {
-  require('./src/middleware').register(app, program.dev)
+  require('./src/middleware').register(app, opts.dev)
 }
 
 // Run Task
@@ -73,13 +71,13 @@ async function registerRoutes(routes) {
         app.use(router.routes()).use(router.allowedMethods())
       })
       .catch((err) => {
-        winston.error(chalk.red(err.stack))
+        logger.error(chalk.red(err.stack))
         // mail.error(err)
         process.exit()
       })
-    winston.verbose('[init] koa routes are loaded.')
+    logger.verbose('[init] koa routes are loaded.')
   } catch (e) {
-    winston.error(chalk.red(e.stack))
+    logger.error(chalk.red(e.stack))
     // mail.error(e)
     process.exit()
   }
@@ -87,7 +85,7 @@ async function registerRoutes(routes) {
 
 // handle the process exit event
 function handleProcessExitSignal(signal) {
-  winston.verbose(
+  logger.verbose(
     '[core] received signal: ' +
       chalk.yellow(signal) +
       ', start the exit produre.',
@@ -95,7 +93,7 @@ function handleProcessExitSignal(signal) {
   for (const child of childProcessList) {
     child.instance.kill('SIGTERM') // teng-koa exit signal code
   }
-  winston.info('[core] Web server is shut down, Bye!')
+  logger.info('[core] Web server is shut down, Bye!')
   process.exit(0)
 }
 process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
@@ -104,13 +102,13 @@ process.on('exit', (code) => {
   // handle unexpected exit event
   if (code) {
     // ignore zero exit code
-    winston.error(
+    logger.error(
       '[core] received exit code: ' + code + ', process will be destoryed.',
     )
     for (const child of childProcessList) {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
     }
-    winston.info('[core] Web server is shut down, Bye!')
+    logger.info('[core] Web server is shut down, Bye!')
   }
 })
 
@@ -135,8 +133,8 @@ async function start() {
     const Routes = require('./src/route')
     await registerRoutes(new Routes().routes())
     startKoa(app)
-    winston.verbose('[init] All init steps are exceeded.')
-    winston.info(
+    logger.verbose('[init] All init steps are exceeded.')
+    logger.info(
       '[core] Web Server is started, listening on' +
         chalk.yellow(' port') +
         ': ' +
@@ -144,9 +142,7 @@ async function start() {
     )
   } catch (e) {
     console.log(chalk.red(e.stack))
-    winston.error(
-      '[init] error was thrown while initializing, process exiting.',
-    )
+    logger.error('[init] error was thrown while initializing, process exiting.')
     // mail.error(e)
     process.exit()
   }

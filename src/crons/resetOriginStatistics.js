@@ -1,6 +1,6 @@
 'use strict'
 // Import Packages
-const winston = require('winston')
+const { logger } = require('../logger')
 // const path = require('path')
 // const cache = require(path.join(__dirname, '../cache'))
 
@@ -12,7 +12,7 @@ module.exports = [
   },
   (job) => {
     // This function is executed when the job stops
-    winston.error('Count Requests job is stopped. Kill process.')
+    logger.error('Count Requests job is stopped. Kill process.')
     process.exit(1)
   },
   true, // Start the job right now,

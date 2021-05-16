@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const nconf = require('nconf')
-const winston = require('winston')
+const { logger } = require('./logger')
 
 class Route {
   constructor() {
@@ -22,7 +22,7 @@ class Route {
       // RouteMap
       const Router = require('koa-router')
       if (!fs.existsSync(path.join(__dirname, '../', './adapter/routes.js'))) {
-        winston.error("[route] can't find the route file, program exiting.")
+        logger.error("[route] can't find the route file, program exiting.")
         process.exitCode(1)
       }
       return require(path.join(__dirname, '../', './adapter/routes'))(
@@ -31,7 +31,7 @@ class Route {
         controller,
       )
     } catch (err) {
-      winston.error(err)
+      logger.error(err)
       process.exit(1)
     }
   }

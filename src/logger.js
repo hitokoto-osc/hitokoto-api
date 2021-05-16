@@ -1,151 +1,87 @@
-/**
- * Module dependencies.
- */
-'use strict'
-
-const Counter = require('passthrough-counter')
-const humanize = require('humanize-number')
-const bytes = require('bytes')
-const chalk = require('chalk')
+const fs = require('fs')
+const path = require('path')
+const pkg = require('../package.json')
+const nconf = require('nconf')
 const winston = require('winston')
 
-/**
- * Expose logger.
- */
+function getLogFilePath() {
+  const logFile =
+    nconf.get('log_path') ||
+    path.join(__dirname, '../', './data/logs/', pkg.name + '_error.log')
 
-module.exports = dev
-
-/**
- * Color map.
- */
-
-const colorCodes = {
-  7: 'magenta',
-  5: 'red',
-  4: 'yellow',
-  3: 'cyan',
-  2: 'green',
-  1: 'green',
-  0: 'yellow',
+  // createDir while running at docker
+  const dirPath = path.join(logFile, '../')
+  if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath)
+  fs.existsSync(logFile) || fs.writeFileSync(logFile, '')
+  return logFile
 }
 
-/**
- * Development logger.
- */
-
-function dev(opts) {
-  return async function logger(ctx, next) {
-    // request
-    const start = Date.now()
-    winston.verbose(
-      '[web] ' +
-        chalk.gray('<--') +
-        ' ' +
-        chalk.bold('%s') +
-        ' ' +
-        chalk.gray('%s') +
-        ' ' +
-        chalk.gray('%s'),
-      ctx.method,
-      ctx.originalUrl,
-      ctx.reqId,
+function getConsoleFormatter() {
+  const formatList = [
+    winston.format.colorize({
+      all: !!nconf.get('log-colorize'),
+    }),
+    winston.format.timestamp({
+      format: () => {
+        const date = new Date()
+        return nconf.get('json_logging')
+          ? date.toJSON()
+          : date.toISOString() + ' [' + global.process.pid + ']'
+      },
+    }),
+    winston.format.splat(),
+  ]
+  if (nconf.get('json_logging')) {
+    formatList.push(
+      winston.format.prettyPrint(),
+      winston.format.json(),
+      winston.format.printf((info) => {
+        if (info.message.constructor === Object) {
+          info.message = JSON.stringify(info.message, null, 4)
+        }
+        return `${info.level}: ${info.message}`
+      }),
     )
-
-    try {
-      await next()
-    } catch (err) {
-      // log uncaught downstream errors
-      log(ctx, start, null, err)
-      throw err
-    }
-
-    // calculate the length of a streaming response
-    // by intercepting the stream with a counter.
-    // only necessary if a content-length header is currently not set.
-    const length = ctx.response.length
-    const body = ctx.body
-    let counter
-    if (length == null && body && body.readable) {
-      ctx.body = body.pipe((counter = Counter())).on('error', ctx.onerror)
-    }
-
-    // log when the response is finished or closed,
-    // whichever happens first.
-    const res = ctx.res
-
-    const onfinish = done.bind(null, 'finish')
-    const onclose = done.bind(null, 'close')
-
-    res.once('finish', onfinish)
-    res.once('close', onclose)
-
-    function done(event) {
-      res.removeListener('finish', onfinish)
-      res.removeListener('close', onclose)
-      log(ctx, start, counter ? counter.length : length, null, event)
-    }
-  }
-}
-
-/**
- * Log helper.
- */
-
-function log(ctx, start, len, err, event) {
-  // get the status code of the response
-  const status = err
-    ? err.isBoom
-      ? err.output.statusCode
-      : err.status || 500
-    : ctx.status || 404
-
-  // set the color of the status code;
-  const s = (status / 100) | 0
-  const color = colorCodes.s ? colorCodes[s] : 0
-
-  // get the human readable response length
-  let length
-  if (~[204, 205, 304].indexOf(status)) {
-    length = ''
-  } else if (len == null) {
-    length = '-'
   } else {
-    length = bytes(len).toLowerCase()
+    formatList.push(
+      winston.format.printf((info) => {
+        return `${info.timestamp} - ${info.level}: ${info.message}`
+      }),
+    )
   }
-
-  const upstream = err
-    ? chalk.red('xxx')
-    : event === 'close'
-    ? chalk.yellow('-x-')
-    : chalk.gray('-->')
-  winston.verbose(
-    '[web] ' +
-      upstream +
-      ' ' +
-      chalk.bold('%s') +
-      ' ' +
-      chalk.gray('%s') +
-      ' ' +
-      chalk[colorCodes[color]]('%s') +
-      ' ' +
-      chalk.gray('%s') +
-      ' ' +
-      chalk.gray('%s'),
-    ctx.method,
-    ctx.originalUrl,
-    status,
-    time(start),
-    length,
-  )
+  return winston.format.combine(...formatList)
 }
 
-/**
- * Show the response time in a human readable format.
- * In milliseconds if less than 10 seconds,
- * in seconds otherwise.
- */
+exports.logger = winston.createLogger({
+  level: 'verbose',
+}) // just is used to support auto-complete
 
-function time(start) {
-  const delta = Date.now() - start
-  return humanize(delta < 10000 ? delta + 'ms' : Math.round(delta / 1000) + 's')
+function getCurrentLevel() {
+  return !nconf.get('dev') || !(process.env && process.env.dev === 'true')
+    ? 'info'
+    : 'verbose'
+}
+
+// SetupLogger is intended to init logger
+exports.SetupLogger = async () => {
+  const logFile = getLogFilePath()
+  exports.logger = winston.createLogger({
+    level: getCurrentLevel(),
+  })
+  exports.logger.remove(winston.transports.Console)
+  exports.logger.remove(winston.transports.File)
+  exports.logger.add(
+    new winston.transports.Console({
+      format: getConsoleFormatter(),
+    }),
+  )
+  exports.logger.add(
+    new winston.transports.File({
+      filename: logFile,
+      level: 'error', // strict log level
+      handleExceptions: true,
+      maxsize: 5242880,
+      maxFiles: 10,
+    }),
+  )
 }

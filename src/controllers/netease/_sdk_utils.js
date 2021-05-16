@@ -1,6 +1,6 @@
 // This module contains series utils  of sdk
 const crypto = require('crypto')
-const winston = require('winston')
+const { logger } = require('../../logger')
 const {
   RequestFailedException,
   ResponseValidationException,
@@ -70,8 +70,8 @@ const SDKRequestGenerator = async (SDKFunc, params) => {
 
 const recoverRequest = (err) => {
   if (err.type && err.detail && err.detail.responseBody) {
-    winston.verbose('[ncm] SDK recover a error, detail:')
-    winston.verbose(JSON.stringify(err.detail))
+    logger.verbose('[ncm] SDK recover a error, detail:')
+    logger.verbose(JSON.stringify(err.detail))
     return err.detail.responseBody
   } else {
     throw new ResponseValidationException(

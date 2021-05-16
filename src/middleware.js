@@ -1,11 +1,11 @@
 // This module is designed to load all middlewares
 const path = require('path')
-const winston = require('winston')
+const { logger } = require('./logger')
 const chalk = require('chalk')
 
 function checkMiddlewaresFileValid(middlewares) {
   if (!Array.isArray(middlewares)) {
-    winston.error(
+    logger.error(
       '[middleware] common/dev koa plugins(middlewares) file is invalid, process existing.',
     )
     process.exit(1)
@@ -36,15 +36,15 @@ module.exports = {
           typeof middleware[1] === 'function'
         ) {
           // skip invalid middleware
-          winston.verbose(
+          logger.verbose(
             '[middleware] global loaded: ' + chalk.yellow(middleware[0]),
           )
           app.use(middleware[1])
         }
       }
-      winston.verbose('[init] global koa plugins(middlewares) are loaded.')
+      logger.verbose('[init] global koa plugins(middlewares) are loaded.')
     } catch (e) {
-      winston.error(e)
+      logger.error(e)
       // mail.error(e)
       process.exit(1)
     }

@@ -1,4 +1,4 @@
-const winston = require('winston')
+const { logger } = require('../logger')
 const nconf = require('nconf')
 const _ = require('lodash')
 const cache = require('../cache')
@@ -51,7 +51,7 @@ function countRequest() {
       cache.set('requests', requests.all),
       cache.set('requests:hosts', requests.hosts),
     ]).catch((err) => {
-      winston.error(err)
+      logger.error(err)
     })
   }
 }

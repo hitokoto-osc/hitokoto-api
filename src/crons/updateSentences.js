@@ -1,5 +1,5 @@
 'use strict'
-const winston = require('winston')
+const { logger } = require('../logger')
 const { RunTask } = require('../task/updateSentencesTask')
 
 module.exports = [
@@ -9,7 +9,7 @@ module.exports = [
   },
   () => {
     // 该方法会在计划任务停止时执行
-    winston.error('auto updating sentence job is stoppped. Try to RESTART it.')
+    logger.error('auto updating sentence job is stoppped. Try to RESTART it.')
   },
   true, // 是否立即启动计划任务
   'Asia/Shanghai', // 时区
