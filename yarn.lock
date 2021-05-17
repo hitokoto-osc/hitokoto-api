@@ -4231,7 +4231,7 @@ __metadata:
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
-    husky: ^6.0.0
+    husky: 6.0.0
     ioredis: 4.27.2
     joi: 17.4.0
     js-yaml: 4.1.0
@@ -4418,7 +4418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^6.0.0":
+"husky@npm:6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-6.0.0.tgz"
   bin:
