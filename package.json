@@ -48,7 +48,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-promise": "5.1.0",
-    "husky": "^6.0.0",
+    "husky": "6.0.0",
     "koa-livereload": "0.2.0",
     "lint-staged": "11.0.0",
     "nyc": "15.1.0",
