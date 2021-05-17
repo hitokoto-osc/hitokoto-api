@@ -76,6 +76,16 @@ exports.updateSentences = async (
     SideAB.set('hitokoto:bundle:sentences:total', sentenceTotal),
   ])
   // 切换数据库分区
+  if (sentenceTotal === 0) {
+    // TODO: 本段只是为了确认错误，因此加了个断点
+    logger.error(
+      `[sentencesUpdateTask] the sentences total is ${chalk.blue(
+        0,
+      )}. It must be confusing. We will break current task. Please consider to create a issue, telling us details about this situation.`,
+    )
+    logger.error(`remoteVersionRecord: %o`, remoteVersionData)
+    throw new Error('unexpected sentences total')
+  }
   await Cache.set('hitokoto:ab', targetDatabase)
   AB.setDatabase(targetDatabase)
   logger.verbose(

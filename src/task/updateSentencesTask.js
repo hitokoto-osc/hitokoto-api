@@ -52,17 +52,15 @@ async function Task() {
     )
     return // 版本相同且生成时间戳相同、无需更新
   }
-  if (local.bundleVersion === '0.0.0') {
-    await updateSentences(
-      local,
-      remoteVersionData,
-      currentABSlot,
-      startTick,
-      true,
-    )
-  } else {
-    await updateSentences(local, remoteVersionData, currentABSlot, startTick)
-  }
+
+  // 更新句子集
+  await updateSentences(
+    local,
+    remoteVersionData,
+    currentABSlot,
+    startTick,
+    local.bundleVersion === '0.0.0',
+  )
 }
 
 function RunTask() {
