@@ -127,6 +127,7 @@ function startKoa(app) {
 // Start Server
 async function start() {
   try {
+    await preStart.checkProgramUpdates()
     await updateSentencesTask()
     await registerProcesses()
     await registerMiddlewares()

@@ -7,6 +7,48 @@ const fs = require('fs')
 const chalk = require('chalk')
 const dirname = path.join(__dirname, '../')
 const { SetupLogger } = require('./logger')
+const got = require('got')
+async function checkProgramUpdates() {
+  const { logger } = require('./logger')
+  logger.verbose('[core.selfCheck] start self update checking...')
+  const { statusCode, body: data } = await got.get(
+    'https://api.github.com/repos/hitokoto-osc/hitokoto-api/releases/latest',
+    {
+      responseType: 'json',
+    },
+  )
+  if (statusCode !== 200) {
+    logger.error(
+      `[core.selfCheck] can't fetch latest program version information. API returns ${chalk.yellow(
+        statusCode,
+      )}`,
+    )
+  }
+  const { tag_name: latestVersion } = data
+  if (semver.gt(semver.clean(latestVersion), pkg.version)) {
+    logger.warn(
+      chalk.yellowBright(
+        `[core.selfCheck] your program instance(${chalk.blue(
+          'v' + pkg.version,
+        )}) is outdated, current latest version is ${chalk.red(
+          latestVersion,
+        )}, please consider to update. `,
+      ),
+    )
+  } else if (semver.lt(semver.clean(latestVersion), pkg.version)) {
+    logger.warn(
+      chalk.yellowBright(
+        `[core.selfCheck] your running program instance(${chalk.blue(
+          'v' + pkg.version,
+        )}) is greater than latest version: ${chalk.red(
+          latestVersion,
+        )}. It might be a experimental version, please NOT use it in production.`,
+      ),
+    )
+  } else {
+    logger.verbose('[core.selfCheck] your running instance is up-to-dated.')
+  }
+}
 
 async function setupWinston() {
   await SetupLogger()
@@ -127,4 +169,5 @@ module.exports = {
     })
   },
   check,
+  checkProgramUpdates,
 }
