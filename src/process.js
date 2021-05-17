@@ -75,6 +75,7 @@ class Process {
     const child = childProcess.fork(path.join(execFileAbsolutePath), {
       env: Object.assign(process.env, {
         dev: !!nconf.get('dev'),
+        config_file: nconf.get('config_file'),
       }),
     })
     this.childProcessList.push({

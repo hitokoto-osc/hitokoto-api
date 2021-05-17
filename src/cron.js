@@ -117,6 +117,7 @@ class Cron {
     }
   }
 }
+
 if (process.env && process.env.dev === 'true') {
   nconf.set('dev', true)
 }

@@ -79,7 +79,7 @@ function loadConfig(configFile, next, isChild = false) {
     base_dir: dirname,
     version: pkg.version,
   })
-  nconf.set('dev', !global.prod) // Inject Dev option
+  nconf.set('config_file', configFile)
   if (next && typeof next === 'function') {
     doNext({
       next,

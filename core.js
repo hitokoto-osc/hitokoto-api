@@ -148,4 +148,7 @@ async function start() {
     process.exit()
   }
 }
-start()
+
+start().catch((e) => {
+  throw e
+})
