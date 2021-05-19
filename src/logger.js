@@ -57,7 +57,7 @@ exports.logger = winston.createLogger({
 }) // just is used to support auto-complete
 
 function getCurrentLevel() {
-  return !nconf.get('dev') || !(process.env && process.env.dev === 'true')
+  return !nconf.get('dev') ?? !(process.env && process.env.dev === 'true')
     ? 'info'
     : 'verbose'
 }

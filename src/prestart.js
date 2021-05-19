@@ -54,8 +54,7 @@ async function setupWinston() {
   await SetupLogger()
 }
 
-function loadConfig(configFile, next, isChild = false) {
-  nconf.use('memory') // use memory store
+function loadConfig(configFile, next, isChild = false, isDev = false) {
   nconf.env().argv() // 从参数中读取配置，并写入 nconf
 
   // convert old config
@@ -80,6 +79,7 @@ function loadConfig(configFile, next, isChild = false) {
     version: pkg.version,
   })
   nconf.set('config_file', configFile)
+  nconf.set('dev', isDev)
   if (next && typeof next === 'function') {
     doNext({
       next,
@@ -151,17 +151,17 @@ function check() {
 }
 
 module.exports = {
-  load: (configFile, isChild = false) => {
+  load: (configFile, isChild = false, isDev = false) => {
     if (!configFile)
       configFile = path.join(__dirname, '../data', './config.yml')
     if (!isChild) printCopyright()
-    loadConfig(configFile, setupWinston, isChild)
+    loadConfig(configFile, setupWinston, isChild, isDev)
   },
-  loadAsync: async (configFile, isChild = false) => {
+  loadAsync: async (configFile, isChild = false, isDev = false) => {
     if (!configFile)
       configFile = path.join(__dirname, '../data', './config.yml')
     if (!isChild) printCopyright()
-    loadConfig(configFile, undefined, isChild)
+    loadConfig(configFile, undefined, isChild, isDev)
     await doNext({
       configFile,
       isChild,

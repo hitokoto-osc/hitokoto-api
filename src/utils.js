@@ -59,4 +59,5 @@ utils.htmlEscape = (text) => {
     }
   })
 }
+
 module.exports = utils

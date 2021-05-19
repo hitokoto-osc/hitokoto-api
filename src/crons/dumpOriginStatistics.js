@@ -10,7 +10,7 @@ module.exports = [
     // Do something
     if (global.originStatistics) {
       cache.set(
-        `statistics:orgin:${new Date(new Date().toDateString()).getTime()}`,
+        `statistics:origin:${new Date(new Date().toDateString()).getTime()}`,
         global.originStatistics,
         60 * 60 * 25,
       )

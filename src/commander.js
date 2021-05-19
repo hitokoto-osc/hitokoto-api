@@ -1,6 +1,5 @@
 'use strict'
 const pkg = require('../package.json')
-const nconf = require('nconf')
 function process() {
   const { program } = require('commander')
   program
@@ -18,9 +17,6 @@ function process() {
   })
   program.parse(process.argv)
   const opts = program.opts()
-  if (opts.dev) {
-    nconf.set('dev', true)
-  }
   return { program, opts }
 }
 

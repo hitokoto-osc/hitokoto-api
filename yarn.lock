@@ -741,6 +741,88 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/core@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/core@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fcore%2Fdownload%2F%40sentry%2Fcore-6.4.0.tgz"
+  dependencies:
+    "@sentry/hub": 6.4.0
+    "@sentry/minimal": 6.4.0
+    "@sentry/types": 6.4.0
+    "@sentry/utils": 6.4.0
+    tslib: ^1.9.3
+  checksum: 2f6a30cc9aad19b4009939662a13932a42d5dcc6e1c526b8d50d75c28b5e16b896859515c4a4ed4349e9023aa1cae802a7f77712fd12af490e78c67d9994e1ce
+  languageName: node
+  linkType: hard
+
+"@sentry/hub@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/hub@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fhub%2Fdownload%2F%40sentry%2Fhub-6.4.0.tgz"
+  dependencies:
+    "@sentry/types": 6.4.0
+    "@sentry/utils": 6.4.0
+    tslib: ^1.9.3
+  checksum: b8eac0c3221682552e23ce8f8826b9dfacc232fb92a38da370c3b1a0221ee67218ce6cad6a65805637f8eece3d90d815bd3c3f79af77e324eb826d9bb125f80d
+  languageName: node
+  linkType: hard
+
+"@sentry/minimal@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/minimal@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fminimal%2Fdownload%2F%40sentry%2Fminimal-6.4.0.tgz"
+  dependencies:
+    "@sentry/hub": 6.4.0
+    "@sentry/types": 6.4.0
+    tslib: ^1.9.3
+  checksum: c5cc6dd5399696432fd7608f886370d6f6425fae04300785a2485e5b6959dafb5b199a5ff7c8b66a43f7fd3f5f2488a08bfa0cc747e724c234678a251f126e80
+  languageName: node
+  linkType: hard
+
+"@sentry/node@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/node@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fnode%2Fdownload%2F%40sentry%2Fnode-6.4.0.tgz"
+  dependencies:
+    "@sentry/core": 6.4.0
+    "@sentry/hub": 6.4.0
+    "@sentry/tracing": 6.4.0
+    "@sentry/types": 6.4.0
+    "@sentry/utils": 6.4.0
+    cookie: ^0.4.1
+    https-proxy-agent: ^5.0.0
+    lru_map: ^0.3.3
+    tslib: ^1.9.3
+  checksum: 3937d78be666a1414c7631f2ccc0a8544e2f4d51e67acca1d9a8f7d732848340072e0cdc347e174f45107ca2cc9bbe5c93d66eeae84f537d68a39d8f4ba8717d
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:6.4.0, @sentry/tracing@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/tracing@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftracing%2Fdownload%2F%40sentry%2Ftracing-6.4.0.tgz"
+  dependencies:
+    "@sentry/hub": 6.4.0
+    "@sentry/minimal": 6.4.0
+    "@sentry/types": 6.4.0
+    "@sentry/utils": 6.4.0
+    tslib: ^1.9.3
+  checksum: 087d4bd85a9b136b595eab07ad238f09368076c8d2085b4559b4870837b9ba82a33b3fca8bdd266e73b3b33d2042fd5a16f5d3cd5101373a7e7522b17836f4ef
+  languageName: node
+  linkType: hard
+
+"@sentry/types@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/types@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftypes%2Fdownload%2F%40sentry%2Ftypes-6.4.0.tgz"
+  checksum: 3570f36e23eab263d2df7e1929ab8e6b8230ccfb09ccb69b4eef2834b0adfdf96be680b09c3357fa90d1fa59878f1f44a5236325f304633bdd868af24b33b168
+  languageName: node
+  linkType: hard
+
+"@sentry/utils@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@sentry/utils@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Futils%2Fdownload%2F%40sentry%2Futils-6.4.0.tgz"
+  dependencies:
+    "@sentry/types": 6.4.0
+    tslib: ^1.9.3
+  checksum: 28eae9cad6edd4fe34c8d6ce675875c7d419e14a8b203ae64a6f3c7727c819de9a41b5c2109b735dd4c033bfead94107c0b038aa3591f01afbad9d484a2be7f0
+  languageName: node
+  linkType: hard
+
 "@sideway/address@npm:^4.1.0":
   version: 4.1.0
   resolution: "@sideway/address@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40sideway%2Faddress%2Fdownload%2F%40sideway%2Faddress-4.1.0.tgz"
@@ -2145,6 +2227,13 @@ __metadata:
   version: 0.4.0
   resolution: "cookie@npm:0.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcookie%2Fdownload%2Fcookie-0.4.0.tgz"
   checksum: 7aaef4b642c533600fdd001d963a507dfcd814267503374e51d9743475d024feeff8b0b4ddd0777a25791a2efbdfd8bc4a0fe0696104efa195e8f8584807d410
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "cookie@npm:0.4.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcookie%2Fdownload%2Fcookie-0.4.1.tgz"
+  checksum: b8e0928e3e7aba013087974b33a6eec730b0a68b7ec00fc3c089a56ba2883bcf671252fc2ed64775aa1ca64796b6e1f6fdddba25a66808aef77614d235fd3e06
   languageName: node
   linkType: hard
 
@@ -4209,6 +4298,8 @@ __metadata:
     "@commitlint/config-conventional": 12.1.4
     "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
+    "@sentry/node": ^6.4.0
+    "@sentry/tracing": ^6.4.0
     NeteaseCloudMusicApi: 4.0.12
     async: 3.2.0
     bytes: 3.1.0
@@ -4387,7 +4478,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"https-proxy-agent@npm:5":
+"https-proxy-agent@npm:5, https-proxy-agent@npm:^5.0.0":
   version: 5.0.0
   resolution: "https-proxy-agent@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhttps-proxy-agent%2Fdownload%2Fhttps-proxy-agent-5.0.0.tgz"
   dependencies:
@@ -5877,6 +5968,13 @@ __metadata:
   dependencies:
     yallist: ^4.0.0
   checksum: b8b78353d2391c0f135cdc245c4744ad41c2efb1a6d98f31bc57a2cf48ebf02de96e4876657c3026673576bf1f1f61fc3fdd77ab00ad1ead737537bf17d8019d
+  languageName: node
+  linkType: hard
+
+"lru_map@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "lru_map@npm:0.3.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flru_map%2Fdownload%2Flru_map-0.3.3.tgz"
+  checksum: c1d5347da0658d31f9440496c97e87cc67f201f79e46e9f83dd4cf3766cc93f021c6226f900f096d0e357913cad290c7d464ac632e5e124efbdb2af1da08774c
   languageName: node
   linkType: hard
 
@@ -8750,7 +8848,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1, tslib@npm:^1.9.0":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz"
   checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17

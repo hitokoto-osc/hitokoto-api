@@ -50,7 +50,7 @@ class db {
           )
         })
         .catch((err) => {
-          logger.error(err.message)
+          logger.error(err.stack)
         })
 
       this.sequelize = sequelize

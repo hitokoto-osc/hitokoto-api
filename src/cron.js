@@ -2,7 +2,6 @@
 // Import Packages
 const path = require('path')
 const fs = require('fs')
-const nconf = require('nconf')
 // const chalk = require('chalk')
 const CronJob = require('cron').CronJob
 
@@ -118,12 +117,10 @@ class Cron {
   }
 }
 
-if (process.env && process.env.dev === 'true') {
-  nconf.set('dev', true)
-}
+const isDev = process.env?.dev === 'true'
 
 require('./prestart')
-  .loadAsync(null, true)
+  .loadAsync(null, true, isDev)
   .then(() => {
     Cron.load()
     const { logger } = require('./logger')

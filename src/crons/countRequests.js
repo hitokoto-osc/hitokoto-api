@@ -24,9 +24,8 @@ function autoSave(ts, requests) {
   )
   saveHostsCount(ts, requests.hosts)
   logger.debug(
-    '[countRequestsCron] host equests: ' +
-      JSON.stringify(requests.hosts) +
-      '\n, saving to redis.',
+    '[countRequestsCron] host requests: %o\n, saving to redis.',
+    requests.hosts,
   )
 }
 let requests = {

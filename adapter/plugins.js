@@ -6,7 +6,7 @@ module.exports = [
   ['respond', require('@hitokoto/koa-respond')()],
   // MiddleWares
   ['requestId', require('../src/middlewares/requestId')()],
-  ['countRequests', require('../src/middlewares/countRequest')()],
+  ['RequestsCounter', require('../src/middlewares/RequestsCounter')()],
   ['responseHandler', require('../src/middlewares/responseHandler')()],
 
   // Mail Error

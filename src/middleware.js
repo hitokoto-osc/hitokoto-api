@@ -44,7 +44,7 @@ module.exports = {
       }
       logger.verbose('[init] global koa plugins(middlewares) are loaded.')
     } catch (e) {
-      logger.error(e)
+      logger.error(`[init] loading middlewares failed. error:\n${e.stack}`)
       // mail.error(e)
       process.exit(1)
     }
