@@ -176,8 +176,8 @@ class MessagesHandler {
       )
       this.currentStartIndicator++
       if (this.init && this.currentStartIndicator === this.workersTarget) {
-        logger.verbose(
-          `[core.Master] spawn ${this.workersTarget} workers successfully, and start to handle requests.`,
+        logger.info(
+          `[core.Master] spawn ${this.workersTarget} workers successfully, and all workers start to handle requests.`,
         )
       }
     })

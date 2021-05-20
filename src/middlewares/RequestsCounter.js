@@ -1,6 +1,5 @@
-const { logger } = require('../logger')
+const { send } = require('../utils/worker/ipc')
 const nconf = require('nconf')
-const chalk = require('chalk')
 const { setTimeout } = require('timers/promises')
 
 class RequestsStatistic {
@@ -42,27 +41,13 @@ const allowedHost = new Set(nconf.get('requests:hosts') || [])
 const temporaryRequests = new RequestsStatistic()
 
 async function emitRequests() {
-  if (!process.send) {
-    logger.error(
-      `[web.middlewares.requestCounter] ${chalk.blue(
-        process.send,
-      )} is undefined. Maybe server is running by a inappropriate method?`,
-    )
-    throw new Error('process.send is undefined')
-  }
-  if (
-    !process.send({
+  send(
+    {
       key: 'update_requests_statistics',
       data: temporaryRequests.dump(),
-    })
-  ) {
-    logger.error(
-      `[web.middlewares.requestCounter] ${chalk.blue(
-        process.send,
-      )} return false. Maybe master process is killed?`,
-    )
-    throw new Error('process.send return false')
-  }
+    },
+    '[web.middlewares.requestCounter]',
+  )
   await setTimeout(dumpInterval)
   emitRequests().catch((err) => {
     throw err

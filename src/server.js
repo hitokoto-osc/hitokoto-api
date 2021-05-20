@@ -1,5 +1,6 @@
 const Koa = require('koa')
 const chalk = require('chalk')
+const nconf = require('nconf')
 const app = new Koa()
 // Load Route
 async function registerRoutes(routes) {
@@ -27,15 +28,25 @@ async function StartWebServer(isDev, netSocketHandle) {
   await registerRoutes(new Routes().routes())
   // TODO: optimize tracing entrypoint
   const { Sentry } = require('./tracing')
-  app.on('error', (err, ctx) => {
-    Sentry.withScope(function (scope) {
-      scope.addEventProcessor(function (event) {
-        return Sentry.Handlers.parseRequest(event, ctx.request)
+  const isTelemetryErrorEnabled = nconf.get('telemetry:error')
+  if (isTelemetryErrorEnabled && !isDev) {
+    app.on('error', (err, ctx) => {
+      Sentry.withScope(function (scope) {
+        scope.addEventProcessor(function (event) {
+          return Sentry.Handlers.parseRequest(event, ctx.request)
+        })
+        Sentry.captureException(err)
       })
-      Sentry.captureException(err)
     })
-  })
+  }
   app.listen(netSocketHandle)
+}
+
+function notifyMasterWorkerStarted() {
+  const { send } = require('./utils/worker/ipc')
+  send({
+    key: 'started',
+  })
 }
 
 // PreStart
@@ -52,6 +63,7 @@ process.on('message', ({ key, data }, netSocketHandle) => {
       .finally(() => {
         const { logger } = require('./logger')
         logger.verbose('[web.Worker] server worker is started successfully.')
+        notifyMasterWorkerStarted()
       })
       .catch((err) => {
         const { logger } = require('./logger')

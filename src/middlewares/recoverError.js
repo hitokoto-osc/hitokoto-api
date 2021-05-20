@@ -1,6 +1,9 @@
+const nconf = require('nconf')
 const formatError = require('../utils').formatError
+const { Sentry } = require('../tracing')
 const { logger } = require('../logger')
-
+const isTelemetryErrorEnabled = nconf.get('telemetry:error')
+const isDev = nconf.get('dev')
 const shouldThrow404 = (status, body) => {
   return !status || (status === 404 && body == null)
 }
@@ -20,7 +23,18 @@ async function RecoverError(ctx, next) {
     // Set status
     ctx.status = e.status || e.statusCode || 500
     // Emit the error if we really care
-    shouldEmitError(e, ctx.status) && logger.error(e.stack)
+    if (shouldEmitError(e, ctx.status) && !isDev) {
+      // only emit in production env
+      logger.error(e.stack)
+      if (isTelemetryErrorEnabled) {
+        Sentry.withScope(function (scope) {
+          scope.addEventProcessor(function (event) {
+            return Sentry.Handlers.parseRequest(event, ctx.request)
+          })
+          Sentry.captureException(e)
+        })
+      }
+    }
   }
 }
 function init() {
