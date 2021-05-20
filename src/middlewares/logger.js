@@ -34,7 +34,7 @@ const colorCodes = {
  */
 
 function dev(opts) {
-  return async function logger(ctx, next) {
+  return async function (ctx, next) {
     // request
     const start = Date.now()
     logger.verbose(
