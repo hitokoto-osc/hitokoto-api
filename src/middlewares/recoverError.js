@@ -23,10 +23,10 @@ async function RecoverError(ctx, next) {
     // Set status
     ctx.status = e.status || e.statusCode || 500
     // Emit the error if we really care
-    if (shouldEmitError(e, ctx.status) && !isDev) {
+    if (shouldEmitError(e, ctx.status)) {
       // only emit in production env
       logger.error(e.stack)
-      if (isTelemetryErrorEnabled) {
+      if (isTelemetryErrorEnabled && !isDev) {
         Sentry.withScope(function (scope) {
           scope.addEventProcessor(function (event) {
             return Sentry.Handlers.parseRequest(event, ctx.request)
