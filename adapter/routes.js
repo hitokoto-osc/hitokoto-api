@@ -9,6 +9,15 @@ module.exports = (router, middleware, controller) => {
     }
   })
   */
+  router.get('/ping', (ctx) => {
+    ctx.status = 200
+    ctx.body = {
+      status: 200,
+      message: 'ok',
+      data: {},
+      ts: Date.now(),
+    }
+  })
   if (nconf.get('dev')) {
     router.get('/crash', async (ctx) => {
       throw new Error('崩溃测试')

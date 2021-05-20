@@ -56,6 +56,7 @@ class Workers {
     for (let i = 0; i < this.workersNumbers; i++) {
       this.spawnWorker()
     }
+    this.handle.close()
     logger.info('[core.Master.Workers] all workers are spawned.')
   }
 
