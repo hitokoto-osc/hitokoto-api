@@ -55,8 +55,6 @@ async function setupWinston() {
 }
 
 function loadConfig(configFile, next, isChild = false, isDev = false) {
-  nconf.env().argv() // 从参数中读取配置，并写入 nconf
-
   // convert old config
   const oldConfigFile = path.join(__dirname, '../data/config.json')
   if (fs.existsSync(oldConfigFile)) {
@@ -69,15 +67,18 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
   if (!fs.existsSync(configFile))
     fs.copyFileSync(path.join(__dirname, '../config.example.yml'), configFile)
 
-  nconf.file({
-    file: configFile,
-    format: require('nconf-yaml'),
-  })
-
-  nconf.defaults({
-    base_dir: dirname,
-    version: pkg.version,
-  })
+  nconf
+    .use('memory')
+    .env()
+    .argv()
+    .file({
+      file: configFile,
+      format: require('nconf-yaml'),
+    })
+    .defaults({
+      base_dir: dirname,
+      version: pkg.version,
+    })
   nconf.set('config_file', configFile)
   nconf.set('dev', isDev)
   if (next && typeof next === 'function') {
