@@ -43,8 +43,8 @@ const { loadAsync } = require('./prestart')
 const isDev = process.env?.dev === 'true'
 const configFile = process.env?.config_file
 
-process.on('message', (msg, netSocketHandle) => {
-  if (msg === 'server_handle') {
+process.on('message', ({ key, data }, netSocketHandle) => {
+  if (key === 'server_handle') {
     loadAsync(configFile, true, isDev)
       .then(async () => {
         await StartWebServer(isDev, netSocketHandle)
@@ -60,5 +60,14 @@ process.on('message', (msg, netSocketHandle) => {
         )
         process.exit(1)
       })
+  } else if (key === 'switchAB') {
+    const { logger } = require('logger')
+    logger.verbose(
+      `[web.Worker] pid: ${
+        process.pid
+      } received AB switch signal, switching to: ${chalk.blue(data)}`,
+    )
+    const AB = require('./extensions/sentencesABSwitcher')
+    AB.setDatabase(data)
   }
 })

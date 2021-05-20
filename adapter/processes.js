@@ -3,6 +3,7 @@ const path = require('path')
 const chalk = require('chalk')
 const AB = require('../src/extensions/sentencesABSwitcher')
 const { logger } = require('../src/logger')
+const { WorkersBridge } = require('../src/master')
 module.exports = {
   processes: [
     {
@@ -30,6 +31,11 @@ module.exports = {
           '[AB] received signal, switching to db: ' + chalk.yellow(targetDB),
         )
         AB.setDatabase(targetDB)
+        logger.verbose('[AB] notifying workers...')
+        WorkersBridge.workers.notify({
+          key: 'switchAB',
+          data: targetDB,
+        })
       },
     },
     {

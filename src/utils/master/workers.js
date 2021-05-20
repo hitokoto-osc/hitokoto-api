@@ -92,7 +92,18 @@ class Workers {
     })
     worker.on('exit', this.handleExitEvent(worker.pid))
     // send net socket handle
-    worker.send('server_handle', this.handle)
+    worker.send(
+      {
+        key: 'server_handle',
+      },
+      this.handle,
+    )
+  }
+
+  notify(message) {
+    for (const worker of this._workers) {
+      worker.instance.send(message)
+    }
   }
 
   // Handle worker messages
