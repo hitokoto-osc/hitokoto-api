@@ -8,8 +8,7 @@ const Cache = require('../../cache')
  * @param {string} rid DJ ID
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getDJDetail = (rid, ...options) => {
-  const [realIP] = options
+exports.getDJDetail = (rid, realIP) => {
   return SDKRequestGenerator(sdk.dj_detail, {
     rid,
     realIP,
@@ -20,13 +19,18 @@ exports.getDJDetail = (rid, ...options) => {
  * Get DJ' Detail with Cache
  * @param {string} rid DJ ID
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache NoCache
  */
-exports.getDJDetailWithCache = (rid, realIP) => {
+exports.getDJDetailWithCache = (rid, realIP, nocache = false) => {
   return Cache.remember(
     'nm:dj:detail:' + rid,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getDJDetail, [rid, realIP]],
+    true,
+    {
+      nocache,
+    },
   )
 }
 
@@ -35,8 +39,7 @@ exports.getDJDetailWithCache = (rid, realIP) => {
  * @param {number} id DJ Program ID
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getDJProgramDetail = (id, ...options) => {
-  const [realIP] = options
+exports.getDJProgramDetail = (id, realIP) => {
   return SDKRequestGenerator(sdk.dj_program_detail, { id, realIP })
 }
 
@@ -44,13 +47,18 @@ exports.getDJProgramDetail = (id, ...options) => {
  * Get DJ Program Detail with Cache
  * @param {number} id DJ Program ID
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache NoCache
  */
-exports.getDJProgramDetailWithCache = (id, realIP) => {
+exports.getDJProgramDetailWithCache = (id, realIP, nocache = false) => {
   return Cache.remember(
     'nm:dj:program:info:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getDJProgramDetail, [id, realIP]],
+    true,
+    {
+      nocache,
+    },
   )
 }
 
@@ -62,8 +70,7 @@ exports.getDJProgramDetailWithCache = (id, realIP) => {
  * @param {boolean} asc (optional) order type
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getDJProgram = (rid, limit, offset, ...options) => {
-  const [asc, realIP] = options
+exports.getDJProgram = (rid, limit, offset, asc, realIP) => {
   return SDKRequestGenerator(sdk.dj_program, {
     rid,
     limit,
@@ -80,14 +87,23 @@ exports.getDJProgram = (rid, limit, offset, ...options) => {
  * @param {number} offset (optional) offset
  * @param {boolean} asc (optional) order type
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache NoCache
  */
-exports.getDJProgramWithCache = (rid, limit, offset, ...options) => {
-  const [asc, realIP] = options
+exports.getDJProgramWithCache = (
+  rid,
+  limit,
+  offset,
+  asc,
+  realIP,
+  nocache = false,
+) => {
   return Cache.remember(
     `nm:dj:program:${rid}:${offset}:${limit}:${asc}`,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getDJProgram, [rid, limit, offset, asc, realIP]],
+    true,
+    { nocache },
   )
 }
 

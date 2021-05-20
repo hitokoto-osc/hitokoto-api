@@ -29,7 +29,7 @@ exports.getLyric = async (id, params) => {
 }
 
 exports.getLyricWithCache = (id, params) => {
-  const { isSerious } = params
+  const { isSerious, nocache } = params
   return Cache.remember(
     'nm:lyricSeries:' + id,
     isSerious
@@ -37,6 +37,8 @@ exports.getLyricWithCache = (id, params) => {
       : 60 * 60 * 2, // 2 Hours
     exports.getLyric,
     [id, params],
+    true,
+    { nocache },
   )
 }
 

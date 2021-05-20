@@ -1,9 +1,6 @@
 // This module is intended to get song comments
 const Joi = require('joi')
-const {
-  getSongComment,
-  getSongsDetailWithCache,
-} = require('./_sdk_song_wrapper')
+const { getSongCommentWithCache } = require('./_sdk_song_wrapper')
 const { recoverRequest } = require('./_sdk_utils')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
@@ -24,15 +21,14 @@ module.exports = async (ctx) => {
   const { nocache, id, limit, offset, before } = params
   let data
   try {
-    data = await (nocache
-      ? getSongComment(id, limit, offset, before, ctx.get('X-Real-IP'))
-      : getSongsDetailWithCache(
-          id,
-          limit,
-          offset,
-          before,
-          ctx.get('X-Real-IP'),
-        ))
+    data = await getSongCommentWithCache(
+      id,
+      limit,
+      offset,
+      before,
+      ctx.get('X-Real-IP'),
+      nocache,
+    )
   } catch (err) {
     data = recoverRequest(err)
   }

@@ -2,7 +2,7 @@
 const Joi = require('joi')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
-const { getDJDetail, getDJDetailWithCache } = require('./_sdk_dj_wrapper')
+const { getDJDetailWithCache } = require('./_sdk_dj_wrapper')
 const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   rid: Joi.number().min(1).max(1000000000000).required(),
@@ -18,9 +18,7 @@ module.exports = async (ctx) => {
   const { rid, nocache } = params
   let data
   try {
-    data = await (nocache
-      ? getDJDetail(rid, ctx.get('X-Real-IP'))
-      : getDJDetailWithCache(rid, ctx.get('X-Real-IP')))
+    data = await getDJDetailWithCache(rid, ctx.get('X-Real-IP'), nocache)
   } catch (error) {
     data = recoverRequest(error)
   }

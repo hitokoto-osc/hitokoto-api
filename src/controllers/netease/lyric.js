@@ -2,7 +2,7 @@
 const Joi = require('joi')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
-const { getLyric, getLyricWithCache } = require('./_sdk_song_wrapper')
+const { getLyricWithCache } = require('./_sdk_song_wrapper')
 const { recoverRequest } = require('./_sdk_utils')
 const schema = Joi.object({
   id: Joi.number().min(1).max(1000000000000).required(),
@@ -17,9 +17,7 @@ module.exports = async (ctx) => {
   const { id, nocache } = params
   let data
   try {
-    data = await (nocache
-      ? getLyric(id, ctx.get('X-Real-IP'))
-      : getLyricWithCache(id, ctx.get('X-Real-IP')))
+    data = await getLyricWithCache(id, ctx.get('X-Real-IP'), nocache)
   } catch (err) {
     data = recoverRequest(err)
   }

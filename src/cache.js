@@ -62,24 +62,29 @@ class Cache {
    * Call Caller and store, or return cached Caller Data
    * @param {string} key
    * @param {number} time
-   * @param {number} caller the callerFunc
+   * @param {function} caller the callerFunc
    * @param {any[]} callerParams the callerFunc params
    * @param {boolean} toJSON
+   * @param {object} options
    */
-  static async remember(key, time, ...params) {
+  static async remember(
+    key,
+    time,
+    caller,
+    callerParams = [],
+    toJSON = true,
+    options,
+  ) {
     await this.connectOrSkip()
-    if (params.length <= 0 || params.length > 3) {
-      throw new Error('the length of params is wrong')
-    }
-    if (typeof params[0] !== 'function') {
+    if (typeof caller !== 'function') {
       throw new Error('the remember caller must be a function')
     }
-    const caller = params[0]
-    const callerParams = params[1] ?? []
-    const toJSON = params[2] ?? true
+    if (options?.nocache) {
+      return callAndStore(caller, callerParams, key, time)
+    }
     return (
       (await this.get(key, toJSON)) ||
-      (await callAndStore(caller, callerParams, key, time))
+      callAndStore(caller, callerParams, key, time)
     )
   }
 
@@ -91,7 +96,10 @@ class Cache {
 const callAndStore = async (caller, params, key, time) => {
   const data = await caller(...params)
   if (data) {
-    Cache.set(key, data, time)
+    Cache.set(key, data, time).catch((err) => {
+      const { logger } = require('./logger')
+      logger.error(`[cache] store data err: ${err.stack}`)
+    })
   }
   return data
 }

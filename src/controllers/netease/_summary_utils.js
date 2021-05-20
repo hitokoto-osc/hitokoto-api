@@ -2,12 +2,8 @@
 const Cache = require('../../cache')
 const async = require('async')
 const nconf = require('nconf')
-const {
-  getSongsURLs,
-  getSongsDetail,
-  getSongsDetailWithCache,
-} = require('./_sdk_song_wrapper')
-const { getAlbum, getAlbumWitchCache } = require('./_sdk_uncategorized_wrapper')
+const { getSongsURLs, getSongsDetailWithCache } = require('./_sdk_song_wrapper')
+const { getAlbumWitchCache } = require('./_sdk_uncategorized_wrapper')
 const { getPictureURL } = require('./_sdk_wrapper')
 const { getLyricWithCache } = require('./_summary_wrapper')
 const { ResponseValidationException } = require('./_sdk_exception')
@@ -58,16 +54,16 @@ const handleResult = (result, common = false) => {
 
 const getSummaryByID = (id, params) => {
   const { nocache, quick, extraInfo, br } = params
-  return nocache
-    ? genSummary(id, params)
-    : Cache.remember(
-        'nm:song:' + id + ':' + md5(String(extraInfo)) + String(br),
-        quick
-          ? 60 * 60 * 2 // 2 Hours
-          : 60 * 60 * 24 * 7, // 7 Days
-        genSummary,
-        [id, params],
-      )
+  return Cache.remember(
+    'nm:song:' + id + ':' + md5(String(extraInfo)) + String(br),
+    quick
+      ? 60 * 60 * 2 // 2 Hours
+      : 60 * 60 * 24 * 7, // 7 Days
+    genSummary,
+    [id, params],
+    true,
+    { nocache },
+  )
 }
 
 const genSummary = async (id, params) => {
@@ -76,9 +72,7 @@ const genSummary = async (id, params) => {
   data.id = id
   data.url = url + '/nm/redirect/music/' + id
   await parseSongDetailInfo(
-    nocache
-      ? await getSongsDetail(String(id), realIP)
-      : await getSongsDetailWithCache(String(id), realIP),
+    await getSongsDetailWithCache(String(id), realIP, nocache),
     data,
     params,
   )
@@ -159,13 +153,8 @@ const judgeDj = (detail, data) => {
 
 const tryCorrectPictureID = async (albumID, params) => {
   const { realIP, nocache } = params
-  const album = await (nocache
-    ? getAlbum(albumID, realIP)
-    : getAlbumWitchCache(albumID, realIP))
-  return album.songs &&
-    album.songs[0] &&
-    album.songs[0].al &&
-    album.songs[0].al.pic_str
+  const album = getAlbumWitchCache(albumID, realIP, nocache)
+  return album?.songs?.[0]?.al?.pic_str
     ? album.songs[0].al.pic_str
     : album.picId_str
 }

@@ -1,6 +1,6 @@
 // This module is intended to search songs
 const Joi = require('joi')
-const { search, searchWithCache } = require('./_sdk_uncategorized_wrapper')
+const { searchWithCache } = require('./_sdk_uncategorized_wrapper')
 // validation schema
 const { ValidateParams } = require('../../utils/response')
 const { recoverRequest } = require('./_sdk_utils')
@@ -35,15 +35,14 @@ module.exports = async (ctx) => {
   const { keyword, limit, offset, type, nocache } = params
   let data
   try {
-    data = await (nocache
-      ? search(keyword, limit, offset, typeMap[type], ctx.get('X-Real-IP'))
-      : searchWithCache(
-          keyword,
-          limit,
-          offset,
-          typeMap[type],
-          ctx.get('X-Real-IP'),
-        ))
+    data = await searchWithCache(
+      keyword,
+      limit,
+      offset,
+      typeMap[type],
+      ctx.get('X-Real-IP'),
+      nocache,
+    )
   } catch (err) {
     data = recoverRequest(err)
   }

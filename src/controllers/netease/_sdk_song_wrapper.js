@@ -39,13 +39,16 @@ exports.getSongsDetail = (ids, realIP) => {
  * Get Songs' Detail with Cache
  * @param {string} ids Song ids string, like 1,12,123
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getSongsDetailWithCache = (ids, realIP) => {
+exports.getSongsDetailWithCache = (ids, realIP, nocache = false) => {
   return Cache.remember(
     'nm:detail:' + md5(ids),
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getSongsDetail, [ids, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -62,13 +65,16 @@ exports.getLyric = (id, realIP) => {
  * Get Song's lyric with Cache
  * @param {number} id Song id
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getLyricWithCache = (id, realIP) => {
+exports.getLyricWithCache = (id, realIP, nocache = false) => {
   return Cache.remember(
     'nm:lyric:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getLyric, [id, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -80,8 +86,7 @@ exports.getLyricWithCache = (id, realIP) => {
  * @param {number} before (optional) refer to: 分页参数，取上一页最后一项的 time 获取下一页数据(获取超过5000条评论的时候需要用到)
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getSongComment = (id, limit, offset, ...options) => {
-  const [before, realIP] = options
+exports.getSongComment = (id, limit, offset, before, realIP) => {
   return SDKRequestGenerator(sdk.comment_music, {
     id,
     limit,
@@ -99,14 +104,23 @@ exports.getSongComment = (id, limit, offset, ...options) => {
  * @param {number} offset (optional) offset
  * @param {number} before (optional) refer to: 分页参数，取上一页最后一项的 time 获取下一页数据(获取超过5000条评论的时候需要用到)
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getSongCommentWithCache = (id, limit, offset, ...options) => {
-  const [before, realIP] = options
+exports.getSongCommentWithCache = (
+  id,
+  limit,
+  offset,
+  before,
+  realIP,
+  nocache = false,
+) => {
   return Cache.remember(
     'nm:lyric:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getSongComment, [id, limit, offset, before, realIP]],
+    true,
+    { nocache },
   )
 }
 

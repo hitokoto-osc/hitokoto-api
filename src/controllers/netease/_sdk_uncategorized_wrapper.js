@@ -8,8 +8,7 @@ const { md5 } = require('../../utils/crypto')
  * @param {string|number} id Album ID
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getAlbum = (id, ...options) => {
-  const [realIP] = options
+exports.getAlbum = (id, realIP) => {
   return SDKRequestGenerator(sdk.album, {
     id,
     realIP: realIP,
@@ -20,14 +19,16 @@ exports.getAlbum = (id, ...options) => {
  * Get Album Info with Cache
  * @param {string|number} id Album ID
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getAlbumWitchCache = (id, ...options) => {
-  const [realIP] = options
+exports.getAlbumWitchCache = (id, realIP, nocache = false) => {
   return Cache.remember(
     'nm:album:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getAlbum, [id, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -48,14 +49,16 @@ exports.getArtists = (id, ...options) => {
  * Get Artists info
  * @param {string|number} id artist ID
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getArtistsWitchCache = (id, ...options) => {
-  const [realIP] = options
+exports.getArtistsWitchCache = (id, realIP, nocache = false) => {
   return Cache.remember(
     'nm:artist:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getArtists, [id, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -65,8 +68,7 @@ exports.getArtistsWitchCache = (id, ...options) => {
  * @param {string|number} s recent star users' record
  * @param {string|undefined} realIP Client RealIP
  */
-exports.getPlaylistDetail = (id, s, ...options) => {
-  const [realIP] = options
+exports.getPlaylistDetail = (id, s, realIP) => {
   return SDKRequestGenerator(sdk.playlist_detail, {
     id,
     s,
@@ -77,15 +79,18 @@ exports.getPlaylistDetail = (id, s, ...options) => {
 /**
  * Get Playlist Detail with Cache
  * @param {string|number} id Playlist ID
+ * @param {string|number} s recent star users' record
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getPlaylistDetailWithCache = (id, s, ...options) => {
-  const [realIP] = options
+exports.getPlaylistDetailWithCache = (id, s, realIP, nocache = false) => {
   return Cache.remember(
     'nm:playlist:' + id,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getPlaylistDetail, [id, s, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -97,8 +102,7 @@ exports.getPlaylistDetailWithCache = (id, s, ...options) => {
  * @param {number} type Search Type
  * @param {string|undefined} realIP Client RealIP
  */
-exports.search = (keywords, limit, offset, ...options) => {
-  const [type, realIP] = options
+exports.search = (keywords, limit, offset, type, realIP) => {
   return SDKRequestGenerator(sdk.search, {
     keywords,
     limit,
@@ -115,13 +119,22 @@ exports.search = (keywords, limit, offset, ...options) => {
  * @param {number} offset
  * @param {number} type Search Type
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.searchWithCache = (keywords, limit, offset, ...options) => {
-  const [type, realIP] = options
+exports.searchWithCache = (
+  keywords,
+  limit,
+  offset,
+  type,
+  realIP,
+  nocache = false,
+) => {
   return Cache.remember(
     `nm:search:${md5(keywords)}:${limit}:${offset}:${type}`,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.search, [keywords, limit, offset, type, realIP]],
+    true,
+    { nocache },
   )
 }

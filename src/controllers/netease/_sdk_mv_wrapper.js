@@ -18,14 +18,17 @@ exports.getMVURL = async (mvid, realIP) => {
 /**
  * Get MV Info witch Cache
  * @param {number} mvid mv id
- * @param {string|undefined} realIP Client RealIP
+ * @param {string|undefined} realIP Client RealIP\
+ * @param {boolean} nocache
  */
-exports.getMVURLWithCache = async (mvid, realIP) => {
+exports.getMVURLWithCache = async (mvid, realIP, nocache = false) => {
   return Cache.remember(
     `nm:mv:url:${mvid}`,
     60 * 5, // 2 Mins
     APIRememberCaller,
     [exports.getMVURL, [mvid, realIP]],
+    true,
+    { nocache },
   )
 }
 
@@ -33,18 +36,21 @@ exports.getMVURLWithCache = async (mvid, realIP) => {
  * Get Songs' Detail with Cache
  * @param {string} mvid Song ids string, like 1,12,123
  * @param {string|undefined} realIP Client RealIP
+ * @param {boolean} nocache
  */
-exports.getMVDetailWithCache = (mvid, realIP) => {
+exports.getMVDetailWithCache = (mvid, realIP, nocache = false) => {
   return Cache.remember(
     'nm:mv:' + mvid,
     60 * 60 * 2, // 2 Hours
     APIRememberCaller,
     [exports.getMVDetailWithCache, [mvid, realIP]],
+    true,
+    { nocache },
   )
 }
 /**
  * Get MV's Detail
- * @param {string} ids Song ids string, like 1,12,123
+ * @param {string} mvid Song ids string, like 1,12,123
  * @param {string|undefined} realIP Client RealIP
  */
 exports.getMVDetail = (mvid, realIP) => {
