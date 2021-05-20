@@ -47,4 +47,9 @@ module.exports = [
     }),
   ],
   ['logger', require('../src/middlewares/logger')()],
+  !nconf.get('telemetry:performance') ||
+    nconf.get('dev') || [
+      'performanceTracing',
+      require('../src/middlewares/performanceTracing'),
+    ],
 ]
