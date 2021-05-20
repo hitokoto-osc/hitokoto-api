@@ -69,15 +69,55 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
 
   nconf
     .use('memory')
-    .env()
+    .env({
+      separator: '.',
+      lowerCase: true,
+      parseValues: true,
+    })
     .argv()
     .file({
       file: configFile,
       format: require('nconf-yaml'),
     })
     .defaults({
+      name: 'hitokoto',
       base_dir: dirname,
       version: pkg.version,
+      url: 'https://v1.hitokoto.cn',
+      api_name: 'undefined',
+      server: {
+        host: '127.0.0.1',
+        port: 8000,
+        compress_body: true,
+      },
+      redis: {
+        host: '127.0.0.1',
+        port: 6379,
+        password: '',
+        database: 0,
+      },
+      sentences_ab_switcher: {
+        a: 1,
+        b: 2,
+      },
+      remote_sentences_url:
+        'https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/',
+      workers: 0,
+      requests: {
+        enabled: true,
+        hosts: [
+          'v1.hitokoto.cn',
+          'international.v1.hitokoto.cn',
+          'api.a632079.me',
+          'api.hitokoto.cn',
+          'sslapi.hitokoto.cn',
+        ],
+      },
+      telemetry: {
+        performance: true,
+        error: true,
+        usage: true,
+      },
     })
   nconf.set('config_file', configFile)
   nconf.set('dev', isDev)
