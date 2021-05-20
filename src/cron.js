@@ -121,7 +121,9 @@ const isDev = process.env?.dev === 'true'
 
 require('./prestart')
   .loadAsync(null, true, isDev)
-  .then(() => {
+  .then(async () => {
+    const { recoverAB } = require('./utils')
+    await recoverAB()
     Cron.load()
     const { logger } = require('./logger')
     logger.verbose('[cronJob] cronJob process is started.')

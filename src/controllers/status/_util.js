@@ -1,5 +1,4 @@
 // Import Packages
-const nconf = require('nconf')
 const cache = require('../../cache')
 // const winston = require('winston')
 const AB = require('../../extensions/sentencesABSwitcher')
@@ -16,7 +15,7 @@ const limitedHosts = [
 ]
 
 async function getAllRequests() {
-  const requests = nconf.get('middleware:requests:all')
+  const requests = await cache.get('requests')
   return requests
 }
 

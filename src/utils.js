@@ -59,5 +59,10 @@ utils.htmlEscape = (text) => {
     }
   })
 }
-
+utils.recoverAB = async function recoverAB() {
+  const cache = require('./cache')
+  const AB = require('./extensions/sentencesABSwitcher')
+  const db = await cache.get('hitokoto:ab')
+  AB.setDatabase(db)
+}
 module.exports = utils

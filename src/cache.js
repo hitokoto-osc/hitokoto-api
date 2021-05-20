@@ -20,8 +20,8 @@ class Cache {
     return new Redis(ConnectionConfig)
   }
 
-  static connectOrSkip(isABSwitcher) {
-    if (isABSwitcher) {
+  static connectOrSkip() {
+    if (this.isABSwitcher) {
       return
     }
     return this.redis ? true : this.connect()

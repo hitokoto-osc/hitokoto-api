@@ -49,6 +49,8 @@ function notifyMasterWorkerStarted() {
   })
 }
 
+// TODO: how to auto recover?
+
 // PreStart
 const { loadAsync } = require('./prestart')
 const isDev = process.env?.dev === 'true'
@@ -69,6 +71,8 @@ process.on('message', ({ key, data }, netSocketHandle) => {
   if (key === 'server_handle') {
     loadAsync(configFile, true, isDev)
       .then(async () => {
+        const { recoverAB } = require('./utils')
+        await recoverAB()
         await StartWebServer(isDev, netSocketHandle)
       })
       .finally(() => {

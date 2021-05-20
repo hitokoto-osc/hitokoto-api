@@ -30,6 +30,7 @@ class SentencesABSwitcher extends Cache {
   }
 
   static async connectOrSkip() {
+    this.isABSwitcher = true
     if (this.redis) {
       return true
     } else {
@@ -37,6 +38,7 @@ class SentencesABSwitcher extends Cache {
       this.connect('a', database === 'a')
       this.connect('b', database !== 'a')
       this.db = database
+      this.redis = this['redis' + database.toUpperCase()]
     }
   }
 

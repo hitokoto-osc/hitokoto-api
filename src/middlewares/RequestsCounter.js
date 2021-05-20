@@ -49,6 +49,7 @@ async function emitRequests() {
     },
     'web.middlewares.requestCounter',
   )
+  temporaryRequests.clear()
   await setTimeout(dumpInterval)
   emitRequests().catch((err) => {
     throw err
