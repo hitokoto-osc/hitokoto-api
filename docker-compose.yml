@@ -1,24 +1,44 @@
 version: '3'
+networks:
+  hitokoto_api:
+    driver: bridge
+
 services:
-  web:
-    image: hitokoto_api
+  hitokoto_api:
+    networks:
+      - hitokoto_api
+    image: hitokoto/api:release
     container_name: hitokoto_api
     hostname: hitokoto_api
     build: docker/mainline
     environment:
       NODE_ENV: production
+      # 服务配置
+      url: https://v1.hitokoto.cn
+      api_name: sh-01-X23Hwoc
+      requests.hosts: "['v1.hitokoto.cn']"
+      redis.host: redis
+      redis.port: 6379
+      # redis.password:
+      # redis.database: 0
     ports:
       - 8000:8000
     links: 
       - redis
     restart: unless-stopped
     volumes: 
-      - ./web/data:/usr/src/app/data
+      - ./etc/api:/usr/src/app/data
     
   redis:
+    networks:
+      - hitokoto_api
     image: redis
     restart: unless-stopped
     container_name: redis
     hostname: redis
+    volumes:
+      - ./etc/redis.conf:/etc/redis/redis.conf # 一定要记得把 redis.conf 先放在这个位置哦
+      - ./data/redis:/data
+      command: redis-server /etc/redis/redis.conf
     ports: 
-      - 6379:6379
+    #  - 6379:6379 # 如果有必要请取消注释本行
