@@ -126,6 +126,16 @@ require('./prestart')
     const { logger } = require('./logger')
     logger.verbose('[cronJob] cronJob process is started.')
   })
+process.on('uncaughtException', function (err) {
+  const nconf = require('nconf')
+  const { logger } = require('./logger')
+  const { Sentry } = require('./tracing')
+  logger.error(`uncaughtException: ${err.stack}`)
+  if (nconf.get('telemetry:error') && !isDev) {
+    Sentry.captureEvent(err)
+  }
+  process.exit(1)
+})
 
 process.on('exit', (code) => {
   if (code && code === 1000) {

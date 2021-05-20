@@ -54,6 +54,17 @@ const { loadAsync } = require('./prestart')
 const isDev = process.env?.dev === 'true'
 const configFile = process.env?.config_file
 
+process.on('uncaughtException', function (err) {
+  const nconf = require('nconf')
+  const { logger } = require('./logger')
+  const { Sentry } = require('./tracing')
+  logger.error(`uncaughtException: ${err.stack}`)
+  if (nconf.get('telemetry:error') && !isDev) {
+    Sentry.captureEvent(err)
+  }
+  process.exit(1)
+})
+
 process.on('message', ({ key, data }, netSocketHandle) => {
   if (key === 'server_handle') {
     loadAsync(configFile, true, isDev)

@@ -69,6 +69,15 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
     logger.info('[core] Web server is shut down, Bye!')
     process.exit(0)
   }
+  process.on('uncaughtException', function (err) {
+    logger.error(`uncaughtException: ${err.stack}`)
+    const { Sentry } = require('./src/tracing')
+    const nconf = require('nconf')
+    if (nconf.get('telemetry:error') && !opts.dev) {
+      Sentry.captureEvent(err)
+    }
+    process.exit(1)
+  })
   process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
   process.on('SIGTERM', handleProcessExitSignal)
   process.on('exit', (code) => {
