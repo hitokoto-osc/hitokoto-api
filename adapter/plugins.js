@@ -9,8 +9,8 @@ module.exports = [
   ['RequestsCounter', require('../src/middlewares/RequestsCounter')()],
   ['responseHandler', require('../src/middlewares/responseHandler')()],
 
-  // Mail Error
-  ['MailError', require('../src/middlewares/MailError')()],
+  // Recover Error
+  ['RecoverError', require('../src/middlewares/recoverError')()],
 
   // Basic Plugins
   ['koa-helmet', require('koa-helmet')()],
