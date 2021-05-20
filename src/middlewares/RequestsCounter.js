@@ -1,11 +1,12 @@
 const { send } = require('../utils/worker/ipc')
 const nconf = require('nconf')
+const { logger } = require('../logger')
 const { setTimeout } = require('timers/promises')
 
 class RequestsStatistic {
   constructor(all, hosts) {
     this.all = all || 0
-    this.hosts = hosts
+    this.hosts = hosts || {}
   }
 
   checkHostValid(host) {
@@ -46,7 +47,7 @@ async function emitRequests() {
       key: 'update_requests_statistics',
       data: temporaryRequests.dump(),
     },
-    '[web.middlewares.requestCounter]',
+    'web.middlewares.requestCounter',
   )
   await setTimeout(dumpInterval)
   emitRequests().catch((err) => {
@@ -59,6 +60,9 @@ process.on('message', (msg) => {
   if (key === 'start_job') {
     setTimeout(dumpInterval)
       .then(emitRequests)
+      .finally(() => {
+        logger.verbose(`[web.Worker] RequestsCounter IPC job started.`)
+      })
       .catch((err) => {
         throw err
       })

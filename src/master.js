@@ -37,6 +37,12 @@ exports.startWorkersPool = async () => {
     'update_requests_statistics',
     requestsCounter.getWorkersRequestsRecordHandler(),
   )
+  workers.registerMessageHandler('started', (message) => {
+    logger.verbose('[core.Master] notify workers to start jobs')
+    workers.notify({
+      key: 'start_job',
+    })
+  })
   await workers.start()
   return workers
 }

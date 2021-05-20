@@ -41,16 +41,16 @@ class RequestsCounter {
       !this.cronJobProcess ||
       (this.cronJobProcess && this.cronJobProcess.instance.exitCode >= 0)
     ) {
-      const processList = require('../process').staticProcess().ProcessList
+      const processList = require('../../process').staticProcess().ProcessList
       this.cronJobProcess = _.find(processList, { name: 'cronJob' })
-      if (!this.cronJobProcess) {
+      if (!this.cronJobProcess?.instance) {
         logger.error(
           `[web.Master.requestsCounterMerge] cronJob process is not exist!`,
         )
         throw new Error('cronJob is not exist!')
       }
     }
-    if (!this.cronJobProcess.send) {
+    if (!this.cronJobProcess?.instance?.send) {
       logger.error(
         `[core.Master.requestsCounterMerge] cronJobProcess.send is undefined. Maybe instance is not exist?`,
       )

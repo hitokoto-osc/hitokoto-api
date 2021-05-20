@@ -53,6 +53,14 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
   // Web Server Master
   const { startWorkersPool, WorkersBridge } = require('./src/master')
 
+  function notifyChildProcessesExit() {
+    for (const child of childProcessList) {
+      child.instance.kill('SIGTERM') // teng-koa exit signal code
+    }
+    for (const worker of WorkersBridge.workers.workersList) {
+      worker.instance.kill('SIGTERM')
+    }
+  }
   // handle the process exit event
   function handleProcessExitSignal(signal) {
     logger.verbose(
@@ -60,12 +68,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
         chalk.yellow(signal) +
         ', start the exit produce.',
     )
-    for (const child of childProcessList) {
-      child.instance.kill('SIGTERM') // teng-koa exit signal code
-    }
-    for (const worker of WorkersBridge.workers.workersList) {
-      worker.instance.kill('SIGTERM')
-    }
+    notifyChildProcessesExit()
     logger.info('[core] Web server is shut down, Bye!')
     process.exit(0)
   }
@@ -76,6 +79,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
     if (nconf.get('telemetry:error') && !opts.dev) {
       Sentry.captureEvent(err)
     }
+    notifyChildProcessesExit()
     process.exit(1)
   })
   process.on('SIGINT', handleProcessExitSignal) // Ctrl + C
@@ -87,9 +91,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
       logger.error(
         '[core] received exit code: ' + code + ', process will be destroyed.',
       )
-      for (const child of childProcessList) {
-        child.instance.kill('SIGTERM') // teng-koa exit signal code
-      }
+      notifyChildProcessesExit()
       logger.info('[core] Web server is shut down, Bye!')
     }
   })
