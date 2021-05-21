@@ -34,7 +34,7 @@ class SentencesABSwitcher extends Cache {
     if (this.redis) {
       return true
     } else {
-      const database = await Cache.get('hitokoto:ab') // 初始化时读取默认分区
+      const database = (await Cache.get('hitokoto:ab')) || 'a' // 初始化时读取默认分区
       this.connect('a', database === 'a')
       this.connect('b', database !== 'a')
       this.db = database
