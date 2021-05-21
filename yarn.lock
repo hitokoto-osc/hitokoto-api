@@ -1667,7 +1667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.23":
+"@types/jest@npm:26.0.23":
   version: 26.0.23
   resolution: "@types/jest@npm:26.0.23::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-26.0.23.tgz"
   dependencies:
@@ -5885,7 +5885,7 @@ fsevents@^2.1.2:
     "@hitokoto/koa-respond": 3.0.3
     "@sentry/node": 6.4.1
     "@sentry/tracing": 6.4.1
-    "@types/jest": ^26.0.23
+    "@types/jest": 26.0.23
     NeteaseCloudMusicApi: 4.0.12
     async: 3.2.0
     bytes: 3.1.0
@@ -5910,8 +5910,8 @@ fsevents@^2.1.2:
     humanize-number: 0.0.2
     husky: 6.0.0
     ioredis: 4.27.2
-    jest: ^26.6.3
-    jest-extended: ^0.11.5
+    jest: 26.6.3
+    jest-extended: 0.11.5
     joi: 17.4.0
     js-yaml: 4.1.0
     kcors: 2.2.2
@@ -5938,7 +5938,7 @@ fsevents@^2.1.2:
     release-it: 14.6.2
     semver: 7.3.5
     sequelize: 6.6.2
-    supertest: ^6.1.3
+    supertest: 6.1.3
     supervisor: 0.12.0
     uuid: 8.3.2
     winston: 3.3.3
@@ -7154,7 +7154,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:^0.11.5":
+"jest-extended@npm:0.11.5":
   version: 0.11.5
   resolution: "jest-extended@npm:0.11.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fjest-extended%2Fdownload%2Fjest-extended-0.11.5.tgz"
   dependencies:
@@ -7531,7 +7531,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"jest@npm:^26.6.3":
+"jest@npm:26.6.3":
   version: 26.6.3
   resolution: "jest@npm:26.6.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fjest%2Fdownload%2Fjest-26.6.3.tgz"
   dependencies:
@@ -11652,9 +11652,9 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"supertest@npm:^6.1.3":
+"supertest@npm:6.1.3":
   version: 6.1.3
-  resolution: "supertest@npm:6.1.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsupertest%2Fdownload%2Fsupertest-6.1.3.tgz"
+  resolution: "supertest@npm:6.1.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fsupertest%2Fdownload%2Fsupertest-6.1.3.tgz"
   dependencies:
     methods: ^1.1.2
     superagent: ^6.1.0
