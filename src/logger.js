@@ -73,6 +73,7 @@ exports.SetupLogger = async () => {
   exports.logger.add(
     new winston.transports.Console({
       format: getConsoleFormatter(),
+      stderrLevels: ['error'],
     }),
   )
   exports.logger.add(
