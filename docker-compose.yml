@@ -39,6 +39,6 @@ services:
     volumes:
       - ./etc/redis.conf:/etc/redis/redis.conf # 一定要记得把 redis.conf 先放在这个位置哦
       - ./data/redis:/data
-      command: redis-server /etc/redis/redis.conf
-    ports: 
+    command: redis-server /etc/redis/redis.conf
+    # ports:
     #  - 6379:6379 # 如果有必要请取消注释本行
