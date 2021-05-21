@@ -105,7 +105,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
       await startWorkersPool()
       logger.verbose('[init] All init steps are exceeded.')
     } catch (e) {
-      console.log(chalk.red(e.stack))
+      logger.error(chalk.red(e.stack))
       logger.error(
         '[init] error was thrown while initializing, processes exiting.',
       )
