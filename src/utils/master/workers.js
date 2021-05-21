@@ -179,6 +179,12 @@ class MessagesHandler {
         logger.info(
           `[core.Master] spawn ${this.workersTarget} workers successfully, and all workers start to handle requests.`,
         )
+        if (process.send) {
+          // test only
+          process.send({
+            key: 'started',
+          })
+        }
       }
     })
     event.on('error', (err) => {
