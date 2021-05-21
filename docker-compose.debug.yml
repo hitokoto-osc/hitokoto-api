@@ -7,7 +7,7 @@ services:
   hitokoto_api:
     networks:
       - hitokoto_api
-    image: hitokoto/api:release
+    image: hitokoto/api:latest
     container_name: hitokoto_api
     hostname: hitokoto_api
     build: dockerfile/mainline
