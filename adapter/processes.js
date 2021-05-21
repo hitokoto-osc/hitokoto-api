@@ -51,7 +51,7 @@ module.exports = {
       to: 'core',
       from: 'cronJob',
       listener: (data, moduleName) => {
-        console.log(chalk.red(data))
+        logger.error(chalk.red(data))
         logger.error(
           '[init] error was thrown while loading cron jobs, process existing.',
         )

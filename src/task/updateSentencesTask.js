@@ -65,7 +65,7 @@ async function Task() {
 
 function RunTask() {
   Task().catch((err) => {
-    console.log(chalk.red(err.stack))
+    logger.error(chalk.red(err.stack))
     logger.error(
       '[sentencesUpdateTask] occur errors while update, please check the details. if occurs frequently, contact the author please.',
     )

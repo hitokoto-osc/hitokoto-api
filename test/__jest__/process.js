@@ -34,7 +34,7 @@ module.exports = class Process {
             console.log('[process] core process started.')
             resolve()
           } else {
-            console.log(message)
+            // console.log(message)
           }
         })
       } catch (err) {
