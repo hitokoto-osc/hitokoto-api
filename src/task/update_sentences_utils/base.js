@@ -122,7 +122,10 @@ async function fullSentencesUpgrade(remoteVersionData, SideAB) {
   await SideAB.set('hitokoto:bundle:categories', remoteCategoriesData)
   let sentencesTotal = 0
   for (const category of remoteCategoriesData) {
-    sentencesTotal += await updateSpecificCategorySentences(SideAB, category)
+    sentencesTotal += await updateOrCopySpecificCategorySentences(
+      SideAB,
+      category,
+    )
   }
   return sentencesTotal
 }
@@ -148,14 +151,16 @@ async function UpgradeSentencesThatShouldBeUpdated(
       remoteCategoriesData,
     )
     for (const category of categoriesNeededToAppend) {
-      await updateSpecificCategorySentences(SideAB, category)
+      await updateOrCopySpecificCategorySentences(SideAB, category)
     }
     await SideAB.set('hitokoto:bundle:categories', remoteCategoriesData) // 更新分类信息
     localCategoriesData = remoteCategoriesData
+  } else {
+    await SideAB.set('hitokoto:bundle:categories', localCategoriesData) // 写入分类信息
   }
   // 比对句子信息
   for (const categoryVersion of local.bundleVersionData.sentences) {
-    const remoteVersion = _.find(remoteVersionData, {
+    const remoteVersion = _.find(remoteVersionData.sentences, {
       key: categoryVersion.key,
     })
     if (!remoteVersion) {
@@ -163,10 +168,11 @@ async function UpgradeSentencesThatShouldBeUpdated(
       // TODO: 建立追踪算法，移除失效分类的所有句子
       continue
     }
-    if (remoteVersion.timestamp !== categoryVersion.timestamp) {
-      // 说明需要更新分类
-      await updateSpecificCategorySentences(SideAB, categoryVersion)
-    }
+    await updateOrCopySpecificCategorySentences(
+      SideAB,
+      categoryVersion,
+      remoteVersion.timestamp !== categoryVersion.timestamp,
+    )
   }
   // 获得句子总数，由于以上的增量实现无法正确统计，因此咱们用一个偷懒的方法（以后优化）
   // TODO: 优化句子统计算法
@@ -194,7 +200,12 @@ function getCategoriesThatShouldBeAppended(
   return categoriesNeededToAppend
 }
 
-async function updateSpecificCategorySentences(SideAB, category) {
+// TODO: 完成 COPY
+async function updateOrCopySpecificCategorySentences(
+  SideAB,
+  category,
+  isCopy = false,
+) {
   let categorySentencesTotal = 0
   let minLength = 1000 // TODO: 更合理的算法，目前赋值 1000 只是为了最小值正确
   let maxLength = 0
@@ -231,6 +242,14 @@ async function updateSpecificCategorySentences(SideAB, category) {
       maxLength,
     )}], total: ${chalk.blue(categorySentencesTotal)}`,
   )
+  if (categorySentencesTotal === 0) {
+    logger.error(
+      `[sentencesUpdateTask] the sentences total of category ${chalk.red(
+        category.key,
+      )} is 0. It must be confusing. If you meet this situation, create a issue please.`,
+    )
+    throw new Error('runtime.assert categorySentencesTotal is 0')
+  }
   return categorySentencesTotal
 }
 

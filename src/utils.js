@@ -1,5 +1,4 @@
-const compact = require('lodash.compact')
-const curry = require('lodash.curry')
+const { compact, curry } = require('lodash')
 const utils = {}
 
 const DEFAULT_PROPERTIES = ['name', 'message', 'stack', 'type']
