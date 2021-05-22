@@ -5925,8 +5925,6 @@ fsevents@^2.1.2:
     koa-router: 10.0.0
     lint-staged: 11.0.0
     lodash: 4.17.21
-    lodash.compact: 3.0.1
-    lodash.curry: 4.1.1
     mysql2: 2.2.5
     nconf: 0.11.2
     nconf-yaml: 1.0.2
@@ -8151,20 +8149,6 @@ fsevents@^2.1.2:
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash._reinterpolate%2Fdownload%2Flodash._reinterpolate-3.0.0.tgz"
   checksum: 27513557d6fe526296324f1de9e1b8e8ac88ef2a2544a655e825f3ab0f52c5a675f1a73a0c9ff3c64fda031c56dfb4deb9dac7c7d21f9a04bc63dd7db5a5a73d
-  languageName: node
-  linkType: hard
-
-"lodash.compact@npm:3.0.1":
-  version: 3.0.1
-  resolution: "lodash.compact@npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash.compact%2Fdownload%2Flodash.compact-3.0.1.tgz"
-  checksum: 261aea6ba9fe648fc97bdcf3111f553d5f0d283fef5319b68b661bfd95db6e895ca5366fe9434e5c607fede6d53c40612b2b362abe80412e1ff239f3d2ee8486
-  languageName: node
-  linkType: hard
-
-"lodash.curry@npm:4.1.1":
-  version: 4.1.1
-  resolution: "lodash.curry@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash.curry%2Fdownload%2Flodash.curry-4.1.1.tgz"
-  checksum: 081f9214b5d65030e66d0219c330de5a07089096f20362fc965c671b70b2bdb7b8f4cbac45546f79afed3bf17ae46434ffea9db1dbcbe043a09b722e2834ac3d
   languageName: node
   linkType: hard
 
