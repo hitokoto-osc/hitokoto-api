@@ -14,6 +14,8 @@
 * 返回 JS 的支持
 * 支持 GBK 编码
 * 开源数据集
+* 支持遥测
+* 支持多进程运行
 * A/B 无感知更新数据
 * 官方扩展
   * 网易云音乐
@@ -30,18 +32,19 @@
   
 ## 日记
 
-日记默认保存在 `./data/logs/Hitokoto-api.log`
+* 调试日记，警告信息都会打印在 `Console`
+* 日记文件只保存 `error`，保存在 `./data/logs/hitokoto_error.log`
 
 ## 开始使用
 
 ### 常规使用
 
-首先配置好 Node.js 环境（>=12.x)，以及 `yarn`。  
+首先配置好 Node.js 环境（>=16.x)，以及 `yarn`。  
 **请注意：本项目使用 Yarn v2，因此使用前请将你的 Yarn 版本更新至 v1.22.4 或更高版本。此外，项目目前不支持使用 NPM，CNPM，PNPM管理包依赖。**  
 
 1. 克隆仓库 `git clone https://github.com/hitokoto-osc/hitokoto-api.git your_workdir`
 2. 进入仓库 `cd your_workdir`
-3. 安装依赖 `yarn install --production`
+3. 安装依赖 `yarn workspaces focus --production`
 4. 复制配置 `cp config.example.yml ./data/config.yml`，根据需要对其进行配置。
 5. 启动程序 `yarn start`
 
@@ -62,33 +65,35 @@ hitokoto/api
 
 ## Benchmark
 
+以下数据仅供参考。测试环境为 Windows 10 20H2 x64, WSL 1. 实例启用了 8 个 Workers。由于是单机测试（而且不是 Ubuntu 真机），所以数据是娱乐数据。
+
 ```shell
 $ node -v
-v14.8.0
-$ wrk -t16 -c1000 -d30s --latency http://127.0.0.1:8000
-Running 30s test @ http://127.0.0.1:8000
-  16 threads and 1000 connections
+v16.1.0
+$ wrk -t8 -c1000 -d10s --latency http://127.0.0.1:8000
+Running 10s test @ http://127.0.0.1:8000
+  8 threads and 1000 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   306.38ms   60.05ms 810.86ms   74.60%
-    Req/Sec   213.41    150.01   626.00     64.98%
+    Latency    85.06ms   18.51ms 180.85ms   74.85%
+    Req/Sec     1.47k   222.90     2.30k    82.00%
   Latency Distribution
-     50%  311.57ms
-     75%  348.58ms
-     90%  372.48ms
-     99%  405.50ms
-  93875 requests in 30.05s, 68.19MB read
-Requests/sec:   3124.36
-Transfer/sec:      2.27MB
+     50%   87.66ms
+     75%   95.61ms
+     90%  104.91ms
+     99%  124.37ms
+  117210 requests in 10.06s, 125.89MB read
+Requests/sec:  11650.18
+Transfer/sec:     12.51MB
 $ screenfetch
                           ./+o+-       root@DESKTOP-89TMCM6
                   yyyyy- -yyyyyy+      OS: Ubuntu 20.04 focal(on the Windows Subsystem for Linux)
-               ://+//////-yyyyyyo      Kernel: x86_64 Linux 4.19.104-microsoft-standard
-           .++ .:/++++++/-.+sss/`      Uptime: 2h 52m
-         .:++o:  /++++++++/:--:/-      Packages: 745
-        o:+o+:++.`..```.-/oo+++++/     Shell: zsh 5.8
-       .:+o:+o/.          `+sssoo+/    Disk: 486G / 882G (56%)
+               ://+//////-yyyyyyo      Kernel: x86_64 Linux 4.4.0-19041-Microsoft
+           .++ .:/++++++/-.+sss/`      Uptime: 2d 22h 26m
+         .:++o:  /++++++++/:--:/-      Packages: 712
+        o:+o+:++.`..```.-/oo+++++/     Shell: fish 3.2.2
+       .:+o:+o/.          `+sssoo+/    Disk: 540G / 625G (87%)
   .++/+:+oo+o:`             /sssooo.   CPU: Intel Core i7-10875H @ 16x 2.304GHz
- /+++//+:`oo+o               /::--:.   RAM: 2602MiB / 12708MiB
+ /+++//+:`oo+o               /::--:.   RAM: 11965MiB / 16288MiB
  \+/+o+++`o++o               ++////.
   .++.o+++oo+:`             /dddhhh.
        .+.o+oo:.          `oddhhhh+
