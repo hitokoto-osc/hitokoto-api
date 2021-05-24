@@ -1867,9 +1867,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.0.12":
-  version: 4.0.12
-  resolution: "NeteaseCloudMusicApi@npm:4.0.12::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-4.0.12.tgz"
+"NeteaseCloudMusicApi@npm:4.0.13":
+  version: 4.0.13
+  resolution: "NeteaseCloudMusicApi@npm:4.0.13::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-4.0.13.tgz"
   dependencies:
     axios: ^0.21.1
     express: ^4.17.1
@@ -1879,7 +1879,7 @@ __metadata:
     pac-proxy-agent: ^4.0.0
     qrcode: ^1.4.4
     tunnel: ^0.0.6
-  checksum: ebdc0ac5540288775ec8f4b292417da5f8706e2bd81b6299dfa8a660998c8d2268309a7663d1028254c3fb240a860bf501c1d3db5bc9a957033739abea41080d
+  checksum: 48577dc90dc4df4c93b58f46d8975e1483fa9e01963c96021de2768591ce02e976ec425353cd837aac24d3a39e5ab89c87ef58c9eb33dc432fe61b36e3849c1d
   languageName: node
   linkType: hard
 
@@ -5903,7 +5903,7 @@ fsevents@^2.1.2:
     "@sentry/node": 6.4.1
     "@sentry/tracing": 6.4.1
     "@types/jest": 26.0.23
-    NeteaseCloudMusicApi: 4.0.12
+    NeteaseCloudMusicApi: 4.0.13
     async: 3.2.0
     bytes: 3.1.0
     chalk: 4.1.1
@@ -5945,7 +5945,7 @@ fsevents@^2.1.2:
     mysql2: 2.2.5
     nconf: 0.11.2
     nconf-yaml: 1.0.2
-    nodemailer: 6.6.0
+    nodemailer: 6.6.1
     nyc: 15.1.0
     passthrough-counter: 1.0.0
     pify: 5.0.0
@@ -9046,10 +9046,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.6.0":
-  version: 6.6.0
-  resolution: "nodemailer@npm:6.6.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fnodemailer%2Fdownload%2Fnodemailer-6.6.0.tgz"
-  checksum: 2582ed043577ad458f04ad58586eb25d56bae575059049c3c62d25c1db613ffd55195ff0568ee63699c5897a0b20b20609385799eb7b4d1274b8f2a369e478f4
+"nodemailer@npm:6.6.1":
+  version: 6.6.1
+  resolution: "nodemailer@npm:6.6.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fnodemailer%2Fdownload%2Fnodemailer-6.6.1.tgz"
+  checksum: c889cf7d52cb7931d0b0563aff2c64f95a0f2f8659841a033288e84224933d3df4963ebb334f5aee0a5b7958ea5638f9a92ae367231ff4bb71ac76011b30fd2e
   languageName: node
   linkType: hard
 
