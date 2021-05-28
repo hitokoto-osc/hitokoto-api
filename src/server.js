@@ -39,6 +39,11 @@ async function StartWebServer(isDev, netSocketHandle) {
       })
     })
   }
+  netSocketHandle.on('error', (err) => {
+    const { logger } = require('./logger')
+    logger.error(`[worker.Server] net connection err: \n${err.stack}`)
+    process.exit(1)
+  })
   app.listen(netSocketHandle)
 }
 
