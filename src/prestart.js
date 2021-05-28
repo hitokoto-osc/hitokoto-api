@@ -60,7 +60,8 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
   if (fs.existsSync(oldConfigFile)) {
     const c = require(oldConfigFile)
     const yaml = require('js-yaml')
-    fs.writeFileSync(configFile, yaml.safeDump(c), 'utf-8')
+    fs.writeFileSync(configFile, yaml.dump(c), 'utf-8')
+    fs.unlinkSync(oldConfigFile)
   }
 
   // check config file while running at docker
