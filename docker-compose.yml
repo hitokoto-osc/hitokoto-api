@@ -10,7 +10,7 @@ services:
     image: hitokoto/api:release
     container_name: hitokoto_api
     hostname: hitokoto_api
-    build: docker/mainline
+    build: docker/mainline/Dockerfile
     environment:
       NODE_ENV: production
       # 服务配置

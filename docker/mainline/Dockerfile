@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 COPY . .
 RUN yarn workspaces focus --production
 COPY . .
-VOLUME [ "./data" ]
+# VOLUME [ "./data" ]
 EXPOSE 8000
 CMD yarn start
