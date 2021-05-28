@@ -3,7 +3,7 @@ const nconf = require('nconf')
 const { logger } = require('../logger')
 // TODO: waiting for Node.js LTS upon v16.x
 // const { setTimeout } = require('timers/promises')
-const setTimeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 class RequestsStatistic {
   constructor(all, hosts) {
     this.all = all || 0
@@ -51,7 +51,7 @@ async function emitRequests() {
     'web.middlewares.requestCounter',
   )
   temporaryRequests.clear()
-  await setTimeout(dumpInterval)
+  await sleep(dumpInterval)
   emitRequests().catch((err) => {
     throw err
   })
@@ -60,7 +60,7 @@ async function emitRequests() {
 process.on('message', (msg) => {
   const { key } = msg
   if (key === 'start_job') {
-    setTimeout(dumpInterval)
+    sleep(dumpInterval)
       .then(emitRequests)
       .finally(() => {
         logger.verbose(`[web.Worker] RequestsCounter IPC job started.`)
