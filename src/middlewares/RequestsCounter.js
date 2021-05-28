@@ -1,8 +1,9 @@
 const { send } = require('../utils/worker/ipc')
 const nconf = require('nconf')
 const { logger } = require('../logger')
-const { setTimeout } = require('timers/promises')
-
+// TODO: waiting for Node.js LTS upon v16.x
+// const { setTimeout } = require('timers/promises')
+const setTimeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 class RequestsStatistic {
   constructor(all, hosts) {
     this.all = all || 0
