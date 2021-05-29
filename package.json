@@ -63,6 +63,7 @@
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
     "@hitokoto/koa-respond": "3.0.3",
+    "@sentry/integrations": "^6.4.1",
     "@sentry/node": "6.4.1",
     "@sentry/tracing": "6.4.1",
     "NeteaseCloudMusicApi": "3.47.5",

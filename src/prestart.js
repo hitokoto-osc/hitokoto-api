@@ -121,6 +121,7 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
         performance: true,
         error: true,
         usage: true,
+        debug: false,
       },
     })
   nconf.set('config_file', configFile)

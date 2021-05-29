@@ -1411,6 +1411,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/integrations@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "@sentry/integrations@npm:6.4.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fintegrations%2Fdownload%2F%40sentry%2Fintegrations-6.4.1.tgz"
+  dependencies:
+    "@sentry/types": 6.4.1
+    "@sentry/utils": 6.4.1
+    localforage: ^1.8.1
+    tslib: ^1.9.3
+  checksum: 8074497a926e868a1c921d87639df83e45a4777e0bca355f915686c3c0fb4914a2d66e78ad7a8abe7b48d23f7d79080d7b9967ebf30c1a5a03f87fd4abeefb72
+  languageName: node
+  linkType: hard
+
 "@sentry/minimal@npm:6.4.1":
   version: 6.4.1
   resolution: "@sentry/minimal@npm:6.4.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fminimal%2Fdownload%2F%40sentry%2Fminimal-6.4.1.tgz"
@@ -5789,6 +5801,7 @@ fsevents@^2.1.2:
     "@commitlint/config-conventional": 12.1.4
     "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
+    "@sentry/integrations": ^6.4.1
     "@sentry/node": 6.4.1
     "@sentry/tracing": 6.4.1
     "@types/jest": 26.0.23
@@ -6082,6 +6095,13 @@ fsevents@^2.1.2:
   version: 5.1.8
   resolution: "ignore@npm:5.1.8::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fignore%2Fdownload%2Fignore-5.1.8.tgz"
   checksum: b08e3d5b5d94eca13475f29a5d47d221060e9cdd7e38d7647088e29d90130669a970fecbc4cdb41b8fa295c6673740c729d3dc05dadc381f593efb42282cbf9f
+  languageName: node
+  linkType: hard
+
+"immediate@npm:~3.0.5":
+  version: 3.0.6
+  resolution: "immediate@npm:3.0.6::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fimmediate%2Fdownload%2Fimmediate-3.0.6.tgz"
+  checksum: e86d4d20e2da86f9a4629d9aee9d56dfae7d3a7ace7f569b0538f2ec2570d86b3cbdc52c546d23be2cfd28306670f44676fc833cd96d9506659b8c5ab8202ca4
   languageName: node
   linkType: hard
 
@@ -7950,6 +7970,15 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"lie@npm:3.1.1":
+  version: 3.1.1
+  resolution: "lie@npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flie%2Fdownload%2Flie-3.1.1.tgz"
+  dependencies:
+    immediate: ~3.0.5
+  checksum: 33a07ffeb7eb5aaec59a5f7a72ba7e6a2ce9d011bd7894f36ed11e2da43f076467019e5f9826c5864500c6a792450aa54b263f31cef0a1774553851dce8a501c
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flines-and-columns%2Fdownload%2Flines-and-columns-1.1.6.tgz"
@@ -8010,6 +8039,15 @@ fsevents@^2.1.2:
     pify: ^3.0.0
     strip-bom: ^3.0.0
   checksum: 692f33387be2439e920e394a70754499c22eabe567f55fee7c0a8994c050e27360c1b39c5375d214539ebb7d609d28e69f6bd6e3c070d30bc202c99289e27f96
+  languageName: node
+  linkType: hard
+
+"localforage@npm:^1.8.1":
+  version: 1.9.0
+  resolution: "localforage@npm:1.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flocalforage%2Fdownload%2Flocalforage-1.9.0.tgz"
+  dependencies:
+    lie: 3.1.1
+  checksum: 0645f5ec6fe28799081a9a21dc23796fbb665dcc20e09061228302750a05671bd13a42688e41b523f1598fff5d8e219f468d826595b75db07b555d4ff223943e
   languageName: node
   linkType: hard
 
