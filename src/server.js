@@ -68,11 +68,15 @@ process.on('uncaughtException', function (err) {
   logger.error(`uncaughtException: ${err.stack}`)
   if (nconf.get('telemetry:error') && !isDev) {
     Sentry.captureException(err)
-    Sentry.close().then(() => {
-      process.exit(1)
-    })
+    if (err.message !== 'read ECONNRESET') {
+      Sentry.close().then(() => {
+        process.exit(1)
+      })
+    }
   } else {
-    process.exit(1)
+    if (err.message !== 'read ECONNRESET') {
+      process.exit(1)
+    }
   }
 })
 
