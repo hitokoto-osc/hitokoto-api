@@ -1,5 +1,10 @@
 const Sentry = require('@sentry/node')
 const Tracing = require('@sentry/tracing')
+const {
+  Dedupe: DedupeIntegration,
+  ExtraErrorData: ExtraErrorDataIntegration,
+  Transaction: TransactionIntegration,
+} = require('@sentry/integrations')
 const nconf = require('nconf')
 const os = require('os')
 const isTelemetryErrorEnabled = nconf.get('telemetry:error')
@@ -15,6 +20,19 @@ Sentry.init({
     return 0.0001 // default rate
   },
   attachStacktrace: true,
+  integrations: function (integrations) {
+    return integrations
+      .filter((integration) => {
+        // TODO: 也许未来可以在这里进行全局捕获？
+        return integration.name !== 'OnUncaughtException' // 禁止默认的错误捕获行为
+      })
+      .concat([
+        new Sentry.Integrations.LinkedErrors(),
+        new DedupeIntegration(),
+        new ExtraErrorDataIntegration(),
+        new TransactionIntegration(),
+      ])
+  },
   serverName: nconf.get('api_name') || os.hostname(),
   environment: nconf.get('dev') ? 'development' : 'production',
 })
