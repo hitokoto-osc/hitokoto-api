@@ -11,6 +11,7 @@ const isTelemetryErrorEnabled = nconf.get('telemetry:error')
 const isTelemetryPerformanceEnabled = nconf.get('telemetry:performance')
 // Init Sentry Server
 Sentry.init({
+  debug: !!nconf.get('telemetry:debug') || false,
   dsn:
     isTelemetryErrorEnabled && isTelemetryPerformanceEnabled
       ? 'https://9e3019aa154c45ba8affa9a34c7fe162@o673612.ingest.sentry.io/5768310'
