@@ -65,7 +65,7 @@
     "@hitokoto/koa-respond": "3.0.3",
     "@sentry/node": "6.4.1",
     "@sentry/tracing": "6.4.1",
-    "NeteaseCloudMusicApi": "4.0.13",
+    "NeteaseCloudMusicApi": "3.47.5",
     "async": "3.2.0",
     "bytes": "3.1.0",
     "chalk": "4.1.1",
