@@ -64,10 +64,10 @@ const configFile = process.env?.config_file
 process.on('uncaughtException', function (err, origin) {
   const nconf = require('nconf')
   const { logger } = require('./logger')
-  const { Sentry } = require('./tracing')
+  const { Sentry, CaptureUncaughtException } = require('./tracing')
   logger.error(`${origin} occur uncaughtException: ${err.stack}`)
   if (nconf.get('telemetry:error') && !isDev) {
-    Sentry.captureException(err)
+    CaptureUncaughtException(err)
     if (err.message !== 'read ECONNRESET') {
       Sentry.close().then(() => {
         process.exit(1)

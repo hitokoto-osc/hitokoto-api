@@ -38,7 +38,19 @@ Sentry.init({
   environment: nconf.get('dev') ? 'development' : 'production',
 })
 
+function CaptureUncaughtException(error) {
+  const hub = Sentry.getCurrentHub()
+  hub.withScope((scope) => {
+    scope.setLevel(Sentry.Severity.Fatal)
+    hub.captureException(error, {
+      originalException: error,
+      data: { mechanism: { handled: false, type: 'onUncaughtException' } },
+    })
+  })
+}
+
 module.exports = {
   Sentry,
   Tracing,
+  CaptureUncaughtException,
 }
