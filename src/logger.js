@@ -73,6 +73,7 @@ exports.SetupLogger = async () => {
   exports.logger.add(
     new winston.transports.Console({
       format: getConsoleFormatter(),
+      handleExceptions: false,
       stderrLevels: ['error'],
     }),
   )
@@ -80,7 +81,7 @@ exports.SetupLogger = async () => {
     new winston.transports.File({
       filename: logFile,
       level: 'error', // strict log level
-      handleExceptions: true,
+      handleExceptions: false,
       maxsize: 5242880,
       maxFiles: 10,
     }),
