@@ -15,7 +15,7 @@ Sentry.init({
     return 0.0001 // default rate
   },
   attachStacktrace: true,
-  serverName: nconf.get('name') || os.hostname(),
+  serverName: nconf.get('api_name') || os.hostname(),
   environment: nconf.get('dev') ? 'development' : 'production',
 })
 
