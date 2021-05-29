@@ -1,9 +1,9 @@
-name: '' # 服务名称，例如：hitokoto
-url: '' # 服务地址，例如：https://v1.hitokoto.cn
-api_name: '' # 服务表示，例如：cd-01-demo
+name: 'hitokoto' # 服务名称，例如：hitokoto
+url: 'https://v1.hitokoto.cn' # 服务地址，例如：https://v1.hitokoto.cn
+api_name: 'demo_prprpr' # 服务标识，取个好区分的标识吧，例如：cd-01-demo
 server: # 配置 HTTP 服务的信息
   host: 127.0.0.1 # 监听的地址
-  port: '8000' # 监听的端口
+  port: 8000 # 监听的端口
   compress_body: true # 是否使用 GZIP 压缩
 mail: # 本节为 Web 控制器触发错误时发送邮件，目前本节已废弃
   type: smtp
@@ -30,6 +30,8 @@ sentences_ab_switcher: # 本节是服务 AB 异步更新的配置，如果您不
 log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。
 remote_sentences_url: https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/ # 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项
 workers: 0 # 启动 Worker 数目。0 表示启动和 CPU 核心数相同数量的 Worker
+extensions: # 控制扩展
+  netease: true # 网易云音乐接口
 requests:
   enabled: true # 是否启用请求数目统计
   hosts: # 需要单独统计的主机名

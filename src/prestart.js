@@ -104,6 +104,9 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
       remote_sentences_url:
         'https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/',
       workers: 0,
+      extensions: {
+        netease: true,
+      },
       requests: {
         enabled: true,
         hosts: [

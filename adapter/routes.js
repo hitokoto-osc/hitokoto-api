@@ -60,42 +60,44 @@ module.exports = (router, middleware, controller) => {
   router.get('/status', controller.status.entry)
 
   // Netease API
-  router.get('/nm/search/:keyword', controller.netease.search)
-  router.get('/nm/playlist/:id', controller.netease.playlist)
-  router.get('/nm/picture/:id/:height?', controller.netease.picture)
-  router.get('/nm/artist/:id', controller.netease.artist)
-  router.get('/nm/album/:id', controller.netease.album)
-  router.get('/nm/lyric/:id', controller.netease.lyric)
-  router.get('/nm/url/:id', controller.netease.url)
-  router.get('/nm/detail/:id', controller.netease.detail)
-  router.get('/nm/summary/:id', controller.netease.summary)
-  router.get('/nm/redirect/music/:id', controller.netease.redirect)
-  router.get('/nm/record/:uid', (ctx) => {
-    ctx.status = 503
-    ctx.body = {
-      status: 503,
-      message: '由于此接口需登录后才能使用，因此本接口已移除。',
-      data: null,
-      ts: Date.now(),
-    }
-  })
-  router.get('/nm/comment/music/:id', controller.netease.music_comment)
-  router.get('/nm/url/mv/:mvid', async (ctx) => {
-    ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
-  })
-  router.get('/nm/mv/:mvid', controller.netease.mv)
-  router.get('/nm/mv/url/:mvid', controller.netease.mv_url)
-  router.get('/nm/dj/:rid', controller.netease.dj_program)
-  router.get('/nm/dj/program/detail/:id', controller.netease.dj_program_info)
-  router.get('/nm/user/dj/:uid', (ctx) => {
-    ctx.status = 503
-    ctx.body = {
-      status: 503,
-      message: '由于此接口需登录后才能使用，因此本接口已移除。',
-      data: null,
-      ts: Date.now(),
-    }
-  })
-  router.get('/nm/dj/detail/:rid', controller.netease.dj_detail)
+  if (nconf.get('extension:netease')) {
+    router.get('/nm/search/:keyword', controller.netease.search)
+    router.get('/nm/playlist/:id', controller.netease.playlist)
+    router.get('/nm/picture/:id/:height?', controller.netease.picture)
+    router.get('/nm/artist/:id', controller.netease.artist)
+    router.get('/nm/album/:id', controller.netease.album)
+    router.get('/nm/lyric/:id', controller.netease.lyric)
+    router.get('/nm/url/:id', controller.netease.url)
+    router.get('/nm/detail/:id', controller.netease.detail)
+    router.get('/nm/summary/:id', controller.netease.summary)
+    router.get('/nm/redirect/music/:id', controller.netease.redirect)
+    router.get('/nm/record/:uid', (ctx) => {
+      ctx.status = 503
+      ctx.body = {
+        status: 503,
+        message: '由于此接口需登录后才能使用，因此本接口已移除。',
+        data: null,
+        ts: Date.now(),
+      }
+    })
+    router.get('/nm/comment/music/:id', controller.netease.music_comment)
+    router.get('/nm/url/mv/:mvid', async (ctx) => {
+      ctx.redirect(301, `/nm/mv/${ctx.params.mvid}`)
+    })
+    router.get('/nm/mv/:mvid', controller.netease.mv)
+    router.get('/nm/mv/url/:mvid', controller.netease.mv_url)
+    router.get('/nm/dj/:rid', controller.netease.dj_program)
+    router.get('/nm/dj/program/detail/:id', controller.netease.dj_program_info)
+    router.get('/nm/user/dj/:uid', (ctx) => {
+      ctx.status = 503
+      ctx.body = {
+        status: 503,
+        message: '由于此接口需登录后才能使用，因此本接口已移除。',
+        data: null,
+        ts: Date.now(),
+      }
+    })
+    router.get('/nm/dj/detail/:rid', controller.netease.dj_detail)
+  }
   return router
 }
