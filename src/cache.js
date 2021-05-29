@@ -13,7 +13,9 @@ class Cache {
     // Connect Redis
     if (!newConnection) {
       this.redis = new Redis(ConnectionConfig)
-      this.redis.on('connect', () => nconf.set('connectionFailedAttempt', 0))
+      this.redis.on('connect', () => {
+        this.connectionFailedAttempt = 0
+      })
       this.redis.on('error', handleError.bind(this))
       return true
     }

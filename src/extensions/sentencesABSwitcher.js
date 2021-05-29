@@ -21,7 +21,9 @@ class SentencesABSwitcher extends Cache {
     }
     // Connect Redis
     const tmp = new Redis(config)
-    tmp.on('connect', () => nconf.set('connectionFailedAttempt', 0))
+    tmp.on('connect', () => {
+      this.connectionFailedAttempt = 0
+    })
     tmp.on('error', handleError.bind(this))
     if (isDefault) {
       this.redis = tmp // set default slot

@@ -2,8 +2,6 @@ const { logger } = require('../logger')
 const nconf = require('nconf')
 const chalk = require('chalk')
 
-let connectionFailedAttempt = nconf.get('connectionFailedAttempt')
-
 const reconnect = (err) => {
   const targetError = 'READONLY'
   if (err.message.includes(targetError)) {
@@ -20,19 +18,22 @@ const ConnectionConfig = {
   reconnectOnError: reconnect,
 }
 
-const handleError = (err) => {
+const handleError = function (err) {
+  if (typeof this.connectionFailedAttempt === 'undefined') {
+    this.connectionFailedAttempt = 0
+  }
   logger.error(chalk.red(err.stack))
-  if (connectionFailedAttempt >= 3) {
+  if (this.connectionFailedAttempt >= 3) {
     logger.error(
       '[cache] attempt to connect to redis ' +
-        connectionFailedAttempt +
+        this.connectionFailedAttempt +
         ' times, but all failed, process exiting.',
     )
     process.exit(1)
   }
   logger.error('[cache] failed to connect to redis, we will attempt again...')
-  connectionFailedAttempt++
-  nconf.set('connectionFailedAttempt', connectionFailedAttempt)
+  this.connectionFailedAttempt++
+  nconf.set('connectionFailedAttempt', this.connectionFailedAttempt)
   this.connect()
 }
 
