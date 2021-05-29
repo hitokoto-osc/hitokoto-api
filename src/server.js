@@ -67,9 +67,13 @@ process.on('uncaughtException', function (err) {
   const { Sentry } = require('./tracing')
   logger.error(`uncaughtException: ${err.stack}`)
   if (nconf.get('telemetry:error') && !isDev) {
-    Sentry.captureEvent(err)
+    Sentry.captureException(err)
+    Sentry.close().then(() => {
+      process.exit(1)
+    })
+  } else {
+    process.exit(1)
   }
-  process.exit(1)
 })
 
 process.on('message', ({ key, data }, netSocketHandle) => {
