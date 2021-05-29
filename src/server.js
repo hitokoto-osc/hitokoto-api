@@ -61,11 +61,11 @@ const { loadAsync } = require('./prestart')
 const isDev = process.env?.dev === 'true'
 const configFile = process.env?.config_file
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function (err, origin) {
   const nconf = require('nconf')
   const { logger } = require('./logger')
   const { Sentry } = require('./tracing')
-  logger.error(`uncaughtException: ${err.stack}`)
+  logger.error(`${origin} occur uncaughtException: ${err.stack}`)
   if (nconf.get('telemetry:error') && !isDev) {
     Sentry.captureException(err)
     if (err.message !== 'read ECONNRESET') {
