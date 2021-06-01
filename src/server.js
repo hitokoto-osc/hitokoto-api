@@ -101,7 +101,7 @@ process.on('message', ({ key, data }, netSocketHandle) => {
         process.exit(1)
       })
   } else if (key === 'switchAB') {
-    const { logger } = require('logger')
+    const { logger } = require('./logger')
     logger.verbose(
       `[web.Worker] pid: ${
         process.pid
