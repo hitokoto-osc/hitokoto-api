@@ -3,7 +3,7 @@ const nconf = require('nconf')
 const { logger } = require('./logger')
 const nodemailer = require('nodemailer')
 const pkg = require('../package')
-const htmlEscape = require('./utils').htmlEscape
+const { htmlEscape } = require('./utils')
 const util = require('util')
 class mail {
   static async connect() {

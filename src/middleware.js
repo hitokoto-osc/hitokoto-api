@@ -29,7 +29,7 @@ module.exports = {
   register(app, isDev) {
     try {
       const middlewares = this.fetch(isDev)
-      for (const middleware of middlewares) {
+      middlewares.forEach((middleware) => {
         if (
           middleware &&
           middleware[1] &&
@@ -41,7 +41,7 @@ module.exports = {
           )
           app.use(middleware[1])
         }
-      }
+      })
       logger.verbose('[init] global koa plugins(middlewares) are loaded.')
     } catch (e) {
       logger.error(`[init] loading middlewares failed. error:\n${e.stack}`)

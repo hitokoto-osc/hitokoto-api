@@ -26,9 +26,9 @@ module.exports = (router, middleware, controller) => {
       const nconf = require('nconf')
       const os = require('os')
       let memoryUsage = 0
-      for (const v of Object.values(process.memoryUsage())) {
+      Object.values(process.memoryUsage()).forEach((v) => {
         memoryUsage += parseInt(v)
-      }
+      })
       memoryUsage = memoryUsage / (1024 * 1024)
       ctx.body = {
         header: ctx.headers,

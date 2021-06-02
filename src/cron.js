@@ -17,7 +17,7 @@ class Cron {
       if (cronMap === true) {
         // 自动加载所有计划任务
         crons = await this.autoLoad(true)
-        await crons.forEach((item, index, input) => {
+        await crons.forEach((item) => {
           // 注册 CronJob
           const job = new CronJob(
             item[0],

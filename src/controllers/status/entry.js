@@ -66,6 +66,7 @@ module.exports = async (ctx) => {
       Kuertianshi: 'i@loli.online',
       freejishu: 'i@freejishu.com',
       a632079: 'a632079@qq.com',
+      ada: 'adaxh@qq.com',
     },
     copyright:
       'MoeCraft © ' +

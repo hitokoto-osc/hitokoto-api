@@ -46,11 +46,7 @@ class SentencesABSwitcher extends Cache {
 
   static setDatabase(target) {
     logger.verbose('[AB] switching database: ' + chalk.blue(target))
-    if (target === 'a') {
-      this.redis = this.redisA
-    } else {
-      this.redis = this.redisB
-    }
+    this.redis = target === 'a' ? this.redisA : this.redisB
     this.db = target
   }
 
