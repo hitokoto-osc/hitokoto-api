@@ -1411,7 +1411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:^6.4.1":
+"@sentry/integrations@npm:6.4.1":
   version: 6.4.1
   resolution: "@sentry/integrations@npm:6.4.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fintegrations%2Fdownload%2F%40sentry%2Fintegrations-6.4.1.tgz"
   dependencies:
@@ -5801,7 +5801,7 @@ fsevents@^2.1.2:
     "@commitlint/config-conventional": 12.1.4
     "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
-    "@sentry/integrations": ^6.4.1
+    "@sentry/integrations": 6.4.1
     "@sentry/node": 6.4.1
     "@sentry/tracing": 6.4.1
     "@types/jest": 26.0.23
