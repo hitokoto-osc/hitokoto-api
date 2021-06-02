@@ -164,32 +164,32 @@ const genHostsWithValidHostList = (fetchData) => {
   const hosts = {}
   const HostToDelete = []
   const HostsData = fetchData[4] || {}
-  for (const i of limitedHosts) {
-    if (!HostsData[i]) {
+  limitedHosts.forEach((item) => {
+    if (!HostsData[item]) {
       // if not exist
-      HostToDelete.push(i)
+      HostToDelete.push(item)
     } else {
-      hosts[i] = {}
-      hosts[i].total = HostsData[i] || 0
-      hosts[i].past_minute = fetchData[5]
-        ? parseInt(HostsData[i]) - parseInt(fetchData[5][i])
+      hosts[item] = {}
+      hosts[item].total = HostsData[item] || 0
+      hosts[item].past_minute = fetchData[5]
+        ? parseInt(HostsData[item]) - parseInt(fetchData[5][item])
         : null
-      hosts[i].past_hour = fetchData[6]
-        ? parseInt(HostsData[i]) - parseInt(fetchData[6][i])
+      hosts[item].past_hour = fetchData[6]
+        ? parseInt(HostsData[item]) - parseInt(fetchData[6][item])
         : null
-      hosts[i].past_day = fetchData[7]
-        ? parseInt(HostsData[i]) - parseInt(fetchData[7][i])
+      hosts[item].past_day = fetchData[7]
+        ? parseInt(HostsData[item]) - parseInt(fetchData[7][item])
         : null
     }
-  }
+  })
   return [hosts, _.pullAll([...limitedHosts], HostToDelete)]
 }
 
 const getMemoryUsage = () => {
   let memoryUsage = 0
-  for (const v of Object.values(process.memoryUsage())) {
-    memoryUsage += parseInt(v)
-  }
+  Object.values(process.memoryUsage()).forEach((item) => {
+    memoryUsage += parseInt(item)
+  })
   return memoryUsage
 }
 

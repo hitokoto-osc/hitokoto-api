@@ -24,7 +24,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
     } = require('./adapter/processes')
     const processesToStart = []
     const isDev = opts.dev
-    for (const process of processesMap) {
+    processesMap.forEach((process) => {
       if (
         (process.isDev && isDev) ||
         (process.isProd && !isDev) ||
@@ -32,7 +32,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
       ) {
         processesToStart.push(process)
       }
-    }
+    })
     const { staticProcess, ProcessInteract } = require('./src/process')
     processesToStart.forEach((v) =>
       staticProcess().spawnProcess(v.path, v.name, v.messageListener),
@@ -54,12 +54,12 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
   const { startWorkersPool, WorkersBridge } = require('./src/master')
 
   function notifyChildProcessesExit() {
-    for (const child of childProcessList) {
+    childProcessList.forEach((child) => {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
-    }
-    for (const worker of WorkersBridge.workers.workersList) {
+    })
+    WorkersBridge.workers.workersList.forEach((worker) => {
       worker.instance.kill('SIGTERM')
-    }
+    })
   }
   // handle the process exit event
   function handleProcessExitSignal(signal) {
