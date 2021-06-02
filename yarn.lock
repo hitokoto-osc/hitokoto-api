@@ -1554,6 +1554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tokenizer/token@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@tokenizer/token@npm:0.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40tokenizer%2Ftoken%2Fdownload%2F%40tokenizer%2Ftoken-0.1.1.tgz"
+  checksum: f495a1fe58da2cec4a45f02d302864484ecf3d00e343470b00ebcafd3248c3f252e0450e603838962f0ac3019477ad466b097134bc332d3f76441fc408a1dcfb
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tootallnate%2Fonce%2Fdownload%2F%40tootallnate%2Fonce-1.1.2.tgz"
@@ -1611,6 +1618,13 @@ __metadata:
     "@types/node": "*"
     "@types/responselike": "*"
   checksum: 3dae802a0808573986c56b92bf16cd031a5b648b6c893d20c7ef6bfda3fc72a2107c7978697d2b27b14febc597162d6959985eeb5befc307a9f9f3c5081d4905
+  languageName: node
+  linkType: hard
+
+"@types/debug@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "@types/debug@npm:4.1.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fdebug%2Fdownload%2F%40types%2Fdebug-4.1.5.tgz"
+  checksum: 416ad24bc589be0fb8c78bea972aa7d4ffdf6b136239701b1792674463b2dbf8c6707f6055ec484f79ec1f2b528ffef90c87e55df7e4a0f458184cad5bf0cfc8
   languageName: node
   linkType: hard
 
@@ -1730,6 +1744,16 @@ __metadata:
   version: 2.2.3
   resolution: "@types/prettier@npm:2.2.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprettier%2Fdownload%2F%40types%2Fprettier-2.2.3.tgz"
   checksum: b7e80288f9f776caca84391a7a217b8baac6b4fce00bb9701af69299d465cb8faf17466f0af0803970c74d2c191767ca729a6d21a2f7e2ce552d1ef6cc0d653a
+  languageName: node
+  linkType: hard
+
+"@types/readable-stream@npm:^2.3.9":
+  version: 2.3.10
+  resolution: "@types/readable-stream@npm:2.3.10::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freadable-stream%2Fdownload%2F%40types%2Freadable-stream-2.3.10.tgz"
+  dependencies:
+    "@types/node": "*"
+    safe-buffer: "*"
+  checksum: 22b1b65b8c6c40e3daa12c65773180f54c5728ba6d812ff6f6cbc1d890f85418f2461bafc6f4f1f7cb9f419de1f36bb4b4e7c29744051b1888005f4108555c32
   languageName: node
   linkType: hard
 
@@ -1855,16 +1879,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:3.47.5":
-  version: 3.47.5
-  resolution: "NeteaseCloudMusicApi@npm:3.47.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-3.47.5.tgz"
+"NeteaseCloudMusicApi@npm:4.0.16":
+  version: 4.0.16
+  resolution: "NeteaseCloudMusicApi@npm:4.0.16::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-4.0.16.tgz"
   dependencies:
-    axios: ^0.20.0
+    axios: ^0.21.1
     express: ^4.17.1
     express-fileupload: ^1.1.9
+    md5: ^2.3.0
+    music-metadata: ^7.5.3
     pac-proxy-agent: ^4.0.0
+    qrcode: ^1.4.4
     tunnel: ^0.0.6
-  checksum: e382ec740ba7862a5141b239acd9bde289c089cf45da2442dc6e59b8e2ad0aec840c753e971b94fb7f54aeedd335cb9457e57d831fe5d6590a1e1603ac577932
+  checksum: 88935422475aeb3268700965c32bf622007b69f4adceb72a396eabfc4848f1d6bff4ae1ef1c9ff9e919be2cdf97406cda59c2d6ae851835e8dac6339360b1efd
   languageName: node
   linkType: hard
 
@@ -2344,12 +2371,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "axios@npm:0.20.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Faxios%2Fdownload%2Faxios-0.20.0.tgz"
+"axios@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "axios@npm:0.21.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Faxios%2Fdownload%2Faxios-0.21.1.tgz"
   dependencies:
     follow-redirects: ^1.10.0
-  checksum: 6cf2e963176a0d18fc457d7cb71cb6cf552193619b161fc61070d9a4db3a26a87ecfe760ba36e7af174c05a6a9898dc52cfeb5c0e62e19fddd9788739553ad73
+  checksum: 864fb7b5d077d236737f10adca53bf451a93f35a15271f56fba8da07265a02d26b7d881b935a6697dc6adb0549ea3e56d2eecb403edaa3bb78f6479901c10f69
   languageName: node
   linkType: hard
 
@@ -2588,6 +2615,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer-alloc-unsafe@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "buffer-alloc-unsafe@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbuffer-alloc-unsafe%2Fdownload%2Fbuffer-alloc-unsafe-1.1.0.tgz"
+  checksum: f5ab30acb1270dbec68283464d757eb1bf694557a06f27d542344bd1474e4bb202db35be1e04c804e28880eb2092dacbe39870204bc14934377f74925a4aac5c
+  languageName: node
+  linkType: hard
+
+"buffer-alloc@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "buffer-alloc@npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbuffer-alloc%2Fdownload%2Fbuffer-alloc-1.2.0.tgz"
+  dependencies:
+    buffer-alloc-unsafe: ^1.1.0
+    buffer-fill: ^1.0.0
+  checksum: 0a66de89687b503644bd1a5996ac3492f8f6a154f352baae72b410db1c1a12f6ccfb9e088d838cca8648e64049140ae4ffca6a54620dec8a3aba7d114d7697db
+  languageName: node
+  linkType: hard
+
+"buffer-fill@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "buffer-fill@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbuffer-fill%2Fdownload%2Fbuffer-fill-1.0.0.tgz"
+  checksum: 099a16038eaa2586c12b902e68e300f2e0d581c8bfdbe5c8937757ea20c375167e0dfe1891585b99ae1b4385d7ed18b4f2d4b3f85120252778fe45489ee519f1
+  languageName: node
+  linkType: hard
+
 "buffer-from@npm:^1.0.0":
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fbuffer-from%2Fdownload%2Fbuffer-from-1.1.1.tgz"
@@ -2595,7 +2646,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:^5.5.0":
+"buffer-from@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "buffer-from@npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbuffer-from%2Fdownload%2Fbuffer-from-1.1.1.tgz"
+  checksum: 540ceb79c4f5bfcadaabbc18324fa84c50dc52905084be7c03596a339cf5a88513bee6831ce9b36ddd046fab09257a7c80686e129d0559a0cfd141da196ad956
+  languageName: node
+  linkType: hard
+
+"buffer@npm:^5.4.3, buffer@npm:^5.5.0":
   version: 5.7.1
   resolution: "buffer@npm:5.7.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fbuffer%2Fdownload%2Fbuffer-5.7.1.tgz"
   dependencies:
@@ -2860,6 +2918,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"charenc@npm:0.0.2":
+  version: 0.0.2
+  resolution: "charenc@npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fcharenc%2Fdownload%2Fcharenc-0.0.2.tgz"
+  checksum: ff8199e90334dc7bb60a9fe0aa2bef3e72b1d125e801151459db1cf1c9b77c437ad4a5d9248ee0003720bcb537a90787a53f6e2e1613dbf5fba46f59d5547307
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^2.0.0":
   version: 2.0.0
   resolution: "chownr@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fchownr%2Fdownload%2Fchownr-2.0.0.tgz"
@@ -2960,6 +3025,17 @@ __metadata:
   version: 3.0.0
   resolution: "cli-width@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcli-width%2Fdownload%2Fcli-width-3.0.0.tgz"
   checksum: 6e5bc71774e202bfd3782d0be56eacee9462bfc7dc4a601dad10636163ab9c8abe625e760b0f28e590f9044bc23df3927ee3406f8c961fd2e4a51ef3f67fab2f
+  languageName: node
+  linkType: hard
+
+"cliui@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "cliui@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcliui%2Fdownload%2Fcliui-5.0.0.tgz"
+  dependencies:
+    string-width: ^3.1.0
+    strip-ansi: ^5.2.0
+    wrap-ansi: ^5.1.0
+  checksum: 25e61dc985279bd7ec16715df53288346e5c36ff43956f7de31bf55b2432ce1259e75148b28c3ed41265caf1baee1d204363c429ae5fee54e6f78bed5a5d82b3
   languageName: node
   linkType: hard
 
@@ -3460,6 +3536,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypt@npm:0.0.2":
+  version: 0.0.2
+  resolution: "crypt@npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcrypt%2Fdownload%2Fcrypt-0.0.2.tgz"
+  checksum: 1ad9c8439ad26eef21ca130df3e79fff4915e839167efde163891b935ffb41742bfbc359bb00ae8b1ff205db52e7fb0e32326b84b7f977cd6e6a279eed9dc742
+  languageName: node
+  linkType: hard
+
 "crypto-random-string@npm:^2.0.0":
   version: 2.0.0
   resolution: "crypto-random-string@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcrypto-random-string%2Fdownload%2Fcrypto-random-string-2.0.0.tgz"
@@ -3887,6 +3970,13 @@ __metadata:
   version: 26.6.2
   resolution: "diff-sequences@npm:26.6.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fdiff-sequences%2Fdownload%2Fdiff-sequences-26.6.2.tgz"
   checksum: dd1eb6e52f0a200228b836876a69c90690003b8991cf7d9264d6e6063acde8fe852084b6a196f2a13f169d309e30c24c457e9c8db617aed186c665efb50af1d8
+  languageName: node
+  linkType: hard
+
+"dijkstrajs@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "dijkstrajs@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fdijkstrajs%2Fdownload%2Fdijkstrajs-1.0.2.tgz"
+  checksum: 5b4ad633ee4cdf34a7b5d42f7388886825680042aed13ef158a9e6c896751af3e1a212b2dd3c65c25e8f1c36022b44f215f7844be4d93d5aeef752b703743870
   languageName: node
   linkType: hard
 
@@ -4921,6 +5011,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-type@npm:^16.3.0":
+  version: 16.5.0
+  resolution: "file-type@npm:16.5.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ffile-type%2Fdownload%2Ffile-type-16.5.0.tgz"
+  dependencies:
+    readable-web-to-node-stream: ^3.0.0
+    strtok3: ^6.0.3
+    token-types: ^2.0.0
+  checksum: 0f1374ba73d4438a15caa1e5c24212f6f0311a6c50452326e154092ce5bf0cffe51ba9e07584934af9e55209d597e3a2811fae9ace923802f3a538c855d16490
+  languageName: node
+  linkType: hard
+
 "file-uri-to-path@npm:2":
   version: 2.0.0
   resolution: "file-uri-to-path@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffile-uri-to-path%2Fdownload%2Ffile-uri-to-path-2.0.0.tgz"
@@ -5018,6 +5119,15 @@ __metadata:
   dependencies:
     locate-path: ^2.0.0
   checksum: 9dedb89f936b572f7c9fda3f66ebe146b0000fe9ef16fad94a77c25ce9585962e910bb32c1e08bab9b423985ff20221d2af4b7e4130b27c0f5f60c1aad3f6a7f
+  languageName: node
+  linkType: hard
+
+"find-up@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "find-up@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ffind-up%2Fdownload%2Ffind-up-3.0.0.tgz"
+  dependencies:
+    locate-path: ^3.0.0
+  checksum: c5422fc7231820421cff6f6e3a5d00a11a79fd16625f2af779c6aedfbaad66764fd149c1b84017aa44e85f86395eb25c31188ad273fc468a981b529eaa59a424
   languageName: node
   linkType: hard
 
@@ -5805,7 +5915,7 @@ fsevents@^2.1.2:
     "@sentry/node": 6.4.1
     "@sentry/tracing": 6.4.1
     "@types/jest": 26.0.23
-    NeteaseCloudMusicApi: 3.47.5
+    NeteaseCloudMusicApi: 4.0.16
     async: 3.2.0
     bytes: 3.1.0
     chalk: 4.1.1
@@ -6077,7 +6187,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"ieee754@npm:^1.1.13":
+"ieee754@npm:^1.1.13, ieee754@npm:^1.2.1":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fieee754%2Fdownload%2Fieee754-1.2.1.tgz"
   checksum: 6c1cfab995ecab3b0dbb6cfb7e192686eb02f0f8e788f2d962e1fc02e2d5ab38a85e06d417221f136bd029663a77cdb920d99605d68d3730a05597dd7910426a
@@ -6354,7 +6464,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^1.1.5":
+"is-buffer@npm:^1.1.5, is-buffer@npm:~1.1.6":
   version: 1.1.6
   resolution: "is-buffer@npm:1.1.6::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-buffer%2Fdownload%2Fis-buffer-1.1.6.tgz"
   checksum: 336ec78f00e88efe6ff6f1aa08d06aadb942a6cd320e5f538ac00648378fb964743b3737c88ce7ce8741c067e4a3b78f596b83ee1a3c72dc2885ea0b03dc84f2
@@ -6811,6 +6921,13 @@ fsevents@^2.1.2:
   version: 1.0.0
   resolution: "isarray@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fisarray%2Fdownload%2Fisarray-1.0.0.tgz"
   checksum: b0ff31a290e783f7b3fb73f2951ee7fc2946dc197b05f73577dc77f87dc3be2e0f66007bedf069123d4e5c4b691e7c89a241f6ca06f0c0f4765cdac5aa4b4047
+  languageName: node
+  linkType: hard
+
+"isarray@npm:^2.0.1":
+  version: 2.0.5
+  resolution: "isarray@npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fisarray%2Fdownload%2Fisarray-2.0.5.tgz"
+  checksum: cfb3e907b3c7957fb18e479bbe9102df4e84c5386839b4a33076f38ee31a8934e77d43ff517967fd39192a7c06b894770454886a5ffc8a3ddc36f6b746d70726
   languageName: node
   linkType: hard
 
@@ -8061,6 +8178,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"locate-path@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "locate-path@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flocate-path%2Fdownload%2Flocate-path-3.0.0.tgz"
+  dependencies:
+    p-locate: ^3.0.0
+    path-exists: ^3.0.0
+  checksum: 0b6bf0c1bb09021499f6198ed6a4ae367e8224e2493a74cc7bc5f4e6eca9ed880a5f7fdfb4d57b7e21d3e289c3abfe152cd510cacb1d03049f9d81d9a7d302ca
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^5.0.0":
   version: 5.0.0
   resolution: "locate-path@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flocate-path%2Fdownload%2Flocate-path-5.0.0.tgz"
@@ -8335,10 +8462,28 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"md5@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "md5@npm:2.3.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fmd5%2Fdownload%2Fmd5-2.3.0.tgz"
+  dependencies:
+    charenc: 0.0.2
+    crypt: 0.0.2
+    is-buffer: ~1.1.6
+  checksum: ba00eaf2b7ca49bb7ba67b8ded5db45ecfba4e85694f30cb0b720051936af5337bbd350865357b91580ecb0f7053df658381d50cb689f22135dfa345c52d61cc
+  languageName: node
+  linkType: hard
+
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fmedia-typer%2Fdownload%2Fmedia-typer-0.3.0.tgz"
   checksum: be1c825782df7f38eebd451d778f6407bb15a59c8807a69e7f2ad74a25440e474536441c6bf583fdf2803ea23b866e91ff68f565cda297211dd89147758c8df3
+  languageName: node
+  linkType: hard
+
+"media-typer@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "media-typer@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fmedia-typer%2Fdownload%2Fmedia-typer-1.1.0.tgz"
+  checksum: 62641a7390da60a5ee8fb8986f9376b7e4b18c779376696b516fe409cebebab006e6ba4a4ee1026dfd054d74f6f57d193f6ae393eede5acbea2db81d11be8172
   languageName: node
   linkType: hard
 
@@ -8730,6 +8875,20 @@ fsevents@^2.1.2:
   version: 2.1.3
   resolution: "ms@npm:2.1.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fms%2Fdownload%2Fms-2.1.3.tgz"
   checksum: 6e721e648a544154d5de4c114b32f573d8027ca8ec505cf6c1105e505986d6ac46934a1256735aa0eece8eb2f5b2a1230503b2dddd3b100f9f016fd8a4f15f33
+  languageName: node
+  linkType: hard
+
+"music-metadata@npm:^7.5.3":
+  version: 7.8.5
+  resolution: "music-metadata@npm:7.8.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fmusic-metadata%2Fdownload%2Fmusic-metadata-7.8.5.tgz"
+  dependencies:
+    content-type: ^1.0.4
+    debug: ^4.3.1
+    file-type: ^16.3.0
+    media-typer: ^1.1.0
+    strtok3: ^6.0.8
+    token-types: ^2.1.1
+  checksum: 028027d774c758fd10c4fe02cefd719e8959b0d65b0c1179e8f552e00223493495cdbc7d69dbf554c6aaba219f2d5e15227d91fb67c66dc470a79e781a277328
   languageName: node
   linkType: hard
 
@@ -9323,7 +9482,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"p-limit@npm:^2.2.0":
+"p-limit@npm:^2.0.0, p-limit@npm:^2.2.0":
   version: 2.3.0
   resolution: "p-limit@npm:2.3.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fp-limit%2Fdownload%2Fp-limit-2.3.0.tgz"
   dependencies:
@@ -9347,6 +9506,15 @@ fsevents@^2.1.2:
   dependencies:
     p-limit: ^1.1.0
   checksum: b6dabbd855fba9bfa74b77882f96d0eac6c25d9966e61ab0ed7bf3d19f2e3b766f290ded1aada1ac4ce2627217b00342cf7a1d36482bada59ba6789be412dad7
+  languageName: node
+  linkType: hard
+
+"p-locate@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "p-locate@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fp-locate%2Fdownload%2Fp-locate-3.0.0.tgz"
+  dependencies:
+    p-limit: ^2.0.0
+  checksum: 3ee9e3ed0b1b543f8148ef0981d33013d82a21c338b117a2d15650456f8dc888c19eb8a98484e7e159276c3ad9219c3e2a00b63228cab46bf29aeaaae096b1d6
   languageName: node
   linkType: hard
 
@@ -9631,6 +9799,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"peek-readable@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "peek-readable@npm:3.1.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fpeek-readable%2Fdownload%2Fpeek-readable-3.1.3.tgz"
+  checksum: 735be445bfe235a1776eedc060083a7de34cc447d36d839d7f9ee16e0fc3ad2e2ee10a1c567e0bb812a91b5bb044b53fa69d8a1c5d04788aefb26d665ea845f0
+  languageName: node
+  linkType: hard
+
 "performance-now@npm:^2.1.0":
   version: 2.1.0
   resolution: "performance-now@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fperformance-now%2Fdownload%2Fperformance-now-2.1.0.tgz"
@@ -9717,6 +9892,13 @@ fsevents@^2.1.2:
   dependencies:
     semver-compare: ^1.0.0
   checksum: 34cf86f6d577877df5e9ced0bda57babd97bd2dc7e5965a67f990337f01ccd5203a98dc5aa7971e10088b2b1b29628d51d9770996151c7d306ed0069b4ecd745
+  languageName: node
+  linkType: hard
+
+"pngjs@npm:^3.3.0":
+  version: 3.4.0
+  resolution: "pngjs@npm:3.4.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fpngjs%2Fdownload%2Fpngjs-3.4.0.tgz"
+  checksum: aa6d2cb4dd770cab9b06d9169aa94f134d7ff7dae3a73310709f0f0b4cdbcca2a8bfa7fa6f4d610719d5a3aa848447e6a755730e5dc911a38e8ec4d7a64dc214
   languageName: node
   linkType: hard
 
@@ -9921,6 +10103,23 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"qrcode@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "qrcode@npm:1.4.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fqrcode%2Fdownload%2Fqrcode-1.4.4.tgz"
+  dependencies:
+    buffer: ^5.4.3
+    buffer-alloc: ^1.2.0
+    buffer-from: ^1.1.1
+    dijkstrajs: ^1.0.1
+    isarray: ^2.0.1
+    pngjs: ^3.3.0
+    yargs: ^13.2.4
+  bin:
+    qrcode: ./bin/qrcode
+  checksum: 125b75136305c51c5f5f313d36912ae537c43cc4f35d396ed64fc0567ed78510841a4bac56d8de4126d9479225d2ac991b47e4cc053a7ef38208b162d671b893
+  languageName: node
+  linkType: hard
+
 "qs@npm:6.7.0":
   version: 6.7.0
   resolution: "qs@npm:6.7.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fqs%2Fdownload%2Fqs-6.7.0.tgz"
@@ -10094,6 +10293,16 @@ fsevents@^2.1.2:
     string_decoder: ~1.1.1
     util-deprecate: ~1.0.1
   checksum: 6e3826560627a751feb3a8aec073ef94c6e47b8c8e06eb5d136323b5f09db9d2077c23a42a8d54ed0123695af54b36c1e4271a8ec55112b15f4b89020d8dec72
+  languageName: node
+  linkType: hard
+
+"readable-web-to-node-stream@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "readable-web-to-node-stream@npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Freadable-web-to-node-stream%2Fdownload%2Freadable-web-to-node-stream-3.0.1.tgz"
+  dependencies:
+    "@types/readable-stream": ^2.3.9
+    readable-stream: ^3.6.0
+  checksum: 711affd6cf5a8067dabdfd35b41bea849037a3ed1c7121f4ceae6761d5798e0ddc0cc67d237285a5eff7474c544e593757804def0c87a8d14de41ffe94ececd6
   languageName: node
   linkType: hard
 
@@ -10545,6 +10754,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"safe-buffer@npm:*, safe-buffer@npm:~5.2.0":
+  version: 5.2.1
+  resolution: "safe-buffer@npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsafe-buffer%2Fdownload%2Fsafe-buffer-5.2.1.tgz"
+  checksum: 0bb57f0d8f9d1fa4fe35ad8a2db1f83a027d48f2822d59ede88fd5cd4ddad83c0b497213feb7a70fbf90597a70c5217f735b0eb1850df40ce9b4ae81dd22b3f9
+  languageName: node
+  linkType: hard
+
 "safe-buffer@npm:5.1.2, safe-buffer@npm:~5.1.0, safe-buffer@npm:~5.1.1":
   version: 5.1.2
   resolution: "safe-buffer@npm:5.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsafe-buffer%2Fdownload%2Fsafe-buffer-5.1.2.tgz"
@@ -10555,13 +10771,6 @@ fsevents@^2.1.2:
 "safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.2":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fsafe-buffer%2Fdownload%2Fsafe-buffer-5.2.1.tgz"
-  checksum: 0bb57f0d8f9d1fa4fe35ad8a2db1f83a027d48f2822d59ede88fd5cd4ddad83c0b497213feb7a70fbf90597a70c5217f735b0eb1850df40ce9b4ae81dd22b3f9
-  languageName: node
-  linkType: hard
-
-"safe-buffer@npm:~5.2.0":
-  version: 5.2.1
-  resolution: "safe-buffer@npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsafe-buffer%2Fdownload%2Fsafe-buffer-5.2.1.tgz"
   checksum: 0bb57f0d8f9d1fa4fe35ad8a2db1f83a027d48f2822d59ede88fd5cd4ddad83c0b497213feb7a70fbf90597a70c5217f735b0eb1850df40ce9b4ae81dd22b3f9
   languageName: node
   linkType: hard
@@ -11285,7 +11494,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"string-width@npm:^3.0.0":
+"string-width@npm:^3.0.0, string-width@npm:^3.1.0":
   version: 3.1.0
   resolution: "string-width@npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fstring-width%2Fdownload%2Fstring-width-3.1.0.tgz"
   dependencies:
@@ -11401,7 +11610,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^5.1.0":
+"strip-ansi@npm:^5.0.0, strip-ansi@npm:^5.1.0, strip-ansi@npm:^5.2.0":
   version: 5.2.0
   resolution: "strip-ansi@npm:5.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fstrip-ansi%2Fdownload%2Fstrip-ansi-5.2.0.tgz"
   dependencies:
@@ -11474,6 +11683,17 @@ fsevents@^2.1.2:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fstrip-json-comments%2Fdownload%2Fstrip-json-comments-2.0.1.tgz"
   checksum: e60d99aa2849c27a04dce0620334f45822197df6b83664dd3746971e9a0a766d989dbb8d87f9cb7350725d2b5df401a2343222ad06e36a1ba7d62c6633267fcb
+  languageName: node
+  linkType: hard
+
+"strtok3@npm:^6.0.3, strtok3@npm:^6.0.8":
+  version: 6.0.8
+  resolution: "strtok3@npm:6.0.8::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fstrtok3%2Fdownload%2Fstrtok3-6.0.8.tgz"
+  dependencies:
+    "@tokenizer/token": ^0.1.1
+    "@types/debug": ^4.1.5
+    peek-readable: ^3.1.3
+  checksum: 3109c9317923b5927e6c476f76ec75b8a5ec7e10c1139fd200f2b398e0293fbaea49e52db8a92548c3b857776de2b1abf69f4cdcc4d23ab69f1599e59044b7a1
   languageName: node
   linkType: hard
 
@@ -11755,6 +11975,16 @@ fsevents@^2.1.2:
   version: 1.0.0
   resolution: "toidentifier@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ftoidentifier%2Fdownload%2Ftoidentifier-1.0.0.tgz"
   checksum: 95720e8a0f98f1525f50ccbecbc2a23f0a1b4e448de03819dbbeda03adf0d2010fe64525fbc9d549765242550d341bb891672e4ac0b2cac58613cdd742324255
+  languageName: node
+  linkType: hard
+
+"token-types@npm:^2.0.0, token-types@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "token-types@npm:2.1.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftoken-types%2Fdownload%2Ftoken-types-2.1.1.tgz"
+  dependencies:
+    "@tokenizer/token": ^0.1.1
+    ieee754: ^1.2.1
+  checksum: bd57cce67c87f62f4902bd0a51066b2a98ec4397c9f54438f620d3dcf2c838fa0387690865bd8764d67211da46dd46a4bee070af923ed11d31fd2f565030687b
   languageName: node
   linkType: hard
 
@@ -12402,6 +12632,17 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"wrap-ansi@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "wrap-ansi@npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fwrap-ansi%2Fdownload%2Fwrap-ansi-5.1.0.tgz"
+  dependencies:
+    ansi-styles: ^3.2.0
+    string-width: ^3.0.0
+    strip-ansi: ^5.0.0
+  checksum: 9622c3aa2742645e9a6941d297436a433c65ffe1b1416578ad56e0df657716bda6857401c5c9cc485c0abbc04e852aafedf295d87e2d6ec58a01799d6bcb2fdf
+  languageName: node
+  linkType: hard
+
 "wrap-ansi@npm:^6.2.0":
   version: 6.2.0
   resolution: "wrap-ansi@npm:6.2.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fwrap-ansi%2Fdownload%2Fwrap-ansi-6.2.0.tgz"
@@ -12542,6 +12783,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^13.1.2":
+  version: 13.1.2
+  resolution: "yargs-parser@npm:13.1.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-13.1.2.tgz"
+  dependencies:
+    camelcase: ^5.0.0
+    decamelize: ^1.2.0
+  checksum: 82d3b7ab99085d70a5121399ad407d2b98d296538bf7012ac2ce044a61160ca891ea617de6374699d81955d9a61c36a3b2a6a51588e38f710bd211ce2e63c33c
+  languageName: node
+  linkType: hard
+
 "yargs-parser@npm:^18.1.2":
   version: 18.1.3
   resolution: "yargs-parser@npm:18.1.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-18.1.3.tgz"
@@ -12556,6 +12807,24 @@ fsevents@^2.1.2:
   version: 20.2.3
   resolution: "yargs-parser@npm:20.2.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fyargs-parser%2Fdownload%2Fyargs-parser-20.2.3.tgz"
   checksum: 6504b053bbb7ac0a3cd4c0e343447f2a7bb7ee18f3de8865a83874531ac8b8b0661cab4a4603a515224d5f5cfcd26d0d9998642b07a58ceab29eea12878123f7
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^13.2.4":
+  version: 13.3.2
+  resolution: "yargs@npm:13.3.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fyargs%2Fdownload%2Fyargs-13.3.2.tgz"
+  dependencies:
+    cliui: ^5.0.0
+    find-up: ^3.0.0
+    get-caller-file: ^2.0.1
+    require-directory: ^2.1.1
+    require-main-filename: ^2.0.0
+    set-blocking: ^2.0.0
+    string-width: ^3.0.0
+    which-module: ^2.0.0
+    y18n: ^4.0.0
+    yargs-parser: ^13.1.2
+  checksum: 92c612cd14a9217d7421ae4f42bc7c460472633bfc2e45f7f86cd614a61a845670d3bac7c2228c39df7fcecce0b8c12b2af65c785b1f757de974dcf84b5074f9
   languageName: node
   linkType: hard
 
