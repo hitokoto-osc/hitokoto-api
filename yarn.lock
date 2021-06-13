@@ -5947,7 +5947,7 @@ fsevents@^2.1.2:
     got: 11.8.2
     humanize-number: 0.0.2
     husky: 6.0.0
-    ioredis: 4.27.5
+    ioredis: 4.27.6
     jest: 26.6.3
     jest-extended: 0.11.5
     joi: 17.4.0
@@ -6393,9 +6393,9 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.5":
-  version: 4.27.5
-  resolution: "ioredis@npm:4.27.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fioredis%2Fdownload%2Fioredis-4.27.5.tgz"
+"ioredis@npm:4.27.6":
+  version: 4.27.6
+  resolution: "ioredis@npm:4.27.6::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fioredis%2Fdownload%2Fioredis-4.27.6.tgz"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -6407,7 +6407,7 @@ fsevents@^2.1.2:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: ee5924ccf4e04643ebc644312d1105a6da70e009badaf845618dd0d408f82690098892d2c648b02b0e3612d548b0fd162af12f3e18aec71edd8c983f59357509
+  checksum: 757b8dbd2c1db17d22c54e38be21402f48cf9337fa708a6626581aa104e47ce6d74a76a07e580b515d6ef0f5aa81af199f59d7866f10504235c41a9a29bb779f
   languageName: node
   linkType: hard
 
