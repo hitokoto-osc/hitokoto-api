@@ -5962,7 +5962,7 @@ fsevents@^2.1.2:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.3.1
-    release-it: 14.6.2
+    release-it: 14.9.0
     semver: 7.3.5
     sequelize: 6.6.2
     supertest: 6.1.3
@@ -6356,24 +6356,25 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"inquirer@npm:8.0.0":
-  version: 8.0.0
-  resolution: "inquirer@npm:8.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Finquirer%2Fdownload%2Finquirer-8.0.0.tgz"
+"inquirer@npm:8.1.0":
+  version: 8.1.0
+  resolution: "inquirer@npm:8.1.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Finquirer%2Fdownload%2Finquirer-8.1.0.tgz"
   dependencies:
     ansi-escapes: ^4.2.1
-    chalk: ^4.1.0
+    chalk: ^4.1.1
     cli-cursor: ^3.1.0
     cli-width: ^3.0.0
     external-editor: ^3.0.3
     figures: ^3.0.0
     lodash: ^4.17.21
     mute-stream: 0.0.8
+    ora: ^5.3.0
     run-async: ^2.4.0
     rxjs: ^6.6.6
     string-width: ^4.1.0
     strip-ansi: ^6.0.0
     through: ^2.3.6
-  checksum: 7dbe4461f5b217e53e8ba1b81a10b88033ecb814678c23e9e8286600a9c055887e6b8fae1c0ce5c4da56b8301d199bab668a00618ba174332066d1ca927f16ea
+  checksum: 386a465a5045d2968a7eaae8d84fed3c4fcec7cbf8bfd030541e8ea82b8f7a2132f98935b1321a3d0af39c196a09f38bb3cfd3105d7812799062235e45839b11
   languageName: node
   linkType: hard
 
@@ -9428,6 +9429,23 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"ora@npm:^5.3.0":
+  version: 5.4.1
+  resolution: "ora@npm:5.4.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fora%2Fdownload%2Fora-5.4.1.tgz"
+  dependencies:
+    bl: ^4.1.0
+    chalk: ^4.1.0
+    cli-cursor: ^3.1.0
+    cli-spinners: ^2.5.0
+    is-interactive: ^1.0.0
+    is-unicode-supported: ^0.1.0
+    log-symbols: ^4.1.0
+    strip-ansi: ^6.0.0
+    wcwidth: ^1.0.1
+  checksum: 589ac687d6dfbac970f1bf4ec94f3e1cfc9e2a4dd4727a0c60dfcdef138f59b5de5694447881fa5a2793a91f0b2619a96bdd3d5425be30d155540abbe1df95b9
+  languageName: node
+  linkType: hard
+
 "os-name@npm:4.0.0":
   version: 4.0.0
   resolution: "os-name@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fos-name%2Fdownload%2Fos-name-4.0.0.tgz"
@@ -10383,9 +10401,9 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.6.2":
-  version: 14.6.2
-  resolution: "release-it@npm:14.6.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Frelease-it%2Fdownload%2Frelease-it-14.6.2.tgz"
+"release-it@npm:14.9.0":
+  version: 14.9.0
+  resolution: "release-it@npm:14.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Frelease-it%2Fdownload%2Frelease-it-14.9.0.tgz"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 18.5.3
@@ -10401,7 +10419,7 @@ fsevents@^2.1.2:
     globby: 11.0.3
     got: 11.8.2
     import-cwd: 3.0.0
-    inquirer: 8.0.0
+    inquirer: 8.1.0
     is-ci: 3.0.0
     lodash: 4.17.21
     mime-types: 2.1.30
@@ -10417,7 +10435,7 @@ fsevents@^2.1.2:
     yargs-parser: 20.2.7
   bin:
     release-it: bin/release-it.js
-  checksum: e645603d6360eaf619e8d249f06cba2b0d924ba15c050639368d0d8ed1c94d5328b04f58717113f74e2d1200d4b0c3fc09a5de27244ead4989239b572c316448
+  checksum: a79fe7e84f542a048ebf78c092f9d94a51bf5b3a9fa5a55a649bff5d455cf8c48f78781995a1ced1a43bae4c6a2e6432fe3208c9ca40145c9862d5d94c2f8a4c
   languageName: node
   linkType: hard
 
