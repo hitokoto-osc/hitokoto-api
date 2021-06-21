@@ -5964,7 +5964,7 @@ fsevents@^2.1.2:
     lint-staged: 11.0.0
     lodash: 4.17.21
     mysql2: 2.2.5
-    nconf: 0.11.2
+    nconf: 0.11.3
     nconf-yaml: 1.0.2
     nodemailer: 6.6.1
     nyc: 15.1.0
@@ -8989,15 +8989,15 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"nconf@npm:0.11.2":
-  version: 0.11.2
-  resolution: "nconf@npm:0.11.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fnconf%2Fdownload%2Fnconf-0.11.2.tgz"
+"nconf@npm:0.11.3":
+  version: 0.11.3
+  resolution: "nconf@npm:0.11.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fnconf%2Fdownload%2Fnconf-0.11.3.tgz"
   dependencies:
     async: ^1.4.0
     ini: ^2.0.0
     secure-keys: ^1.0.0
     yargs: ^16.1.1
-  checksum: 300048cbc0cd45a90d46d623fb88a2e7ef9c8aa6435323798da062ca00f3fe3242a93207677be437598c5de33ac9f3bda00718a5dfaea846552b394cb7477028
+  checksum: 4515084790dca5ae467dc19bdf98aa5d5f12195324c93f35c1b4849eaab758f9d79a6798216a07dc10ee762bbee222608fe407cc28b347395e5707ea5fcd6bb0
   languageName: node
   linkType: hard
 
