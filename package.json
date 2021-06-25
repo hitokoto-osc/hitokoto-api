@@ -70,7 +70,7 @@
     "async": "3.2.0",
     "bytes": "3.1.0",
     "chalk": "4.1.1",
-    "commander": "7.2.0",
+    "commander": "8.0.0",
     "cron": "1.8.2",
     "fast-json-stringify": "2.7.7",
     "flatstr": "1.0.12",
