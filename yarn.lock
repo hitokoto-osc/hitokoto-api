@@ -5946,7 +5946,7 @@ fsevents@^2.1.2:
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
-    husky: 6.0.0
+    husky: 7.0.0
     ioredis: 4.27.6
     jest: 26.6.3
     jest-extended: 0.11.5
@@ -6169,12 +6169,12 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
-  version: 6.0.0
-  resolution: "husky@npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-6.0.0.tgz"
+"husky@npm:7.0.0":
+  version: 7.0.0
+  resolution: "husky@npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fhusky%2Fdownload%2Fhusky-7.0.0.tgz"
   bin:
     husky: lib/bin.js
-  checksum: 61e1f7f53f3c969d361c2a1d4ed8018b9447406ea6cd644a2526d18b76877d135001d8cbd48a1d201fc1614d96995e691ecd2b82a8d8513a6b4a313da1188ccd
+  checksum: 56252eeb452612a183731a3302db07de2f283ca8c869a884edb30dffe9908beab32365792dec9145c7f6df4e41f763d74212ca7bc05c0171fa6dff2bac17c8c1
   languageName: node
   linkType: hard
 
