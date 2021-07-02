@@ -40,7 +40,7 @@
     "commitizen": "4.2.4",
     "conventional-changelog-conventionalcommits": "4.6.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.28.0",
+    "eslint": "7.30.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-html": "6.1.2",
