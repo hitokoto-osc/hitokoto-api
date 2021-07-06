@@ -5980,7 +5980,7 @@ fsevents@^2.1.2:
     prettier: 2.3.1
     release-it: 14.9.0
     semver: 7.3.5
-    sequelize: 6.6.2
+    sequelize: 6.6.5
     supertest: 6.1.3
     supervisor: 0.12.0
     uuid: 8.3.2
@@ -6306,10 +6306,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"inflection@npm:1.12.0":
-  version: 1.12.0
-  resolution: "inflection@npm:1.12.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Finflection%2Fdownload%2Finflection-1.12.0.tgz"
-  checksum: b08d8b92fcc3a3860995a00605f56eac3964829ca6061fd7b0a1c06f888536c734b685f620fff6b694a8c9ed3e3b7a40fc79c3c6f2cc31bf58dee7eb8244c955
+"inflection@npm:1.13.1":
+  version: 1.13.1
+  resolution: "inflection@npm:1.13.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Finflection%2Fdownload%2Finflection-1.13.1.tgz"
+  checksum: 0b2d20e7c907a35985bb7ed1350610555fc0273b08418d3e890568fda1fcb0207b128eeec05e95edbaa3d08b4911208d51638e48942cb82e8182e3fdee12015a
   languageName: node
   linkType: hard
 
@@ -10956,13 +10956,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"sequelize@npm:6.6.2":
-  version: 6.6.2
-  resolution: "sequelize@npm:6.6.2::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fsequelize%2Fdownload%2Fsequelize-6.6.2.tgz"
+"sequelize@npm:6.6.5":
+  version: 6.6.5
+  resolution: "sequelize@npm:6.6.5::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fsequelize%2Fdownload%2Fsequelize-6.6.5.tgz"
   dependencies:
     debug: ^4.1.1
     dottie: ^2.0.0
-    inflection: 1.12.0
+    inflection: 1.13.1
     lodash: ^4.17.20
     moment: ^2.26.0
     moment-timezone: ^0.5.31
@@ -10971,7 +10971,7 @@ fsevents@^2.1.2:
     sequelize-pool: ^6.0.0
     toposort-class: ^1.0.1
     uuid: ^8.1.0
-    validator: ^10.11.0
+    validator: ^13.6.0
     wkx: ^0.5.0
   peerDependenciesMeta:
     mariadb:
@@ -10986,7 +10986,7 @@ fsevents@^2.1.2:
       optional: true
     tedious:
       optional: true
-  checksum: 174b449f4d4a9b521380f7fab3f6ec05af0880e001d2b53e1a5f9e99633466ff531677b8d06e9b5d9ad1a574b17a72eeb9462e4e4b0aeb89bc6cbcfb294e4a2f
+  checksum: be0a78d1a83a63613984234470eba06c6e258cd18c5fe7d84fcf465763a40eeabefb1b455e7c2b08953db42a6e0b25d2a68a84137ebe9626b46a086df62b08eb
   languageName: node
   linkType: hard
 
@@ -12452,10 +12452,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"validator@npm:^10.11.0":
-  version: 10.11.0
-  resolution: "validator@npm:10.11.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fvalidator%2Fdownload%2Fvalidator-10.11.0.tgz"
-  checksum: 07a37cd1469001b121696c2aa5494e9a4e416feabad31d849c02dfa414ae39c7885acb08d81d50d45e0ec63a1269bd8169937acf76202a79dc1ae53e909186b5
+"validator@npm:^13.6.0":
+  version: 13.6.0
+  resolution: "validator@npm:13.6.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fvalidator%2Fdownload%2Fvalidator-13.6.0.tgz"
+  checksum: 6ae43bfd47ae7e3ed5803c6fff949c5cbabb4d248af38fce0ccafb637c85db8c0c5cee2a91817242865de4f5970d61de809f0975910ec78282307ffd23249466
   languageName: node
   linkType: hard
 
