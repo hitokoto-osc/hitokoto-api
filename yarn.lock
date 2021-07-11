@@ -6035,7 +6035,7 @@ fsevents@^2.3.2:
     ioredis: 4.27.6
     jest: 27.0.6
     jest-extended: 0.11.5
-    joi: 17.4.0
+    joi: 17.4.1
     js-yaml: 4.1.0
     kcors: 2.2.2
     koa: 2.13.1
@@ -7688,16 +7688,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"joi@npm:17.4.0":
-  version: 17.4.0
-  resolution: "joi@npm:17.4.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fjoi%2Fdownload%2Fjoi-17.4.0.tgz"
+"joi@npm:17.4.1":
+  version: 17.4.1
+  resolution: "joi@npm:17.4.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fjoi%2Fdownload%2Fjoi-17.4.1.tgz"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
     "@sideway/address": ^4.1.0
     "@sideway/formula": ^3.0.0
     "@sideway/pinpoint": ^2.0.0
-  checksum: 2f6203d4513c063d457a935dab5e8060413479880d55af2c4fada987c7fe1bedff46d46eec36b14cf433ecc4df3b580fe1c0a0fed5b73a265b78011f97ff5c2d
+  checksum: 735051df2fcdfd1743ed8c126944063b97d99fcd6ac837c560d719de41b3fe1803aa919bf51f0fcd3d692271b49a5256487c7bb6b902d1829b293924a5de2554
   languageName: node
   linkType: hard
 
