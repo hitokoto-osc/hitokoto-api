@@ -20,6 +20,7 @@ async function RecoverError(ctx, next) {
   } catch (e) {
     // Format and set body
     ctx.body = formatError(e) || {}
+    if (!isDev) delete ctx.body.stack;
     // Set status
     ctx.status = e.status || e.statusCode || 500
     // Emit the error if we really care
