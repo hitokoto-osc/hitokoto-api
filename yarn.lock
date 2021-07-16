@@ -2162,9 +2162,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.0.16":
-  version: 4.0.16
-  resolution: "NeteaseCloudMusicApi@npm:4.0.16::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-4.0.16.tgz"
+"NeteaseCloudMusicApi@npm:4.0.17":
+  version: 4.0.17
+  resolution: "NeteaseCloudMusicApi@npm:4.0.17::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2FNeteaseCloudMusicApi%2Fdownload%2FNeteaseCloudMusicApi-4.0.17.tgz"
   dependencies:
     axios: ^0.21.1
     express: ^4.17.1
@@ -2174,7 +2174,9 @@ __metadata:
     pac-proxy-agent: ^4.0.0
     qrcode: ^1.4.4
     tunnel: ^0.0.6
-  checksum: 88935422475aeb3268700965c32bf622007b69f4adceb72a396eabfc4848f1d6bff4ae1ef1c9ff9e919be2cdf97406cda59c2d6ae851835e8dac6339360b1efd
+  bin:
+    NeteaseCloudMusicApi: app.js
+  checksum: bc3e43ed9071b0651256528fb04c2095784b8fc5cd5603f847e888e772af8ab8ed60e71b4dfadc2a9ab6c2d94e69a01ef9ba73cac18fa634a4e8f59d3c85b3b7
   languageName: node
   linkType: hard
 
@@ -6007,7 +6009,7 @@ fsevents@^2.3.2:
     "@sentry/node": 6.7.1
     "@sentry/tracing": 6.7.1
     "@types/jest": 26.0.23
-    NeteaseCloudMusicApi: 4.0.16
+    NeteaseCloudMusicApi: 4.0.17
     async: 3.2.0
     bytes: 3.1.0
     chalk: 4.1.1
