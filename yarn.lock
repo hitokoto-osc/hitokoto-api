@@ -1661,97 +1661,97 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/core@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fcore%2Fdownload%2F%40sentry%2Fcore-6.7.1.tgz"
+"@sentry/core@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/core@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fcore%2Fdownload%2F%40sentry%2Fcore-6.9.0.tgz"
   dependencies:
-    "@sentry/hub": 6.7.1
-    "@sentry/minimal": 6.7.1
-    "@sentry/types": 6.7.1
-    "@sentry/utils": 6.7.1
+    "@sentry/hub": 6.9.0
+    "@sentry/minimal": 6.9.0
+    "@sentry/types": 6.9.0
+    "@sentry/utils": 6.9.0
     tslib: ^1.9.3
-  checksum: 6911f265d0bdd896579a31369df96276967e43df078400daaee498b16764bd49a993be1ecf5c8305b094c382e41084284f99823dce419078b4f0739b2066c1ae
+  checksum: 4e7931f33347c6fe8aba30264ad0293e36e9991e00de2f5989aee10700aeb99fabe881529695202b8dc4a27834862176b67febbb3732fa17264da3aca1b681fe
   languageName: node
   linkType: hard
 
-"@sentry/hub@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/hub@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fhub%2Fdownload%2F%40sentry%2Fhub-6.7.1.tgz"
+"@sentry/hub@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/hub@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fhub%2Fdownload%2F%40sentry%2Fhub-6.9.0.tgz"
   dependencies:
-    "@sentry/types": 6.7.1
-    "@sentry/utils": 6.7.1
+    "@sentry/types": 6.9.0
+    "@sentry/utils": 6.9.0
     tslib: ^1.9.3
-  checksum: f996dd6c250a828820ecc2a4e61a42c826e28ce214de7a589dcbb3914237c57646c1249a6655b44824b4548ee762fc6f217b72e8b1e66364871b5769c423e9be
+  checksum: e774c9433d087e78c8bd3b0be8226df77d5d410527e4ee8c3408145695bdf52304541da405c66c869d2e2d2b2d7d0408b89e3aa6f7a694a8b75bb77c8d7e0a55
   languageName: node
   linkType: hard
 
-"@sentry/integrations@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/integrations@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fintegrations%2Fdownload%2F%40sentry%2Fintegrations-6.7.1.tgz"
+"@sentry/integrations@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/integrations@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fintegrations%2Fdownload%2F%40sentry%2Fintegrations-6.9.0.tgz"
   dependencies:
-    "@sentry/types": 6.7.1
-    "@sentry/utils": 6.7.1
+    "@sentry/types": 6.9.0
+    "@sentry/utils": 6.9.0
     localforage: ^1.8.1
     tslib: ^1.9.3
-  checksum: 73abe795d240d2d3e5df1c0622cc9d75a3c179c1223860d1bd63f4010ac29ab2e011c5df1c858f740d872f9bb35d452735487e8533815615dccb0ece7d0082e5
+  checksum: e75809333f132230c51a2dbda4c24d264981097b4ed93caf20252fd0d478be2be2df489d0816ef1e30948448baaf275d4e09c4a82253ba161da18ccecbe2e816
   languageName: node
   linkType: hard
 
-"@sentry/minimal@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/minimal@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fminimal%2Fdownload%2F%40sentry%2Fminimal-6.7.1.tgz"
+"@sentry/minimal@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/minimal@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fminimal%2Fdownload%2F%40sentry%2Fminimal-6.9.0.tgz"
   dependencies:
-    "@sentry/hub": 6.7.1
-    "@sentry/types": 6.7.1
+    "@sentry/hub": 6.9.0
+    "@sentry/types": 6.9.0
     tslib: ^1.9.3
-  checksum: 1e10e0904d5bb58b61b9bb8b09bf18c529a03f8a249d0c7c8e79d196b633ceac180c667f7c1b82fcd8a44c7c052e61edeed6b8a5f20a1932af8e62320aef6d72
+  checksum: a8c99ecd68a3c637e29af8bbde3b0b734d59c32898d81ff23b65229092c904e4aea76837e3a105c822fbab9f9a9d50217338075a2b8e7ce1f680a8fa66431bb2
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/node@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fnode%2Fdownload%2F%40sentry%2Fnode-6.7.1.tgz"
+"@sentry/node@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/node@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Fnode%2Fdownload%2F%40sentry%2Fnode-6.9.0.tgz"
   dependencies:
-    "@sentry/core": 6.7.1
-    "@sentry/hub": 6.7.1
-    "@sentry/tracing": 6.7.1
-    "@sentry/types": 6.7.1
-    "@sentry/utils": 6.7.1
+    "@sentry/core": 6.9.0
+    "@sentry/hub": 6.9.0
+    "@sentry/tracing": 6.9.0
+    "@sentry/types": 6.9.0
+    "@sentry/utils": 6.9.0
     cookie: ^0.4.1
     https-proxy-agent: ^5.0.0
     lru_map: ^0.3.3
     tslib: ^1.9.3
-  checksum: 1551e120035bd15432087e237d561aa1c80529077492a78b30e4774bd3ffa825647f64660737187d35b7be82f08eb0f91661ef63b1bd3c703afce36197953131
+  checksum: 774da8d9627654bcab071ebd908f5b0d96c7a98217a89129c65b3f1e226ceba9c1b2c3855e64caa7061f9171c105e38636a52f2b5b1e38532d8a37fbf425023a
   languageName: node
   linkType: hard
 
-"@sentry/tracing@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/tracing@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftracing%2Fdownload%2F%40sentry%2Ftracing-6.7.1.tgz"
+"@sentry/tracing@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/tracing@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftracing%2Fdownload%2F%40sentry%2Ftracing-6.9.0.tgz"
   dependencies:
-    "@sentry/hub": 6.7.1
-    "@sentry/minimal": 6.7.1
-    "@sentry/types": 6.7.1
-    "@sentry/utils": 6.7.1
+    "@sentry/hub": 6.9.0
+    "@sentry/minimal": 6.9.0
+    "@sentry/types": 6.9.0
+    "@sentry/utils": 6.9.0
     tslib: ^1.9.3
-  checksum: 5f96b8b0bb30e2c3de8d366aeaf663d9f71c773877e4efcbdbe64f8c96ea2a09b850464b6e50e0705be0db32f81dfab7b8f529d1b9747d29eab865fcb3b99784
+  checksum: 676423995219c9d85bff5de4e29c62892db3484666ed1b6e66ef9c5abbf2a30c77bacbc13c5cb5ae538b7a0f5ab96bb6716a193dce396f45a0c80f0b9769cb85
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/types@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftypes%2Fdownload%2F%40sentry%2Ftypes-6.7.1.tgz"
-  checksum: e6fdeaa9518a55e7e51c39b60c812bb38933a5c8dbe0984d2b64de9c30ea56925a2f09e719fa15e25bd996b11bdd3e29c7b221af59a6baab5bfbcc01a6cf3a50
+"@sentry/types@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/types@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Ftypes%2Fdownload%2F%40sentry%2Ftypes-6.9.0.tgz"
+  checksum: b533e9ee9cc20fdab32fc61cef52abf115f34a34bac7b4612b46a600e1a925c81058029c7f917fefca6e9d4ee971353c300212ff65383e2d77af237583e4d94d
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:6.7.1":
-  version: 6.7.1
-  resolution: "@sentry/utils@npm:6.7.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Futils%2Fdownload%2F%40sentry%2Futils-6.7.1.tgz"
+"@sentry/utils@npm:6.9.0":
+  version: 6.9.0
+  resolution: "@sentry/utils@npm:6.9.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40sentry%2Futils%2Fdownload%2F%40sentry%2Futils-6.9.0.tgz"
   dependencies:
-    "@sentry/types": 6.7.1
+    "@sentry/types": 6.9.0
     tslib: ^1.9.3
-  checksum: 7579666a37819bad85ec247574dbd4e000d23f254d5005037c86686d736f3a5346fc88d9df59a17c13372f68d1787f587f2237624792c0598697db8bb3794bdd
+  checksum: e75ae0deb052c4182bd5e998e7ac8d4570c35790eb9a0cfe63e57774f9070b668bb4b042c12f71eea597ac7f096690ac80046c406577dcf0466f4c8b532ec99d
   languageName: node
   linkType: hard
 
@@ -6005,9 +6005,9 @@ fsevents@^2.3.2:
     "@commitlint/config-conventional": 12.1.4
     "@hitokoto/koa-jsonp": 3.0.7
     "@hitokoto/koa-respond": 3.0.3
-    "@sentry/integrations": 6.7.1
-    "@sentry/node": 6.7.1
-    "@sentry/tracing": 6.7.1
+    "@sentry/integrations": 6.9.0
+    "@sentry/node": 6.9.0
+    "@sentry/tracing": 6.9.0
     "@types/jest": 26.0.23
     NeteaseCloudMusicApi: 4.0.17
     async: 3.2.0
