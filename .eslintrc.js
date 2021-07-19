@@ -6,6 +6,7 @@ module.exports = {
     ecmaVersion: '2021',
     sourceType: 'script',
   },
+  parser: '@babel/eslint-parser',
   env: {
     commonjs: true,
     es6: true,
