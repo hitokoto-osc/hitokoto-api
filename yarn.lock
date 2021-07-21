@@ -4657,9 +4657,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:24.3.6":
-  version: 24.3.6
-  resolution: "eslint-plugin-jest@npm:24.3.6::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Feslint-plugin-jest%2Fdownload%2Feslint-plugin-jest-24.3.6.tgz"
+"eslint-plugin-jest@npm:24.3.7":
+  version: 24.3.7
+  resolution: "eslint-plugin-jest@npm:24.3.7::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Feslint-plugin-jest%2Fdownload%2Feslint-plugin-jest-24.3.7.tgz"
   dependencies:
     "@typescript-eslint/experimental-utils": ^4.0.1
   peerDependencies:
@@ -4668,7 +4668,7 @@ __metadata:
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: 13f4522cd838a6a356a080f76424579a58aa2f9b4f4b3fdd3713278718496c62ba3d8f53c0fb6ad6fd96ca6cfd6ee728f7dd51893b91eccfb4396b832f757afb
+  checksum: 744273aaabf2c427e287b9591e91ddc2141ab65bf6816ae8b7823ebf066a2d368b5c6db444da511a7b39e9389d5ee0891b5baf548f60313e5fbc3ac828cda2f2
   languageName: node
   linkType: hard
 
@@ -6070,7 +6070,7 @@ fsevents@^2.3.2:
     eslint-config-standard: 16.0.3
     eslint-plugin-html: 6.1.2
     eslint-plugin-import: 2.23.4
-    eslint-plugin-jest: 24.3.6
+    eslint-plugin-jest: 24.3.7
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 3.4.0
     eslint-plugin-promise: 5.1.0
