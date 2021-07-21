@@ -1,5 +1,8 @@
 const { compact, curry } = require('lodash')
 const utils = {}
+utils.enableGracefullyShutdown = () => {
+  process.on('beforeExit', () => {})
+}
 
 const DEFAULT_PROPERTIES = ['name', 'message', 'stack', 'type']
 

@@ -3,7 +3,7 @@ const path = require('path')
 const chalk = require('chalk')
 const AB = require('../src/extensions/sentencesABSwitcher')
 const { logger } = require('../src/logger')
-const { WorkersBridge } = require('../src/master')
+const { WorkersBridge } = require('../src/http/primary')
 module.exports = {
   processes: [
     {

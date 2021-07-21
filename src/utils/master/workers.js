@@ -1,38 +1,62 @@
-const childProcess = require('child_process')
+// const childProcess = require('child_process')
+const cluster = require('cluster')
 const path = require('path')
 const { EventEmitter } = require('events')
 const nconf = require('nconf')
 const chalk = require('chalk')
-const _ = require('lodash')
+// const _ = require('lodash')
 const { logger } = require('../../logger')
 
+function setupCluster(params) {
+  cluster.setupMaster(
+    Object.assign(
+      {
+        exec: path.join(__dirname, '../../http', './worker.js'),
+      },
+      params,
+    ),
+  )
+}
+
 class Workers {
+  workersNumbers = 0 // workers numbers
+  listeningPort = 8000 // workers listening port
+  configFile = ''
+  isDev = false // debug mode
+  _workers = {} // store workers instance
+  env = {} // worker env
+  /**
+   * @typedef WorkersSettings
+   * @type {object}
+   * @property {number} workersNumber
+   * @property {number} listeningPort
+   */
   /**
    * Create a workers instance
-   * @param {number} workersNumber
+   * @param {WorkersSettings} params
    * @returns {boolean|any}
    */
-  constructor(workersNumber) {
+  constructor({ workersNumber, listeningPort }) {
     this.workersNumbers = workersNumber
+    this.listeningPort = listeningPort
     this.configFile = nconf.get('config_file')
     this.isDev = !!nconf.get('dev')
+    this.env = { dev: this.isDev, config_file: this.configFile }
     const _this = this
-    this._workers = new Proxy([], {
-      get(target, key, receiver) {
-        return Reflect.get(target, key, receiver)
-      },
-      set(target, key, receiver) {
-        if (key === 'length') {
+    this._workers = cluster.workers = new Proxy(
+      {},
+      {
+        get(target, key, receiver) {
+          return Reflect.get(target, key, receiver)
+        },
+        set(target, key, receiver) {
           _this._notifyWorkersChanged(receiver)
-        }
-        return Reflect.set(target, key, receiver)
+          return Reflect.set(target, key, receiver)
+        },
       },
-    })
+    ) // Hook cluster 的 worker 变量
     this.messagesHandler = new MessagesHandler(this._workers, workersNumber)
-  }
-
-  setHandle(handle) {
-    this.handle = handle
+    setupCluster({})
   }
 
   _notifyWorkersChanged(newLength) {
@@ -43,67 +67,62 @@ class Workers {
     this.messagesHandler.register(key, messageHandler)
   }
 
-  get workersList() {
+  get workers() {
     return this._workers
   }
 
   // Start workers
   async start() {
     logger.verbose(
-      '[core.Master.Workers] %d workers will be spawned.',
+      '[core.http.primary.Workers] %d workers will be spawned.',
       this.workersNumbers,
+    )
+    logger.info(
+      '[core.http.primary.Workers] web server will listen on port: ' +
+        chalk.yellow(this.listeningPort),
     )
     for (let i = 0; i < this.workersNumbers; i++) {
       this.spawnWorker()
     }
-    this.handle.close()
-    logger.info('[core.Master.Workers] all workers are spawned.')
+    logger.info('[core.http.primary.Workers] all workers are spawned.')
   }
 
   // Spawn Worker
   spawnWorker() {
-    const worker = childProcess.fork(
-      path.join(__dirname, '../../', './server.js'),
-      {
-        env: {
-          dev: this.isDev,
-          config_file: this.configFile,
-        },
-      },
-    )
+    const worker = cluster.fork(this.env)
     logger.verbose(
-      `[core.Master.Workers] worker process(${chalk.yellow(
+      `[core.http.Primary.Workers] worker process(${chalk.yellow(
         'pid',
-      )}: ${chalk.blue(worker.pid)}) is spawned.`,
+      )}: ${chalk.blue(worker.process.pid)}) is spawned.`,
     )
-    this._workers.push({ instance: worker, pid: worker.pid })
+    // this._workers.push({ instance: worker, pid: worker.process.pid })
     // handle worker event
     worker.on('message', (message) => {
-      message.from = worker.pid
+      message.from = worker.process.pid
       this.messageHandle(message)
     })
     worker.on('error', (err) => {
       logger.error(
-        `[core.Master.Workers] worker process(${chalk.yellow(
+        `[core.http.primary.Workers] worker process(${chalk.yellow(
           'pid',
-        )}: ${chalk.blue(worker.pid)}) occur error: \n %s`,
+        )}: ${chalk.blue(worker.process.pid)}) occur error: \n %s`,
         err.stack,
       )
       throw err
     })
-    worker.on('exit', this.handleExitEvent(worker.pid))
-    // send net socket handle
-    worker.send(
-      {
-        key: 'server_handle',
+    worker.on('exit', this.handleExitEvent(worker.process.pid))
+    // start server
+    worker.send({
+      key: 'start_server',
+      data: {
+        port: this.listeningPort,
       },
-      this.handle,
-    )
+    })
   }
 
   notify(message) {
-    for (const worker of this._workers) {
-      worker.instance.send(message)
+    for (const workerID in this._workers) {
+      this._workers[workerID].send(message)
     }
   }
 
@@ -117,25 +136,27 @@ class Workers {
     return (code, signal) => {
       if (code === null && !signal) {
         logger.error(
-          `[web.Master] worker(${chalk.yellow('pid')}: ${chalk.blue(
-            pid,
-          )}) is exited accidentally. Try to respawn it.`,
+          `[core.http.primary.Workers] worker(${chalk.yellow(
+            'pid',
+          )}: ${chalk.blue(pid)}) is exited accidentally. Try to respawn it.`,
         )
-        _.remove(this._workers, { pid })
-        this.spawnWorker()
+        //  _.remove(this._workers, { pid })
+        this.spawnWorker() // 重新生成工作进程
       } else if (code > 0) {
         // errors might be thrown
-        const errMsg = `[web.Master] worker process(${chalk.yellow(
+        const errMsg = `[core.http.primary.Workers] worker process(${chalk.yellow(
           'pid',
         )}: ${chalk.blue(
           pid,
         )}) exited with code: ${code}, master process exits to ensure the stability.`
         logger.error(errMsg)
-        throw new Error(errMsg)
+        throw new Error(errMsg) // 抛出 uncaughtException 来让进程可控得中断
       } else if (signal) {
-        // exist ignore
+        // exit ignore
         logger.info(
-          `[web.Master] worker process(${chalk.yellow('pid')}: ${chalk.blue(
+          `[core.http.primary.Workers] worker process(${chalk.yellow(
+            'pid',
+          )}: ${chalk.blue(
             pid,
           )})  is exited due to receiving a signal: ${chalk.blue(signal)}`,
         )
@@ -147,14 +168,14 @@ class Workers {
 class MessagesHandler {
   /**
    * Build messagesHandler instance
-   * @param {array} workers
+   * @param {object} workers - cluster workers object
    * @param {number} configuredWorkersTarget
    * @returns {boolean|any}
    */
   constructor(workers, configuredWorkersTarget) {
     this.init = true
     this.workersTarget = configuredWorkersTarget
-    this._workers = workers // Worker Instance List
+    this._workers = workers // Worker Instance maps
     this.messageEvent = new EventEmitter()
     this._handleMessageEvent(this.messageEvent)
 

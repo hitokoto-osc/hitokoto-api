@@ -63,7 +63,7 @@ process.on('message', (msg) => {
     sleep(dumpInterval)
       .then(emitRequests)
       .finally(() => {
-        logger.verbose(`[web.Worker] RequestsCounter IPC job started.`)
+        logger.verbose(`[http.Worker] RequestsCounter IPC job started.`)
       })
       .catch((err) => {
         throw err

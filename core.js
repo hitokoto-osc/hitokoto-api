@@ -51,15 +51,15 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
   } = require('./src/task/updateSentencesTask')
 
   // Web Server Master
-  const { startWorkersPool, WorkersBridge } = require('./src/master')
+  const { startWorkersPool, WorkersBridge } = require('./src/http/primary')
 
   function notifyChildProcessesExit() {
     childProcessList.forEach((child) => {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
     })
-    WorkersBridge.workers.workersList.forEach((worker) => {
-      worker.instance.kill('SIGTERM')
-    })
+    for (const workerID in WorkersBridge.workers.workers) {
+      WorkersBridge.workers.workers[workerID].kill('SIGTERM')
+    }
   }
   // handle the process exit event
   function handleProcessExitSignal(signal) {
