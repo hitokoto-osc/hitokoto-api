@@ -58,7 +58,7 @@ preStart.loadAsync(opts.config_file || null, false, opts.dev).then(() => {
       child.instance.kill('SIGTERM') // teng-koa exit signal code
     })
     for (const workerID in WorkersBridge.workers.workers) {
-      WorkersBridge.workers.workers[workerID].kill('SIGTERM')
+      WorkersBridge.workers.workers[workerID].process.kill('SIGTERM') // force kill
     }
   }
   // handle the process exit event
