@@ -11,42 +11,51 @@ const got = require('got')
 async function checkProgramUpdates() {
   const { logger } = require('./logger')
   logger.verbose('[core.selfCheck] start self update checking...')
-  const { statusCode, body: data } = await got.get(
-    'https://api.github.com/repos/hitokoto-osc/hitokoto-api/releases/latest',
-    {
-      responseType: 'json',
-    },
-  )
-  if (statusCode !== 200) {
-    logger.error(
-      `[core.selfCheck] can't fetch latest program version information. API returns ${chalk.yellow(
-        statusCode,
-      )}`,
+  try {
+    const { statusCode, body: data } = await got.get(
+      'https://api.github.com/repos/hitokoto-osc/hitokoto-api/releases/latest',
+      {
+        responseType: 'json',
+      },
     )
-  }
-  const { tag_name: latestVersion } = data
-  if (semver.gt(semver.clean(latestVersion), pkg.version)) {
+    if (statusCode !== 200) {
+      logger.error(
+        `[core.selfCheck] can't fetch latest program version information. API returns ${chalk.yellow(
+          statusCode,
+        )}`,
+      )
+    }
+    const { tag_name: latestVersion } = data
+    if (semver.gt(semver.clean(latestVersion), pkg.version)) {
+      logger.warn(
+        chalk.yellowBright(
+          `[core.selfCheck] your program instance(${chalk.blue(
+            'v' + pkg.version,
+          )}) is outdated, current latest version is ${chalk.red(
+            latestVersion,
+          )}, please consider to update. `,
+        ),
+      )
+    } else if (semver.lt(semver.clean(latestVersion), pkg.version)) {
+      logger.warn(
+        chalk.yellowBright(
+          `[core.selfCheck] your running program instance(${chalk.blue(
+            'v' + pkg.version,
+          )}) is greater than latest version: ${chalk.red(
+            latestVersion,
+          )}. It might be a experimental version, please NOT use it in production.`,
+        ),
+      )
+    } else {
+      logger.verbose('[core.selfCheck] your running instance is up-to-dated.')
+    }
+  } catch (err) {
+    logger.error(chalk.red(err.stack))
     logger.warn(
-      chalk.yellowBright(
-        `[core.selfCheck] your program instance(${chalk.blue(
-          'v' + pkg.version,
-        )}) is outdated, current latest version is ${chalk.red(
-          latestVersion,
-        )}, please consider to update. `,
+      chalk.yellow(
+        "[core.selfCheck] we can't check the latest version now, skipping this step.",
       ),
     )
-  } else if (semver.lt(semver.clean(latestVersion), pkg.version)) {
-    logger.warn(
-      chalk.yellowBright(
-        `[core.selfCheck] your running program instance(${chalk.blue(
-          'v' + pkg.version,
-        )}) is greater than latest version: ${chalk.red(
-          latestVersion,
-        )}. It might be a experimental version, please NOT use it in production.`,
-      ),
-    )
-  } else {
-    logger.verbose('[core.selfCheck] your running instance is up-to-dated.')
   }
 }
 
