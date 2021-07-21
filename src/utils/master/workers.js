@@ -191,14 +191,14 @@ class MessagesHandler {
     event.on('started', async ({ from }) => {
       // worker started event
       logger.verbose(
-        `[core.Master] worker process(${chalk.yellow('pid')}: ${chalk.blue(
-          from,
-        )}) start handle requests.`,
+        `[core.http.primary.Workers] worker process(${chalk.yellow(
+          'pid',
+        )}: ${chalk.blue(from)}) start handle requests.`,
       )
       this.currentStartIndicator++
       if (this.init && this.currentStartIndicator === this.workersTarget) {
         logger.info(
-          `[core.Master] spawn ${this.workersTarget} workers successfully, and all workers start to handle requests.`,
+          `[core.http.primary.Workers] spawn ${this.workersTarget} workers successfully, and all workers start to handle requests.`,
         )
         if (process.send) {
           // test only
@@ -216,7 +216,7 @@ class MessagesHandler {
   _notifyWorkersChanged(newLength) {
     if (!this.init) {
       logger.verbose(
-        '[core.Master] workers number changed, current: %d. configured: %d',
+        '[core.http.primary.Workers] workers number changed, current: %d. configured: %d',
         this.workersTarget,
         newLength,
       )
