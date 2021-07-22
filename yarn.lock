@@ -30,7 +30,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.8, @babel/core@npm:^7.1.0, @babel/core@npm:^7.14.6, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.14.8, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
   version: 7.14.8
   resolution: "@babel/core@npm:7.14.8"
   dependencies:
@@ -53,7 +53,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.14.7":
+"@babel/eslint-parser@npm:7.14.7":
   version: 7.14.7
   resolution: "@babel/eslint-parser@npm:7.14.7"
   dependencies:
@@ -1116,7 +1116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.14.7":
+"@babel/preset-env@npm:7.14.8":
   version: 7.14.8
   resolution: "@babel/preset-env@npm:7.14.8"
   dependencies:
@@ -6148,9 +6148,9 @@ fsevents@^2.3.2:
   version: 0.0.0-use.local
   resolution: "hitokoto@workspace:."
   dependencies:
-    "@babel/core": ^7.14.6
-    "@babel/eslint-parser": ^7.14.7
-    "@babel/preset-env": ^7.14.7
+    "@babel/core": 7.14.8
+    "@babel/eslint-parser": 7.14.7
+    "@babel/preset-env": 7.14.8
     "@commitlint/cli": 12.1.4
     "@commitlint/config-conventional": 12.1.4
     "@hitokoto/koa-jsonp": 3.0.7
