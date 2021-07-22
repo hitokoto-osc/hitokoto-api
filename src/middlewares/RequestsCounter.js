@@ -42,32 +42,30 @@ const dumpInterval = parseInt(nconf.get('requests:dump_interval')) || 1000
 const allowedHost = new Set(nconf.get('requests:hosts') || [])
 const temporaryRequests = new RequestsStatistic()
 
+nconf.set('emitRequestsLoopTerminalSignal', false)
 async function emitRequests() {
-  send(
-    {
-      key: 'update_requests_statistics',
-      data: temporaryRequests.dump(),
-    },
-    'web.middlewares.requestCounter',
-  )
-  temporaryRequests.clear()
-  await sleep(dumpInterval)
-  emitRequests().catch((err) => {
-    throw err
-  })
+  while (true) {
+    // 用于解决堆栈溢出问题；提供一个终止信号用于终止
+    if (nconf.get('emitRequestsLoopTerminalSignal')) break
+    send(
+      {
+        key: 'update_requests_statistics',
+        data: temporaryRequests.dump(),
+      },
+      'web.middlewares.requestCounter',
+    )
+    temporaryRequests.clear()
+    await sleep(dumpInterval)
+  }
 }
 
 process.on('message', (msg) => {
   const { key } = msg
   if (key === 'start_job') {
-    sleep(dumpInterval)
-      .then(emitRequests)
-      .finally(() => {
-        logger.verbose(`[http.Worker] RequestsCounter IPC job started.`)
-      })
-      .catch((err) => {
-        throw err
-      })
+    emitRequests(dumpInterval).catch((err) => {
+      throw err
+    })
+    logger.verbose(`[http.Worker] RequestsCounter IPC job started.`)
   }
 })
 
