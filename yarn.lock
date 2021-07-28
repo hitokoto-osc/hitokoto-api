@@ -5308,15 +5308,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:2.7.7":
-  version: 2.7.7
-  resolution: "fast-json-stringify@npm:2.7.7"
+"fast-json-stringify@npm:2.7.8":
+  version: 2.7.8
+  resolution: "fast-json-stringify@npm:2.7.8"
   dependencies:
     ajv: ^6.11.0
     deepmerge: ^4.2.2
     rfdc: ^1.2.0
     string-similarity: ^4.0.1
-  checksum: 0b8339417cce7ee9b1a04f28c29fe2ced0a169f52b8d2f59484ab3ca06adc5668a78c7691a360c1a2804a6c2a16959687f2d89f8e30f67c4fe081fa95e4f3e1a
+  checksum: 15b08999427fa540d6007cdb122f7b4342d0e68ab796ba555efd0ec2f4e2eac089b8c78e09194e232a0909f150d707b3b5629cad12ef57973016aad1e0f14de9
   languageName: node
   linkType: hard
 
@@ -6177,7 +6177,7 @@ fsevents@^2.3.2:
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 3.4.0
     eslint-plugin-promise: 5.1.0
-    fast-json-stringify: 2.7.7
+    fast-json-stringify: 2.7.8
     flatstr: 1.0.12
     got: 11.8.2
     humanize-number: 0.0.2
