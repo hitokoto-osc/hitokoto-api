@@ -6206,7 +6206,7 @@ fsevents@^2.3.2:
     passthrough-counter: 1.0.0
     pify: 5.0.0
     prettier: 2.3.2
-    regenerator-runtime: 0.13.8
+    regenerator-runtime: 0.13.9
     release-it: 14.10.0
     semver: 7.3.5
     sequelize: 6.6.5
@@ -10312,7 +10312,14 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:0.13.8, regenerator-runtime@npm:^0.13.4":
+"regenerator-runtime@npm:0.13.9":
+  version: 0.13.9
+  resolution: "regenerator-runtime@npm:0.13.9"
+  checksum: 8587f99ed63493b9ce34375f426b8ec61bf380681a374d5f2460c14ae2c289114702bed1f565a2499e809f2ba6d8ecd25a8dfee54bc224171f20a95a249be242
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.4":
   version: 0.13.8
   resolution: "regenerator-runtime@npm:0.13.8"
   checksum: 20178f5753f181d59691e5c3b4c59a2769987f75c7ccf325777673b5478acca61a553b10e895585086c222f72f5ee428090acf50320264de4b79f630f7388653
