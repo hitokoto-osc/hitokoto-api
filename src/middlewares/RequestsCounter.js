@@ -5,6 +5,8 @@ const { logger } = require('../logger')
 // const { setTimeout } = require('timers/promises')
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 class RequestsStatistic {
+  all = 0
+  hosts = {}
   constructor(all, hosts) {
     this.all = all || 0
     this.hosts = hosts || {}

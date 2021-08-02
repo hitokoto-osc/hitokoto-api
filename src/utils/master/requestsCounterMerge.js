@@ -26,6 +26,7 @@ class RequestsCounter {
     this.hosts = fetchRequests[1] || {}
     for (const key of Object.keys(this.hosts)) {
       this.hosts[key] = parseInt(this.hosts[key])
+      if (isNaN(this.hosts[key])) this.hosts[key] = 0 // prevent NaN
     }
   }
 
@@ -80,8 +81,10 @@ class RequestsCounter {
         hosts,
       )
       this.all += all
+      if (isNaN(this.all)) this.all = 0
       for (const key of Object.keys(hosts)) {
         this.hosts[key] += hosts[key]
+        if (isNaN(this.hosts[key])) this.hosts[key] = 0
       }
       logger.debug(
         `[core.Master.requestsCounterMerge] current instance requests data, all: %d, hosts: %o`,
