@@ -6198,7 +6198,7 @@ fsevents@^2.3.2:
     koa-router: 10.0.0
     lint-staged: 11.0.1
     lodash: 4.17.21
-    mysql2: 2.2.5
+    mysql2: 2.3.0
     nconf: 0.11.3
     nconf-yaml: 1.0.2
     nodemailer: 6.6.3
@@ -8945,9 +8945,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mysql2@npm:2.2.5":
-  version: 2.2.5
-  resolution: "mysql2@npm:2.2.5"
+"mysql2@npm:2.3.0":
+  version: 2.3.0
+  resolution: "mysql2@npm:2.3.0"
   dependencies:
     denque: ^1.4.1
     generate-function: ^2.3.1
@@ -8957,7 +8957,7 @@ fsevents@^2.3.2:
     named-placeholders: ^1.1.2
     seq-queue: ^0.0.5
     sqlstring: ^2.3.2
-  checksum: 2a3c2f07480d229ecce9b8ea0564ae15777da9f828b41d33a629e58800e49817b70fcd7b5a5f7bd2fcb85aba6f5b57c8651eadf6c1947601a3802c9f3696be4b
+  checksum: f133547fbfc1da882a2da5b248dbc5dd92116e0f98c140894e3fbedf02931a9b622fe9564651457cb336323f5ebe438ec5298396135f2a82c82789f0c4d7def7
   languageName: node
   linkType: hard
 
