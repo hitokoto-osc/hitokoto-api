@@ -6210,7 +6210,7 @@ fsevents@^2.3.2:
     release-it: 14.10.0
     semver: 7.3.5
     sequelize: 6.6.5
-    supertest: 6.1.4
+    supertest: 6.1.6
     supervisor: 0.12.0
     uuid: 8.3.2
     winston: 3.3.3
@@ -11521,13 +11521,13 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"supertest@npm:6.1.4":
-  version: 6.1.4
-  resolution: "supertest@npm:6.1.4"
+"supertest@npm:6.1.6":
+  version: 6.1.6
+  resolution: "supertest@npm:6.1.6"
   dependencies:
     methods: ^1.1.2
     superagent: ^6.1.0
-  checksum: 7832277d009ea951b365599a2706491725017d5525226125b55c42f286de8a061c3b00064f312dc0c291359489fb84e01078f1a2012d4ca4b6683c3d08f607cb
+  checksum: ef4f0479a1803c1e7f21b3921345f66d36e42bf80d3078f6b54fecedd669571c799d5241721864f44f80140fae13ad458c039ddbb048bb947f7d2479186713d9
   languageName: node
   linkType: hard
 
