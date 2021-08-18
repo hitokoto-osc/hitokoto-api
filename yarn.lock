@@ -6190,7 +6190,7 @@ fsevents@^2.3.2:
     kcors: 2.2.2
     koa: 2.13.1
     koa-bodyparser: 4.3.0
-    koa-compress: 5.0.1
+    koa-compress: 5.1.0
     koa-favicon: 2.1.0
     koa-helmet: 6.1.0
     koa-livereload: 0.2.0
@@ -6313,7 +6313,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"http-errors@npm:^1.6.3, http-errors@npm:^1.7.3":
+"http-errors@npm:^1.6.3, http-errors@npm:^1.7.3, http-errors@npm:^1.8.0":
   version: 1.8.0
   resolution: "http-errors@npm:1.8.0"
   dependencies:
@@ -8072,16 +8072,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"koa-compress@npm:5.0.1":
-  version: 5.0.1
-  resolution: "koa-compress@npm:5.0.1"
+"koa-compress@npm:5.1.0":
+  version: 5.1.0
+  resolution: "koa-compress@npm:5.1.0"
   dependencies:
     bytes: ^3.0.0
     compressible: ^2.0.0
-    http-errors: ^1.7.3
+    http-errors: ^1.8.0
     koa-is-json: ^1.0.0
-    statuses: ^2.0.0
-  checksum: 57844bfaa1705c211a0c2b2bbefa31aaa578ef0e5b769e849db8e09ed9cb3a2a87ba086645e6d8704b3584703154694ca8e459333d9e552ad04fc7f41dbc8b75
+    statuses: ^2.0.1
+  checksum: cb542b2beb51e117528a4b3558986c47594c8a29cfe30c0d3c4ff5d0fdcfa0c1473f3542fc3ff030926cc1d70c31452ae625381bdc3477d11c05ee6d83439566
   languageName: node
   linkType: hard
 
@@ -11245,7 +11245,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"statuses@npm:^2.0.0":
+"statuses@npm:^2.0.1":
   version: 2.0.1
   resolution: "statuses@npm:2.0.1"
   checksum: d0d3024dd1bba02dd3cb837e4f529e2e44f9300e54ca29258e048ded4dd1fdcb85a32060870dd7abb32b6df7f5991b6ea1c051aa5c6ffda6077cac9d68226b23

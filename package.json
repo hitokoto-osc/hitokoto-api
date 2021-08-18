@@ -86,7 +86,7 @@
     "kcors": "2.2.2",
     "koa": "2.13.1",
     "koa-bodyparser": "4.3.0",
-    "koa-compress": "5.0.1",
+    "koa-compress": "5.1.0",
     "koa-favicon": "2.1.0",
     "koa-helmet": "6.1.0",
     "koa-query-pretty": "0.3.0",
