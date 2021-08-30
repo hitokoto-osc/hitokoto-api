@@ -6182,7 +6182,7 @@ fsevents@^2.3.2:
     got: 11.8.2
     humanize-number: 0.0.2
     husky: 7.0.1
-    ioredis: 4.27.7
+    ioredis: 4.27.9
     jest: 27.0.6
     jest-extended: 0.11.5
     joi: 17.4.1
@@ -6612,9 +6612,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.7":
-  version: 4.27.7
-  resolution: "ioredis@npm:4.27.7"
+"ioredis@npm:4.27.9":
+  version: 4.27.9
+  resolution: "ioredis@npm:4.27.9"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -6627,7 +6627,7 @@ fsevents@^2.3.2:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 08d1cd4984bddb40eb9e6f044517d4ddccd42ef1b92ec64c2499e0a50b13d8f8a3b9e385688bb3fa378a949388ecb877a04e08ee445f2bc9fcc631eeec9e7233
+  checksum: 3b33cf9b5e3ba531468722e6c24bcf61afb342ec087fc2a70ea9c06e3095076341898ca36e6b860699346b5611b528651769d3815483bcaab4fbf877dc311059
   languageName: node
   linkType: hard
 
