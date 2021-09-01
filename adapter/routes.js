@@ -60,7 +60,7 @@ module.exports = (router, middleware, controller) => {
   router.get('/status', controller.status.entry)
 
   // Netease API
-  if (nconf.get('extension:netease')) {
+  if (nconf.get('extensions:netease')) {
     router.get('/nm/search/:keyword', controller.netease.search)
     router.get('/nm/playlist/:id', controller.netease.playlist)
     router.get('/nm/picture/:id/:height?', controller.netease.picture)
