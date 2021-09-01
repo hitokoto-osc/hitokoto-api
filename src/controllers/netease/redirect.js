@@ -17,7 +17,7 @@ module.exports = async (ctx) => {
   }
   const { id, br } = params
   try {
-    const body = await getSongsURLs(id, br, ctx.get('X-Real-IP'))
+    const body = await getSongsURLs(id, ctx.get('X-Real-IP'), br)
     ctx.status = 302
     if (!body?.data?.[0]?.url) {
       const e = new Error('歌曲为 VIP 歌曲或没有版权')
