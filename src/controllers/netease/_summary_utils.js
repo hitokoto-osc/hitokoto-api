@@ -2,6 +2,7 @@
 const Cache = require('../../cache')
 const async = require('async')
 const nconf = require('nconf')
+const _ = require('lodash')
 const { getSongsURLs, getSongsDetailWithCache } = require('./_sdk_song_wrapper')
 const { getAlbumWitchCache } = require('./_sdk_uncategorized_wrapper')
 const { getPictureURL } = require('./_sdk_wrapper')
@@ -166,19 +167,25 @@ const tryCorrectPictureID = async (albumID, params) => {
  * @param {string} realIP Client RealIP
  */
 const getValidSongIds = async (ids, br, realIP) => {
-  const body = await getSongsURLs(ids, realIP, br)
-  // gen valid id list
-  ids = []
-  for (const s of body.data) {
-    if (s.code === 200 && s.url && !s.freeTrialInfo) {
-      // 修复网易云播放地址问题
-      ids.push(s.id)
+  const idsChunks = _.chunk(ids, 100)
+  const chunksCount = Math.ceil(ids / 100)
+  const validIDs = []
+  let dataBuffer = []
+  for (let pointer = 0; pointer + 1 < chunksCount; pointer++) {
+    const body = await getSongsURLs(idsChunks[pointer], realIP, br)
+    // gen valid id list
+    for (const s of body.data) {
+      if (s.code === 200 && s.url && !s.freeTrialInfo) {
+        // 修复网易云播放地址问题
+        validIDs.push(s.id)
+        dataBuffer = dataBuffer.concat(body.data)
+      }
     }
   }
-  if (ids.length === 0) {
+  if (validIDs.length === 0) {
     throw new ResponseValidationException('有效 IDs 列表为空，操作失败。', {
-      statusCode: body.code,
-      responseBody: body,
+      statusCode: 400,
+      responseBody: dataBuffer,
     })
   }
   return ids
