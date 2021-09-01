@@ -19,6 +19,11 @@ module.exports = async (ctx) => {
   try {
     const body = await getSongsURLs(id, br, ctx.get('X-Real-IP'))
     ctx.status = 302
+    if (!body?.data?.[0]?.url) {
+      const e = new Error('歌曲为 VIP 歌曲或没有版权')
+      e.detail = body
+      throw e
+    }
     ctx.redirect(
       body.data[0].url.replace(/http:\/\/m(\d+)[a-zA-Z]*/, 'https://m$1'),
     )
