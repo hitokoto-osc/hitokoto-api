@@ -76,7 +76,7 @@ const recoverRequest = (err) => {
   } else {
     throw new ResponseValidationException(
       '无法恢复上游请求信息',
-      { statusCode: err.statusCode, responseBody: err.responseBody },
+      { statusCode: err.statusCode, responseBody: err.responseBody, err },
       'RecoverRequestFailed',
     )
   }

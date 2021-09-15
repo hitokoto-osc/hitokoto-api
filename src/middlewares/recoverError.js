@@ -8,8 +8,14 @@ const shouldThrow404 = (status, body) => {
   return !status || (status === 404 && body == null)
 }
 
+const IgnoredErrType = new Set(['RecoverRequestFailed'])
+
+const isIgnoredErrType = (type) => {
+  return IgnoredErrType.has(type)
+}
+
 const shouldEmitError = (err, status) => {
-  return !err.expose && status >= 500
+  return !err.expose && status >= 500 && !isIgnoredErrType
 }
 
 async function RecoverError(ctx, next) {
