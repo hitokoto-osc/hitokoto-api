@@ -2610,9 +2610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.0.20":
-  version: 4.0.20
-  resolution: "NeteaseCloudMusicApi@npm:4.0.20"
+"NeteaseCloudMusicApi@npm:4.0.23":
+  version: 4.0.23
+  resolution: "NeteaseCloudMusicApi@npm:4.0.23"
   dependencies:
     axios: ^0.21.1
     express: ^4.17.1
@@ -2621,10 +2621,11 @@ __metadata:
     music-metadata: ^7.5.3
     pac-proxy-agent: ^5.0.0
     qrcode: ^1.4.4
+    safe-decode-uri-component: ^1.2.1
     tunnel: ^0.0.6
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: 003158027a9d99c87123cb123af17f0d5009099ebfdc9eb1facbb1cbeb2793ad6f902a2b6cceaf58e0a29947466ce12ed78f9407f01b527e97ea994903d5f0de
+  checksum: a00fa947d76a7bac4a8350071c260476051ad8a7eba3f99484b4fb61d8cdd52b12b577338f67acf41f29bc4f8339d628fe6d26a1d687fb7529b60d7c02f9c206
   languageName: node
   linkType: hard
 
@@ -6314,7 +6315,7 @@ fsevents@^2.3.2:
     "@sentry/node": 6.12.0
     "@sentry/tracing": 6.12.0
     "@types/jest": 27.0.1
-    NeteaseCloudMusicApi: 4.0.20
+    NeteaseCloudMusicApi: 4.0.23
     async: 3.2.1
     bytes: 3.1.0
     chalk: 4.1.2
@@ -10905,6 +10906,13 @@ fsevents@^2.3.2:
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: 0bb57f0d8f9d1fa4fe35ad8a2db1f83a027d48f2822d59ede88fd5cd4ddad83c0b497213feb7a70fbf90597a70c5217f735b0eb1850df40ce9b4ae81dd22b3f9
+  languageName: node
+  linkType: hard
+
+"safe-decode-uri-component@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "safe-decode-uri-component@npm:1.2.1"
+  checksum: 2ee0bd9c46e78a6cdb1b4aafd4e5196b02d2151d137ca47d1c3dbd496a3095151c910753f0ef797a82a6080ef7917157f3e1578f8fcfbb5868b00c6f0821b369
   languageName: node
   linkType: hard
 
