@@ -39,7 +39,7 @@
     "@babel/preset-env": "7.15.6",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
-    "@types/jest": "27.0.1",
+    "@types/jest": "27.0.2",
     "commitizen": "4.2.4",
     "conventional-changelog-conventionalcommits": "4.6.1",
     "cz-conventional-changelog": "3.3.0",
