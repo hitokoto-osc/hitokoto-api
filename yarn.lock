@@ -4687,10 +4687,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"denque@npm:^1.1.0, denque@npm:^1.4.1":
+"denque@npm:^1.1.0":
   version: 1.5.0
   resolution: "denque@npm:1.5.0"
   checksum: 3564778cda60c7dee3f1d71e397e50e6b39a8c06118aab9843b9396cb621b3191ab56d13de5237b8beee2b87bec485e8239c58ca3133472d2d1eaa3d2d518022
+  languageName: node
+  linkType: hard
+
+"denque@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "denque@npm:2.0.1"
+  checksum: 88575761e6041cd14e77ce08b360c07dc92046bd387b255757e0e1fe04a2f5f01a226c51f47e9f696fea47dace7c8f09c3196fd67ee922b3e1043546b1036bfd
   languageName: node
   linkType: hard
 
@@ -6529,7 +6536,7 @@ fsevents@^2.3.2:
     koa-router: 10.1.1
     lint-staged: 11.1.2
     lodash: 4.17.21
-    mysql2: 2.3.0
+    mysql2: 2.3.2
     nconf: 0.11.3
     nconf-yaml: 1.0.2
     nodemailer: 6.6.3
@@ -6736,7 +6743,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:^0.6.2":
+"iconv-lite@npm:^0.6.2, iconv-lite@npm:^0.6.3":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
   dependencies:
@@ -9324,19 +9331,19 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"mysql2@npm:2.3.0":
-  version: 2.3.0
-  resolution: "mysql2@npm:2.3.0"
+"mysql2@npm:2.3.2":
+  version: 2.3.2
+  resolution: "mysql2@npm:2.3.2"
   dependencies:
-    denque: ^1.4.1
+    denque: ^2.0.1
     generate-function: ^2.3.1
-    iconv-lite: ^0.6.2
+    iconv-lite: ^0.6.3
     long: ^4.0.0
     lru-cache: ^6.0.0
     named-placeholders: ^1.1.2
     seq-queue: ^0.0.5
     sqlstring: ^2.3.2
-  checksum: f133547fbfc1da882a2da5b248dbc5dd92116e0f98c140894e3fbedf02931a9b622fe9564651457cb336323f5ebe438ec5298396135f2a82c82789f0c4d7def7
+  checksum: 1b38e580cd750362f81afff05bd0abce831a2039ecd155695a617d2d849b6f22ffec6821b62542515c583503cb1b1c6bfaa3df718e122fefcd2defa3842e3139
   languageName: node
   linkType: hard
 
