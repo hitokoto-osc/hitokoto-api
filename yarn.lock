@@ -6519,7 +6519,7 @@ fsevents@^2.3.2:
     joi: 17.4.2
     js-yaml: 4.1.0
     kcors: 2.2.2
-    koa: 2.13.1
+    koa: 2.13.4
     koa-bodyparser: 4.3.0
     koa-compress: 5.1.0
     koa-favicon: 2.1.0
@@ -8459,6 +8459,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
+"koa-convert@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "koa-convert@npm:2.0.0"
+  dependencies:
+    co: ^4.6.0
+    koa-compose: ^4.1.0
+  checksum: 9b24e1c808525926b8e2fcac7eb41a89bed95bda7829394ed42d3334ee4bfddd7b72dca09c47ed5a95f43a790c75310c9fd0e4579c17e23bc8818f1d26610dc4
+  languageName: node
+  linkType: hard
+
 "koa-favicon@npm:2.1.0":
   version: 2.1.0
   resolution: "koa-favicon@npm:2.1.0"
@@ -8514,7 +8524,38 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"koa@npm:2.13.1, koa@npm:^2.0.0":
+"koa@npm:2.13.4":
+  version: 2.13.4
+  resolution: "koa@npm:2.13.4"
+  dependencies:
+    accepts: ^1.3.5
+    cache-content-type: ^1.0.0
+    content-disposition: ~0.5.2
+    content-type: ^1.0.4
+    cookies: ~0.8.0
+    debug: ^4.3.2
+    delegates: ^1.0.0
+    depd: ^2.0.0
+    destroy: ^1.0.4
+    encodeurl: ^1.0.2
+    escape-html: ^1.0.3
+    fresh: ~0.5.2
+    http-assert: ^1.3.0
+    http-errors: ^1.6.3
+    is-generator-function: ^1.0.7
+    koa-compose: ^4.1.0
+    koa-convert: ^2.0.0
+    on-finished: ^2.3.0
+    only: ~0.0.2
+    parseurl: ^1.3.2
+    statuses: ^1.5.0
+    type-is: ^1.6.16
+    vary: ^1.1.2
+  checksum: fc4813a04901d6c43b02e3fd45d0298649590634b9a22eb14624f40b1508ea6d29a9bd6ce73ec1e1ff21efead18388a9bccd79f0f472172695cf4b72ea6e73f9
+  languageName: node
+  linkType: hard
+
+"koa@npm:^2.0.0":
   version: 2.13.1
   resolution: "koa@npm:2.13.1"
   dependencies:
