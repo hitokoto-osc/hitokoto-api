@@ -168,10 +168,10 @@ const tryCorrectPictureID = async (albumID, params) => {
  */
 const getValidSongIds = async (ids, br, realIP) => {
   const idsChunks = _.chunk(ids, 100)
-  const chunksCount = Math.ceil(ids / 100)
+  const chunksCount = Math.ceil(ids.length / 100)
   const validIDs = []
   let dataBuffer = []
-  for (let pointer = 0; pointer + 1 < chunksCount; pointer++) {
+  for (let pointer = 0; pointer < chunksCount; pointer++) {
     const body = await getSongsURLs(idsChunks[pointer], realIP, br)
     // gen valid id list
     for (const s of body.data) {
