@@ -6284,7 +6284,7 @@ __metadata:
     nconf: 0.11.3
     nconf-yaml: 1.0.2
     nodemailer: 6.6.3
-    nodemon: ^2.0.15
+    nodemon: 2.0.15
     nyc: 15.1.0
     passthrough-counter: 1.0.0
     pify: 5.0.0
@@ -9136,7 +9136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:^2.0.15":
+"nodemon@npm:2.0.15":
   version: 2.0.15
   resolution: "nodemon@npm:2.0.15"
   dependencies:
