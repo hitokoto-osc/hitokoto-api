@@ -2739,11 +2739,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.0.23":
-  version: 4.0.23
-  resolution: "NeteaseCloudMusicApi@npm:4.0.23"
+"NeteaseCloudMusicApi@npm:4.2.0":
+  version: 4.2.0
+  resolution: "NeteaseCloudMusicApi@npm:4.2.0"
   dependencies:
-    axios: ^0.21.1
+    axios: ^0.24.0
     express: ^4.17.1
     express-fileupload: ^1.1.9
     md5: ^2.3.0
@@ -2752,9 +2752,10 @@ __metadata:
     qrcode: ^1.4.4
     safe-decode-uri-component: ^1.2.1
     tunnel: ^0.0.6
+    yargs: ^17.1.1
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: a00fa947d76a7bac4a8350071c260476051ad8a7eba3f99484b4fb61d8cdd52b12b577338f67acf41f29bc4f8339d628fe6d26a1d687fb7529b60d7c02f9c206
+  checksum: 75fcf6d1e65729f96850a0c2f88d3a484cb854f83aac93c9248680110558baa6ba6c46a24c8935020d9d1e7e228271d8ba65e05a6c9d436bdb9212631b2fe767
   languageName: node
   linkType: hard
 
@@ -3143,12 +3144,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1":
-  version: 0.21.1
-  resolution: "axios@npm:0.21.1"
+"axios@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "axios@npm:0.24.0"
   dependencies:
-    follow-redirects: ^1.10.0
-  checksum: 864fb7b5d077d236737f10adca53bf451a93f35a15271f56fba8da07265a02d26b7d881b935a6697dc6adb0549ea3e56d2eecb403edaa3bb78f6479901c10f69
+    follow-redirects: ^1.14.4
+  checksum: e741dfea07def55be7b1082824d71f54f7859b9c3c75a86c6a74b91c6e48bb461aceac683f77867313f89ff40ef5f2d1d2a1fe1953fcb71bdc1c1fc0fc069925
   languageName: node
   linkType: hard
 
@@ -5663,13 +5664,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.10.0":
-  version: 1.14.1
-  resolution: "follow-redirects@npm:1.14.1"
+"follow-redirects@npm:^1.14.4":
+  version: 1.14.5
+  resolution: "follow-redirects@npm:1.14.5"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 761a18699688b19d66b3e9199ecaf9cd39ede953f3529299c7fca4190b27b855c17c491170977844d5db5e169ffc35ebae999bb0833e9c9c61988d19c20ae7ab
+  checksum: 69c5dc6658d9a5ac337b82e2b4ab4af5ed4b0482b582b9517dc10fa132f781187febe4d28e1808866c299b1ca0083c1493e781364746376e89a24e15b4887a0c
   languageName: node
   linkType: hard
 
@@ -6194,7 +6195,7 @@ fsevents@^2.3.2:
     "@sentry/node": 6.15.0
     "@sentry/tracing": 6.15.0
     "@types/jest": 27.0.1
-    NeteaseCloudMusicApi: 4.0.23
+    NeteaseCloudMusicApi: 4.2.0
     async: 3.2.1
     bytes: 3.1.0
     chalk: 4.1.2
@@ -12386,6 +12387,21 @@ fsevents@^2.3.2:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: c2a16b61eb0db8882becd0aa382a5c59b87afcd17b35dd7077b3c9d83f77a3ad3de1526e4f1cf940f9481d7ce537e883af7c16879c33258724a09bc43a04e8ea
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.1.1":
+  version: 17.2.1
+  resolution: "yargs@npm:17.2.1"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.0
+    y18n: ^5.0.5
+    yargs-parser: ^20.2.2
+  checksum: b0fafd66d1b095c36d6cc9798b160ebd348f5356ca6f3c1d23e266229341905f1686e3255b3a108534b48d74e371eb65a91d89a93d6c59e2780bff42d40b370c
   languageName: node
   linkType: hard
 
