@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node core",
+    "dev": "yarn nodemon core.js -D",
     "pnpify": "yarn dlx @yarnpkg/pnpify",
     "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
@@ -57,6 +58,7 @@
     "jest-extended": "1.1.0",
     "koa-livereload": "0.2.0",
     "lint-staged": "11.1.2",
+    "nodemon": "^2.0.15",
     "nyc": "15.1.0",
     "prettier": "2.4.1",
     "regenerator-runtime": "0.13.9",
