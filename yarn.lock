@@ -3521,7 +3521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cacheable-request@npm:^7.0.1":
+"cacheable-request@npm:^7.0.1, cacheable-request@npm:^7.0.2":
   version: 7.0.2
   resolution: "cacheable-request@npm:7.0.2"
   dependencies:
@@ -6106,6 +6106,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"got@npm:11.8.3":
+  version: 11.8.3
+  resolution: "got@npm:11.8.3"
+  dependencies:
+    "@sindresorhus/is": ^4.0.0
+    "@szmarczak/http-timer": ^4.0.5
+    "@types/cacheable-request": ^6.0.1
+    "@types/responselike": ^1.0.0
+    cacheable-lookup: ^5.0.3
+    cacheable-request: ^7.0.2
+    decompress-response: ^6.0.0
+    http2-wrapper: ^1.0.0-beta.5.2
+    lowercase-keys: ^2.0.0
+    p-cancelable: ^2.0.0
+    responselike: ^2.0.0
+  checksum: 9c7e94bc0828f505de52451f445664394aee83c2051e033413a5fead1128814f322976de96905c3b2e74e6b91b122ab10f3c6b7806a15e49429e40440181c844
+  languageName: node
+  linkType: hard
+
 "got@npm:^9.6.0":
   version: 9.6.0
   resolution: "got@npm:9.6.0"
@@ -6242,7 +6261,7 @@ __metadata:
     eslint-plugin-promise: 5.1.0
     fast-json-stringify: 2.7.11
     flatstr: 1.0.12
-    got: 11.8.2
+    got: 11.8.3
     humanize-number: 0.0.2
     husky: 7.0.2
     ioredis: 4.28.0
