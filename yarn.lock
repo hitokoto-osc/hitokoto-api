@@ -6266,7 +6266,7 @@ __metadata:
     husky: 7.0.2
     ioredis: 4.28.2
     jest: 27.3.1
-    jest-extended: 1.1.0
+    jest-extended: 1.2.0
     joi: 17.4.2
     js-yaml: 4.1.0
     kcors: 2.2.2
@@ -7410,15 +7410,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:1.1.0":
-  version: 1.1.0
-  resolution: "jest-extended@npm:1.1.0"
+"jest-extended@npm:1.2.0":
+  version: 1.2.0
+  resolution: "jest-extended@npm:1.2.0"
   dependencies:
     expect: ^26.6.2
     jest-diff: ^27.2.5
     jest-get-type: ^27.0.6
     jest-matcher-utils: ^27.2.4
-  checksum: 77a594a3bfa4b350c10cd36d9bb817b53c0576a30147c293d9184a3fc4b2be03c3b50ed7dc15daad7fb79dfaf026f62eed7d6d946ffcef7599d56ef8465e259e
+  checksum: 2aac1f49dd0533df8d3c209a25ff78ac5e618868b1023e5a019cd70d17e7d14e0303fca4189b61859b5ea3127a09c48ad74a1f0e0a1ee09001892cefdeb8e50b
   languageName: node
   linkType: hard
 
