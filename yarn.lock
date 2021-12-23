@@ -5446,15 +5446,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:2.7.11":
-  version: 2.7.11
-  resolution: "fast-json-stringify@npm:2.7.11"
+"fast-json-stringify@npm:2.7.13":
+  version: 2.7.13
+  resolution: "fast-json-stringify@npm:2.7.13"
   dependencies:
     ajv: ^6.11.0
     deepmerge: ^4.2.2
     rfdc: ^1.2.0
     string-similarity: ^4.0.1
-  checksum: 2565340a4fa3c330ba8d155c428e4af837563ed0f098c9e4a749bdefb09808d4873591fb2a88db5a16e3670610c6428438d0eb82b21588f52a11802407acb7e8
+  checksum: 12b5824d8a972be2d9cade993e21b26028d72d9cf2f73d8eb3f14acb6bb29b85e610514baa1975cc9d9921ef9306046c8b4e00672879fed9cd9f3f13e2da2276
   languageName: node
   linkType: hard
 
@@ -6259,7 +6259,7 @@ __metadata:
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-promise: 5.1.0
-    fast-json-stringify: 2.7.11
+    fast-json-stringify: 2.7.13
     flatstr: 1.0.12
     got: 11.8.3
     humanize-number: 0.0.2
