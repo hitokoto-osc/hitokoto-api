@@ -3129,10 +3129,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:3.2.1":
-  version: 3.2.1
-  resolution: "async@npm:3.2.1"
-  checksum: 2ec69da2266d9418eefbf828a4b238f62cf07a5d5ba2d7fb91bc74aa588e38bbf7aef03df6d267dd38999802e97061768e5f58c8a38c62d71eb5c1a0b2957ef4
+"async@npm:3.2.3":
+  version: 3.2.3
+  resolution: "async@npm:3.2.3"
+  checksum: 566b6d62e3108757bca3bfbd2313d833bf3b13fb8d65a7715db8b5de7a284271584aee2029f7f39cc6f39cd9cb58336ea204003f76ca02c31240919022948b97
   languageName: node
   linkType: hard
 
@@ -6269,7 +6269,7 @@ __metadata:
     "@sentry/tracing": 6.15.0
     "@types/jest": 27.0.3
     NeteaseCloudMusicApi: 4.2.0
-    async: 3.2.1
+    async: 3.2.3
     bytes: 3.1.1
     chalk: 4.1.2
     commander: 8.2.0
