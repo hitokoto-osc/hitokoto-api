@@ -2844,7 +2844,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^6.10.0, ajv@npm:^6.11.0, ajv@npm:^6.12.4":
+"ajv-formats@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "ajv-formats@npm:2.1.1"
+  dependencies:
+    ajv: ^8.0.0
+  peerDependencies:
+    ajv: ^8.0.0
+  peerDependenciesMeta:
+    ajv:
+      optional: true
+  checksum: 7e2c32b615d2e90adb6ade5441a1bf036bdf12388edd9df8296a23aa77e0237f54ba8cfa774b608c9d40c78da7268f3dc90df16930e3924befe5818b81d45e58
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^6.10.0, ajv@npm:^6.12.4":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
   dependencies:
@@ -2853,6 +2867,18 @@ __metadata:
     json-schema-traverse: ^0.4.1
     uri-js: ^4.2.2
   checksum: 19a8f3b0a06001eb68e6268f4f9f04424b32baadd5df6ba8292cd473e22e5f4019ed9ab17c3e3510394178ed8bef9b42ad0bdb5c675d65f042421a774780ce1a
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.0.0, ajv@npm:^8.6.2":
+  version: 8.9.0
+  resolution: "ajv@npm:8.9.0"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    json-schema-traverse: ^1.0.0
+    require-from-string: ^2.0.2
+    uri-js: ^4.2.2
+  checksum: 7b26c14eeb89eee90a249a1555695d1853a68e3624a4e27ed7281eebe2a29285385fe4d520ec061bfe310cc0508f95cea9623c8e92ea6434817e28227f1a7320
   languageName: node
   linkType: hard
 
@@ -5446,15 +5472,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:2.7.13":
-  version: 2.7.13
-  resolution: "fast-json-stringify@npm:2.7.13"
+"fast-json-stringify@npm:3.0.2":
+  version: 3.0.2
+  resolution: "fast-json-stringify@npm:3.0.2"
   dependencies:
-    ajv: ^6.11.0
+    ajv: ^8.6.2
+    ajv-formats: ^2.1.1
     deepmerge: ^4.2.2
     rfdc: ^1.2.0
     string-similarity: ^4.0.1
-  checksum: 12b5824d8a972be2d9cade993e21b26028d72d9cf2f73d8eb3f14acb6bb29b85e610514baa1975cc9d9921ef9306046c8b4e00672879fed9cd9f3f13e2da2276
+  checksum: cbeeff19839223269f1a4f630ca7075c185d49771c741201250fa721b4a39d80ef3697c4abe2747327cf91bb3fc7839e20c60451ce550ff4d0496c37de26a20a
   languageName: node
   linkType: hard
 
@@ -6259,7 +6286,7 @@ __metadata:
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-promise: 5.1.0
-    fast-json-stringify: 2.7.13
+    fast-json-stringify: 3.0.2
     flatstr: 1.0.12
     got: 11.8.3
     humanize-number: 0.0.2
