@@ -2363,12 +2363,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sideway/address@npm:^4.1.0":
-  version: 4.1.2
-  resolution: "@sideway/address@npm:4.1.2"
+"@sideway/address@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "@sideway/address@npm:4.1.3"
   dependencies:
     "@hapi/hoek": ^9.0.0
-  checksum: e5fcccb92024859e0acbb893e84e626298656ea77e3727d80352659474968fae1b2816800145793592e340cff7f137d539490fd202073146cb43bf8370ef2062
+  checksum: 1e0329308caf31b4c147d3d6825fc4830439d03fbcbbd485a373c0a44b07006aa45e74331043d02aad706e0bd1caf20c7989d2a7d141621a953dd889042c27af
   languageName: node
   linkType: hard
 
@@ -6267,7 +6267,7 @@ __metadata:
     ioredis: 4.28.2
     jest: 27.3.1
     jest-extended: 1.2.0
-    joi: 17.4.2
+    joi: 17.6.0
     js-yaml: 4.1.0
     kcors: 2.2.2
     koa: 2.13.4
@@ -7816,16 +7816,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:17.4.2":
-  version: 17.4.2
-  resolution: "joi@npm:17.4.2"
+"joi@npm:17.6.0":
+  version: 17.6.0
+  resolution: "joi@npm:17.6.0"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
-    "@sideway/address": ^4.1.0
+    "@sideway/address": ^4.1.3
     "@sideway/formula": ^3.0.0
     "@sideway/pinpoint": ^2.0.0
-  checksum: 4aee05091f6d1dcd3dd5e9e286cd2b399b8f371327f81f3382750bbcf5c461387ab0c36a3c0377f2a80db6f1f04745a77a4bf8194674643d14ca7d47a079a2b0
+  checksum: 38b055834b81e45d7961054d6b4985dc0d69c31dbb83205377837525c52e9ef983de68da50568b9f2cabcfe081bc179bd6b276717503239b2db7b016438acb57
   languageName: node
   linkType: hard
 
