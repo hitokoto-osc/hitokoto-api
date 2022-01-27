@@ -3129,7 +3129,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:3.2.3":
+"async@npm:3.2.3, async@npm:^3.2.3":
   version: 3.2.3
   resolution: "async@npm:3.2.3"
   checksum: 566b6d62e3108757bca3bfbd2313d833bf3b13fb8d65a7715db8b5de7a284271584aee2029f7f39cc6f39cd9cb58336ea204003f76ca02c31240919022948b97
@@ -3140,13 +3140,6 @@ __metadata:
   version: 1.5.2
   resolution: "async@npm:1.5.2"
   checksum: 1a83326544c94e5e18203e548f3abca73af85222017e3db6701a2a188044ec711543ccdd62ecae0afeb76f0efca505d61281404d4cef1a3ca576f7b10333d089
-  languageName: node
-  linkType: hard
-
-"async@npm:^3.1.0":
-  version: 3.2.0
-  resolution: "async@npm:3.2.0"
-  checksum: 5c7913c08496877a9896dc6670d3a6c64f02d350e74b9e9191194959c473414a0732539ebdfec0fd2f34c20f439714773a30c20e0e68eb27bd8ee5ec9d8ff5ba
   languageName: node
   linkType: hard
 
@@ -3954,7 +3947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:^1.2.1":
+"colors@npm:1.4.0":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: a0f266ac041a9774d92cc9624a984707678d2eeec125d54e8d8231075ce36c24c5352fb5d0f90c6ee420d0f63e354417cec716386ad341309334aad18e32b933
@@ -5500,7 +5493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-safe-stringify@npm:^2.0.4, fast-safe-stringify@npm:^2.0.7":
+"fast-safe-stringify@npm:^2.0.7":
   version: 2.0.8
   resolution: "fast-safe-stringify@npm:2.0.8"
   checksum: 2198ef6c4917ac6ad7a3cff8b80abc2762c89a0c700548459288fce45598a2488c0ae393cd456b4212a8259fed9d1630303106efe4ae3b1c35dab2fb66526cdd
@@ -6303,7 +6296,7 @@ __metadata:
     supertest: 6.1.6
     supervisor: 0.12.0
     uuid: 8.3.2
-    winston: 3.3.3
+    winston: 3.5.0
   languageName: unknown
   linkType: soft
 
@@ -8502,16 +8495,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"logform@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "logform@npm:2.2.0"
+"logform@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "logform@npm:2.3.2"
   dependencies:
-    colors: ^1.2.1
-    fast-safe-stringify: ^2.0.4
+    colors: 1.4.0
     fecha: ^4.2.0
     ms: ^2.1.1
+    safe-stable-stringify: ^1.1.0
     triple-beam: ^1.3.0
-  checksum: ff10653f4198be481d384babee3fc4d998c23d6c916bdff4d79b1bfd70c8c35c6d5d7f8dfa3173cba6837aa286504c0207c9037c6477eac18dd969eca4619a4c
+  checksum: b0de94a490e87c24b60e6c03e63c031443314903b0373e13dbb6e1c595397ed39cb999998829a46fe3ec5fcc1dd89e59a96da828392f12061ec72b735a761400
   languageName: node
   linkType: hard
 
@@ -10266,7 +10259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^2.0.6, readable-stream@npm:^2.3.7":
+"readable-stream@npm:^2.0.6":
   version: 2.3.7
   resolution: "readable-stream@npm:2.3.7"
   dependencies:
@@ -10719,6 +10712,20 @@ __metadata:
   version: 1.2.1
   resolution: "safe-decode-uri-component@npm:1.2.1"
   checksum: 2ee0bd9c46e78a6cdb1b4aafd4e5196b02d2151d137ca47d1c3dbd496a3095151c910753f0ef797a82a6080ef7917157f3e1578f8fcfbb5868b00c6f0821b369
+  languageName: node
+  linkType: hard
+
+"safe-stable-stringify@npm:^1.1.0":
+  version: 1.1.1
+  resolution: "safe-stable-stringify@npm:1.1.1"
+  checksum: 90e9f376e1063623b58cd21f5f10ada544c30fbdd00cafea28396f3d15bf5694a38750ea4ac6459c741514614a0a167dd5f04b88afcb08de71957681175ac0b5
+  languageName: node
+  linkType: hard
+
+"safe-stable-stringify@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "safe-stable-stringify@npm:2.3.1"
+  checksum: 9e3f57b83ac2800122558009f2c327d80687d46dc2fa059b41dc04d9da7e94fc354da3dd02e155d4ad2d00c4f98cb2836fc331d4eb32b884880570d094333cff
   languageName: node
   linkType: hard
 
@@ -12279,30 +12286,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"winston-transport@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "winston-transport@npm:4.4.0"
+"winston-transport@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "winston-transport@npm:4.4.2"
   dependencies:
-    readable-stream: ^2.3.7
+    logform: ^2.3.2
+    readable-stream: ^3.4.0
     triple-beam: ^1.2.0
-  checksum: 16050844d2636f4eb1458c0ab9df78d61cda26edcc66a7ee9fe157068080e7fd39e85082c4a4be89080194407bc91bfdd691e85a15eb079e021d0e4894ebfd45
+  checksum: 6aadae75a3ac37f12bc8bdbb64502b206199c0242335219b8f79d577264d74c3c5296995683b46dc818664358ddc337436cb5b8545cb04b33da31c1092277722
   languageName: node
   linkType: hard
 
-"winston@npm:3.3.3":
-  version: 3.3.3
-  resolution: "winston@npm:3.3.3"
+"winston@npm:3.5.0":
+  version: 3.5.0
+  resolution: "winston@npm:3.5.0"
   dependencies:
     "@dabh/diagnostics": ^2.0.2
-    async: ^3.1.0
+    async: ^3.2.3
     is-stream: ^2.0.0
-    logform: ^2.2.0
+    logform: ^2.3.2
     one-time: ^1.0.0
     readable-stream: ^3.4.0
+    safe-stable-stringify: ^2.3.1
     stack-trace: 0.0.x
     triple-beam: ^1.3.0
-    winston-transport: ^4.4.0
-  checksum: 8a9d69c6422d420bf6728a532abb37842bc56f5fc55bd16aee6581c0728ae20bf6bae49fd55a1a42734a32856012e9b8362b19bad7b13af6ef1f19b3c89cd704
+    winston-transport: ^4.4.2
+  checksum: 804ccd41db92667f6e66e99690c465d84f934ecb536037230d15aeceaca9789a93b8db571c94a83440d9c97bf62a004578eee6957c6116b987eb13150dd571e9
   languageName: node
   linkType: hard
 
