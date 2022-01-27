@@ -2726,9 +2726,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.2.0":
-  version: 4.2.0
-  resolution: "NeteaseCloudMusicApi@npm:4.2.0"
+"NeteaseCloudMusicApi@npm:4.5.0":
+  version: 4.5.0
+  resolution: "NeteaseCloudMusicApi@npm:4.5.0"
   dependencies:
     axios: ^0.24.0
     express: ^4.17.1
@@ -2742,7 +2742,7 @@ __metadata:
     yargs: ^17.1.1
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: 75fcf6d1e65729f96850a0c2f88d3a484cb854f83aac93c9248680110558baa6ba6c46a24c8935020d9d1e7e228271d8ba65e05a6c9d436bdb9212631b2fe767
+  checksum: e3ad026250dafef1026875c7c9aca40134fd3d443a7593517ccf52bc9217dff334feca813bedad01344bbe1dd84e36c3c45726ce64985ea57f6287af0eee5694
   languageName: node
   linkType: hard
 
@@ -6241,7 +6241,7 @@ __metadata:
     "@sentry/node": 6.17.2
     "@sentry/tracing": 6.17.2
     "@types/jest": 27.0.3
-    NeteaseCloudMusicApi: 4.2.0
+    NeteaseCloudMusicApi: 4.5.0
     async: 3.2.3
     bytes: 3.1.1
     chalk: 4.1.2
