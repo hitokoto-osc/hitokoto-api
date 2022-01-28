@@ -6292,7 +6292,7 @@ __metadata:
     flatstr: 1.0.12
     got: 11.8.3
     humanize-number: 0.0.2
-    husky: 7.0.2
+    husky: 7.0.4
     ioredis: 4.28.3
     jest: 27.3.1
     jest-extended: 1.2.0
@@ -6499,12 +6499,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:7.0.2":
-  version: 7.0.2
-  resolution: "husky@npm:7.0.2"
+"husky@npm:7.0.4":
+  version: 7.0.4
+  resolution: "husky@npm:7.0.4"
   bin:
     husky: lib/bin.js
-  checksum: 3d1573d9ee5406e864e8170912bfadffde211535277c49f7f5da1b543a7b8e6c8ac8bae9f9cdd6b5be21ef39bb2929ca62001a7c50841d93c36454659bd3e017
+  checksum: 4052668d7cc948d722cafbd9194adc0726d2f29d0139a552394f1983357bf2eaf3205923753ba6b1cfc9bb5eb6fcaac5db0dea900ccd9150c1620edb30496b85
   languageName: node
   linkType: hard
 
