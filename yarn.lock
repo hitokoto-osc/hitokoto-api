@@ -6293,7 +6293,7 @@ __metadata:
     got: 11.8.3
     humanize-number: 0.0.2
     husky: 7.0.4
-    ioredis: 4.28.3
+    ioredis: 4.28.5
     jest: 27.3.1
     jest-extended: 1.2.0
     joi: 17.6.0
@@ -6731,9 +6731,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.28.3":
-  version: 4.28.3
-  resolution: "ioredis@npm:4.28.3"
+"ioredis@npm:4.28.5":
+  version: 4.28.5
+  resolution: "ioredis@npm:4.28.5"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -6746,7 +6746,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 6c724aa447f7de356befe2141cf8cdf8fcb8b29c0c2fbd83ed99b271cbc6ed2fe870556f1bfb4b44756784d57f03d4ed1461c5771334b764069900ddb6b8ae55
+  checksum: 7e69882543ef009cf944789e817299801dd3c952f324bc74edd9d740bc7be9d4894cac7f6f412edd6326fa7e2cf974b40f48e6c5813f1dc16383fb995be2b60b
   languageName: node
   linkType: hard
 
