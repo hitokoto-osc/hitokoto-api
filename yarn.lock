@@ -1554,6 +1554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@colors/colors@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@colors/colors@npm:1.5.0"
+  checksum: 152768b41b5f73c77552acb8e2921729674b83c835ba509b4b990fcb0eea6109fd14fd51ae5dd8531c6a1f93b01988d35083c1205a970906de704ee891300a7c
+  languageName: node
+  linkType: hard
+
 "@commitlint/cli@npm:13.1.0":
   version: 13.1.0
   resolution: "@commitlint/cli@npm:13.1.0"
@@ -6324,7 +6331,7 @@ __metadata:
     supertest: 6.2.2
     supervisor: 0.12.0
     uuid: 8.3.2
-    winston: 3.5.0
+    winston: 3.6.0
   languageName: unknown
   linkType: soft
 
@@ -8533,6 +8540,19 @@ __metadata:
     safe-stable-stringify: ^1.1.0
     triple-beam: ^1.3.0
   checksum: b0de94a490e87c24b60e6c03e63c031443314903b0373e13dbb6e1c595397ed39cb999998829a46fe3ec5fcc1dd89e59a96da828392f12061ec72b735a761400
+  languageName: node
+  linkType: hard
+
+"logform@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "logform@npm:2.4.0"
+  dependencies:
+    "@colors/colors": 1.5.0
+    fecha: ^4.2.0
+    ms: ^2.1.1
+    safe-stable-stringify: ^2.3.1
+    triple-beam: ^1.3.0
+  checksum: 6f081987387235843c3ca4d304278d7165f9de3a63828f5d5e608f291c8797745774cf7f022594d4a8eae53c22428686e7a9802bfcdbea1b250e73737edfc88a
   languageName: node
   linkType: hard
 
@@ -11798,7 +11818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"triple-beam@npm:^1.2.0, triple-beam@npm:^1.3.0":
+"triple-beam@npm:^1.3.0":
   version: 1.3.0
   resolution: "triple-beam@npm:1.3.0"
   checksum: 806ab08b30481cddc9600407e18e5deec5e80557042162fd7759d9419d33877506b21ebbc6646aaa4d3e44e10eb99445f05751044e176d6b0d7211355cce587b
@@ -12330,32 +12350,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"winston-transport@npm:^4.4.2":
-  version: 4.4.2
-  resolution: "winston-transport@npm:4.4.2"
+"winston-transport@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "winston-transport@npm:4.5.0"
   dependencies:
     logform: ^2.3.2
-    readable-stream: ^3.4.0
-    triple-beam: ^1.2.0
-  checksum: 6aadae75a3ac37f12bc8bdbb64502b206199c0242335219b8f79d577264d74c3c5296995683b46dc818664358ddc337436cb5b8545cb04b33da31c1092277722
+    readable-stream: ^3.6.0
+    triple-beam: ^1.3.0
+  checksum: e974441656cd09934716b0b4e22b5370cf188e93bf17b481a63ac2ff75293f5e4fd06dcedd049d3400980d6383ea9b6dff73425f1458b28a482f5c67d6f25fc5
   languageName: node
   linkType: hard
 
-"winston@npm:3.5.0":
-  version: 3.5.0
-  resolution: "winston@npm:3.5.0"
+"winston@npm:3.6.0":
+  version: 3.6.0
+  resolution: "winston@npm:3.6.0"
   dependencies:
     "@dabh/diagnostics": ^2.0.2
     async: ^3.2.3
     is-stream: ^2.0.0
-    logform: ^2.3.2
+    logform: ^2.4.0
     one-time: ^1.0.0
     readable-stream: ^3.4.0
     safe-stable-stringify: ^2.3.1
     stack-trace: 0.0.x
     triple-beam: ^1.3.0
-    winston-transport: ^4.4.2
-  checksum: 804ccd41db92667f6e66e99690c465d84f934ecb536037230d15aeceaca9789a93b8db571c94a83440d9c97bf62a004578eee6957c6116b987eb13150dd571e9
+    winston-transport: ^4.5.0
+  checksum: 2b60bf2e967a7b05a2deddaa99fc870918e4b583a790ed0bcd791f8cb9110ec8080feefb391aaba60db2fa81d22b3f48430673042987757faff0f5df3fbde6a8
   languageName: node
   linkType: hard
 
