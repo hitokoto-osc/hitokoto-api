@@ -3489,10 +3489,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bytes@npm:3.1.1":
-  version: 3.1.1
-  resolution: "bytes@npm:3.1.1"
-  checksum: be4fd8ce433b9fe4d84644a5f5cfdf464b9c24716680b2f861b42145fbd836a334277607701f1652e23f090d2cbfaabb91665c876f96feb75471791b1f297f98
+"bytes@npm:3.1.2":
+  version: 3.1.2
+  resolution: "bytes@npm:3.1.2"
+  checksum: 5d6285ef0efde430b07b5a76b5d2bff69c7a89be240a0dc9b5ad181de346a0b53ca6b6e5332d14af455aee68f12ebe4e88fead0838339c28e9a00674f25a82bb
   languageName: node
   linkType: hard
 
@@ -6278,7 +6278,7 @@ __metadata:
     "@types/jest": 27.0.3
     NeteaseCloudMusicApi: 4.5.8
     async: 3.2.3
-    bytes: 3.1.1
+    bytes: 3.1.2
     chalk: 4.1.2
     commander: 8.2.0
     commitizen: 4.2.4
