@@ -55,7 +55,7 @@ module.exports = (router, middleware, controller) => {
     })
   }
 
-  router.get('/', controller.hitokoto.entry)
+  router.all('/', controller.hitokoto.entry) // 兼容文档说明
   // router.get('/test', controller.hello.index)
   router.get('/status', controller.status.entry)
 
