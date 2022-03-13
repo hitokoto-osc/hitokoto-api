@@ -20,11 +20,15 @@ exports.startWorkersPool = async () => {
     'update_requests_statistics',
     requestsCounter.getWorkersRequestsRecordHandler(),
   )
+  let startedWorkers = 0
   workers.registerMessageHandler('started', (message) => {
-    logger.verbose('[core.http.primary] notify workers to start jobs')
-    workers.notify({
-      key: 'start_job',
-    })
+    startedWorkers++
+    if (startedWorkers == workersNumber) {
+      logger.verbose('[core.http.primary] notify workers to start jobs')
+      workers.notify({
+        key: 'start_job',
+      })
+    }
   })
   await workers.start()
   return workers
