@@ -3653,6 +3653,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:5.0.1":
+  version: 5.0.1
+  resolution: "chalk@npm:5.0.1"
+  checksum: 402802534ba59c999c6482de198d24fc84a330d1bd46590a41d0ab9f1e193376b4df08827c0d8bb17889cbbcb9e4663674520aa444adf9d00775d64ea3429433
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -6279,7 +6286,7 @@ __metadata:
     NeteaseCloudMusicApi: 4.5.8
     async: 3.2.3
     bytes: 3.1.2
-    chalk: 4.1.2
+    chalk: 5.0.1
     commander: 8.2.0
     commitizen: 4.2.4
     conventional-changelog-conventionalcommits: 4.6.1
