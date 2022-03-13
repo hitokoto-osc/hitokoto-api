@@ -3,7 +3,7 @@ module.exports = {
     {
       name: '@hitokoto/api.v1',
       script: './core.js',
-      watch: true,
+      watch: false,
       ignore_watch: ['./data/logs'],
       interpreter: 'yarn', // absolute path to yarn ; default is node
       interpreter_args: 'start',
