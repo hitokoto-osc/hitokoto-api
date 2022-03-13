@@ -4913,12 +4913,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:5.1.0":
-  version: 5.1.0
-  resolution: "eslint-plugin-promise@npm:5.1.0"
+"eslint-plugin-promise@npm:5.2.0":
+  version: 5.2.0
+  resolution: "eslint-plugin-promise@npm:5.2.0"
   peerDependencies:
     eslint: ^7.0.0
-  checksum: e62947aaea6882951a1a9f5fe3e3c7925b8dcc222338f7979bd1495ba0f0dc701820116b108be1e801f6e5156eb9a928142f29c659fd21a5d65a4be495bb327d
+  checksum: 5d6b2d28408c5afde6386942862427af3d83c9a130eb2555bb54b26a1761914e2c7326aca1be26dd3fee6405e65a2ee9432a4526147e5962545060ea0ef64058
   languageName: node
   linkType: hard
 
@@ -6073,7 +6073,7 @@ __metadata:
     eslint-plugin-jest: 24.4.2
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 4.0.0
-    eslint-plugin-promise: 5.1.0
+    eslint-plugin-promise: 5.2.0
     fast-json-stringify: 3.0.3
     flatstr: 1.0.12
     got: 11.8.3
