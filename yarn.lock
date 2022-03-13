@@ -4499,7 +4499,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domhandler@npm:^4.0.0, domhandler@npm:^4.2.0":
+"domhandler@npm:^4.2.0, domhandler@npm:^4.2.2":
   version: 4.3.0
   resolution: "domhandler@npm:4.3.0"
   dependencies:
@@ -4508,7 +4508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^2.5.2":
+"domutils@npm:^2.8.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
   dependencies:
@@ -4622,6 +4622,13 @@ __metadata:
   version: 2.2.0
   resolution: "entities@npm:2.2.0"
   checksum: 19010dacaf0912c895ea262b4f6128574f9ccf8d4b3b65c7e8334ad0079b3706376360e28d8843ff50a78aabcb8f08f0a32dbfacdc77e47ed77ca08b713669b3
+  languageName: node
+  linkType: hard
+
+"entities@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "entities@npm:3.0.1"
+  checksum: aaf7f12033f0939be91f5161593f853f2da55866db55ccbf72f45430b8977e2b79dbd58c53d0fdd2d00bd7d313b75b0968d09f038df88e308aa97e39f9456572
   languageName: node
   linkType: hard
 
@@ -4829,12 +4836,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-html@npm:6.1.2":
-  version: 6.1.2
-  resolution: "eslint-plugin-html@npm:6.1.2"
+"eslint-plugin-html@npm:6.2.0":
+  version: 6.2.0
+  resolution: "eslint-plugin-html@npm:6.2.0"
   dependencies:
-    htmlparser2: ^6.0.1
-  checksum: 838fe6fb7985691ecac65e4ed26d80fc0d072a11a080e31069f68fde86a36f96e79b3085363a2b6931989cbfb438f64f18747fd9c3b2e2cf59d606ac9239f43a
+    htmlparser2: ^7.1.2
+  checksum: 68fac71d0dceb5fc1e71a22456dd9fb1b04e71aa66fe1ec859fea64046007bfd2985181f6ae947f382d3067bcfcb71241168c2a34682dfb1c701222d5baa188f
   languageName: node
   linkType: hard
 
@@ -6073,7 +6080,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     eslint-config-standard: 16.0.3
-    eslint-plugin-html: 6.1.2
+    eslint-plugin-html: 6.2.0
     eslint-plugin-import: 2.24.2
     eslint-plugin-jest: 26.1.1
     eslint-plugin-node: 11.1.0
@@ -6161,15 +6168,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"htmlparser2@npm:^6.0.1":
-  version: 6.1.0
-  resolution: "htmlparser2@npm:6.1.0"
+"htmlparser2@npm:^7.1.2":
+  version: 7.2.0
+  resolution: "htmlparser2@npm:7.2.0"
   dependencies:
     domelementtype: ^2.0.1
-    domhandler: ^4.0.0
-    domutils: ^2.5.2
-    entities: ^2.0.0
-  checksum: 81a7b3d9c3bb9acb568a02fc9b1b81ffbfa55eae7f1c41ae0bf840006d1dbf54cb3aa245b2553e2c94db674840a9f0fdad7027c9a9d01a062065314039058c4e
+    domhandler: ^4.2.2
+    domutils: ^2.8.0
+    entities: ^3.0.1
+  checksum: 96563d9965729cfcb3f5f19c26d013c6831b4cb38d79d8c185e9cd669ea6a9ffe8fb9ccc74d29a068c9078aa0e2767053ed6b19aa32723c41550340d0094bea0
   languageName: node
   linkType: hard
 
