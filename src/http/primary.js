@@ -23,7 +23,7 @@ exports.startWorkersPool = async () => {
   let startedWorkers = 0
   workers.registerMessageHandler('started', (message) => {
     startedWorkers++
-    if (startedWorkers == workersNumber) {
+    if (startedWorkers === workersNumber) {
       logger.verbose('[core.http.primary] notify workers to start jobs')
       workers.notify({
         key: 'start_job',
