@@ -6027,7 +6027,7 @@ __metadata:
     pify: 5.0.0
     prettier: 2.5.1
     regenerator-runtime: 0.13.9
-    release-it: 14.12.4
+    release-it: 14.12.5
     semver: 7.3.5
     sequelize: 6.17.0
     supertest: 6.2.2
@@ -9931,9 +9931,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:14.12.4":
-  version: 14.12.4
-  resolution: "release-it@npm:14.12.4"
+"release-it@npm:14.12.5":
+  version: 14.12.5
+  resolution: "release-it@npm:14.12.5"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 18.12.0
@@ -9965,7 +9965,7 @@ __metadata:
     yargs-parser: 20.2.9
   bin:
     release-it: bin/release-it.js
-  checksum: 79b91a6059f5592827559150c920c92efa12e2ce91c4ca868795e62704fe70d2fade3fd855f5f6c66ad1f24789d3783536b84fb23907e752d87efa0938210806
+  checksum: cb3a08f242e1c0bd28c9607b3b30fea81d590674c815f9c04eafd7e3138ab6f043220ef52be5a79eb48c9321a5222718190c7c0d155ba726ec6f02a3cc13b726
   languageName: node
   linkType: hard
 
