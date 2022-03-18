@@ -57,7 +57,7 @@
     "jest": "27.5.1",
     "jest-extended": "2.0.0",
     "koa-livereload": "0.2.0",
-    "lint-staged": "12.3.5",
+    "lint-staged": "12.3.7",
     "nodemon": "2.0.15",
     "nyc": "15.1.0",
     "prettier": "2.5.1",
