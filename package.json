@@ -72,7 +72,7 @@
     "@sentry/integrations": "6.18.2",
     "@sentry/node": "6.18.2",
     "@sentry/tracing": "6.18.2",
-    "NeteaseCloudMusicApi": "4.5.8",
+    "NeteaseCloudMusicApi": "4.5.9",
     "async": "3.2.3",
     "bytes": "3.1.2",
     "chalk": "4.1.2",
