@@ -6040,7 +6040,7 @@ __metadata:
     lint-staged: 12.3.7
     lodash: 4.17.21
     mysql2: 2.3.2
-    nconf: 0.11.3
+    nconf: 0.11.4
     nconf-yaml: 1.0.2
     nodemailer: 6.7.2
     nodemon: 2.0.15
@@ -8614,15 +8614,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nconf@npm:0.11.3":
-  version: 0.11.3
-  resolution: "nconf@npm:0.11.3"
+"nconf@npm:0.11.4":
+  version: 0.11.4
+  resolution: "nconf@npm:0.11.4"
   dependencies:
     async: ^1.4.0
     ini: ^2.0.0
     secure-keys: ^1.0.0
     yargs: ^16.1.1
-  checksum: 708369c9526618936872fc7db4d257dda59cb55fb9e07949afcfac7cf60cdc840027a6bdf5bf3c5703129bea23090de1aa6f6f41aec004086963706c04bf81f5
+  checksum: 9fc53590a845b7e5526902a6f6778614e9d4a75f23511b5921c982bd6c8646e14a4ddb30d15b7ecf58d0e3124fde925cbc8112f1d40f62118a6f22a8e6e8b1b4
   languageName: node
   linkType: hard
 
