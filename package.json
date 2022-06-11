@@ -103,6 +103,6 @@
     "semver": "7.3.5",
     "sequelize": "6.17.0",
     "uuid": "8.3.2",
-    "winston": "3.6.0"
+    "winston": "3.7.2"
   }
 }
