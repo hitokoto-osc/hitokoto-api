@@ -2975,10 +2975,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:^1.4.0":
-  version: 1.5.2
-  resolution: "async@npm:1.5.2"
-  checksum: fe5d6214d8f15bd51eee5ae8ec5079b228b86d2d595f47b16369dec2e11b3ff75a567bb5f70d12d79006665fbbb7ee0a7ec0e388524eefd454ecbe651c124ebd
+"async@npm:^3.0.0":
+  version: 3.2.4
+  resolution: "async@npm:3.2.4"
+  checksum: 43d07459a4e1d09b84a20772414aa684ff4de085cbcaec6eea3c7a8f8150e8c62aa6cd4e699fe8ee93c3a5b324e777d34642531875a0817a35697522c1b02e89
   languageName: node
   linkType: hard
 
@@ -6083,7 +6083,7 @@ __metadata:
     lint-staged: 12.3.7
     lodash: 4.17.21
     mysql2: 2.3.2
-    nconf: 0.11.4
+    nconf: 0.12.0
     nconf-yaml: 1.0.2
     nodemailer: 6.7.2
     nodemon: 2.0.15
@@ -8634,15 +8634,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nconf@npm:0.11.4":
-  version: 0.11.4
-  resolution: "nconf@npm:0.11.4"
+"nconf@npm:0.12.0":
+  version: 0.12.0
+  resolution: "nconf@npm:0.12.0"
   dependencies:
-    async: ^1.4.0
+    async: ^3.0.0
     ini: ^2.0.0
     secure-keys: ^1.0.0
     yargs: ^16.1.1
-  checksum: 9fc53590a845b7e5526902a6f6778614e9d4a75f23511b5921c982bd6c8646e14a4ddb30d15b7ecf58d0e3124fde925cbc8112f1d40f62118a6f22a8e6e8b1b4
+  checksum: 70c1ce82d91149940dbe57555372c99282a9625a961915b302093b34e04ab308d978d1885224b9738a0873c064a0aa48914a7260e67ba312441fc4917221dbd8
   languageName: node
   linkType: hard
 
