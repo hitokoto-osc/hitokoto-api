@@ -1,6 +1,6 @@
 const { Sentry } = require('../tracing')
 // TODO: find a suitable way to replace this deprecated api
-// eslint-disable-next-line node/no-deprecated-api
+// eslint-disable-next-line n/no-deprecated-api
 const domain = require('domain')
 const requestHandler = (ctx, next) => {
   return new Promise((resolve, reject) => {

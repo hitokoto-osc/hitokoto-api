@@ -1,4 +1,3 @@
-/* eslint-disable node/no-deprecated-api */
 // const path = require('path')
 const { logger } = require('../logger')
 const chalk = require('chalk')

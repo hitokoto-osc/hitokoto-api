@@ -78,7 +78,7 @@ class mail {
 `
     return this.send({
       title: '发生意外错误！ 请进行修复！',
-      to: to,
+      to,
       body: html,
       html: true,
     })

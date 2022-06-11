@@ -11,7 +11,7 @@ const { md5 } = require('../../utils/crypto')
 exports.getAlbum = (id, realIP) => {
   return SDKRequestGenerator(sdk.album, {
     id,
-    realIP: realIP,
+    realIP,
   })
 }
 
@@ -41,7 +41,7 @@ exports.getArtists = (id, ...options) => {
   const [realIP] = options
   return SDKRequestGenerator(sdk.artists, {
     id: String(id),
-    realIP: realIP,
+    realIP,
   })
 }
 
@@ -72,7 +72,7 @@ exports.getPlaylistDetail = (id, s, realIP) => {
   return SDKRequestGenerator(sdk.playlist_detail, {
     id,
     s,
-    realIP: realIP,
+    realIP,
   })
 }
 
@@ -108,7 +108,7 @@ exports.search = (keywords, limit, offset, type, realIP) => {
     limit,
     offset,
     type,
-    realIP: realIP,
+    realIP,
   })
 }
 
