@@ -42,7 +42,7 @@
     "@commitlint/config-conventional": "17.0.2",
     "@types/jest": "27.4.1",
     "commitizen": "4.2.4",
-    "conventional-changelog-conventionalcommits": "4.6.3",
+    "conventional-changelog-conventionalcommits": "5.0.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",

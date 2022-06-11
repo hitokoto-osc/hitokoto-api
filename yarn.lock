@@ -4175,18 +4175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:4.6.3":
-  version: 4.6.3
-  resolution: "conventional-changelog-conventionalcommits@npm:4.6.3"
-  dependencies:
-    compare-func: ^2.0.0
-    lodash: ^4.17.15
-    q: ^1.5.1
-  checksum: 7b8e8a21ebb56f9aaa510e12917b7c609202072c3e71089e0a09630c37c2e8146cdb04364809839b0e3eb55f807fe84d03b2079500b37f6186d505848be5c562
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-conventionalcommits@npm:^5.0.0":
+"conventional-changelog-conventionalcommits@npm:5.0.0, conventional-changelog-conventionalcommits@npm:^5.0.0":
   version: 5.0.0
   resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
   dependencies:
@@ -6417,7 +6406,7 @@ __metadata:
     chalk: 4.1.2
     commander: 9.3.0
     commitizen: 4.2.4
-    conventional-changelog-conventionalcommits: 4.6.3
+    conventional-changelog-conventionalcommits: 5.0.0
     cron: 1.8.2
     cz-conventional-changelog: 3.3.0
     eslint: 8.17.0
