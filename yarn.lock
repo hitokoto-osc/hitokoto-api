@@ -2714,7 +2714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^8.0.0, ajv@npm:^8.6.2":
+"ajv@npm:^8.0.0":
   version: 8.10.0
   resolution: "ajv@npm:8.10.0"
   dependencies:
@@ -2723,6 +2723,18 @@ __metadata:
     require-from-string: ^2.0.2
     uri-js: ^4.2.2
   checksum: 3594728ef1e31219ef97bfacb203d0d72db8ad5c35d6d0578e38ee453e4537c2bf927dad144bb84b0c893f661d71b58337d4643e8ee2f2a6e1d63b041c92fe82
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.10.0":
+  version: 8.11.0
+  resolution: "ajv@npm:8.11.0"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    json-schema-traverse: ^1.0.0
+    require-from-string: ^2.0.2
+    uri-js: ^4.2.2
+  checksum: 5e0ff226806763be73e93dd7805b634f6f5921e3e90ca04acdf8db81eed9d8d3f0d4c5f1213047f45ebbf8047ffe0c840fa1ef2ec42c3a644899f69aa72b5bef
   languageName: node
   linkType: hard
 
@@ -5236,16 +5248,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:3.0.3":
-  version: 3.0.3
-  resolution: "fast-json-stringify@npm:3.0.3"
+"fast-json-stringify@npm:3.2.0":
+  version: 3.2.0
+  resolution: "fast-json-stringify@npm:3.2.0"
   dependencies:
-    ajv: ^8.6.2
+    ajv: ^8.10.0
     ajv-formats: ^2.1.1
     deepmerge: ^4.2.2
+    fast-uri: ^1.0.1
     rfdc: ^1.2.0
     string-similarity: ^4.0.1
-  checksum: 7754f0dc23a9ca560674c931cacc2c301869493dd8a00da28e90bdd235e025c9702fc2b74f1b25d257e782cf985589f6a3de0cfaaa61a61844931855d6996b1f
+  checksum: d4fbe4f3a6fc8318cfa466b116fe039c0f2548ef5a9228fe8a9e16fc492127f7c7fd8b9421c1472a9e57c699ec958132f94ea0107c07a208cac1e836f111e058
   languageName: node
   linkType: hard
 
@@ -5260,6 +5273,13 @@ __metadata:
   version: 2.1.1
   resolution: "fast-safe-stringify@npm:2.1.1"
   checksum: a851cbddc451745662f8f00ddb622d6766f9bd97642dabfd9a405fb0d646d69fc0b9a1243cbf67f5f18a39f40f6fa821737651ff1bceeba06c9992ca2dc5bd3d
+  languageName: node
+  linkType: hard
+
+"fast-uri@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "fast-uri@npm:1.0.1"
+  checksum: c0fde2ddbb6311cd249db4c04174f40a10af6d2366473eef902b8c7fb0f5d2329b1a01deea269a1623350532c49d46e6c1695c5fd4710eab39f6e1dacdeda2f5
   languageName: node
   linkType: hard
 
@@ -6061,7 +6081,7 @@ __metadata:
     eslint-plugin-node: 11.1.0
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-promise: 6.0.0
-    fast-json-stringify: 3.0.3
+    fast-json-stringify: 3.2.0
     flatstr: 1.0.12
     got: 11.8.3
     humanize-number: 0.0.2
