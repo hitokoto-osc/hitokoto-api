@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.7.0-alpine
+FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.8.0-alpine
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY . .
