@@ -99,7 +99,7 @@
     "nconf-yaml": "1.0.2",
     "nodemailer": "6.7.2",
     "passthrough-counter": "1.0.0",
-    "pify": "5.0.0",
+    "pify": "6.0.0",
     "semver": "7.3.5",
     "sequelize": "6.17.0",
     "uuid": "8.3.2",
