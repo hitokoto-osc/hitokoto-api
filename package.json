@@ -77,7 +77,7 @@
     "bytes": "3.1.2",
     "chalk": "4.1.2",
     "commander": "9.3.0",
-    "cron": "1.8.2",
+    "cron": "2.1.0",
     "fast-json-stringify": "4.1.0",
     "flatstr": "1.0.12",
     "got": "11.8.5",

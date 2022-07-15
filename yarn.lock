@@ -4342,12 +4342,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron@npm:1.8.2":
-  version: 1.8.2
-  resolution: "cron@npm:1.8.2"
+"cron@npm:2.1.0":
+  version: 2.1.0
+  resolution: "cron@npm:2.1.0"
   dependencies:
-    moment-timezone: ^0.5.x
-  checksum: 9df2d2e24684e1ebce37e3e29c183b1dfecf7adb5fb16f84435014e7205926fc9868e9bfacfa5f7b93c556c9f4a6fbcce5fde9bee1306d20bc848568bb587791
+    luxon: ^1.23.x
+  checksum: 9395875c091f56db7964491c249cb143d2e4ba77560d7132da783943c1b0537ef1814eb8f552c81eda5a2aa153216dd3f5b7ff63e372a68a063fcfafe8231f91
   languageName: node
   linkType: hard
 
@@ -6418,7 +6418,7 @@ __metadata:
     commander: 9.3.0
     commitizen: 4.2.4
     conventional-changelog-conventionalcommits: 4.6.3
-    cron: 1.8.2
+    cron: 2.1.0
     cz-conventional-changelog: 3.3.0
     eslint: 8.17.0
     eslint-config-prettier: 8.5.0
@@ -8550,6 +8550,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"luxon@npm:^1.23.x":
+  version: 1.28.0
+  resolution: "luxon@npm:1.28.0"
+  checksum: 5250cb9f138b6048eeb0b3a9044a4ac994d0058f680c72a0da4b6aeaec8612460385639cba2b1052ef6d5564879e9ed144d686f26d9d97b38ab920d82e18281c
+  languageName: node
+  linkType: hard
+
 "macos-release@npm:^2.5.0":
   version: 2.5.0
   resolution: "macos-release@npm:2.5.0"
@@ -8907,7 +8914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.34, moment-timezone@npm:^0.5.x":
+"moment-timezone@npm:^0.5.34":
   version: 0.5.34
   resolution: "moment-timezone@npm:0.5.34"
   dependencies:
