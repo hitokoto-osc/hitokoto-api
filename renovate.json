@@ -1,5 +1,67 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "default:automergeMinor",
+    "default:disableRateLimiting",
+    "default:rebaseStalePrs",
+    "group:allNonMajor"
+  ],
+  "packageRules": [
+
+    {
+      "groupName": "Web Basement & Middleware",
+      "matchPackagePatterns": [
+        "fast-json-stringify",
+        "flatstr",
+        "ioredis",
+        "nconf",
+        "NeteaseCloudMusicApi",
+        "kcors"
+      ]
+    },
+    {
+      "groupName": "Tools & Commanders",
+      "matchPackagePatterns": [
+        "async",
+        "lodash",
+        "bytes",
+        "commander",
+        "chalk",
+        "cron",
+        "yaml",
+        "joi",
+        "@babel",
+        "@types",
+        "pify",
+        "semver",
+        "winston",
+        "uuid"
+      ]
+    },
+    {
+      "groupName": "Lint packages",
+      "matchPackagePatterns": [
+        "eslint",
+        "prettier",
+        "commitlint",
+        "commitizen",
+        "changelog",
+        "husky",
+        "lint-staged"
+      ]
+    },
+    {
+      "groupName": "Testing packages",
+      "matchPackagePatterns": [
+        "jest",
+        "nodemon"
+      ]
+    },
+    {
+      "groupName": "Untag packages",
+      "matchPackagePatterns": [
+        "*"
+      ]
+    }
   ]
 }
