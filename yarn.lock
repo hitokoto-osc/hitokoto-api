@@ -6462,7 +6462,7 @@ __metadata:
     regenerator-runtime: 0.13.9
     release-it: 14.12.5
     semver: 7.3.5
-    sequelize: 6.17.0
+    sequelize: 6.25.6
     supertest: 6.2.2
     supervisor: 0.12.0
     uuid: 8.3.2
@@ -10465,10 +10465,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"retry-as-promised@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "retry-as-promised@npm:5.0.0"
-  checksum: 4d17e0597f967db0516714f0f2b085e2d1e8ea592450b013a1e0cd41dad74a9c3d1eb3c45351887de4bca1c3ac5f74dd07ef9942a3fb0e4db996a83bb28cb46e
+"retry-as-promised@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "retry-as-promised@npm:6.1.0"
+  checksum: cde3ad5c827d3f51b9161b9453dfd5eb8b8b6c22b6b405f7294eaa1939ef1966f8bd4c8a228ce2d66a24959d1dcc48b113c4c810ecdaddec2968b6d20576329d
   languageName: node
   linkType: hard
 
@@ -10689,9 +10689,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sequelize@npm:6.17.0":
-  version: 6.17.0
-  resolution: "sequelize@npm:6.17.0"
+"sequelize@npm:6.25.6":
+  version: 6.25.6
+  resolution: "sequelize@npm:6.25.6"
   dependencies:
     "@types/debug": ^4.1.7
     "@types/validator": ^13.7.1
@@ -10702,7 +10702,7 @@ __metadata:
     moment: ^2.29.1
     moment-timezone: ^0.5.34
     pg-connection-string: ^2.5.0
-    retry-as-promised: ^5.0.0
+    retry-as-promised: ^6.1.0
     semver: ^7.3.5
     sequelize-pool: ^7.1.0
     toposort-class: ^1.0.1
@@ -10716,6 +10716,8 @@ __metadata:
       optional: true
     mysql2:
       optional: true
+    oracledb:
+      optional: true
     pg:
       optional: true
     pg-hstore:
@@ -10726,7 +10728,7 @@ __metadata:
       optional: true
     tedious:
       optional: true
-  checksum: 54bef508cff51e1330604dfeb926dc3f0618ec28ddcc9f97c3a6d9e94d1d4ce625e66c3f40d50e91f028239a7ecb5d85aeb11ee7f402666448b25991d249b21b
+  checksum: 35baf98223ce35a0f0719d4ab6b92e85fab29e7e81eecb784881d6ccc4693afaaf299eb73e6cd6dbad84d5a6f26c145659f1bce878843eb3414f36900bb0e285
   languageName: node
   linkType: hard
 
