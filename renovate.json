@@ -56,12 +56,6 @@
         "jest",
         "nodemon"
       ]
-    },
-    {
-      "groupName": "Untag packages",
-      "matchPackagePatterns": [
-        "*"
-      ]
     }
   ]
 }
