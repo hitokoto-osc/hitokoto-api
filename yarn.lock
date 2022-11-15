@@ -6447,7 +6447,7 @@ __metadata:
     koa-helmet: 6.1.0
     koa-livereload: 0.2.0
     koa-query-pretty: 0.3.0
-    koa-router: 10.1.1
+    koa-router: 12.0.0
     lint-staged: 12.3.7
     lodash: 4.17.21
     mysql2: 2.3.2
@@ -6540,7 +6540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:1.8.1, http-errors@npm:^1.6.3, http-errors@npm:^1.7.3, http-errors@npm:^1.8.0, http-errors@npm:~1.8.0":
+"http-errors@npm:1.8.1, http-errors@npm:^1.6.3, http-errors@npm:^1.8.0, http-errors@npm:~1.8.0":
   version: 1.8.1
   resolution: "http-errors@npm:1.8.1"
   dependencies:
@@ -6553,7 +6553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:2.0.0":
+"http-errors@npm:2.0.0, http-errors@npm:^2.0.0":
   version: 2.0.0
   resolution: "http-errors@npm:2.0.0"
   dependencies:
@@ -8213,16 +8213,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-router@npm:10.1.1":
-  version: 10.1.1
-  resolution: "koa-router@npm:10.1.1"
+"koa-router@npm:12.0.0":
+  version: 12.0.0
+  resolution: "koa-router@npm:12.0.0"
   dependencies:
-    debug: ^4.1.1
-    http-errors: ^1.7.3
+    http-errors: ^2.0.0
     koa-compose: ^4.1.0
     methods: ^1.1.2
-    path-to-regexp: ^6.1.0
-  checksum: 65e6cd4a7f8a4d98c665b00ee4c2c05340cb38ca035590ce71c23a25c0a01f6d2434d9a68366d7c218af9c94e5d8e20c7fe9e7f7dfbb98d69b11b5ae3246aaf8
+    path-to-regexp: ^6.2.1
+  checksum: 29b02fd96972c037e805f6ce2626c971f4fd9cba04005bfedc080ab425d31b4b1cfe2ebc000b26e4a45e68215a3a3ed557f836ba486ea0d2f1e7e78fc95f8dca
   languageName: node
   linkType: hard
 
@@ -9729,10 +9728,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:^6.1.0":
-  version: 6.2.0
-  resolution: "path-to-regexp@npm:6.2.0"
-  checksum: a6aca74d2d6e2e7594d812f653cf85e9cb5054d3a8d80f099722a44ef6ad22639b02078e5ea83d11db16321c3e4359e3f1ab0274fa78dad0754a6e53f630b0fc
+"path-to-regexp@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "path-to-regexp@npm:6.2.1"
+  checksum: f0227af8284ea13300f4293ba111e3635142f976d4197f14d5ad1f124aebd9118783dd2e5f1fe16f7273743cc3dbeddfb7493f237bb27c10fdae07020cc9b698
   languageName: node
   linkType: hard
 
