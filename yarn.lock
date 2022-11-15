@@ -1805,6 +1805,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/deepmerge@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "@fastify/deepmerge@npm:1.1.0"
+  checksum: 3e6839ef2ab5ab524d90290c11e6997abda53cdfa9037639a794f4f1e1d9047c1c23e51d44d8a74b303285ef08f753d4bcff631f36d581ad24ee9fee6a0d2cf1
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -5577,17 +5584,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:4.1.0":
-  version: 4.1.0
-  resolution: "fast-json-stringify@npm:4.1.0"
+"fast-json-stringify@npm:5.4.1":
+  version: 5.4.1
+  resolution: "fast-json-stringify@npm:5.4.1"
   dependencies:
+    "@fastify/deepmerge": ^1.0.0
     ajv: ^8.10.0
     ajv-formats: ^2.1.1
-    deepmerge: ^4.2.2
-    fast-uri: ^2.0.0
+    fast-deep-equal: ^3.1.3
+    fast-uri: ^2.1.0
     rfdc: ^1.2.0
-    string-similarity: ^4.0.1
-  checksum: 3e6f404f240a2305a2f304ade161b985893f53c357af0bb168025fe3d2e03837418ecd22e3dfbf9bfca2516273b831691f2911047d771f0fc4c3401f313a662f
+  checksum: 62efefaf135ff03d810fb362adca1d3471787e4e17ef10e34c8e1d61d361c09736091b1948df2cb408e6b05f18c10985e89bcdd9c08f8f5ba21e148e52a9c5fc
   languageName: node
   linkType: hard
 
@@ -5605,7 +5612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-uri@npm:^2.0.0":
+"fast-uri@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-uri@npm:2.1.0"
   checksum: 60ecece5ab05515729ec04d1732ee68bd4429cab8c06ebf8db512a094a0077ddc5af6a27c75922875bc9e13b58e947832242cdcb2cb23c51dc753412222dca83
@@ -6429,7 +6436,7 @@ __metadata:
     eslint-plugin-n: ^15.2.2
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-promise: 6.0.0
-    fast-json-stringify: 4.1.0
+    fast-json-stringify: 5.4.1
     flatstr: 1.0.12
     got: 11.8.5
     humanize-number: 0.0.2
@@ -11086,13 +11093,6 @@ __metadata:
     char-regex: ^1.0.2
     strip-ansi: ^6.0.0
   checksum: ce85533ef5113fcb7e522bcf9e62cb33871aa99b3729cec5595f4447f660b0cefd542ca6df4150c97a677d58b0cb727a3fe09ac1de94071d05526c73579bf505
-  languageName: node
-  linkType: hard
-
-"string-similarity@npm:^4.0.1":
-  version: 4.0.4
-  resolution: "string-similarity@npm:4.0.4"
-  checksum: 797b41b24e1eb6b3b0ab896950b58c295a19a82933479c75f7b5279ffb63e0b456a8c8d10329c02f607ca1a50370e961e83d552aa468ff3b0fa15809abc9eff7
   languageName: node
   linkType: hard
 
