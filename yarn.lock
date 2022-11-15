@@ -2635,13 +2635,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:27.4.1":
-  version: 27.4.1
-  resolution: "@types/jest@npm:27.4.1"
+"@types/jest@npm:27.5.2":
+  version: 27.5.2
+  resolution: "@types/jest@npm:27.5.2"
   dependencies:
     jest-matcher-utils: ^27.0.0
     pretty-format: ^27.0.0
-  checksum: 5184f3eef4832d01ee8f59bed15eec45ccc8e29c724a5e6ce37bf74396b37bdf04f557000f45ba4fc38ae6075cf9cfcce3d7a75abc981023c61ceb27230a93e4
+  checksum: 7e11c6826aa429ad990dc262e4e4b54aa36573287fddf15773e4137f07d11d3105f0dd9f1baff73252160a057df23f5529bb83b1bf83cd3f45f9460a5ca5c22e
   languageName: node
   linkType: hard
 
@@ -6410,7 +6410,7 @@ __metadata:
     "@sentry/integrations": 7.1.1
     "@sentry/node": 7.1.1
     "@sentry/tracing": 7.1.1
-    "@types/jest": 27.4.1
+    "@types/jest": 27.5.2
     NeteaseCloudMusicApi: 4.8.2
     async: 3.2.4
     bytes: 3.1.2
