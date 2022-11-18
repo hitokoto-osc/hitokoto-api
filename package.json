@@ -35,9 +35,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.18.2",
+    "@babel/core": "7.20.2",
     "@babel/eslint-parser": "7.18.2",
-    "@babel/preset-env": "7.18.2",
+    "@babel/preset-env": "7.20.2",
     "@commitlint/cli": "17.0.2",
     "@commitlint/config-conventional": "17.0.2",
     "@types/jest": "27.4.1",
@@ -76,14 +76,14 @@
     "async": "3.2.4",
     "bytes": "3.1.2",
     "chalk": "4.1.2",
-    "commander": "9.3.0",
+    "commander": "9.4.1",
     "cron": "1.8.2",
     "fast-json-stringify": "5.4.1",
     "flatstr": "1.0.12",
     "got": "11.8.5",
     "humanize-number": "0.0.2",
     "ioredis": "5.2.4",
-    "joi": "17.6.0",
+    "joi": "17.7.0",
     "js-yaml": "4.1.0",
     "kcors": "2.2.2",
     "koa": "2.13.4",
@@ -100,9 +100,9 @@
     "nodemailer": "6.7.2",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
-    "semver": "7.3.5",
+    "semver": "7.3.8",
     "sequelize": "6.17.0",
     "uuid": "8.3.2",
-    "winston": "3.7.2"
+    "winston": "3.8.2"
   }
 }
