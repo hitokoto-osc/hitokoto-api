@@ -1,6 +1,6 @@
 module.exports = {
   clearMocks: true,
-  setupFilesAfterEnv: ['jest-extended'],
+  setupFilesAfterEnv: ['jest-extended/all'],
   globalSetup: '<rootDir>/test/__jest__/globalSetup.js',
   globalTeardown: '<rootDir>/test/__jest__/globalTeardown.js',
   testEnvironment: 'node',

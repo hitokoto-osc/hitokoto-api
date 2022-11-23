@@ -18,7 +18,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.test.js'],
+      files: ['**/*.test.js', 'test/__jest__/*.js'],
       env: {
         jest: true, // now **/*.test.js files' env has both es6 *and* jest
       },
