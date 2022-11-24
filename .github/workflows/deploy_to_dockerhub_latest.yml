@@ -47,5 +47,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: hitokoto/api:latest
+          tags: hitokoto/api:alinode-latest
           file: ./docker/alinode/Dockerfile

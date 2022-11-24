@@ -1,11 +1,11 @@
-name: Deploy To Dockerhub(Latest)
+name: Deploy To Dockerhub(Release)
 
 on:
   release:
     types: [released]
 
 jobs:
-  latest:
+  release:
     runs-on: ubuntu-latest
     steps:
       -
@@ -27,7 +27,7 @@ jobs:
           push: true
           tags: hitokoto/api:release
           file: ./docker/mainline/Dockerfile
-  alinode-latest:
+  alinode-release:
     runs-on: ubuntu-latest
     steps:
       -
