@@ -2,7 +2,7 @@ name: Deploy To Dockerhub(Latest)
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ master ]
 
 jobs:
   latest:
