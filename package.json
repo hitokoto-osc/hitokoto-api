@@ -69,9 +69,9 @@
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
     "@hitokoto/koa-respond": "3.0.3",
-    "@sentry/integrations": "7.24.2",
-    "@sentry/node": "7.24.2",
-    "@sentry/tracing": "7.24.2",
+    "@sentry/integrations": "7.27.0",
+    "@sentry/node": "7.27.0",
+    "@sentry/tracing": "7.27.0",
     "NeteaseCloudMusicApi": "4.8.2",
     "async": "3.2.4",
     "bytes": "3.1.2",
@@ -101,7 +101,7 @@
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.3.8",
-    "sequelize": "6.26.0",
+    "sequelize": "6.27.0",
     "uuid": "9.0.0",
     "winston": "3.8.2"
   },
