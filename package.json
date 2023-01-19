@@ -35,7 +35,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.20.5",
+    "@babel/core": "7.20.12",
     "@babel/eslint-parser": "7.19.1",
     "@babel/preset-env": "7.20.2",
     "@commitlint/cli": "17.3.0",
@@ -76,8 +76,8 @@
     "async": "3.2.4",
     "bytes": "3.1.2",
     "chalk": "4.1.2",
-    "commander": "9.4.1",
-    "cron": "2.1.0",
+    "commander": "9.5.0",
+    "cron": "2.2.0",
     "fast-json-stringify": "5.5.0",
     "flatstr": "1.0.12",
     "got": "11.8.6",
