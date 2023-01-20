@@ -62,16 +62,16 @@
     "nyc": "15.1.0",
     "prettier": "2.8.0",
     "regenerator-runtime": "0.13.11",
-    "release-it": "15.5.1",
+    "release-it": "15.6.0",
     "supertest": "6.3.3",
     "supervisor": "0.12.0"
   },
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
     "@hitokoto/koa-respond": "3.0.3",
-    "@sentry/integrations": "7.27.0",
-    "@sentry/node": "7.27.0",
-    "@sentry/tracing": "7.27.0",
+    "@sentry/integrations": "7.31.1",
+    "@sentry/node": "7.31.1",
+    "@sentry/tracing": "7.31.1",
     "NeteaseCloudMusicApi": "4.8.9",
     "async": "3.2.4",
     "bytes": "3.1.2",
@@ -97,13 +97,13 @@
     "mysql2": "3.0.1",
     "nconf": "0.12.0",
     "nconf-yaml": "1.0.2",
-    "nodemailer": "6.8.0",
+    "nodemailer": "6.9.0",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.3.8",
-    "sequelize": "6.27.0",
+    "sequelize": "6.28.0",
     "uuid": "9.0.0",
     "winston": "3.8.2"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.1"
 }
