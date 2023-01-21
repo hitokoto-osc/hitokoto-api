@@ -2973,13 +2973,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:29.2.3":
-  version: 29.2.3
-  resolution: "@types/jest@npm:29.2.3"
+"@types/jest@npm:29.2.6":
+  version: 29.2.6
+  resolution: "@types/jest@npm:29.2.6"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: 55370906711b600a05b9e497c22aa74d80d8adcdbe4ac2f1bc9311f6f6ca0dd192862b6f38df6ac0d45e92396bcd796e377b1d8058c10bdfd584aeee580c3ce1
+  checksum: 90190ac830334af1470d255853f9621fe657e5030b4d96773fc1f884833cd303c76580b00c1b86dc38a8db94f1c7141d462190437a10af31852b8845a57c48ba
   languageName: node
   linkType: hard
 
@@ -5666,9 +5666,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.1.5":
-  version: 27.1.5
-  resolution: "eslint-plugin-jest@npm:27.1.5"
+"eslint-plugin-jest@npm:27.2.1":
+  version: 27.2.1
+  resolution: "eslint-plugin-jest@npm:27.2.1"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -5679,7 +5679,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 7c9de765793f7161afa0bdcdce67f4d072944152880fa638b25d228188dcee47a4b4aada26c57db72bc10193c96a1979e17afb8a7c3e400e961d8adfbf23ddbe
+  checksum: 579a4d26304cc6748b2e6dff6c965ea7a21b618d8b051eb02727d25cf5c7767f6db8ef5237531635ff77e242b983b973e7cb8c820a4d20d5bda73358c452a8ab
   languageName: node
   linkType: hard
 
@@ -6962,7 +6962,7 @@ __metadata:
     "@sentry/integrations": 7.31.1
     "@sentry/node": 7.31.1
     "@sentry/tracing": 7.31.1
-    "@types/jest": 29.2.3
+    "@types/jest": 29.2.6
     NeteaseCloudMusicApi: 4.8.9
     async: 3.2.4
     bytes: 3.1.2
@@ -6977,7 +6977,7 @@ __metadata:
     eslint-config-standard: 17.0.0
     eslint-plugin-html: 7.1.0
     eslint-plugin-import: 2.27.5
-    eslint-plugin-jest: 27.1.5
+    eslint-plugin-jest: 27.2.1
     eslint-plugin-n: ^15.5.1
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-promise: 6.1.1
@@ -6988,7 +6988,7 @@ __metadata:
     husky: 8.0.3
     ioredis: 5.2.5
     jest: 29.3.1
-    jest-extended: 3.2.0
+    jest-extended: 3.2.3
     joi: 17.7.0
     js-yaml: 4.1.0
     kcors: 2.2.2
@@ -8161,9 +8161,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:3.2.0":
-  version: 3.2.0
-  resolution: "jest-extended@npm:3.2.0"
+"jest-extended@npm:3.2.3":
+  version: 3.2.3
+  resolution: "jest-extended@npm:3.2.3"
   dependencies:
     jest-diff: ^29.0.0
     jest-get-type: ^29.0.0
@@ -8172,7 +8172,7 @@ __metadata:
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 9b6299a4304b4833edbfdc716de8e0d22dc75df353b552f077ac4d46eaa310f4883821a203e95c619963e457307ecc38725a99a7136a0171552c80ccbfd3cb6e
+  checksum: af837ca22ed80e9542bb234d137b0d235ef04efb4a071717ec9f41f97533e44e1f1b8de2d47504804bb78e568fafca662a6ccf12b74f66f3b8e8bcb7d460d7aa
   languageName: node
   linkType: hard
 
