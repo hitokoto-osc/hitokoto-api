@@ -3224,9 +3224,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.8.9":
-  version: 4.8.9
-  resolution: "NeteaseCloudMusicApi@npm:4.8.9"
+"NeteaseCloudMusicApi@npm:4.8.10":
+  version: 4.8.10
+  resolution: "NeteaseCloudMusicApi@npm:4.8.10"
   dependencies:
     axios: ^1.2.2
     express: ^4.17.1
@@ -3240,7 +3240,7 @@ __metadata:
     yargs: ^17.1.1
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: 4d9291a0dd0d7575b3eec6b4753efb8e8afd6a9e9d5b79bfe730239ccd11b3b459f255f4bb7c215ac3b8566a8875c0a5fba53b1a6bf87817efbf3185e18c9d80
+  checksum: d622078154e215376d9e1475581ee499f9179494bca9b380b60bcd66e6f2613432088bdd09ce89444b6d92375eba862145a6aa02fb6071a7246a021071e07c2a
   languageName: node
   linkType: hard
 
@@ -5142,13 +5142,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"denque@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "denque@npm:2.0.1"
-  checksum: ec398d1e3c6c8d4f5213dcf9ad74d7faa3b461e29a0019c9742b49a97ac5e16aa7134db45fa9d841e318e7722dd1ba670a474fde9a5b0d870b3a5fc6fe914c30
-  languageName: node
-  linkType: hard
-
 "denque@npm:^2.1.0":
   version: 2.1.0
   resolution: "denque@npm:2.1.0"
@@ -6186,9 +6179,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:5.5.0":
-  version: 5.5.0
-  resolution: "fast-json-stringify@npm:5.5.0"
+"fast-json-stringify@npm:5.7.0":
+  version: 5.7.0
+  resolution: "fast-json-stringify@npm:5.7.0"
   dependencies:
     "@fastify/deepmerge": ^1.0.0
     ajv: ^8.10.0
@@ -6196,7 +6189,7 @@ __metadata:
     fast-deep-equal: ^3.1.3
     fast-uri: ^2.1.0
     rfdc: ^1.2.0
-  checksum: 800401324af712f562b3912c1a31c1a055e9af12a10227fbb507ad4e0d17fc01945c71f7e269b080bcf8051364d7422122c7c18d811f61ac79a21583067049e4
+  checksum: ca834cd8afa654f50c8f14b8489ae74ccc1d2d695fd9eafc7b8eebe251e6d0305664e8dc9d50f3074a4a0572a34c2b96e8adb84096b813d7e6f1aafce34ecf9c
   languageName: node
   linkType: hard
 
@@ -7079,7 +7072,7 @@ __metadata:
     "@sentry/node": 7.31.1
     "@sentry/tracing": 7.31.1
     "@types/jest": 29.5.0
-    NeteaseCloudMusicApi: 4.8.9
+    NeteaseCloudMusicApi: 4.8.10
     async: 3.2.4
     bytes: 3.1.2
     chalk: 4.1.2
@@ -7097,12 +7090,12 @@ __metadata:
     eslint-plugin-n: ^15.5.1
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-promise: 6.1.1
-    fast-json-stringify: 5.5.0
+    fast-json-stringify: 5.7.0
     flatstr: 1.0.12
     got: 11.8.6
     humanize-number: 0.0.2
     husky: 8.0.3
-    ioredis: 5.2.5
+    ioredis: 5.3.1
     jest: 29.5.0
     jest-extended: 3.2.4
     joi: 17.7.0
@@ -7549,20 +7542,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:5.2.5":
-  version: 5.2.5
-  resolution: "ioredis@npm:5.2.5"
+"ioredis@npm:5.3.1":
+  version: 5.3.1
+  resolution: "ioredis@npm:5.3.1"
   dependencies:
     "@ioredis/commands": ^1.1.1
     cluster-key-slot: ^1.1.0
     debug: ^4.3.4
-    denque: ^2.0.1
+    denque: ^2.1.0
     lodash.defaults: ^4.2.0
     lodash.isarguments: ^3.1.0
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: 3881c505b287f1277394fda78fa0239fe35ee0f88116ab0d4ad74d915bace68928afa802a455fa87a74009d68ac859becc820a8cb59ae2ffca95b84c8b575198
+  checksum: 6c98cb8f8772ad4bb2b6b7a0a224e4a63f4759f9a28e84205f18788552f08221d51f391c10892dca01a1b10b2804d0a7e6082b0b7decd65538a5fb6b0f4f1f82
   languageName: node
   linkType: hard
 
