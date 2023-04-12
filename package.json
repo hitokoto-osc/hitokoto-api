@@ -101,7 +101,7 @@
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.3.8",
-    "sequelize": "6.28.0",
+    "sequelize": "6.29.0",
     "uuid": "9.0.0",
     "winston": "3.8.2"
   },
