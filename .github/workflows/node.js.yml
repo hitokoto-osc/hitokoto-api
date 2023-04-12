@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Start Redis
-      uses: supercharge/redis-github-action@1.4.0
+      uses: supercharge/redis-github-action@1.5.0
       with:
         redis-version: ${{ matrix.redis-version }}
     - name: Get yarn cache directory path
