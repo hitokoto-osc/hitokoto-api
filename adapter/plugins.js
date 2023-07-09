@@ -39,11 +39,16 @@ module.exports = [
   !nconf.get('server:compress_body') || [
     'koa-compress',
     require('koa-compress')({
-      filter: (contentType) => {
+      filter (contentType) {
         return /text/i.test(contentType)
       },
       threshold: 2048,
-      flush: require('zlib').Z_SYNC_FLUSH,
+      gzip: {
+        flush: require('zlib').constants.Z_SYNC_FLUSH
+      },
+      deflate: {
+        flush: require('zlib').constants.Z_SYNC_FLUSH,
+      }
     }),
   ],
   ['logger', require('../src/middlewares/logger')()],
