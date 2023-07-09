@@ -7496,7 +7496,7 @@ __metadata:
     prettier: 2.8.8
     regenerator-runtime: 0.13.11
     release-it: 15.10.2
-    semver: 7.5.0
+    semver: 7.5.2
     sequelize: 6.31.1
     supertest: 6.3.3
     supervisor: 0.12.0

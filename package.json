@@ -100,7 +100,7 @@
     "nodemailer": "6.9.1",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
-    "semver": "7.5.0",
+    "semver": "7.5.2",
     "sequelize": "6.31.1",
     "uuid": "9.0.0",
     "winston": "3.8.2"
