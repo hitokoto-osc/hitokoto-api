@@ -13,20 +13,28 @@ module.exports = [
   ['RecoverError', require('../src/middlewares/recoverError')()],
 
   // Basic Plugins
-  ['koa-helmet', require('koa-helmet')()],
+  [
+    'koa-helmet',
+    require('koa-helmet')({
+      crossOriginEmbedderPolicy: false,
+      crossOriginResourcePolicy: {
+        policy: 'cross-origin',
+      },
+    }),
+  ],
   ['koa-query-pretty', require('koa-query-pretty')()],
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
   [
-    'koa-bodyparser',
-    require('koa-bodyparser')({
+    '@koa/bodyparser',
+    require('@koa/bodyparser').bodyParser({
       enableTypes: ['json', 'form'],
       formLimit: '10mb',
       jsonLimit: '10mb',
     }),
   ],
   [
-    'kcors',
-    require('kcors')({
+    '@koa/cors',
+    require('@koa/cors')({
       origin: '*',
       allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
       exposeHeaders: ['X-Request-Id'],
@@ -39,11 +47,16 @@ module.exports = [
   !nconf.get('server:compress_body') || [
     'koa-compress',
     require('koa-compress')({
-      filter: (contentType) => {
+      filter(contentType) {
         return /text/i.test(contentType)
       },
       threshold: 2048,
-      flush: require('zlib').Z_SYNC_FLUSH,
+      gzip: {
+        flush: require('zlib').constants.Z_SYNC_FLUSH,
+      },
+      deflate: {
+        flush: require('zlib').constants.Z_SYNC_FLUSH,
+      },
     }),
   ],
   ['logger', require('../src/middlewares/logger')()],

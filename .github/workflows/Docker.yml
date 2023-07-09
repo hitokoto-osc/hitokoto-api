@@ -5,7 +5,8 @@ on:
     branches: [ dev ]
 
 jobs:
-  Build & Deploy:
+  default:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
       -
