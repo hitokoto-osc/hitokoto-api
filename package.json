@@ -35,9 +35,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.21.5",
+    "@babel/core": "7.22.8",
     "@babel/eslint-parser": "7.22.7",
-    "@babel/preset-env": "7.21.5",
+    "@babel/preset-env": "7.22.7",
     "@commitlint/cli": "17.6.6",
     "@commitlint/config-conventional": "17.6.6",
     "@types/jest": "29.5.0",
@@ -77,7 +77,7 @@
     "bytes": "3.1.2",
     "chalk": "4.1.2",
     "commander": "9.5.0",
-    "cron": "2.3.0",
+    "cron": "2.3.1",
     "fast-json-stringify": "5.7.0",
     "flatstr": "1.0.12",
     "got": "11.8.6",
@@ -100,10 +100,10 @@
     "nodemailer": "6.9.1",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
-    "semver": "7.5.0",
+    "semver": "7.5.4",
     "sequelize": "6.31.1",
     "uuid": "9.0.0",
-    "winston": "3.8.2"
+    "winston": "3.9.0"
   },
   "packageManager": "yarn@3.5.1"
 }
