@@ -13,7 +13,9 @@ module.exports = [
   ['RecoverError', require('../src/middlewares/recoverError')()],
 
   // Basic Plugins
-  ['koa-helmet', require('koa-helmet')()],
+  ['koa-helmet', require('koa-helmet')({
+    crossOriginEmbedderPolicy: false
+  })],
   ['koa-query-pretty', require('koa-query-pretty')()],
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
   [
