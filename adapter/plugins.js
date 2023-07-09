@@ -14,7 +14,10 @@ module.exports = [
 
   // Basic Plugins
   ['koa-helmet', require('koa-helmet')({
-    crossOriginEmbedderPolicy: false
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: {
+      policy: 'cross-origin',
+    }
   })],
   ['koa-query-pretty', require('koa-query-pretty')()],
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
