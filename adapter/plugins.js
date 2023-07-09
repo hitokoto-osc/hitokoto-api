@@ -17,16 +17,16 @@ module.exports = [
   ['koa-query-pretty', require('koa-query-pretty')()],
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
   [
-    'koa-bodyparser',
-    require('koa-bodyparser')({
+    '@koa/bodyparser',
+    require('@koa/bodyparser')({
       enableTypes: ['json', 'form'],
       formLimit: '10mb',
       jsonLimit: '10mb',
     }),
   ],
   [
-    'kcors',
-    require('kcors')({
+    '@koa/cors',
+    require('@koa/cors')({
       origin: '*',
       allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
       exposeHeaders: ['X-Request-Id'],
