@@ -13,12 +13,15 @@ module.exports = [
   ['RecoverError', require('../src/middlewares/recoverError')()],
 
   // Basic Plugins
-  ['koa-helmet', require('koa-helmet')({
-    crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: {
-      policy: 'cross-origin',
-    }
-  })],
+  [
+    'koa-helmet',
+    require('koa-helmet')({
+      crossOriginEmbedderPolicy: false,
+      crossOriginResourcePolicy: {
+        policy: 'cross-origin',
+      },
+    }),
+  ],
   ['koa-query-pretty', require('koa-query-pretty')()],
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
   [
@@ -44,16 +47,16 @@ module.exports = [
   !nconf.get('server:compress_body') || [
     'koa-compress',
     require('koa-compress')({
-      filter (contentType) {
+      filter(contentType) {
         return /text/i.test(contentType)
       },
       threshold: 2048,
       gzip: {
-        flush: require('zlib').constants.Z_SYNC_FLUSH
+        flush: require('zlib').constants.Z_SYNC_FLUSH,
       },
       deflate: {
         flush: require('zlib').constants.Z_SYNC_FLUSH,
-      }
+      },
     }),
   ],
   ['logger', require('../src/middlewares/logger')()],
