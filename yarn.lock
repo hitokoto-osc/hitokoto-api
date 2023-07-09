@@ -7518,7 +7518,7 @@ __metadata:
     husky: 8.0.3
     ioredis: 5.3.2
     jest: 29.6.1
-    jest-extended: 3.2.4
+    jest-extended: 4.0.0
     joi: 17.9.2
     js-yaml: 4.1.0
     kcors: 2.2.2
@@ -7536,7 +7536,7 @@ __metadata:
     nconf: 0.12.0
     nconf-yaml: 1.0.2
     nodemailer: 6.9.3
-    nodemon: 2.0.22
+    nodemon: 3.0.1
     nyc: 15.1.0
     passthrough-counter: 1.0.0
     pify: 5.0.0
@@ -8778,9 +8778,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:3.2.4":
-  version: 3.2.4
-  resolution: "jest-extended@npm:3.2.4"
+"jest-extended@npm:4.0.0":
+  version: 4.0.0
+  resolution: "jest-extended@npm:4.0.0"
   dependencies:
     jest-diff: ^29.0.0
     jest-get-type: ^29.0.0
@@ -8789,7 +8789,7 @@ __metadata:
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 16e4f300d9c5bf110f7f3422e49e06c968a99a44cede2b2821ddd480c33b3d9cd4dc58035b2f022e6018247da8f887295d6c2499647675dedb6e305142604e7d
+  checksum: 2fd77a4fcda131a93c6f4a60a955c81fa332abad73d68f58d82fd9548672aa2c4f4ff64d4b44ae561caca3d592707eb0cc237d5da3138d8c568f40a1d8f81751
   languageName: node
   linkType: hard
 
@@ -10537,23 +10537,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:2.0.22":
-  version: 2.0.22
-  resolution: "nodemon@npm:2.0.22"
+"nodemon@npm:3.0.1":
+  version: 3.0.1
+  resolution: "nodemon@npm:3.0.1"
   dependencies:
     chokidar: ^3.5.2
     debug: ^3.2.7
     ignore-by-default: ^1.0.1
     minimatch: ^3.1.2
     pstree.remy: ^1.1.8
-    semver: ^5.7.1
-    simple-update-notifier: ^1.0.7
+    semver: ^7.5.3
+    simple-update-notifier: ^2.0.0
     supports-color: ^5.5.0
     touch: ^3.1.0
     undefsafe: ^2.0.5
   bin:
     nodemon: bin/nodemon.js
-  checksum: 9c987e139748f5b5c480c6c9080bdc97304ee7d29172b7b3da1a7db590b1323ad57b96346304e9b522b0e445c336dc393ccd3f9f45c73b20d476d2347890dcd0
+  checksum: 6a5d81855760d6617049eccce10ccf02bddb482dab13ceea5280ae595ec7004eee13e7b934368e3f46c37fe4d970342a8c38c99cae7e93e4d7a3ed1c1ecb6acf
   languageName: node
   linkType: hard
 
@@ -12228,7 +12228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.7.1":
+"semver@npm:2 || 3 || 4 || 5":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
   bin:
@@ -12309,15 +12309,6 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: ba9c7cbbf2b7884696523450a61fee1a09930d888b7a8d7579025ad93d459b2d1949ee5bbfeb188b2be5f4ac163544c5e98491ad6152df34154feebc2cc337c1
-  languageName: node
-  linkType: hard
-
-"semver@npm:~7.0.0":
-  version: 7.0.0
-  resolution: "semver@npm:7.0.0"
-  bin:
-    semver: bin/semver.js
-  checksum: 272c11bf8d083274ef79fe40a81c55c184dff84dd58e3c325299d0927ba48cece1f020793d138382b85f89bab5002a35a5ba59a3a68a7eebbb597eb733838778
   languageName: node
   linkType: hard
 
@@ -12481,12 +12472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-update-notifier@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "simple-update-notifier@npm:1.0.7"
+"simple-update-notifier@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "simple-update-notifier@npm:2.0.0"
   dependencies:
-    semver: ~7.0.0
-  checksum: aaadc1f158ad5101b363d1c7aed1f30fc1cac59a760aa31702633e0e6fe423348f07d0e78185aef0aad29130a7b7f0f188c21c7bc7353f897a0ea3682e051a70
+    semver: ^7.5.3
+  checksum: 9ba00d38ce6a29682f64a46213834e4eb01634c2f52c813a9a7b8873ca49cdbb703696f3290f3b27dc067de6d9418b0b84bef22c3eb074acf352529b2d6c27fd
   languageName: node
   linkType: hard
 
