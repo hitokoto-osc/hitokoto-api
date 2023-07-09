@@ -20,7 +20,7 @@ module.exports = [
   ['koa-jsonp', require('@hitokoto/koa-jsonp')()],
   [
     '@koa/bodyparser',
-    require('@koa/bodyparser')({
+    require('@koa/bodyparser').bodyParser({
       enableTypes: ['json', 'form'],
       formLimit: '10mb',
       jsonLimit: '10mb',
