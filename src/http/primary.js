@@ -11,7 +11,9 @@ module.exports = exports = {}
 
 const workersNumber = nconf.get('workers') || os.cpus().length
 const listeningPort = nconf.get('server:port') || 8000
-const workers = new Workers({ workersNumber, listeningPort })
+const listeningHosts =
+  nconf.get('server:host') || nconf.get('server:hosts') || '0.0.0.0'
+const workers = new Workers({ workersNumber, listeningPort, listeningHosts })
 const { requestsCounter } = require('../utils/master/requestsCounterMerge')
 
 exports.startWorkersPool = async () => {

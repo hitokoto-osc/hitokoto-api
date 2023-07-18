@@ -96,7 +96,7 @@ function loadConfig(configFile, next, isChild = false, isDev = false) {
       url: 'https://v1.hitokoto.cn',
       api_name: 'undefined',
       server: {
-        host: '127.0.0.1',
+        hosts: '0.0.0.0',
         port: 8000,
         compress_body: true,
       },

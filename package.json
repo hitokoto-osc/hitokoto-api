@@ -1,6 +1,6 @@
 {
   "name": "hitokoto",
-  "version": "1.7.1",
+  "version": "1.7.2-dev",
   "description": "Fast & Powerful Hitokoto API Framework.",
   "main": "core.js",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node core",
-    "dev": "yarn nodemon core.js -D",
+    "dev": "yarn nodemon -e js,mjs,cjs,json,yml,yaml core.js -- -D",
     "pnpify": "yarn dlx @yarnpkg/pnpify",
     "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",

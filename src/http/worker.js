@@ -1,3 +1,4 @@
+const http = require('node:http')
 const Koa = require('koa')
 const chalk = require('chalk')
 const nconf = require('nconf')
@@ -22,7 +23,9 @@ async function registerRoutes(routes) {
     process.exit(1)
   }
 }
-async function StartWebServer(isDev, port) {
+async function StartWebServer(isDev, port, hosts) {
+  const { logger } = require('../logger')
+  logger.verbose(hosts)
   await require('../middleware').register(app, isDev) // Register middlewares
   const Routes = require('../route')
   await registerRoutes(new Routes().routes())
@@ -39,7 +42,17 @@ async function StartWebServer(isDev, port) {
       })
     })
   }
-  app.listen(port)
+  if (!hosts) {
+    http.createServer(app.callback()).listen(port)
+    return
+  }
+  hosts = typeof hosts === 'string' ? [hosts] : hosts
+  for (const host of hosts) {
+    logger.verbose(
+      `[http.Worker.StartWebServer] start http server on ${host}:${port}`,
+    )
+    http.createServer(app.callback()).listen(port, host)
+  }
 }
 
 function notifyMasterWorkerStarted() {
@@ -81,7 +94,7 @@ process.on('message', ({ key, data }) => {
       .then(async () => {
         const { recoverAB } = require('../utils')
         await recoverAB()
-        await StartWebServer(isDev, data.port)
+        await StartWebServer(isDev, data.port, data.hosts)
       })
       .finally(() => {
         const { logger } = require('../logger')

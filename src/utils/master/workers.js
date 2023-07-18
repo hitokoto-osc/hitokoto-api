@@ -20,6 +20,7 @@ function setupCluster(params) {
 
 class Workers {
   workersNumbers = 0 // workers numbers
+  listeningHosts = '0.0.0.0'
   listeningPort = 8000 // workers listening port
   configFile = ''
   isDev = false // debug mode
@@ -36,8 +37,9 @@ class Workers {
    * @param {WorkersSettings} params
    * @returns {boolean|any}
    */
-  constructor({ workersNumber, listeningPort }) {
+  constructor({ workersNumber, listeningPort, listeningHosts }) {
     this.workersNumbers = workersNumber
+    this.listeningHosts = listeningHosts
     this.listeningPort = listeningPort
     this.configFile = nconf.get('config_file')
     this.isDev = !!nconf.get('dev')
@@ -77,10 +79,18 @@ class Workers {
       '[core.http.primary.Workers] %d workers will be spawned.',
       this.workersNumbers,
     )
-    logger.info(
-      '[core.http.primary.Workers] web server will listen on port: ' +
-        chalk.yellow(this.listeningPort),
-    )
+    const hosts =
+      typeof this.listeningHosts === 'string'
+        ? [this.listeningHosts]
+        : this.listeningHosts
+    for (const host of hosts) {
+      logger.info(
+        `[core.http.primary.Workers] web server will listen on ${chalk.yellow(
+          host + ':' + this.listeningPort,
+        )}`,
+      )
+    }
+
     for (let i = 0; i < this.workersNumbers; i++) {
       this.spawnWorker()
     }
@@ -116,6 +126,7 @@ class Workers {
       key: 'start_server',
       data: {
         port: this.listeningPort,
+        hosts: this.listeningHosts,
       },
     })
   }

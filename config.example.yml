@@ -2,7 +2,7 @@ name: 'hitokoto' # 服务名称，例如：hitokoto
 url: 'https://v1.hitokoto.cn' # 服务地址，例如：https://v1.hitokoto.cn
 api_name: 'demo_prprpr' # 服务标识，取个好区分的标识吧，例如：cd-01-demo
 server: # 配置 HTTP 服务的信息
-  host: 127.0.0.1 # 监听的地址
+  hosts: 0.0.0.0 # 监听的地址
   port: 8000 # 监听的端口
   compress_body: true # 是否使用 GZIP 压缩
 redis: # 配置 Redis
