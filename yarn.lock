@@ -2836,9 +2836,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.12.2":
-  version: 4.12.2
-  resolution: "NeteaseCloudMusicApi@npm:4.12.2"
+"NeteaseCloudMusicApi@npm:4.13.6":
+  version: 4.13.6
+  resolution: "NeteaseCloudMusicApi@npm:4.13.6"
   dependencies:
     axios: ^1.2.2
     express: ^4.17.1
@@ -2853,7 +2853,7 @@ __metadata:
     yargs: ^17.1.1
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: 31bdff2a17eda79c80fa35500504482a715b03629083171b762e9ec992d58ef34f8d0633b10f63ebac87d85e132835b7c383e5dc58a500c76c516a814804ccab
+  checksum: f58e6c79170c0ae474c85af4fecf1deb803d26f526722a47d2713322e384e5be49013fe6eb3b26c0c8160b7565df4322d3ba2b8541fde83878af4827508316a5
   languageName: node
   linkType: hard
 
@@ -6489,7 +6489,7 @@ __metadata:
     "@sentry/node": 7.57.0
     "@sentry/tracing": 7.57.0
     "@types/jest": 29.5.2
-    NeteaseCloudMusicApi: 4.12.2
+    NeteaseCloudMusicApi: 4.13.6
     async: 3.2.4
     bytes: 3.1.2
     chalk: 4.1.2
@@ -6526,7 +6526,7 @@ __metadata:
     lint-staged: 14.0.1
     lodash: 4.17.21
     mysql2: 3.5.0
-    nconf: 0.12.0
+    nconf: 0.12.1
     nconf-yaml: 1.0.2
     nodemailer: 6.9.3
     nodemon: 3.0.1
@@ -9174,15 +9174,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nconf@npm:0.12.0":
-  version: 0.12.0
-  resolution: "nconf@npm:0.12.0"
+"nconf@npm:0.12.1":
+  version: 0.12.1
+  resolution: "nconf@npm:0.12.1"
   dependencies:
     async: ^3.0.0
     ini: ^2.0.0
     secure-keys: ^1.0.0
     yargs: ^16.1.1
-  checksum: 70c1ce82d91149940dbe57555372c99282a9625a961915b302093b34e04ab308d978d1885224b9738a0873c064a0aa48914a7260e67ba312441fc4917221dbd8
+  checksum: e3615d485bca665e2f2fcf7ba4e379e586a3f850d50cdf8fe19a5951399b768d8d39ec9eeb2f6ce91995973cfd9c6bef2bbeff2338807599f2b7368e9283c345
   languageName: node
   linkType: hard
 
