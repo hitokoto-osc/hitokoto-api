@@ -4,7 +4,7 @@
   "description": "Fast & Powerful Hitokoto API Framework.",
   "main": "core.js",
   "engines": {
-    "node": ">=14"
+    "node": ">= 18"
   },
   "scripts": {
     "start": "node core",
