@@ -1,33 +1,25 @@
 {
   "name": "hitokoto",
   "version": "1.7.2-dev",
-  "description": "Fast & Powerful Hitokoto API Framework.",
-  "main": "core.js",
-  "engines": {
-    "node": ">= 18"
-  },
-  "scripts": {
-    "start": "node core",
-    "dev": "yarn nodemon -e js,mjs,cjs,json,yml,yaml core.js -- -D",
-    "pnpify": "yarn dlx @yarnpkg/pnpify",
-    "build:": "esbuild --bundle --minify --platform=node --outfile=dist/server.js core.js",
-    "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
-    "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
-    "test": "jest --verbose",
-    "commit": "yarn dlx git-cz",
-    "release": "yarn dlx release-it",
-    "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js",
-    "prepare": "husky install",
-    "postinstall": "husky install"
-  },
-  "repository": "https://github.com/hitokoto-osc/hitokoto-api",
-  "author": "a632079 <a632079@qq.com>",
-  "license": "MIT",
   "private": true,
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
+  "description": "Fast & Powerful Hitokoto API Framework.",
+  "repository": "https://github.com/hitokoto-osc/hitokoto-api",
+  "license": "MIT",
+  "author": "a632079 <a632079@qq.com>",
+  "main": "core.js",
+  "scripts": {
+    "build:": "esbuild --bundle --minify --platform=node --outfile=dist/server.js core.js",
+    "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js",
+    "commit": "yarn dlx git-cz",
+    "dev": "yarn nodemon -e js,mjs,cjs,json,yml,yaml core.js -- -D",
+    "postinstall": "husky install",
+    "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
+    "pnpify": "yarn dlx @yarnpkg/pnpify",
+    "prepare": "husky install",
+    "release": "yarn dlx release-it",
+    "start": "node core",
+    "test": "jest --verbose",
+    "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -35,38 +27,10 @@
       "eslint --fix"
     ]
   },
-  "devDependencies": {
-    "@babel/core": "7.22.8",
-    "@babel/eslint-parser": "7.23.3",
-    "@babel/preset-env": "7.22.7",
-    "@commitlint/cli": "17.8.1",
-    "@commitlint/config-conventional": "17.8.1",
-    "@types/jest": "29.5.2",
-    "commitizen": "4.3.0",
-    "conventional-changelog-conventionalcommits": "7.0.2",
-    "cz-conventional-changelog": "3.3.0",
-    "esbuild": "^0.19.5",
-    "eslint": "8.53.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-config-standard": "17.1.0",
-    "eslint-plugin-html": "7.1.0",
-    "eslint-plugin-import": "2.29.0",
-    "eslint-plugin-jest": "27.2.2",
-    "eslint-plugin-n": "16.3.1",
-    "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-promise": "6.1.1",
-    "husky": "8.0.3",
-    "jest": "29.6.1",
-    "jest-extended": "4.0.0",
-    "lint-staged": "14.0.1",
-    "nodemon": "3.0.1",
-    "nyc": "15.1.0",
-    "prettier": "3.1.0",
-    "regenerator-runtime": "0.13.11",
-    "release-it": "16.1.0",
-    "supertest": "6.3.3",
-    "supervisor": "0.12.0",
-    "webpack": "^5.89.0"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
@@ -107,5 +71,41 @@
     "uuid": "9.0.0",
     "winston": "3.9.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "devDependencies": {
+    "@babel/core": "7.22.8",
+    "@babel/eslint-parser": "7.23.3",
+    "@babel/preset-env": "7.22.7",
+    "@commitlint/cli": "17.8.1",
+    "@commitlint/config-conventional": "17.8.1",
+    "@types/jest": "29.5.2",
+    "commitizen": "4.3.0",
+    "conventional-changelog-conventionalcommits": "7.0.2",
+    "cz-conventional-changelog": "3.3.0",
+    "esbuild": "^0.19.5",
+    "eslint": "8.53.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-html": "7.1.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-jest": "27.2.2",
+    "eslint-plugin-n": "16.3.1",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-promise": "6.1.1",
+    "husky": "8.0.3",
+    "jest": "29.6.1",
+    "jest-extended": "4.0.0",
+    "lint-staged": "14.0.1",
+    "nodemon": "3.0.1",
+    "nyc": "15.1.0",
+    "prettier": "3.1.0",
+    "regenerator-runtime": "0.13.11",
+    "release-it": "16.1.0",
+    "supertest": "6.3.3",
+    "supervisor": "0.12.0",
+    "webpack": "^5.89.0"
+  },
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">= 18"
+  }
 }
