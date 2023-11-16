@@ -116,8 +116,8 @@ function log(ctx, start, len, err, event) {
   const upstream = err
     ? chalk.red('xxx')
     : event === 'close'
-    ? chalk.yellow('-x-')
-    : chalk.gray('-->')
+      ? chalk.yellow('-x-')
+      : chalk.gray('-->')
   logger.verbose(
     '[web] ' +
       upstream +

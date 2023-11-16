@@ -64,12 +64,9 @@ class db {
       return this[model]
     } else {
       // Register Model
-      const modelArray = require(path.join(
-        __dirname,
-        '../',
-        './src/models/databases',
-        model,
-      ))
+      const modelArray = require(
+        path.join(__dirname, '../', './src/models/databases', model),
+      )
       this[model] = this.sequelize.define(model, modelArray[0], modelArray[1])
       return this[model]
     }

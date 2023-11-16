@@ -116,9 +116,8 @@ function notifyMasterSwitchDB(targetDatabase) {
 }
 
 async function fullSentencesUpgrade(remoteVersionData, SideAB) {
-  const remoteCategoriesData = await fetchRemoteCategoriesData(
-    remoteVersionData,
-  )
+  const remoteCategoriesData =
+    await fetchRemoteCategoriesData(remoteVersionData)
   await SideAB.set('hitokoto:bundle:categories', remoteCategoriesData)
   let sentencesTotal = 0
   for (const category of remoteCategoriesData) {
@@ -143,9 +142,8 @@ async function UpgradeSentencesThatShouldBeUpdated(
     remoteVersionData.categories.timestamp !==
     local.bundleVersionData.categories.timestamp // 检测分类列表是否更新
   ) {
-    const remoteCategoriesData = await fetchRemoteCategoriesData(
-      remoteVersionData,
-    )
+    const remoteCategoriesData =
+      await fetchRemoteCategoriesData(remoteVersionData)
     const categoriesNeededToAppend = getCategoriesThatShouldBeAppended(
       localCategoriesData,
       remoteCategoriesData,
