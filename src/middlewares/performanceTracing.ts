@@ -1,8 +1,10 @@
-const { Sentry, Tracing } = require('../tracing')
-const { extractTraceparentData, stripUrlQueryAndFragment } = Tracing
+import type { RouteHandler } from '@/types'
+import { stripUrlQueryAndFragment } from '@sentry/utils'
+import { Sentry } from '../tracing'
+const { extractTraceparentData } = Sentry
 
 // this tracing middleware creates a transaction per request
-const tracingMiddleWare = async (ctx, next) => {
+const tracingMiddleWare: RouteHandler = async (ctx, next) => {
   const reqMethod = (ctx.method || '').toUpperCase()
   const reqUrl = ctx.url && stripUrlQueryAndFragment(ctx.url)
 
@@ -30,4 +32,4 @@ const tracingMiddleWare = async (ctx, next) => {
   transaction.finish()
 }
 
-module.exports = tracingMiddleWare
+export default tracingMiddleWare

@@ -3,10 +3,9 @@ module.exports = {
   extends: ['standard', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   parserOptions: {
-    ecmaVersion: '2021',
+    ecmaVersion: '2022',
     sourceType: 'script',
   },
-  parser: '@babel/eslint-parser',
   env: {
     commonjs: true,
     es6: true,
@@ -32,6 +31,11 @@ module.exports = {
         'jest/prefer-to-have-length': 'warn',
         'jest/valid-expect': 'error',
       },
+    },
+    {
+      files: ['**/*.ts', '*.ts'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
     },
   ],
   rules: {
