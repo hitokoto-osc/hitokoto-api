@@ -10,6 +10,7 @@
     "start": "node core",
     "dev": "yarn nodemon core.js -D",
     "pnpify": "yarn dlx @yarnpkg/pnpify",
+    "build:": "esbuild --bundle --minify --platform=node --outfile=dist/server.js core.js",
     "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
     "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
     "test": "jest --verbose",
@@ -17,7 +18,7 @@
     "release": "yarn dlx release-it",
     "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js",
     "prepare": "husky install",
-    "postinstall": "sh -c 'if [ command -v ./node_modules/.bin/husky ]; then ./node_modules/.bin/husky install; fi;'"
+    "postinstall": "husky install"
   },
   "repository": "https://github.com/hitokoto-osc/hitokoto-api",
   "author": "a632079 <a632079@qq.com>",
@@ -44,6 +45,7 @@
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "7.0.2",
     "cz-conventional-changelog": "3.3.0",
+    "esbuild": "^0.19.5",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-standard": "17.1.0",
@@ -63,7 +65,8 @@
     "regenerator-runtime": "0.13.11",
     "release-it": "16.1.0",
     "supertest": "6.3.3",
-    "supervisor": "0.12.0"
+    "supervisor": "0.12.0",
+    "webpack": "^5.89.0"
   },
   "dependencies": {
     "@hitokoto/koa-jsonp": "3.0.7",
