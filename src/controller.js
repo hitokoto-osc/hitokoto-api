@@ -54,12 +54,9 @@ class controllers {
 
   register(controller) {
     try {
-      return require(path.join(
-        __dirname,
-        '../',
-        './src/controllers',
-        controller,
-      ))
+      return require(
+        path.join(__dirname, '../', './src/controllers', controller),
+      )
     } catch (e) {
       logger.error(chalk.red(e))
       // mail.error(e)

@@ -1,13 +1,14 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     "default:automergeMinor",
     "default:disableRateLimiting",
     "default:rebaseStalePrs",
+    "default:pinVersions",
     "group:allNonMajor"
   ],
   "packageRules": [
-
     {
       "groupName": "Web Basement & Middleware",
       "matchPackagePatterns": [
@@ -56,6 +57,13 @@
         "jest",
         "nodemon"
       ]
+    },
+    {
+      "description": "Ignore nodejs",
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": [ "engines" ],
+      "enabled": false
     }
   ]
 }

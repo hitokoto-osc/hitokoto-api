@@ -89,19 +89,15 @@ class Cron {
       const dir = fs.readdirSync(path.join(__dirname, '../', './src/crons'))
       if (isArray) {
         await dir.forEach((item, index, input) => {
-          crons[index] = require(path.join(
-            __dirname,
-            '../',
-            './src/crons/' + item,
-          ))
+          crons[index] = require(
+            path.join(__dirname, '../', './src/crons/' + item),
+          )
         })
       } else {
         await dir.forEach((item, index, input) => {
-          crons[item.substring(0, item.length - 3)] = require(path.join(
-            __dirname,
-            '../',
-            './src/crons/' + item,
-          ))
+          crons[item.substring(0, item.length - 3)] = require(
+            path.join(__dirname, '../', './src/crons/' + item),
+          )
         })
       }
       return crons

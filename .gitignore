@@ -19,3 +19,5 @@ coverage/
 .pnp.*
 .yarn/sdks/
 
+
+dist/
