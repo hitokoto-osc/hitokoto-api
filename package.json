@@ -104,5 +104,5 @@
     "uuid": "9.0.0",
     "winston": "3.9.0"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.0.2"
 }
