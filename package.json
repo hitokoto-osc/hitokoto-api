@@ -84,7 +84,7 @@
     "cron": "2.3.1",
     "fast-json-stringify": "5.8.0",
     "flatstr": "1.0.12",
-    "got": "11.8.6",
+    "got": "13.0.0",
     "humanize-number": "0.0.2",
     "ioredis": "5.3.2",
     "joi": "17.9.2",
