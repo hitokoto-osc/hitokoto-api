@@ -1,0 +1,78 @@
+{
+  "name": "@hitokoto/api",
+  "version": "1.8.0-dev",
+  "description": "Fast & Powerful Hitokoto API Framework.",
+  "main": "core.js",
+  "engines": {
+    "node": ">= 18"
+  },
+  "scripts": {
+    "start": "node core",
+    "dev": "yarn nodemon core.js -D",
+    "pnpify": "yarn dlx @yarnpkg/pnpify",
+    "build": "esbuild --bundle --minify --platform=node --outfile=dist/server.js core.js",
+    "lint": "eslint ./src/**/*.js ./adapter/**/*.js ./test/**/*.js core.js",
+    "watch": "yarn dlx supervisor --watch \".\" --extensions \"js,json\" --exec \"yarn\" -- \"start\"",
+    "test": "jest --verbose",
+    "commit": "yarn dlx git-cz",
+    "release": "yarn dlx release-it",
+    "changelog": "yarn dlx -p conventional-changelog-cli conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 -n .changelog.config.js"
+  },
+  "repository": "https://github.com/hitokoto-osc/hitokoto-api",
+  "author": "a632079 <a632079@qq.com>",
+  "license": "MIT",
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.8",
+    "@types/lodash-es": "^4.17.11",
+    "@types/nconf": "^0.10.6"
+  },
+  "dependencies": {
+    "@hitokoto/koa-jsonp": "workspace:*",
+    "@koa/bodyparser": "^5.0.0",
+    "@koa/cors": "^4.0.0",
+    "@sentry/integrations": "7.80.1",
+    "@sentry/node": "7.80.1",
+    "@sentry/tracing": "7.80.1",
+    "NeteaseCloudMusicApi": "4.13.6",
+    "async": "3.2.5",
+    "bytes": "3.1.2",
+    "chalk": "5.3.0",
+    "commander": "11.1.0",
+    "cron": "3.1.6",
+    "fast-json-stringify": "5.9.1",
+    "flatstr": "1.0.12",
+    "got": "13.0.0",
+    "humanize-number": "0.0.2",
+    "ioredis": "5.3.2",
+    "joi": "17.11.0",
+    "js-yaml": "4.1.0",
+    "koa": "2.14.2",
+    "koa-compress": "5.1.1",
+    "koa-favicon": "2.1.0",
+    "koa-helmet": "7.0.2",
+    "koa-query-pretty": "0.3.0",
+    "koa-router": "12.0.1",
+    "lodash": "4.17.21",
+    "nconf": "0.12.1",
+    "nconf-yaml": "1.0.2",
+    "passthrough-counter": "1.0.0",
+    "pify": "6.1.0",
+    "semver": "7.5.4",
+    "sequelize": "6.35.0",
+    "uuid": "9.0.1",
+    "winston": "3.11.0"
+  },
+  "packageManager": "pnpm@8.10.5"
+}
