@@ -23,11 +23,11 @@ indent_size = 4
 indent_style = tab
 
 # Indentation override for all JS under lib directory
-[*.{js,mjs,json,ts}]
+[*.{js,mjs,ts}]
 indent_style = space
 indent_size = 2
 
 # Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
+[{*.json,.travis.yml}]
 indent_style = space
 indent_size = 2

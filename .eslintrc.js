@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['standard', 'plugin:prettier/recommended'],
+  extends: ['standard', 'prettier', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: '2022',
@@ -33,8 +33,14 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.ts', '*.ts'],
+      files: ['**/*.ts'],
       parser: '@typescript-eslint/parser',
+      extends: [
+        'standard',
+        'plugin:@typescript-eslint/recommended',
+        'prettier',
+        'plugin:prettier/recommended',
+      ],
       plugins: ['@typescript-eslint'],
     },
   ],

@@ -49,7 +49,7 @@
     "chai": "4.3.10",
     "json-array-stream": "0.1.2",
     "jsonstream-next": "^3.0.0",
-    "koa": "2.14.2",
+    "koa": "3.0.0-alpha.1",
     "koa-mount": "4.0.0",
     "mocha": "10.2.0",
     "rollup": "^4.4.1",
