@@ -99,7 +99,7 @@
     "mysql2": "3.5.0",
     "nconf": "0.12.1",
     "nconf-yaml": "1.0.2",
-    "nodemailer": "6.9.3",
+    "nodemailer": "6.9.9",
     "passthrough-counter": "1.0.0",
     "pify": "5.0.0",
     "semver": "7.5.4",

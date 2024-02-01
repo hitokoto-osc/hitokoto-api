@@ -7321,7 +7321,7 @@ __metadata:
     mysql2: "npm:3.5.0"
     nconf: "npm:0.12.1"
     nconf-yaml: "npm:1.0.2"
-    nodemailer: "npm:6.9.3"
+    nodemailer: "npm:6.9.9"
     nodemon: "npm:3.0.1"
     nyc: "npm:15.1.0"
     passthrough-counter: "npm:1.0.0"
@@ -10131,10 +10131,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer@npm:6.9.3":
-  version: 6.9.3
-  resolution: "nodemailer@npm:6.9.3"
-  checksum: a51f8ca46bf8960915f74b7d0c050e498bc5a76d2e5b376ce7abe638da997c246f4a828d231e8845de5eabf189aa23dd92af2dfe63ed04c9c194f3c014ad955d
+"nodemailer@npm:6.9.9":
+  version: 6.9.9
+  resolution: "nodemailer@npm:6.9.9"
+  checksum: ba72da4ca8a003921c86f3d132d64d9bb86c1a3d79d248664b3de28f6a7a621f0476273ad7cf3ecc48d3b78a66ae4ec62b7c4c8ab6f07d9ca26d4bad4d08802e
   languageName: node
   linkType: hard
 
