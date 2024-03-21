@@ -1876,10 +1876,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fastify/deepmerge@npm:^1.0.0":
-  version: 1.3.0
-  resolution: "@fastify/deepmerge@npm:1.3.0"
-  checksum: 8115ed7b891189ee4ebba554a105cb69111615bdb2961f8c58a80872fac9d7b74b2c6317d545a7d378325d094ce73a91fc9c5d7d6189476779cd5a5493cb1351
+"@fastify/merge-json-schemas@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "@fastify/merge-json-schemas@npm:0.1.1"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+  checksum: 7979ce12724f7b98aea06f0bb9afb20dd869f0ff6fc697517135cbb54e0a36b062cbb38ec176fe43d1fc455576839240df8f33533939ace2d64a6218a6e6b9c1
   languageName: node
   linkType: hard
 
@@ -3282,15 +3284,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"NeteaseCloudMusicApi@npm:4.13.6":
-  version: 4.13.6
-  resolution: "NeteaseCloudMusicApi@npm:4.13.6"
+"NeteaseCloudMusicApi@npm:4.15.7":
+  version: 4.15.7
+  resolution: "NeteaseCloudMusicApi@npm:4.15.7"
   dependencies:
     axios: "npm:^1.2.2"
+    crypto-js: "npm:^4.2.0"
     express: "npm:^4.17.1"
     express-fileupload: "npm:^1.1.9"
     md5: "npm:^2.3.0"
     music-metadata: "npm:^7.5.3"
+    node-forge: "npm:^1.3.1"
     pac-proxy-agent: "npm:^7.0.0"
     qrcode: "npm:^1.4.4"
     safe-decode-uri-component: "npm:^1.2.1"
@@ -3299,7 +3303,7 @@ __metadata:
     yargs: "npm:^17.1.1"
   bin:
     NeteaseCloudMusicApi: app.js
-  checksum: 6c3602927cbc82b94b0198cffe5996a4ec4acb3564db7e1390315d6dcd673b9e114852e56d31e9e26f4b8cb7727d2502e590fd961caf5575174845592f1fb92e
+  checksum: 25b1d5aaa390b5d52703e3945205c4bc927944791e152c520c3f7ff769574da9ffd3fed21084acba93af8ebd66307f0e08f9cace720a69dae23b975f625d7ca4
   languageName: node
   linkType: hard
 
@@ -4917,6 +4921,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypto-js@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "crypto-js@npm:4.2.0"
+  checksum: 8fbdf9d56f47aea0794ab87b0eb9833baf80b01a7c5c1b0edc7faf25f662fb69ab18dc2199e2afcac54670ff0cd9607a9045a3f7a80336cccd18d77a55b9fdf0
+  languageName: node
+  linkType: hard
+
 "crypto-random-string@npm:^4.0.0":
   version: 4.0.0
   resolution: "crypto-random-string@npm:4.0.0"
@@ -6316,17 +6327,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stringify@npm:5.8.0":
-  version: 5.8.0
-  resolution: "fast-json-stringify@npm:5.8.0"
+"fast-json-stringify@npm:5.13.0":
+  version: 5.13.0
+  resolution: "fast-json-stringify@npm:5.13.0"
   dependencies:
-    "@fastify/deepmerge": "npm:^1.0.0"
+    "@fastify/merge-json-schemas": "npm:^0.1.0"
     ajv: "npm:^8.10.0"
     ajv-formats: "npm:^2.1.1"
     fast-deep-equal: "npm:^3.1.3"
     fast-uri: "npm:^2.1.0"
+    json-schema-ref-resolver: "npm:^1.0.1"
     rfdc: "npm:^1.2.0"
-  checksum: f5ae2ca990174cbce56eeed8c8ec58b42ebd3ff829066c55d855bf756edc0711c17096f9cf4c6f8a2db5985d750af628984eb9335c0017498767d6a93c184796
+  checksum: 9a37c1bb78f4d9406061606125124df60530a306780cd2cc4cdf821972f907725770d4344a9cb416011b4bece12f0989a61a42c0128a28675506c6fac30e84f3
   languageName: node
   linkType: hard
 
@@ -7281,7 +7293,7 @@ __metadata:
     "@sentry/node": "npm:7.57.0"
     "@sentry/tracing": "npm:7.57.0"
     "@types/jest": "npm:29.5.2"
-    NeteaseCloudMusicApi: "npm:4.13.6"
+    NeteaseCloudMusicApi: "npm:4.15.7"
     async: "npm:3.2.4"
     bytes: "npm:3.1.2"
     chalk: "npm:4.1.2"
@@ -7300,7 +7312,7 @@ __metadata:
     eslint-plugin-n: "npm:16.3.1"
     eslint-plugin-prettier: "npm:5.0.1"
     eslint-plugin-promise: "npm:6.1.1"
-    fast-json-stringify: "npm:5.8.0"
+    fast-json-stringify: "npm:5.13.0"
     flatstr: "npm:1.0.12"
     got: "npm:11.8.6"
     humanize-number: "npm:0.0.2"
@@ -8907,6 +8919,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-schema-ref-resolver@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "json-schema-ref-resolver@npm:1.0.1"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+  checksum: aa89d88108c0109ae35b913c89c132fb50c00f3b99fc8a8309b524b9e3a6a77414f19a6a35a1253871462984cbabc74279ebbd9bf103c6629fb7b37c9fb59bcf
+  languageName: node
+  linkType: hard
+
 "json-schema-traverse@npm:^0.4.1":
   version: 0.4.1
   resolution: "json-schema-traverse@npm:0.4.1"
@@ -10084,6 +10105,13 @@ __metadata:
     encoding:
       optional: true
   checksum: 10372e4b5ee07acadc15e6b2bc6fd8940582eea7b9b2a331f4e3665fdcd968498c1656f79f2fa572080ebb37ea80e1474a6478b3b36057ef901b63f4be8fd899
+  languageName: node
+  linkType: hard
+
+"node-forge@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "node-forge@npm:1.3.1"
+  checksum: e882819b251a4321f9fc1d67c85d1501d3004b4ee889af822fd07f64de3d1a8e272ff00b689570af0465d65d6bf5074df9c76e900e0aff23e60b847f2a46fbe8
   languageName: node
   linkType: hard
 
