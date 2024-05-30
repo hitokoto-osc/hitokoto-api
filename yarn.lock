@@ -7318,7 +7318,7 @@ __metadata:
     koa-router: "npm:12.0.0"
     lint-staged: "npm:14.0.1"
     lodash: "npm:4.17.21"
-    mysql2: "npm:3.5.0"
+    mysql2: "npm:3.9.8"
     nconf: "npm:0.12.1"
     nconf-yaml: "npm:1.0.2"
     nodemailer: "npm:6.9.3"
@@ -9959,9 +9959,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mysql2@npm:3.5.0":
-  version: 3.5.0
-  resolution: "mysql2@npm:3.5.0"
+"mysql2@npm:3.9.8":
+  version: 3.9.8
+  resolution: "mysql2@npm:3.9.8"
   dependencies:
     denque: "npm:^2.1.0"
     generate-function: "npm:^2.3.1"
@@ -9971,7 +9971,7 @@ __metadata:
     named-placeholders: "npm:^1.1.3"
     seq-queue: "npm:^0.0.5"
     sqlstring: "npm:^2.3.2"
-  checksum: b0b7347429d3f201b2cf96282f20b38b46b292cd90c735ae8ad96820c9f28f87058945d92086d92a43f91b2efab372d8d9c9078587f837e1f0c94ab5a6b4e2ae
+  checksum: c97043a122ce34a0a73ac7f6ce4c44312e4dd51fd347a763e3a28aab51a45dad151404a1c5f97bf0fa40e4437915e8c5b20cbf602cd99931ac1b4ef9b4ffb0b8
   languageName: node
   linkType: hard
 
