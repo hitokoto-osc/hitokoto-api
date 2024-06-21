@@ -82,7 +82,7 @@
     "chalk": "4.1.2",
     "commander": "11.0.0",
     "cron": "2.3.1",
-    "fast-json-stringify": "5.8.0",
+    "fast-json-stringify": "6.0.0",
     "flatstr": "1.0.12",
     "got": "11.8.6",
     "humanize-number": "0.0.2",
