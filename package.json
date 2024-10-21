@@ -74,7 +74,7 @@
     "@koa/bodyparser": "^5.0.0",
     "@koa/cors": "^4.0.0",
     "@sentry/integrations": "7.57.0",
-    "@sentry/node": "7.57.0",
+    "@sentry/node": "8.35.0",
     "@sentry/tracing": "7.57.0",
     "NeteaseCloudMusicApi": "4.13.6",
     "async": "3.2.4",
