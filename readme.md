@@ -1,4 +1,12 @@
-# Hitokoto API
+<h1 align="center">Hitokoto API</h1>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/hitokoto-osc/hitokoto-api/refs/heads/master/img/logo.png" alt="Banner"/>
+</div>
+
+<p align="center">
+  <strong>用代码表达言语的魅力，用代码书写山河的壮丽。</strong>
+</p>
 
 ![alt](./img/screenshot.png)
   
