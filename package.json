@@ -72,7 +72,7 @@
     "@hitokoto/koa-jsonp": "3.0.7",
     "@hitokoto/koa-respond": "3.0.3",
     "@koa/bodyparser": "^5.0.0",
-    "@koa/cors": "^4.0.0",
+    "@koa/cors": "^5.0.0",
     "@sentry/integrations": "7.57.0",
     "@sentry/node": "7.57.0",
     "@sentry/tracing": "7.57.0",
