@@ -7250,13 +7250,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"helmet@npm:^6.0.1":
-  version: 6.2.0
-  resolution: "helmet@npm:6.2.0"
-  checksum: 52d97adfdb151ebdc08e5d78eb93eebfb7e8e3e0563e68664828138dc6ab2d9d512b4ae71e1f8c6fcf8ddc38f87908325971d95dcabaafd4fde1f5b0faabeb8c
-  languageName: node
-  linkType: hard
-
 "hexoid@npm:^1.0.0":
   version: 1.0.0
   resolution: "hexoid@npm:1.0.0"
@@ -7313,7 +7306,7 @@ __metadata:
     koa: "npm:2.14.2"
     koa-compress: "npm:5.1.1"
     koa-favicon: "npm:2.1.0"
-    koa-helmet: "npm:7.0.2"
+    koa-helmet: "npm:9.0.0"
     koa-query-pretty: "npm:0.3.0"
     koa-router: "npm:12.0.0"
     lint-staged: "npm:14.0.1"
@@ -9050,12 +9043,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-helmet@npm:7.0.2":
-  version: 7.0.2
-  resolution: "koa-helmet@npm:7.0.2"
-  dependencies:
-    helmet: "npm:^6.0.1"
-  checksum: ab6fd4084829c469192ab99978fcab96a719e57933cadbfc4f86523da795becfea12a51504241b5b319cbbf6a6a0532579818ad27ac6905f85d389c5a20b812c
+"koa-helmet@npm:9.0.0":
+  version: 9.0.0
+  resolution: "koa-helmet@npm:9.0.0"
+  peerDependencies:
+    helmet: ^6 || ^7 || ^8
+    koa: ^2 || ^3
+  checksum: 967833dda282ee2b53a99ccd2bb43087d2ed4fa7d36ab698ae884a2159feec5ed0b39b491afb285adc62e4a9f4162e65dcd2a83b2f5c13df09c694cac2c7771c
   languageName: node
   linkType: hard
 
