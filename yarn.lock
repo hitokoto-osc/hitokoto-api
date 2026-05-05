@@ -7317,7 +7317,7 @@ __metadata:
     koa-query-pretty: "npm:0.3.0"
     koa-router: "npm:12.0.0"
     lint-staged: "npm:14.0.1"
-    lodash: "npm:4.17.21"
+    lodash: "npm:4.18.0"
     mysql2: "npm:3.5.0"
     nconf: "npm:0.12.1"
     nconf-yaml: "npm:1.0.2"
@@ -9392,6 +9392,13 @@ __metadata:
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
+  languageName: node
+  linkType: hard
+
+"lodash@npm:4.18.0":
+  version: 4.18.0
+  resolution: "lodash@npm:4.18.0"
+  checksum: 0c5a7c5a4ea1db59ade40ff03cc8bfc7ea79806f5639ff4c7ee581811c8d88248bf1da608199b9d3614d8db133088bd434f3307c3951a96a821044f72a5ba810
   languageName: node
   linkType: hard
 
