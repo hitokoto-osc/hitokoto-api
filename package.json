@@ -89,7 +89,7 @@
     "ioredis": "5.3.2",
     "joi": "17.9.2",
     "js-yaml": "4.1.0",
-    "koa": "2.14.2",
+    "koa": "2.16.4",
     "koa-compress": "5.1.1",
     "koa-favicon": "2.1.0",
     "koa-helmet": "7.0.2",
