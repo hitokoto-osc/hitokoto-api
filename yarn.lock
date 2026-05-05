@@ -4995,6 +4995,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.4.1":
+  version: 4.4.3
+  resolution: "debug@npm:4.4.3"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: d79136ec6c83ecbefd0f6a5593da6a9c91ec4d7ddc4b54c883d6e71ec9accb5f67a1a5e96d00a328196b5b5c86d365e98d8a3a70856aaf16b4e7b1985e67f5a6
+  languageName: node
+  linkType: hard
+
 "decamelize-keys@npm:^1.1.0":
   version: 1.1.1
   resolution: "decamelize-keys@npm:1.1.1"
@@ -7315,7 +7327,7 @@ __metadata:
     koa-favicon: "npm:2.1.0"
     koa-helmet: "npm:7.0.2"
     koa-query-pretty: "npm:0.3.0"
-    koa-router: "npm:12.0.0"
+    koa-router: "npm:14.0.0"
     lint-staged: "npm:14.0.1"
     lodash: "npm:4.17.21"
     mysql2: "npm:3.5.0"
@@ -9073,15 +9085,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-router@npm:12.0.0":
-  version: 12.0.0
-  resolution: "koa-router@npm:12.0.0"
+"koa-router@npm:14.0.0":
+  version: 14.0.0
+  resolution: "koa-router@npm:14.0.0"
   dependencies:
+    debug: "npm:^4.4.1"
     http-errors: "npm:^2.0.0"
     koa-compose: "npm:^4.1.0"
-    methods: "npm:^1.1.2"
-    path-to-regexp: "npm:^6.2.1"
-  checksum: bb94c1c93b37178ad411518d021258abd4b34b975d23c80a59082d16efe6423a0aa4c087f39e1da7fdb1189b84f0e34ff78ad572b843eb23824c0dac7b156482
+    path-to-regexp: "npm:^8.2.0"
+  checksum: b783c23bd64681a5bc8e0ece2d1cf030df6bcb8cc3b9a7598e0cf4646df0cab690a7c1d970d5e19c7aa9479cce135a6554da91a7b12735b6a8067700b7b5a822
   languageName: node
   linkType: hard
 
@@ -9923,7 +9935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1":
+"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1, ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: d924b57e7312b3b63ad21fc5b3dc0af5e78d61a1fc7cfb5457edaf26326bf62be5307cc87ffb6862ef1c2b33b0233cdb5d4f01c4c958cc0d660948b65a287a48
@@ -10773,10 +10785,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "path-to-regexp@npm:6.2.1"
-  checksum: 7a73811ca703e5c199e5b50b9649ab8f6f7b458a37f7dff9ea338815203f5b1f95fe8cb24d4fdfe2eab5d67ce43562d92534330babca35cdf3231f966adb9360
+"path-to-regexp@npm:^8.2.0":
+  version: 8.4.2
+  resolution: "path-to-regexp@npm:8.4.2"
+  checksum: 05b115c49b47ad252ce05faa32930f643f23769c68b8bcfe78ad833545140c48bbffb3266986d6c8d5db13a64cf12e07e0d72d9882cab830efeefa553533ebaf
   languageName: node
   linkType: hard
 
