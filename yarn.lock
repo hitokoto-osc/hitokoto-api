@@ -5338,7 +5338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dottie@npm:^2.0.4":
+"dottie@npm:^2.0.6":
   version: 2.0.6
   resolution: "dottie@npm:2.0.6"
   checksum: 1d99f8b61ae7541b3b70e9cde57308e0044e7bd13e09945b61cf78b303f5c51e3747e5f99c0d519551c5347427c1c1f89aedafe4bf9d9db554c7113772d99b5d
@@ -7330,7 +7330,7 @@ __metadata:
     regenerator-runtime: "npm:0.13.11"
     release-it: "npm:16.1.0"
     semver: "npm:7.5.4"
-    sequelize: "npm:6.32.1"
+    sequelize: "npm:6.37.8"
     supertest: "npm:6.3.3"
     supervisor: "npm:0.12.0"
     uuid: "npm:9.0.0"
@@ -10794,10 +10794,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-connection-string@npm:^2.6.0":
-  version: 2.6.1
-  resolution: "pg-connection-string@npm:2.6.1"
-  checksum: e5a71a2da143b8dc17143a9db7737679b210643771aa678d3bc60c7bc70da11bbb8e2d531be91c8c4eddd6ac6046307811e793f5850b9ba595a11785c948a417
+"pg-connection-string@npm:^2.6.1":
+  version: 2.14.0
+  resolution: "pg-connection-string@npm:2.14.0"
+  checksum: c26d85970f782de72b90aa45b4acfa34df90242fc08bc676e8827297164044dbfb40a2cf20b0646bd02662a6b14c5ed27f322db627e41e582f2b705bc41e8b47
   languageName: node
   linkType: hard
 
@@ -11737,7 +11737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.1, semver@npm:^7.5.3":
+"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -11763,6 +11763,15 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: e3d79b609071caa78bcb6ce2ad81c7966a46a7431d9d58b8800cfa9cb6a63699b3899a0e4bcce36167a284578212d9ae6942b6929ba4aa5015c079a67751d42d
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.5.4":
+  version: 7.8.5
+  resolution: "semver@npm:7.8.5"
+  bin:
+    semver: bin/semver.js
+  checksum: b1f3127a5be8125a94f37188b361c212466c292c6910adce3ec106cff5dc211ccaedc4739c11bb70fda59d6fc1f040a9bca289f4e093451521a2372e5231fe0c
   languageName: node
   linkType: hard
 
@@ -11801,21 +11810,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sequelize@npm:6.32.1":
-  version: 6.32.1
-  resolution: "sequelize@npm:6.32.1"
+"sequelize@npm:6.37.8":
+  version: 6.37.8
+  resolution: "sequelize@npm:6.37.8"
   dependencies:
     "@types/debug": "npm:^4.1.8"
     "@types/validator": "npm:^13.7.17"
     debug: "npm:^4.3.4"
-    dottie: "npm:^2.0.4"
+    dottie: "npm:^2.0.6"
     inflection: "npm:^1.13.4"
     lodash: "npm:^4.17.21"
     moment: "npm:^2.29.4"
     moment-timezone: "npm:^0.5.43"
-    pg-connection-string: "npm:^2.6.0"
+    pg-connection-string: "npm:^2.6.1"
     retry-as-promised: "npm:^7.0.4"
-    semver: "npm:^7.5.1"
+    semver: "npm:^7.5.4"
     sequelize-pool: "npm:^7.1.0"
     toposort-class: "npm:^1.0.1"
     uuid: "npm:^8.3.2"
@@ -11840,7 +11849,7 @@ __metadata:
       optional: true
     tedious:
       optional: true
-  checksum: 9a3fba6886465a6ef7adc8e3827409cdf0e905d63b19f5480e490e65652f2e1892f47dbb59f51aedcaef83f5138d67aa460abd202612f3bcf8d459141c5a8574
+  checksum: af1c5177e99dd2b65ee21b277e4f5744f28f51c2c3726efca3cae8fc58508cd0c8f377d423f0f4ad2c395f4c8ac41210ea68341eb52c591b93c12246f46a9efb
   languageName: node
   linkType: hard
 
