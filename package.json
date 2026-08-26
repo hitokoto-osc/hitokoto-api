@@ -87,7 +87,7 @@
     "got": "11.8.6",
     "humanize-number": "0.0.2",
     "ioredis": "5.3.2",
-    "joi": "17.9.2",
+    "joi": "17.13.4",
     "js-yaml": "4.1.0",
     "koa": "2.14.2",
     "koa-compress": "5.1.1",
