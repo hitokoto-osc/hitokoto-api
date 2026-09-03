@@ -62,9 +62,9 @@
     "nodemon": "3.0.1",
     "nyc": "15.1.0",
     "prettier": "3.1.0",
-    "regenerator-runtime": "0.13.11",
-    "release-it": "16.1.0",
-    "supertest": "6.3.3",
+    "regenerator-runtime": "0.14.1",
+    "release-it": "16.3.0",
+    "supertest": "6.3.4",
     "supervisor": "0.12.0",
     "webpack": "^5.89.0"
   },
@@ -73,9 +73,9 @@
     "@hitokoto/koa-respond": "3.0.3",
     "@koa/bodyparser": "^5.0.0",
     "@koa/cors": "^4.0.0",
-    "@sentry/integrations": "7.57.0",
-    "@sentry/node": "7.57.0",
-    "@sentry/tracing": "7.57.0",
+    "@sentry/integrations": "7.114.0",
+    "@sentry/node": "7.120.4",
+    "@sentry/tracing": "7.120.4",
     "NeteaseCloudMusicApi": "4.13.6",
     "async": "3.2.4",
     "bytes": "3.1.2",
@@ -90,11 +90,11 @@
     "joi": "17.9.2",
     "js-yaml": "4.1.0",
     "koa": "2.14.2",
-    "koa-compress": "5.1.1",
+    "koa-compress": "5.2.2",
     "koa-favicon": "2.1.0",
-    "koa-helmet": "7.0.2",
+    "koa-helmet": "7.1.0",
     "koa-query-pretty": "0.3.0",
-    "koa-router": "12.0.0",
+    "koa-router": "12.0.1",
     "lodash": "4.17.21",
     "mysql2": "3.5.0",
     "nconf": "0.12.1",
@@ -107,5 +107,5 @@
     "uuid": "9.0.0",
     "winston": "3.9.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.18.0"
 }
