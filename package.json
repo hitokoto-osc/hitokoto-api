@@ -36,7 +36,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.22.8",
+    "@babel/core": "7.29.6",
     "@babel/eslint-parser": "7.23.3",
     "@babel/preset-env": "7.22.7",
     "@commitlint/cli": "17.8.1",
